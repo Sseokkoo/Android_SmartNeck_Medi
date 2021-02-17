@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#cc1b17</color>
+    <color name="colorPrimaryDark">#ac1b17</color>
+    <color name="colorAccent">#cc1b17</color>
+    <color name="colorBackground">#efefef</color>
+    <color name="colorWhite">#FFFFFF</color>
+
+    <color name="color_transparent">#00000000</color>
+    <color name="color_white">#ffffff</color>
+    <color name="color_background">#efefef</color>
+    <color name="color_grey">#cccccc</color>
+    <color name="color_accent">#cc1b17</color>
+    <color name="color_accent_dark">#AC1B17</color>
+    <color name="color_bluetooth">#0a3d91</color>
+    <color name="color_content_text">#5d5d5d</color>
+    <color name="color_title_text">#000000</color>
+    <color name="color_edit_text_border">#D5D5D5</color>
+    <color name="color_small_text">#4C4C4C</color>
+</resources>

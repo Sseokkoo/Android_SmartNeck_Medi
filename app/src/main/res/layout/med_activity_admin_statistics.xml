@@ -1,0 +1,775 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:paddingLeft="30dp"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24px" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="통계"
+            android:textColor="#000"
+            android:textSize="40dp" />
+
+    </FrameLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="등록자수"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="만족도"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="운동기간"
+            android:textColor="#fff"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="편차"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="20dp">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/edit_text_background"
+            android:hint="YYYY"
+            android:padding="10dp"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 년"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/edit_text_background"
+            android:hint="MM"
+            android:padding="10dp"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 월"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/edit_text_background"
+            android:hint="DD"
+            android:padding="10dp"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 일"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="~"
+            android:textColor="#000"
+            android:textSize="30dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="50dp"
+        android:orientation="horizontal"
+        android:padding="20dp">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/edit_text_background"
+            android:hint="YYYY"
+            android:padding="10dp"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 년"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/edit_text_background"
+            android:hint="MM"
+            android:padding="10dp"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 월"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/edit_text_background"
+            android:hint="DD"
+            android:padding="10dp"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 일"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+    </LinearLayout>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginBottom="10dp"
+        android:checked="true"
+        android:gravity="center"
+        android:text="전년도와 비교 검색"
+        android:textColor="#000"
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="2019.12.12 ~ 2019.12.31"
+        android:textColor="#000"
+        android:textSize="30dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:text="연령"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:text="성별"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:text="사용자 수"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:text="전년도"
+            android:textColor="#000"
+            android:textSize="30dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="10대"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="남"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="999"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="888"
+            android:textColor="#000"
+            android:textSize="30dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="10대"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="여"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="999"
+            android:textColor="#000"
+            android:textSize="30dp" /><TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/med_fillter"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="888"
+        android:textColor="#000"
+        android:textSize="30dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="20대"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="남"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="999"
+            android:textColor="#000"
+            android:textSize="30dp" /><TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/med_fillter"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="888"
+        android:textColor="#000"
+        android:textSize="30dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="20대"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="여"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="999"
+            android:textColor="#000"
+            android:textSize="30dp" /><TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/med_fillter"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="888"
+        android:textColor="#000"
+        android:textSize="30dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="30대"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="남"
+            android:textColor="#000"
+            android:textSize="30dp" /><TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/med_fillter"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="888"
+        android:textColor="#000"
+        android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="999"
+            android:textColor="#000"
+            android:textSize="30dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="30대"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="여"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="999"
+            android:textColor="#000"
+            android:textSize="30dp" /><TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/med_fillter"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="888"
+        android:textColor="#000"
+        android:textSize="30dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="40대"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="남"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="999"
+            android:textColor="#000"
+            android:textSize="30dp" /><TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/med_fillter"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="888"
+        android:textColor="#000"
+        android:textSize="30dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="40대"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="여"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="999"
+            android:textColor="#000"
+            android:textSize="30dp" /><TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/med_fillter"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="888"
+        android:textColor="#000"
+        android:textSize="30dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="50대"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="남"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="999"
+            android:textColor="#000"
+            android:textSize="30dp" /><TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/med_fillter"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="888"
+        android:textColor="#000"
+        android:textSize="30dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="50대"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="여"
+            android:textColor="#000"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/med_fillter"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="999"
+            android:textColor="#000"
+            android:textSize="30dp" /><TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/med_fillter"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="888"
+        android:textColor="#000"
+        android:textSize="30dp" />
+    </LinearLayout>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_margin="20dp"
+            android:background="@drawable/button_background_enabled"
+            android:gravity="center"
+            android:paddingTop="30dp"
+            android:paddingBottom="30dp"
+            android:text="검색"
+            android:textColor="#fff"
+            android:textSize="36dp" />
+    </FrameLayout>
+
+
+</LinearLayout>

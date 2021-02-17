@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+<!--    <item-->
+<!--        android:id="@+id/navigation_seat"-->
+<!--        android:icon="@drawable/menu_chair_n"-->
+<!--        android:title="@string/menu_chair"-->
+<!--        />-->
+<!--    <item-->
+<!--        android:id="@+id/navigation_height"-->
+<!--        android:icon="@drawable/menu_flexibility"-->
+<!--        android:title="@string/menu_flexibility"-->
+<!--        />-->
+<!--    <item-->
+<!--        android:id="@+id/navigation_weight"-->
+<!--        android:icon="@drawable/menu_weight_n"-->
+<!--        android:title="@string/menu_weight"-->
+<!--        />-->
+    <item
+        android:id="@+id/navigation_procedure"
+        android:icon="@drawable/menu_setting_n"
+        android:title="@string/menu_exercise_setting2" />
+
+    <item
+        android:id="@+id/navigation_exercise"
+        android:icon="@drawable/menu_start_n"
+        android:title="@string/menu_start" />
+</menu>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="country">
+        <item>KOREA / +82</item> <!-- KR -->
+        <item>United States of America / +1</item>  <!-- US -->
+        <item>China / +86</item>   <!-- CN-->
+    </string-array>
+
+
+</resources>

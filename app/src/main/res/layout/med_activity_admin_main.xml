@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <FrameLayout
+        android:paddingTop="16dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:textColor="#000"
+            android:textSize="40dp"
+            android:gravity="center"
+            android:text="관리자 페이지"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginBottom="8dp"
+            android:layout_gravity="bottom"
+            android:textSize="30dp"
+            android:textColor="#000"
+            android:text="현재 "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+
+            android:textSize="60dp"
+            android:textColor="@color/colorPrimary"
+            android:text="1000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_marginBottom="8dp"
+            android:layout_gravity="bottom"
+            android:textSize="30dp"
+            android:textColor="#000"
+            android:text="명의 환자가 이용중입니다."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="60dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:paddingBottom="60dp"
+            android:paddingTop="60dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/button_background_enabled"
+            android:gravity="center"
+            android:text="환자선택"
+            android:textColor="#fff"
+            android:textSize="36dp" />
+
+        <TextView
+            android:paddingBottom="60dp"
+            android:paddingTop="60dp"
+            android:layout_weight="1"
+            android:textSize="36dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/button_background_enabled"
+            android:text="정보수정"
+            android:textColor="#fff"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:paddingBottom="60dp"
+            android:paddingTop="60dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/button_background_enabled"
+            android:gravity="center"
+            android:text="통계"
+            android:textColor="#fff"
+            android:textSize="36dp" />
+
+        <TextView
+            android:paddingBottom="60dp"
+            android:paddingTop="60dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/button_background_enabled"
+            android:gravity="center"
+            android:text="프린트"
+            android:textColor="#fff"
+            android:textSize="36dp" />
+
+    </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_gravity="bottom"
+            android:paddingBottom="30dp"
+            android:paddingTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/button_background_enabled"
+            android:gravity="center"
+            android:text="로그아웃"
+            android:textColor="#fff"
+            android:textSize="36dp" />
+    </FrameLayout>
+
+
+
+</LinearLayout>

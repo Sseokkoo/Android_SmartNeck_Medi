@@ -1,0 +1,316 @@
+<resources>
+
+	<!-- App name -->
+	<string name="app_name">Smart Neck&#10;Medical</string>
+
+	<!-- Login -->
+	<string name="login_login">登录</string>
+	<string name="login_sign_up">注册</string>
+	<string name="login_find">找回账号</string>
+	<string name="login_insert_id">请输入邮箱地址</string>
+	<string name="login_insert_pw">请输入密码</string>
+	<string name="login_auto_login">自动登录</string>
+
+	<!-- Bluetooth -->
+	<string name="ble_list">蓝牙设备目录</string>
+	<string name="ble_connect">连接</string>
+
+	<!-- Menu -->
+	<string name="menu_chair">座椅</string>
+	<string name="menu_weight">重量</string>
+	<string name="menu_setting">设置</string>
+	<string name="menu_report">申报错误</string>
+	<string name="menu_age">颈部肌肉年龄</string>
+	<string name="menu_flexibility">柔韧性检测</string>
+	<string name="menu_statistics">记录统计</string>
+	<string name="menu_logout">退出登录</string>
+	<string name="menu_management"></string>
+	<string name="menu_announce">公告事项</string>
+	<string name="menu_review">使用心得</string>
+	<string name="menu_support">帮助</string>
+	<string name="menu_user_info">个人信息</string>
+	<string name="menu_device_info">产品信息</string>
+	<string name="menu_start">开始</string>
+	<string name="menu_exercise_setting">运动设置</string>
+	<string name="menu_how_to_exercise">患者选择</string>
+	<string name="menu_sub_exercise">补充运动</string>
+	<string name="menu_home">首页</string>
+
+	<!-- Measure -->
+	<string name="measure_chair_height">座椅高度</string>
+	<string name="measure_chair_message">为了正确地开展运动，座椅高度需根据个人情况相应进行调节。</string>
+	<string name="measure_flexibility">柔韧性检测</string>
+	<string name="measure_flexibility_message">请根据图片，向后弯曲头颈3至5次。</string>
+	<string name="measure_muscle_message">请根据录音指示，向后弯曲头颈3至5次。</string>
+	<string name="measure_flexibility_max">最大柔韧性(mm)</string>
+	<string name="measure_flexibility_current">柔韧性(mm)</string>
+	<string name="measure_max_weight">重量(kg)</string>
+	<string name="measure_weight_title">肌力检测</string>
+	<string name="measure_weight">重量(级别)</string>
+
+	<!-- ExerciseSetting -->
+	<string name="exercise_setting_count">次数</string>
+	<string name="exercise_setting_set">组数</string>
+	<string name="exercise_setting_stop">停止时间</string>
+	<string name="exercise_setting_voice_guide">录音指示</string>
+
+	<!-- Exercise -->
+	<string name="exercise_title">开始运动</string>
+	<string name="exercise_max_weight">重量(kg)</string>
+	<string name="exercise_stop_time">停止时间(秒)</string>
+	<string name="exercise_muscle">肌力</string>
+	<string name="exercise_count">次数</string>
+	<string name="exercise_set">组数</string>
+
+	<!-- EAlert -->
+	<string name="e_alert_title">今天的运动记录</string>
+	<string name="e_alert_message">今天您辛苦了。</string>
+	<string name="e_alert_count">次数</string>
+	<string name="e_alert_set">组数</string>
+	<string name="e_alert_stop">停止时间</string>
+
+	<!-- SignUp -->
+	<string name="sign_up_title">注册</string>
+	<string name="sign_up_id">邮箱</string>
+	<string name="sign_up_email">邮箱</string>
+	<string name="sign_up_Password">密码</string>
+	<string name="sign_up_Confirm">密码确认</string>
+	<string name="sign_up_name">姓名</string>
+	<string name="sign_up_last_name">-</string>
+	<string name="sign_up_first_name">姓</string>
+	<string name="sign_up_middle_name">名</string>
+	<string name="sign_up_birth">生日</string>
+	<string name="sign_up_gender">性别</string>
+	<string name="sign_up_name_hint">请输入您的姓名。</string>
+	<string name="sign_up_select">请选择</string>
+	<string name="sign_up_password_hint">密码（8位或位以上）</string>
+	<string name="sign_up_phone">手机号码</string>
+	<string name="sign_up_survay">问卷调查</string>
+	<string name="sign_up_message">您是否由于颈部疼痛去过医院？</string>
+	<string name="sign_up_yes">是</string>
+	<string name="sign_up_no">否</string>
+	<string name="sign_up_option1">最近3个月内</string>
+	<string name="sign_up_option2">最近6个月内</string>
+	<string name="sign_up_option3">最近1年内</string>
+	<string name="sign_up_option4">一年之前</string>
+	<string name="sign_up_agreement">个人信息条款</string>
+	<string name="sign_up_agree_all">全部同意</string>
+	<string name="sign_up_option1_title">个人信息处理方针（必须）</string>
+	<string name="sign_up_option1_check">个人信息处理方针（必须）</string>
+	<string name="sign_up_option2_title">使用条例（必须）</string>
+	<string name="sign_up_option2_check">使用条例（必须）</string>
+	<string name="sign_up_option3_title">注意事项（必须）</string>
+	<string name="sign_up_option3_check">注意事项（必须）</string>
+	<string name="sign_up_option4_title">最新活动信息发送及收信同意（选择）</string>
+	<string name="sign_up_option4_check">最新活动信息发送及收信同意（选择）</string>
+
+	<!-- Button -->
+	<string name="btn_next">下一步</string>
+	<string name="btn_previous">上一步</string>
+	<string name="btn_close">关闭</string>
+	<string name="btn_complete">完成</string>
+	<string name="btn_start">开始</string>
+	<string name="btn_save">保存</string>
+	<string name="btn_measure">检测</string>
+
+	<!-- Type -->
+	<string name="type_male">男性</string>
+	<string name="type_female">女性</string>
+	<string name="type_child">儿童</string>
+
+	<!-- Toast -->
+	<string name="toast_saved">保存完毕。</string>
+	<string name="toast_please_connect">请连接蓝牙。</string>
+	<string name="toast_back">按下终止按钮终止APP。</string>
+	<string name="toast_internet">网络暂未连接。</string>
+	<string name="toast_max">最大值</string>
+	<string name="toast_min">最小值</string>
+	<string name="toast_measure_height">请进行柔韧性检测。</string>
+	<string name="toast_measure_weight">请进行肌力检测。</string>
+	<string name="toast_insert_email">请输入您的ID。</string>
+	<string name="toast_exist_account">账号已经存在。</string>
+	<string name="toast_insert_all_password">请输入密码。</string>
+	<string name="toast_discord_password">密码输入不一致。</string>
+	<string name="toast_insert_name">请输入您的姓名。</string>
+	<string name="toast_select_gender">请输入您的性别。</string>
+	<string name="toast_insert_birth">请输入您的生日。</string>
+	<string name="toast_insert_phone_number">请输入您的手机号码。</string>
+	<string name="toast_please_check">请勾选以下选项。</string>
+	<string name="toast_please_agree">请同意以下条款。</string>
+	<string name="toast_sign_up_complete">注册完成。</string>
+	<string name="toast_preparing">准备中。</string>
+	<string name="toast_mail">请输入正确的邮箱地址。</string>
+	<string name="toast_pw">请输入8位或8位以上的密码。</string>
+	<string name="toast_name">请正确输入姓名。</string>
+	<string name="toast_enter_check">请再次确认您输入的信息。</string>
+	<string name="toast_disconnect">蓝牙连接中断。</string>
+
+	<!-- Dialog -->
+	<string name="dialog_ble_connecting">正在连接蓝牙。请稍等。</string>
+	<string name="dialog_ble_init">正在调整坐标。请稍等。</string>
+	<string name="dialog_exercise_start">正在开启运动。请稍等。</string>
+	<string name="dialog_height">正在检测柔韧性。请稍等。</string>
+	<string name="dialog_weight">正在检测肌力。请稍等。</string>
+	<string name="dialog_count">有效次数。根据您柔韧性的检测结果，颈部向后推至80%以上才算作有效。当前运动有效时，会听到设备发出的声音。而80%以下的情况不作效，因此也不会听见声音。</string>
+	<string name="dialog_set">若选择1组，总运动次数位为您输入的次数乘以1。同样，选择2组，总运动次数为您输入的次数乘以2。</string>
+	<string name="dialog_stop">当您颈部向后弯曲到最底点的停止时间。在停止时间内，请正常呼吸。若屏住呼吸的话，会影响运动效果。</string>
+	<string name="dialog_voice_guide">当您完成一次运动听到的语音。</string>
+	<string name="dialog_exercise_quit_message">没有您的运动信息。</string>
+	<string name="dialog_exercise_quit_confilm">运动终止</string>
+	<string name="dialog_exercise_quit_ok">确认</string>
+	<string name="dialog_wait">请稍等。</string>
+
+	<!-- ble -->
+	<string name="ble_01">请允许蓝牙连接。</string>
+	<string name="ble_02">蓝牙未开启。</string>
+	<string name="ble_03">请连接运动设备。</string>
+	<string name="ble_04">正在搜寻运动设备。</string>
+	<string name="ble_05">关闭蓝牙。</string>
+	<string name="ble_06">连接失败。</string>
+	<string name="btn_ble_enable">开启</string>
+	<string name="btn_ble_connect">连接</string>
+	<string name="btn_ble_disconnect">终止</string>
+
+	<!-- nav -->
+	<string name="navigation_drawer_open">Open</string>
+	<string name="navigation_drawer_close">Close</string>
+
+	<!-- Customer Support -->
+	<string name="customer_suppot_input_toast">请再次确认输入的信息。</string>
+	<string name="customer_suppot_edit_toast">修改成功。</string>
+	<string name="customer_suppot_insert_toast">注册成功。</string>
+	<string name="customer_suppot_input2_toast">请输入内容。</string>
+
+	<!-- 에러 -->
+	<string name="error_title">申报错误</string>
+	<string name="error_hint_toast">请输入您想申报错误的信息。</string>
+	<string name="error_toast">已接收您的申报。</string>
+
+	<!-- 개인정보수정 -->
+	<string name="user_info_edit_title">修改个人信息</string>
+	<string name="user_info_edit_pw">修改密码</string>
+	<string name="user_info_edit_phone_title">修改手机号码</string>
+
+	<!-- 비밀번호 수정 -->
+	<string name="user_info_edit_pw_current_pw">当前密码</string>
+	<string name="user_info_edit_pw_current_pw_hint">请输入当前密码。</string>
+	<string name="user_info_edit_pw_new_pw">新密码</string>
+	<string name="user_info_edit_pw_new_pw_hint">请输入新密码。</string>
+	<string name="user_info_edit_pw_confirm_pw_hint">请确认新密码</string>
+	<string name="user_info_edit_phone">手机号码</string>
+	<string name="user_info_edit_phone_pw">当前手机号码</string>
+	<string name="user_info_edit_phone_pw_hint">请输入当前手机号码</string>
+
+	<!-- 통계 -->
+	<string name="statistics_menu_age">颈部肌肉年龄</string>
+	<string name="statistics_menu_height">柔韧性</string>
+	<string name="statistics_menu_weight">肌力</string>
+	<string name="statistics_menu_exercise">运动记录</string>
+	<string name="statistics_menu_age_title1">我的颈部肌肉年龄是</string>
+	<string name="statistics_menu_age_title2">1岁。</string>
+	<string name="statistics_menu_age_legend_max">最高值</string>
+	<string name="statistics_menu_age_legend_min">最低值</string>
+	<string name="statistics_menu_age_legend_avg">平均值</string>
+	<string name="statistics_menu_age_legend_mine">我的肌力</string>
+	<string name="statistics_menu_exercise_colume_date">日期</string>
+	<string name="statistics_menu_exercise_colume_count">次数</string>
+	<string name="statistics_menu_exercise_colume_set">组数</string>
+	<string name="statistics_menu_exercise_colume_stop">停止时间</string>
+
+	<!-- 리뷰 -->
+	<string name="review_title">使用心得</string>
+	<string name="review_hint">请分享您的使用心得。</string>
+	<string name="customer_support_title">帮助</string>
+	<string name="_1to1_title">1对1咨询</string>
+	<string name="_1to1_apply">1对1咨询申请</string>
+	<string name="_1to1_list">详细内容</string>
+	<string name="_1to1_entry_app">APP使用</string>
+	<string name="_1to1_entry_product">产品</string>
+	<string name="_1to1_entry_suggestion">建议事项</string>
+	<string name="_1to1_entry_etc">其它</string>
+	<string name="_1to1_state_waiting">正在处理中</string>
+	<string name="_1to1_state_complete">处理完成</string>
+	<string name="toast_back2">若点击上一步按钮即可退回主页。</string>
+	<string name="send_to_mail">临时密码已发到您的邮箱。</string>
+	<string name="find_password">找回密码</string>
+	<string name="find_account">找回账号</string>
+	<string name="send_tmp_password">发送临时密码</string>
+	<string name="toast_please_measure">检测完成后请开始使用。</string>
+	<string name="exercise_start_position">运动范围</string>
+	<string name="chart_length">(mm)</string>
+	<string name="chart_weight">(kg)</string>
+	<string name="dialog_exercise_point">根据检测的柔韧性，颈部向后弯曲的最大值。您可根据个人情况或者运动目标进行自由选择。若不选择，将默认设置为最大值80%。</string>
+	<string name="toast_weight_control">正在调整重量。</string>
+	<string name="toast_chair_control">正在调整座椅高度。</string>
+	<string name="exercise_setting_strength">运动强度</string>
+	<string name="exercise_strength_high">高</string>
+	<string name="exercise_strength_mid">中</string>
+	<string name="exercise_strength_low">低</string>
+	<string name="toast_password_changed">您的密码已被更改。</string>
+
+
+	<string name="menu_exercise_setting2">运动设置</string>
+    <string name="member_add_phone_hint">Please enter your mobile phone number (except \'-\')</string>
+
+	<string name="word_member">会员</string>
+	<string name="word_patient">病人</string>
+	<string name="word_select">选择</string>
+	<string name="word_edit">修改信息</string>
+	<string name="word_regist">登记</string>
+
+	<string name="ble_connect_title">蓝牙连接</string>
+	<string name="app_exit">退出应用程序</string>
+	<string name="member_search_hint">Please enter your name or mobile number.</string>
+	<string name="last_visit">"上次访问时间 : "</string>
+	<string name="member_select_gender_male">(男)</string>
+	<string name="member_select_gender_female">(女)</string>
+
+	<string name="member_select_delete_message">会员信息删了就彻底删除了。您确认要删除吗?</string>
+	<string name="title_break_time">休息时间</string>
+
+	<string name="load_backup_data">加载备份数据</string>
+	<string name="load_backup_admin_account">请输入管理员帐户。</string>
+	<string name="load_backup_admin_password">输入管理员密码。</string>
+	<string name="load_backup_admin_load">装货</string>
+
+    <!--    관리자 회원가입    -->
+    <string name="join_account">帐户</string>
+    <string name="join_account_hint">请输入您的帐号。</string>
+    <string name="join_password">密码</string>
+    <string name="join_passwrod_hint">请输入密码。</string>
+    <string name="join_data_backup">数据备份</string>
+    <string name="join_data_backup_message">如果不备份数据，则无法恢复丢失的数据。</string>
+    <string name="join_country">国家</string>
+    <string name="join_mutual">相互</string>
+    <string name="join_mutual_hint">请输入您的公司名称。</string>
+    <string name="join_name_1">姓名（代表）</string>
+    <string name="join_name_1_hint">请输入您的姓名（代表）。</string>
+    <string name="join_phone_1">手机号码（代表）</string>
+    <string name="join_phone_1_hint">输入您的手机号码（代表）。 - 除了</string>
+    <string name="join_telephone_1">电话号码（代表）</string>
+    <string name="join_telephone_1_hint">请输入您的电话号码（代表）。 - 除了</string>
+    <string name="join_email_1">电子邮件（代表）</string>
+    <string name="join_email_1_hint">请输入您的电子邮件（代表）。</string>
+    <string name="join_title">标题</string>
+    <string name="join_title_hint">请输入您的标题。</string>
+    <string name="join_name_2">姓名（负责人）</string>
+    <string name="join_name_2_hint">请输入您的姓名（负责人）。</string>
+    <string name="join_phone_2">手机号码（负责人）</string>
+    <string name="join_phone_2_hint">输入您的手机号码（负责人）。 - 除了</string>
+    <string name="join_telephone_2">电话号码（负责人）</string>
+    <string name="join_telephone_2_hint">输入您的电话号码（负责人）。 - 除了</string>
+    <string name="join_email_2">电子邮件（负责人）</string>
+    <string name="join_email_2_hint">请输入您的电子邮件（负责人）。</string>
+    <string name="join_address">地址</string>
+    <string name="join_address_hint">请输入您的地址。</string>
+
+
+	<string name="not_found_account">找不到信息。</string>
+    <string name="admin">"管理员 "</string>
+
+	<string name="seat_control">"椅子调整 "</string>
+	<string name="menu_measure_management">测量管理</string>
+	<string name="menu_exercise_management">运动管理</string>
+
+
+</resources>

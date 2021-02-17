@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical"
+    tools:context=".Member.JoinActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:text="@string/sign_up_title"
+            android:textColor="#000"
+            android:textSize="40dp" />
+
+        <ImageView
+            android:id="@+id/img_join_back_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24px" />
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#cc1b17" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="48dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="12dp">
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!--계정-->
+                <TextView
+                    style="@style/tv_join_small"
+                    android:text="@string/join_account" />
+
+                <EditText
+                    android:id="@+id/edt_account"
+                    style="@style/edt_join"
+                    android:hint="@string/join_account_hint" />
+                <!--비밀번호-->
+                <TextView
+                    style="@style/tv_join_small"
+                    android:text="@string/join_password" />
+
+                <EditText
+                    android:id="@+id/edt_password"
+                    style="@style/edt_join"
+                    android:hint="@string/join_passwrod_hint"
+                    android:inputType="textPassword" />
+
+                <CheckBox
+                    android:checked="true"
+                    android:id="@+id/ck_data_backup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="28dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/join_data_backup"
+                    android:textSize="24dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/join_data_backup_message" />
+
+                <TextView
+                    style="@style/tv_join_small"
+                    android:text="@string/join_country" />
+
+                <Spinner
+                    android:id="@+id/spn_country"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginRight="32dp"
+                    android:entries="@array/country" />
+                <!--업체명-->
+                <TextView
+                    style="@style/tv_join_small"
+                    android:text="@string/join_mutual" />
+
+                <EditText
+                    android:id="@+id/edt_com_name"
+                    style="@style/edt_join"
+                    android:hint="@string/join_mutual_hint" />
+                <!--대표자 이름-->
+                <TextView
+                    style="@style/tv_join_small"
+                    android:text="@string/join_name_1" />
+
+                <EditText
+                    android:id="@+id/edt_ceo_name"
+                    style="@style/edt_join"
+                    android:hint="@string/join_name_1_hint" />
+                <!--대표자 휴대폰-->
+                <TextView
+                    style="@style/tv_join_small"
+                    android:text="@string/join_phone_1" />
+
+                <EditText
+                    android:id="@+id/edt_ceo_phone"
+                    style="@style/edt_join"
+                    android:hint="@string/join_phone_1_hint" />
+                <!--대표자 전화번호-->
+                <TextView
+                    style="@style/tv_join_small"
+                    android:text="@string/join_telephone_1" />
+
+                <EditText
+                    android:id="@+id/edt_ceo_telephone"
+                    style="@style/edt_join"
+                    android:hint="@string/join_telephone_1_hint" />
+                <!--대표자 이메일-->
+                <TextView
+                    style="@style/tv_join_small"
+                    android:text="@string/join_email_1" />
+
+                <EditText
+                    android:id="@+id/edt_ceo_email"
+                    style="@style/edt_join"
+                    android:hint="@string/join_email_1_hint" />
+
+
+                <!--관리자 이름-->
+                <TextView
+                    style="@style/tv_join_small"
+                    android:text="@string/join_name_2" />
+
+                <EditText
+                    android:id="@+id/edt_admin_name"
+                    style="@style/edt_join"
+                    android:hint="@string/join_name_2_hint" />
+                <!--관리자 직함-->
+                <TextView
+                    style="@style/tv_join_small"
+                    android:text="@string/join_title" />
+
+                <EditText
+                    android:id="@+id/edt_admin_title"
+                    style="@style/edt_join"
+                    android:hint="@string/join_title_hint" />
+                <!--관리자 휴대폰-->
+                <TextView
+                    style="@style/tv_join_small"
+                    android:text="@string/join_phone_2" />
+
+                <EditText
+                    android:id="@+id/edt_admin_phone"
+                    style="@style/edt_join"
+                    android:hint="@string/join_phone_2_hint" />
+                <!--관리자 전화번호-->
+                <TextView
+                    style="@style/tv_join_small"
+                    android:text="@string/join_telephone_2" />
+
+                <EditText
+                    android:id="@+id/edt_admin_telephone"
+                    style="@style/edt_join"
+                    android:hint="@string/join_telephone_2_hint" />
+                <!--관리자 이메일-->
+                <TextView
+                    style="@style/tv_join_small"
+                    android:text="@string/join_email_2" />
+
+                <EditText
+                    android:id="@+id/edt_admin_email"
+                    style="@style/edt_join"
+                    android:hint="@string/join_email_2_hint" />
+
+                <!--주소-->
+                <TextView
+                    style="@style/tv_join_small"
+                    android:text="@string/join_address" />
+
+                <EditText
+                    android:id="@+id/edt_address"
+                    style="@style/edt_join"
+                    android:hint="@string/join_address_hint" />
+                <!--주소-->
+                <TextView
+                    style="@style/tv_join_small"
+                    android:text="URL"
+                    android:visibility="gone" />
+                <!--URL-->
+                <EditText
+                    android:id="@+id/edt_url"
+                    style="@style/edt_join"
+                    android:hint="홈페이지주소를 입력하세요.(선택)"
+                    android:visibility="gone" />
+
+                <!--로고-->
+                <TextView
+                    style="@style/tv_join_small"
+                    android:text="로고"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/img_logo_output"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#7d7d7d" />
+
+                        <ImageView
+                            android:id="@+id/img_logo_change_btn"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="bottom|right"
+                            android:src="@drawable/ic_menu_camera" />
+                    </FrameLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_sign_up"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="72dp"
+        android:layout_marginRight="72dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/button_background_enabled"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:text="@string/sign_up_title"
+        android:textColor="#fff"
+        android:textSize="30sp" />
+
+
+</LinearLayout>

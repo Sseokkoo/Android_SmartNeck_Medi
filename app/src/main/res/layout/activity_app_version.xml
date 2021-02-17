@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AppVersionActivity"
+    android:orientation="vertical">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/btn_app_version_dismiss"
+            android:paddingLeft="8dp"
+            android:paddingBottom="12dp"
+            android:paddingTop="12dp"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24px"
+            android:layout_width="50dp"
+            android:layout_height="match_parent" />
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="@string/menu_device_info"
+            android:textColor="#cc1b17"
+            android:textSize="24dp" />
+    </LinearLayout>
+
+
+    <View
+        android:layout_marginBottom="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#cc1b17" />
+    <TextView
+        android:textColor="@color/color_small_text"
+        android:text="제품번호"
+        android:textSize="20dp"
+        android:layout_margin="8dp"
+        android:id="@+id/tv_device_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:textColor="@color/color_small_text"
+        android:text="회원가입일"
+        android:textSize="20dp"
+        android:layout_margin="8dp"
+        android:id="@+id/tv_create_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:textColor="@color/color_small_text"
+        android:visibility="gone"
+        android:text="업데이트일"
+        android:textSize="20dp"
+        android:layout_margin="8dp"
+        android:id="@+id/tv_update_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:textColor="@color/color_small_text"
+        android:text="상호명 : (주)투파이브"
+        android:textSize="20dp"
+        android:layout_margin="8dp"
+        android:id="@+id/tv_com_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:textColor="@color/color_small_text"
+        android:text="주소 : 14098 I 경기도 안양시 만안구 시민대로 34\n(안양동,성일디지털타워) 102호"
+        android:textSize="20dp"
+        android:layout_margin="8dp"
+        android:id="@+id/tv_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:textColor="@color/color_small_text"
+        android:text="전화 : 031-441-3274"
+        android:textSize="20dp"
+        android:layout_margin="8dp"
+        android:id="@+id/tv_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:textColor="@color/color_small_text"
+        android:text="홈페이지 : http://smart-neck.com/"
+        android:textSize="20dp"
+        android:layout_margin="8dp"
+        android:id="@+id/tv_home_page"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:textSize="20dp"
+        android:textColor="@color/color_small_text"
+        android:layout_margin="8dp"
+        android:id="@+id/tv_app_version"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!--as-->
+
+</LinearLayout>

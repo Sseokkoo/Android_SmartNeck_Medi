@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CustomerSupport.Controller.Customer1To1InsertActivity">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/customer_1to1_insert_dismiss_Btn"
+                android:paddingLeft="8dp"
+                android:paddingBottom="12dp"
+                android:paddingTop="12dp"
+                android:src="@drawable/ic_baseline_arrow_back_ios_24px"
+                android:layout_width="50dp"
+                android:layout_height="match_parent" />
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="@string/_1to1_title"
+                android:textColor="#cc1b17"
+                android:textSize="24dp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#cc1b17" />
+
+        <FrameLayout
+            android:layout_marginTop="32dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Spinner
+                android:background="@drawable/edit_text_background"
+                android:entries="@array/_1to1_entry"
+
+                android:id="@+id/customer_1to1_spinner"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"/>
+            <ImageView
+
+                android:layout_marginRight="8dp"
+                android:layout_gravity="right|center"
+                android:src="@drawable/ic_expand_more_black_24dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </FrameLayout>
+
+
+        <EditText
+            android:gravity="top"
+            android:id="@+id/customer_1to1_edt"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/edit_text_background"
+            android:hint="@string/customer_suppot_input2_toast"
+            android:inputType="textMultiLine"
+            android:paddingLeft="16dp"
+            android:paddingTop="8dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="8dp"
+            android:textColor="@color/color_content_text"
+            android:textSize="18dp" />
+    </LinearLayout>
+</ScrollView>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/customer_1to1_finish_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/color_grey"
+            android:text="@string/btn_complete"
+            android:textColor="#fff" />
+    </LinearLayout>
+
+</LinearLayout>

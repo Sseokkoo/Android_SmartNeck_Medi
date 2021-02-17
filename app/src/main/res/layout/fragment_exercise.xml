@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        app:scale_base_height="600"
+        app:scale_base_width="400">
+
+        <!---->
+        <!--title-->
+        <!---->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/exercise_title"
+            android:textColor="#000"
+            app:scale_height="40"
+            app:scale_textsize="24"
+            app:scale_width="400" />
+
+        <!---->
+        <!--weight-->
+        <!---->
+
+        <TextView
+            android:id="@+id/tv_weight_max"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="0.0"
+            android:textSize="32dp"
+            app:scale_height="50"
+            app:scale_left="0"
+            app:scale_textsize="20"
+            app:scale_top="55"
+            app:scale_width="200" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="@string/exercise_start_position"
+            android:textAlignment="center"
+            app:scale_height="40"
+            app:scale_left="55"
+            app:scale_textsize="16"
+            app:scale_top="95"
+            app:scale_width="100" />
+
+        <!---->
+        <!--stop time-->
+        <!---->
+
+        <TextView
+            android:id="@+id/tv_stop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="0.0"
+            android:textSize="32dp"
+            app:scale_height="50"
+            app:scale_left="245"
+            app:scale_textsize="30"
+            app:scale_top="55"
+            app:scale_width="100" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="@string/exercise_stop_time"
+            app:scale_height="40"
+            app:scale_left="245"
+            app:scale_textsize="16"
+            app:scale_top="95"
+            app:scale_width="100" />
+
+        <!---->
+        <!--current weight-->
+        <!---->
+
+        <TextView
+            android:id="@+id/tv_weight_current"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="0.0"
+            android:textAlignment="center"
+            android:textColor="@color/color_accent"
+            app:scale_height="100"
+            app:scale_textsize="80"
+            app:scale_top="160"
+            app:scale_width="400" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/exercise_muscle"
+            android:textAlignment="center"
+            app:scale_height="50"
+            app:scale_textsize="20"
+            app:scale_top="260"
+            app:scale_width="400" />
+
+        <!---->
+        <!--count-->
+        <!---->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/exercise_count"
+            app:scale_height="40"
+            app:scale_left="55"
+            app:scale_textsize="16"
+            app:scale_top="320"
+            app:scale_width="100" />
+
+
+        <TextView
+            android:gravity="center"
+            app:scale_height="60"
+            app:scale_left="20"
+            app:scale_textsize="45"
+            app:scale_top="351"
+            app:scale_width="80"
+            android:id="@+id/tv_count_current"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5"
+            android:textColor="@color/color_accent"
+            android:textSize="48dp" />
+        <TextView
+            android:gravity="center"
+            android:text="/"
+            app:scale_height="60"
+            app:scale_left="92"
+            app:scale_textsize="40"
+            app:scale_top="352"
+            app:scale_width="20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:gravity="center"
+            app:scale_height="60"
+            app:scale_left="90"
+            app:scale_textsize="40"
+            app:scale_top="353"
+            app:scale_width="100"
+            android:id="@+id/tv_count_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10"
+            android:textSize="32dp" />
+        <!---->
+        <!--set-->
+        <!---->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/exercise_set"
+            app:scale_height="40"
+            app:scale_left="245"
+            app:scale_textsize="16"
+            app:scale_top="320"
+            app:scale_width="100" />
+
+        <TextView
+            android:gravity="center"
+            app:scale_height="60"
+            app:scale_left="215"
+            app:scale_textsize="45"
+            app:scale_top="351"
+            app:scale_width="80"
+            android:id="@+id/tv_set_current"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="@color/color_accent"
+            android:textSize="48dp" />
+        <TextView
+            android:gravity="center"
+            android:text="/"
+            app:scale_height="60"
+            app:scale_left="287"
+            app:scale_textsize="40"
+            app:scale_top="352"
+            app:scale_width="20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:gravity="center"
+            app:scale_height="60"
+            app:scale_left="285"
+            app:scale_textsize="40"
+            app:scale_top="353"
+            app:scale_width="100"
+            android:id="@+id/tv_set_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5"
+            android:textSize="32dp" />
+
+        <!---->
+        <!--line-->
+        <!---->
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#e4e4e4"
+            app:scale_height="100"
+            app:scale_left="200"
+            app:scale_top="50"
+            app:scale_width="2" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#e4e4e4"
+            app:scale_height="2"
+            app:scale_left="0"
+            app:scale_top="150"
+            app:scale_width="400" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#e4e4e4"
+            app:scale_height="100"
+            app:scale_left="200"
+            app:scale_top="320"
+            app:scale_width="2" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#e4e4e4"
+            app:scale_height="2"
+            app:scale_left="0"
+            app:scale_top="320"
+            app:scale_width="400" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+
+    <!-- 컨트롤 -->
+
+
+    <LinearLayout
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:orientation="vertical">
+        <Button
+            android:text="@string/seat_control"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp"
+            android:id="@+id/btn_setup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_background_colored"
+            android:theme="@style/AppTheme.Button" />
+        <Button
+            android:id="@+id/btn_stop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_background_colored"
+            android:theme="@style/AppTheme.Button"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_background_colored"
+            android:text="@string/btn_save"
+            android:textColor="#fff" />
+
+        <Button
+            android:id="@+id/btn_start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_background_colored"
+            android:theme="@style/AppTheme.Button"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</FrameLayout>

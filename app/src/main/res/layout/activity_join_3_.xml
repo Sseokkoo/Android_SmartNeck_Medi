@@ -1,0 +1,99 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        app:scale_base_height="650"
+        app:scale_base_width="400">
+
+        <ImageView
+            android:id="@+id/join_3_previous"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24px"
+            app:scale_height="30"
+            app:scale_left="10"
+            app:scale_top="20"
+            app:scale_width="30" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/sign_up_name"
+            android:textColor="#000"
+            app:scale_height="30"
+            app:scale_left="100"
+            app:scale_textsize="24"
+            app:scale_top="20"
+            app:scale_width="200" />
+        <EditText
+            android:paddingStart="8sp"
+            android:background="@drawable/edit_text_background"
+            app:scale_height="30"
+            app:scale_left="25"
+            app:scale_textsize="15"
+            app:scale_top="100"
+            app:scale_width="350"
+            android:inputType="textPersonName"
+            android:imeOptions="actionNext"
+            android:singleLine="true"
+            android:id="@+id/join_3_edt"
+            android:hint="@string/sign_up_first_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:paddingStart="8sp"
+            android:background="@drawable/edit_text_background"
+            app:scale_height="30"
+            app:scale_left="25"
+            app:scale_textsize="15"
+            app:scale_top="150"
+            app:scale_width="350"
+            android:inputType="textPersonName"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:id="@+id/join_3_edt2"
+
+            android:hint="@string/sign_up_middle_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:paddingStart="8sp"
+            android:background="@drawable/edit_text_background"
+            app:scale_height="30"
+            app:scale_left="25"
+            app:scale_textsize="15"
+            app:scale_top="200"
+            app:scale_width="350"
+            android:inputType="textPersonName"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:id="@+id/join_3_edt3"
+            android:hint="@string/sign_up_last_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+
+
+    <Button
+        android:layout_gravity="bottom"
+        android:id="@+id/join_3_next"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/color_grey"
+        android:text="@string/btn_next"
+        android:textColor="#fff" />
+
+
+</FrameLayout>
+
+
+

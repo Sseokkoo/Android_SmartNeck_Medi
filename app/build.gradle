@@ -1,0 +1,86 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "28.0.3"
+
+    defaultConfig {
+        applicationId "com.ko.smartneck.medical.twofive"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0.1"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true
+    }
+
+//    APK파일 설치
+    signingConfigs {
+        debug {
+            v1SigningEnabled true
+            v2SigningEnabled true
+
+            // Add debug keystore credentials here
+        }
+
+        release {
+            v1SigningEnabled true
+            v2SigningEnabled true
+
+            // Add release keystore credentials here
+        }
+    }
+    //    APK파일 설치
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+
+        sourceCompatibility JavaVersion.VERSION_1_8
+
+        targetCompatibility JavaVersion.VERSION_1_8
+
+    }
+    lintOptions {
+        disable 'MissingPrefix'
+    }
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+//    implementation 'org.jetbrains:annotations-java5:15.0'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+    //스케일블 레이아웃
+    implementation 'com.ssomai:android.scalablelayout:2.1.6'
+    //MPChart
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    //Snack Bar 사용시 필요
+    //noinspection GradleCompatible
+    implementation 'com.android.support:design:28.0.0'
+    implementation files('libs/YouTubeAndroidPlayerApi.jar')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+}
+repositories {
+    mavenCentral()
+}

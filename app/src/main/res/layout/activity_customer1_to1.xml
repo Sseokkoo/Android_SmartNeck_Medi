@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Notice.NoticeActivity">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/customer_1to1_dismiss_Btn"
+            android:paddingLeft="8dp"
+            android:paddingBottom="12dp"
+            android:paddingTop="12dp"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24px"
+            android:layout_width="50dp"
+            android:layout_height="match_parent" />
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="@string/_1to1_title"
+            android:textColor="#cc1b17"
+            android:textSize="24dp" />
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#cc1b17" />
+
+
+    <TextView
+        android:visibility="visible"
+        android:id="@+id/customer_1to1_state"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:paddingLeft="16dp"
+        android:text="state"
+        android:textColor="@color/color_title_text"
+        android:textSize="28dp" />
+
+    <TextView
+        android:textSize="20dp"
+        android:id="@+id/customer_1to1_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:paddingLeft="16dp"
+        android:text="date" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_edit_text_border" />
+    <TextView
+        android:layout_marginTop="8dp"
+        android:textSize="20dp"
+        android:id="@+id/customer_1to1_contents"
+        android:paddingLeft="16dp"
+        android:text="contents\ncontents\ncontents\ncontents\ncontents\ncontents\ncontents\n"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

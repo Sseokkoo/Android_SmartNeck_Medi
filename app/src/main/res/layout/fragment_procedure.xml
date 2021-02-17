@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_white">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.ssomai.android.scalablelayout.ScalableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="top|center"
+            app:scale_base_height="650"
+            app:scale_base_width="400">
+
+
+            <!---->
+            <!--count-->
+            <!---->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/menu_exercise_setting"
+                android:textColor="#000"
+                app:scale_height="60"
+                app:scale_textsize="28"
+                app:scale_width="400" />
+            <!--todo weight String -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/menu_weight"
+                app:scale_height="60"
+                app:scale_textsize="16"
+                app:scale_top="80"
+                app:scale_width="80" />
+
+            <ImageView
+                android:id="@+id/procedure_help_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/btn_exercise_setting_info"
+                app:scale_height="60"
+                app:scale_left="95"
+                app:scale_top="80"
+                app:scale_width="24" />
+
+            <ImageView
+                android:id="@+id/procedure_down_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_control_down_small"
+                android:src="@drawable/ic_baseline_expand_more_48px"
+                app:scale_height="50"
+                app:scale_left="200"
+                app:scale_top="85"
+                app:scale_width="50" />
+
+            <TextView
+                android:id="@+id/procedure_tv_weight"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="15"
+                android:textSize="24dp"
+                app:scale_height="50"
+                app:scale_left="265"
+                app:scale_textsize="24"
+                app:scale_top="85"
+                app:scale_width="50" />
+
+            <ImageView
+                android:id="@+id/procedure_up_weight"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_control_up_small"
+                android:src="@drawable/ic_baseline_expand_less_48px"
+                app:scale_height="50"
+                app:scale_left="330"
+                app:scale_top="85"
+                app:scale_width="50" />
+
+            <!---->
+            <!--count-->
+            <!---->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/menu_exercise_setting"
+                android:textColor="#000"
+                app:scale_height="60"
+                app:scale_textsize="28"
+                app:scale_width="400" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/exercise_setting_count"
+                app:scale_height="60"
+                app:scale_textsize="16"
+                app:scale_top="150"
+                app:scale_width="80" />
+
+            <ImageView
+                android:id="@+id/procedure_help_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/btn_exercise_setting_info"
+                app:scale_height="60"
+                app:scale_left="95"
+                app:scale_top="150"
+                app:scale_width="24" />
+
+            <ImageView
+                android:id="@+id/procedure_down_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_control_down_small"
+                android:src="@drawable/ic_baseline_expand_more_48px"
+                app:scale_height="50"
+                app:scale_left="200"
+                app:scale_top="155"
+                app:scale_width="50" />
+
+            <TextView
+                android:id="@+id/procedure_tv_count"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="15"
+                android:textSize="24dp"
+                app:scale_height="50"
+                app:scale_left="265"
+                app:scale_textsize="24"
+                app:scale_top="155"
+                app:scale_width="50" />
+
+            <ImageView
+                android:id="@+id/procedure_up_count"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_control_up_small"
+                android:src="@drawable/ic_baseline_expand_less_48px"
+                app:scale_height="50"
+                app:scale_left="330"
+                app:scale_top="155"
+                app:scale_width="50" />
+            <!---->
+            <!--set-->
+            <!---->
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/exercise_setting_set"
+                app:scale_height="60"
+                app:scale_textsize="16"
+                app:scale_top="220"
+                app:scale_width="80" />
+
+            <ImageView
+                android:id="@+id/procedure_help_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/btn_exercise_setting_info"
+                app:scale_height="60"
+                app:scale_left="95"
+                app:scale_top="220"
+                app:scale_width="24" />
+
+            <ImageView
+                android:id="@+id/procedure_down_set"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_control_down_small"
+                android:src="@drawable/ic_baseline_expand_more_48px"
+                app:scale_height="50"
+                app:scale_left="200"
+                app:scale_top="225"
+                app:scale_width="50" />
+
+            <TextView
+                android:id="@+id/procedure_tv_set"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="15"
+                android:textSize="24dp"
+                app:scale_height="50"
+                app:scale_left="265"
+                app:scale_textsize="24"
+                app:scale_top="225"
+                app:scale_width="50" />
+
+            <ImageView
+                android:id="@+id/procedure_up_set"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_control_up_small"
+                android:src="@drawable/ic_baseline_expand_less_48px"
+                app:scale_height="50"
+                app:scale_left="330"
+                app:scale_top="225"
+                app:scale_width="50" />
+
+            <!---->
+            <!--stop time-->
+            <!---->
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/exercise_setting_stop"
+                app:scale_height="60"
+                app:scale_textsize="16"
+                app:scale_top="290"
+                app:scale_width="80" />
+
+            <ImageView
+                android:id="@+id/procedure_help_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/btn_exercise_setting_info"
+                app:scale_height="60"
+                app:scale_left="95"
+                app:scale_top="290"
+                app:scale_width="24" />
+
+            <ImageView
+                android:id="@+id/procedure_down_stop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_control_down_small"
+                android:src="@drawable/ic_baseline_expand_more_48px"
+                app:scale_height="50"
+                app:scale_left="200"
+                app:scale_top="295"
+                app:scale_width="50" />
+
+            <TextView
+                android:id="@+id/procedure_tv_stop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="15"
+                android:textSize="24dp"
+                app:scale_height="50"
+                app:scale_left="265"
+                app:scale_textsize="24"
+                app:scale_top="295"
+                app:scale_width="50" />
+
+            <ImageView
+                android:id="@+id/procedure_up_stop"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_control_up_small"
+                android:src="@drawable/ic_baseline_expand_less_48px"
+                app:scale_height="50"
+                app:scale_left="330"
+                app:scale_top="295"
+                app:scale_width="50" />
+
+
+            <!---->
+            <!--break time-->
+            <!---->
+
+            <!--todo break time String-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/title_break_time"
+                app:scale_height="60"
+                app:scale_textsize="16"
+                app:scale_top="360"
+                app:scale_width="80" />
+
+            <ImageView
+                android:id="@+id/procedure_help_break"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/btn_exercise_setting_info"
+                app:scale_height="60"
+                app:scale_left="95"
+                app:scale_top="360"
+                app:scale_width="24" />
+
+            <ImageView
+                android:id="@+id/procedure_down_break"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_control_down_small"
+                android:src="@drawable/ic_baseline_expand_more_48px"
+                app:scale_height="50"
+                app:scale_left="200"
+                app:scale_top="365"
+                app:scale_width="50" />
+
+            <TextView
+                android:id="@+id/procedure_tv_break"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="15"
+                android:textSize="24dp"
+                app:scale_height="50"
+                app:scale_left="265"
+                app:scale_textsize="24"
+                app:scale_top="365"
+                app:scale_width="50" />
+
+            <ImageView
+                android:id="@+id/procedure_up_break"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_control_up_small"
+                android:src="@drawable/ic_baseline_expand_less_48px"
+                app:scale_height="50"
+                app:scale_left="330"
+                app:scale_top="365"
+                app:scale_width="50" />
+
+            <!---->
+            <!--range-->
+            <!---->
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/exercise_start_position"
+                app:scale_height="60"
+                app:scale_textsize="16"
+                app:scale_top="430"
+                app:scale_width="80" />
+
+            <ImageView
+                android:id="@+id/procedure_help_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/btn_exercise_setting_info"
+                app:scale_height="60"
+                app:scale_left="95"
+                app:scale_top="430"
+                app:scale_width="24" />
+            <Spinner
+                android:id="@+id/spn_exercise_setting_height_select"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:entries="@array/height_entry"
+                android:gravity="center"
+                app:scale_height="60"
+                app:scale_left="140"
+                app:scale_top="430"
+                app:scale_width="130" />
+            <TextView
+                app:scale_textsize="16"
+                app:scale_height="30"
+                app:scale_left="250"
+                app:scale_top="445"
+                app:scale_width="60"
+                android:id="@+id/tv_exercise_setting_angle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="40.5°" />
+            <View
+                android:background="#e4e4e4"
+                app:scale_textsize="16"
+                app:scale_height="20"
+                app:scale_left="310"
+                app:scale_top="450"
+                app:scale_width="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:gravity="center"
+                app:scale_textsize="16"
+                app:scale_height="30"
+                app:scale_left="310"
+                app:scale_top="445"
+                app:scale_width="90"
+                android:id="@+id/tv_exercise_setting_height"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="270.0mm" />
+
+            <!---->
+            <!--Voice Guide-->
+            <!---->
+
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/cn_gone1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/exercise_setting_voice_guide"
+                app:scale_height="60"
+                app:scale_textsize="16"
+                app:scale_top="360"
+                app:scale_width="80" />
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/procedure_help_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/btn_exercise_setting_info"
+                app:scale_height="60"
+                app:scale_left="95"
+                app:scale_top="360"
+                app:scale_width="24" />
+            <RadioButton
+                android:visibility="gone"
+                app:scale_textsize="16"
+                app:scale_height="60"
+                app:scale_left="140"
+                app:scale_top="360"
+                app:scale_width="100"
+                android:id="@+id/sound_man"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="@string/type_male" />
+
+            <RadioButton
+                android:visibility="gone"
+                app:scale_textsize="16"
+                app:scale_height="60"
+                app:scale_left="275"
+                app:scale_top="360"
+                app:scale_width="100"
+                android:id="@+id/sound_woman"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/type_female" />
+
+            <RadioButton
+                android:visibility="gone"
+                android:id="@+id/sound_child"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/type_child" />
+
+
+            <TextView
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/exercise_setting_strength"
+                app:scale_height="60"
+                app:scale_textsize="16"
+                app:scale_top="430"
+                app:scale_width="80" />
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/procedure_help_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/btn_exercise_setting_info"
+                app:scale_height="60"
+                app:scale_left="95"
+                app:scale_top="430"
+                app:scale_width="24" />
+            <RadioButton
+                android:visibility="gone"
+                app:scale_textsize="16"
+                app:scale_height="60"
+                app:scale_left="140"
+                app:scale_top="430"
+                app:scale_width="80"
+                android:id="@+id/exercise_strength_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="@string/exercise_strength_high" />
+
+            <RadioButton
+                android:visibility="gone"
+                app:scale_textsize="16"
+                app:scale_height="60"
+                app:scale_left="225"
+                app:scale_top="430"
+                app:scale_width="80"
+                android:id="@+id/exercise_strength_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/exercise_strength_mid" />
+
+            <RadioButton
+
+                app:scale_textsize="16"
+                app:scale_height="60"
+                app:scale_left="305"
+                app:scale_top="430"
+                app:scale_width="80"
+                android:visibility="gone"
+                android:id="@+id/exercise_strength_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/exercise_strength_low" />
+
+
+            <Button
+
+                android:textColor="#fff"
+                android:background="@drawable/button_background_enabled"
+                app:scale_textsize="15"
+                app:scale_height="40"
+                app:scale_left="150"
+                app:scale_top="500"
+                app:scale_width="100"
+                android:visibility="gone"
+                android:id="@+id/btn_exercise_strength_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="간단설정" />
+        </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    </ScrollView>
+
+
+
+
+
+    <!---->
+    <!--button-->
+    <!---->
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/button_background_colored"
+        android:text="@string/btn_start"
+        android:textColor="#fff" />
+
+
+</FrameLayout>

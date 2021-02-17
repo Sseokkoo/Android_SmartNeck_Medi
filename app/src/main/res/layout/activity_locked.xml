@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:weightSum="4">
+    <ImageView
+        android:paddingRight="40dp"
+        android:paddingLeft="40dp"
+        android:layout_weight="3"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/headup_back"
+        android:src="@drawable/logo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <ImageView
+        android:visibility="gone"
+        android:background="@drawable/button_background_enabled"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:src="@drawable/baseline_access_alarm_white_48"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+    <TextView
+        android:layout_marginBottom="50dp"
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/alarm_locked_time"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:text="알람"
+        android:textSize="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginBottom="50dp"
+        android:id="@+id/alarm_locked_move_activity"
+        android:layout_gravity="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="25dp"
+        android:background="@drawable/btn_back"
+        android:text="alarm_move_app"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

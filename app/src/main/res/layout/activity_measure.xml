@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background">
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        app:scale_base_height="80"
+        app:scale_base_width="400">
+        <TextView
+            app:scale_top="20"
+            app:scale_left="24"
+            app:scale_height="60"
+            app:scale_width="200"
+            app:scale_textsize="30"
+            android:textStyle="bold"
+            android:id="@+id/tv_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_measure"
+            android:textColor="#000000" />
+
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    <!-- Seat -->
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/scale_seat"
+        android:visibility="visible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        app:scale_base_height="650"
+        app:scale_base_width="400">
+
+
+
+        <View
+            android:background="@drawable/button_background_disabled"
+            app:scale_height="550"
+            app:scale_width="360"
+            app:scale_left="20"
+            app:scale_top="80"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            app:scale_height="40"
+            app:scale_left="20"
+            app:scale_top="100"
+            app:scale_textsize="20"
+            app:scale_width="360"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/measure_chair_height"
+            android:gravity="center" />
+        <TextView
+            app:scale_height="60"
+            app:scale_left="50"
+            app:scale_top="140"
+            app:scale_textsize="16"
+            app:scale_width="300"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="@string/measure_chair_message"
+            android:textSize="16sp" />
+
+        <ImageView
+            app:scale_height="280"
+            app:scale_left="60"
+            app:scale_top="200"
+            app:scale_textsize="16"
+            app:scale_width="280"
+            android:id="@+id/measure_seat_gif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="#f6f6f6" />
+        <TextView
+            android:gravity="center"
+            app:scale_height="70"
+            app:scale_left="150"
+            app:scale_top="500"
+            app:scale_textsize="50"
+            app:scale_width="100"
+            android:id="@+id/tv_seat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10"
+            android:textColor="@color/color_accent"
+            android:textStyle="bold" />
+
+        <ImageButton
+            app:scale_left="240"
+            app:scale_top="510"
+            android:id="@+id/btn_seat_up"
+            app:scale_width="50"
+            app:scale_height="50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_control_up_small"
+            android:scaleType="center" />
+
+
+
+
+
+        <ImageButton
+            app:scale_left="110"
+            app:scale_top="510"
+            app:scale_width="50"
+            app:scale_height="50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_seat_down"
+            android:background="@drawable/btn_control_down_small" />
+
+        <TextView
+            app:scale_textsize="16"
+            app:scale_left="125"
+            app:scale_top="570"
+            app:scale_width="150"
+            app:scale_height="30"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/measure_chair_height"
+            android:gravity="center" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+    <!-- Height -->
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/scale_height"
+        android:visibility="visible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        app:scale_base_height="650"
+        app:scale_base_width="400">
+
+
+
+        <View
+            android:background="@drawable/button_background_disabled"
+            app:scale_height="550"
+            app:scale_width="360"
+            app:scale_left="20"
+            app:scale_top="80"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            app:scale_height="40"
+            app:scale_left="20"
+            app:scale_top="100"
+            app:scale_textsize="20"
+            app:scale_width="360"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/measure_flexibility"
+            android:gravity="center" />
+        <TextView
+            app:scale_height="60"
+            app:scale_left="50"
+            app:scale_top="140"
+            app:scale_textsize="16"
+            app:scale_width="300"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="@string/measure_flexibility_message"
+            android:textSize="16sp" />
+
+        <ImageView
+            app:scale_height="280"
+            app:scale_left="60"
+            app:scale_top="200"
+            app:scale_textsize="16"
+            app:scale_width="280"
+            android:id="@+id/measure_height_gif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="#f6f6f6" />
+
+
+
+
+
+        <TextView
+            android:textColor="@color/color_accent"
+            android:textStyle="bold"
+            android:id="@+id/tv_height_max"
+            app:scale_height="70"
+            app:scale_left="50"
+            app:scale_top="500"
+            app:scale_textsize="40"
+            app:scale_width="150"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="0.0"
+            android:gravity="center" />
+        <TextView
+            android:textColor="@color/color_accent"
+            android:textStyle="bold"
+            android:id="@+id/tv_height"
+            app:scale_height="70"
+            app:scale_left="200"
+            app:scale_top="500"
+            app:scale_textsize="40"
+            app:scale_width="150"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="0.0"
+            android:gravity="center" />
+        <TextView
+            app:scale_textsize="16"
+            app:scale_left="50"
+            app:scale_top="570"
+            app:scale_width="150"
+            app:scale_height="50"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/measure_flexibility_max"
+            android:gravity="center|top" />
+        <TextView
+            app:scale_textsize="16"
+            app:scale_left="200"
+            app:scale_top="570"
+            app:scale_width="150"
+            app:scale_height="50"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/measure_flexibility_current"
+            android:gravity="center|top" />
+
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    <!-- Weight -->
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/scale_weight"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        app:scale_base_height="650"
+        app:scale_base_width="400">
+
+
+
+        <View
+            android:background="@drawable/button_background_disabled"
+            app:scale_height="550"
+            app:scale_width="360"
+            app:scale_left="20"
+            app:scale_top="80"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            app:scale_height="40"
+            app:scale_left="20"
+            app:scale_top="100"
+            app:scale_textsize="20"
+            app:scale_width="360"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/menu_weight"
+            android:gravity="center" />
+        <TextView
+            app:scale_height="60"
+            app:scale_left="50"
+            app:scale_top="140"
+            app:scale_textsize="16"
+            app:scale_width="300"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="@string/measure_muscle_message"
+            android:textSize="16sp" />
+
+        <ImageView
+            app:scale_height="280"
+            app:scale_left="60"
+            app:scale_top="200"
+            app:scale_textsize="16"
+            app:scale_width="280"
+            android:id="@+id/measure_weight_gif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="#f6f6f6" />
+
+
+
+
+
+        <TextView
+            android:textColor="@color/color_accent"
+            android:textStyle="bold"
+            android:id="@+id/tv_weight_max"
+            app:scale_height="70"
+            app:scale_left="75"
+            app:scale_top="500"
+            app:scale_textsize="30"
+            app:scale_width="100"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="00.0"
+            android:gravity="center" />
+        <TextView
+            android:textColor="@color/color_accent"
+            android:textStyle="bold"
+            android:id="@+id/tv_weight"
+            app:scale_height="70"
+            app:scale_left="225"
+            app:scale_top="500"
+            app:scale_textsize="30"
+            app:scale_width="100"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="00.0"
+            android:gravity="center" />
+        <TextView
+            app:scale_textsize="16"
+            app:scale_left="50"
+            app:scale_top="570"
+            app:scale_width="150"
+            app:scale_height="30"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/measure_max_weight"
+            android:gravity="center" />
+        <TextView
+            app:scale_textsize="16"
+            app:scale_left="200"
+            app:scale_top="570"
+            app:scale_width="150"
+            app:scale_height="30"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/measure_weight"
+            android:gravity="center" />
+        <ImageButton
+            app:scale_left="315"
+            app:scale_top="510"
+            app:scale_width="50"
+            app:scale_height="50"
+            android:id="@+id/btn_weight_up"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/btn_control_up_small" />
+
+
+        <ImageButton
+            app:scale_left="185"
+            app:scale_top="510"
+            app:scale_width="50"
+            app:scale_height="50"
+            android:id="@+id/btn_weight_down"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/btn_control_down_small" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+
+    <!-- 컨트롤 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom|center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="#bdbdbd"
+            android:text="@string/btn_close"
+            android:textColor="#fff"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/btn_prev"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="#bdbdbd"
+            android:text="@string/btn_previous"
+            android:textColor="#fff" />
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:text="@string/btn_next"
+            android:textColor="#fff" />
+
+        <Button
+            android:id="@+id/btn_procedure"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:text="@string/btn_complete"
+            android:textColor="#fff"
+            android:visibility="gone" />
+
+
+    </LinearLayout>
+
+</FrameLayout>

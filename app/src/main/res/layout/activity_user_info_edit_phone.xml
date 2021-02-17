@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserInfoEdit.EditPhoneActivity"
+    android:orientation="vertical">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/edit_phone_dismiss_btn"
+            android:paddingLeft="8dp"
+            android:paddingBottom="12dp"
+            android:paddingTop="12dp"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24px"
+            android:layout_width="50dp"
+            android:layout_height="match_parent" />
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="@string/user_info_edit_phone_title"
+            android:textColor="#cc1b17"
+            android:textSize="24dp" />
+    </LinearLayout>
+    <View
+        android:background="#cc1b17"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+
+    <TextView
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="16dp"
+        android:paddingLeft="20dp"
+        android:textColor="#000"
+        android:gravity="center_vertical"
+        android:text="@string/user_info_edit_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Spinner
+        android:id="@+id/edit_phone_country"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/edit_text_background"
+        android:entries="@array/country"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:gravity="center"
+            android:hint="000"
+            android:background="@drawable/edit_text_background"
+            android:layout_margin="20dp"
+            android:id="@+id/edt_phone_1"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </EditText>
+        <EditText
+            android:background="@drawable/edit_text_background"
+            android:maxLength="4"
+            android:inputType="phone"
+            android:imeOptions="actionNext"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:id="@+id/edt_phone_2"
+            android:layout_margin="20dp"
+            android:hint="0000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:background="@drawable/edit_text_background"
+            android:maxLength="4"
+            android:inputType="phone"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:id="@+id/edt_phone_3"
+            android:layout_margin="20dp"
+            android:hint="0000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:paddingLeft="20dp"
+        android:textColor="#000"
+        android:text="@string/user_info_edit_phone_pw"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:background="@drawable/edit_text_background"
+        android:inputType="textPassword"
+        android:id="@+id/edit_pw"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:hint="@string/user_info_edit_phone_pw_hint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:layout_gravity="bottom"
+            android:id="@+id/edit_btn_save"
+            android:textColor="#fff"
+            android:background="@color/color_grey"
+            android:text="@string/btn_complete"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

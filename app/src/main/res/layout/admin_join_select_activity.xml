@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ko.smartneck.medical.twofive.Member.JoinSelectActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:text="회원가입"
+            android:textColor="#000"
+            android:textSize="40dp" />
+
+        <ImageView
+            android:id="@+id/img_join_select_back_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24px" />
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#cc1b17" />
+
+
+    <TextView
+        android:layout_marginTop="48dp"
+        android:paddingBottom="30dp"
+        android:paddingTop="30dp"
+        android:gravity="center"
+        android:layout_marginRight="100dp"
+        android:layout_marginLeft="100dp"
+        android:textColor="#fff"
+        android:text="병원"
+        android:textSize="50dp"
+        android:background="@drawable/button_background_enabled"
+        android:id="@+id/tv_join_select_medical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_marginTop="48dp"
+        android:paddingBottom="30dp"
+        android:paddingTop="30dp"
+        android:gravity="center"
+        android:layout_marginRight="100dp"
+        android:layout_marginLeft="100dp"
+        android:textColor="#fff"
+        android:text="피트니스"
+        android:textSize="50dp"
+        android:background="@drawable/button_background_enabled"
+        android:id="@+id/tv_join_select_fitness"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

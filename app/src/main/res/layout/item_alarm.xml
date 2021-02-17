@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="horizontal">
+
+    <RadioButton
+        android:visibility="invisible"
+        android:layout_marginLeft="10dp"
+        android:gravity="center"
+        android:id="@+id/alarm_item_delete"
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        />
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:background="#00ffffff"
+        android:id="@+id/alarm_item_linear"
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_weight="4"
+        android:gravity="center"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp">
+
+
+        <TextView
+            android:id="@+id/alarm_item_daytime"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="bottom"
+            android:paddingBottom="7dp"
+            android:text="오전"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/alarm_item_time"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="2dp"
+            android:gravity="center"
+            android:text="06:00"
+            android:textSize="24dp" />
+        <FrameLayout
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/alarm_item_date"
+                android:gravity="center"
+                android:text="4월 1일(월)"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <LinearLayout
+                android:id="@+id/alarm_item_linear_week"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/alarm_item_sun"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="일"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/alarm_item_mon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="월"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/alarm_item_tue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="화"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/alarm_item_wed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="수"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/alarm_item_thu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="목"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/alarm_item_fri"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="금"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/alarm_item_sat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:text="토"
+                    android:textSize="14dp" />
+
+            </LinearLayout>
+        </FrameLayout>
+
+
+
+    </LinearLayout>
+
+
+    <Switch
+        android:layout_marginRight="10dp"
+        android:id="@+id/alarm_item_switch"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+         />
+</LinearLayout>

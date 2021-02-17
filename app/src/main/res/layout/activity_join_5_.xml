@@ -1,0 +1,119 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        app:scale_base_height="650"
+        app:scale_base_width="400">
+
+        <ImageView
+            android:id="@+id/join_5_previous"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24px"
+            app:scale_height="30"
+            app:scale_left="10"
+            app:scale_top="20"
+            app:scale_width="30" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/sign_up_phone"
+            android:textColor="#000"
+            app:scale_height="30"
+            app:scale_left="100"
+            app:scale_textsize="24"
+            app:scale_top="20"
+            app:scale_width="200" />
+<!--        <Spinner-->
+<!--            android:background="@drawable/edit_text_background"-->
+<!--            app:scale_width="340"-->
+<!--            app:scale_height="30"-->
+<!--            app:scale_top="100"-->
+<!--            app:scale_left="30"-->
+<!--            android:id="@+id/spn_country"-->
+<!--            android:entries="@array/country"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"/>-->
+        <EditText
+            android:inputType="phone"
+            android:imeOptions="actionNext"
+
+            android:maxLength="4"
+            android:gravity="center"
+            android:hint="000"
+            app:scale_textsize="14"
+            android:background="@drawable/edit_text_background"
+            app:scale_width="100"
+            app:scale_height="30"
+            app:scale_top="150"
+            app:scale_left="30"
+            android:id="@+id/join_5_edt_phone"
+            android:entries="@array/phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <EditText
+            android:background="@drawable/edit_text_background"
+            app:scale_width="100"
+            app:scale_height="30"
+            app:scale_top="150"
+            app:scale_left="150"
+            app:scale_textsize="14"
+            android:maxLength="4"
+            android:inputType="phone"
+            android:imeOptions="actionNext"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:id="@+id/join_5_edt"
+            android:hint="0000"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content" />
+        <EditText
+            android:background="@drawable/edit_text_background"
+            app:scale_width="100"
+            app:scale_height="30"
+            app:scale_top="150"
+            app:scale_left="270"
+            app:scale_textsize="14"
+            android:maxLength="4"
+            android:inputType="phone"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:id="@+id/join_5_edt2"
+            android:layout_margin="20dp"
+            android:hint="0000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+
+
+    <Button
+        android:layout_gravity="bottom"
+        android:id="@+id/join_5_next"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/color_grey"
+        android:text="@string/btn_next"
+        android:textColor="#fff" />
+
+</FrameLayout>
+
+
+
+
+

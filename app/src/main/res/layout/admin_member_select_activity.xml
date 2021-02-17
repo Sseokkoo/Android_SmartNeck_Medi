@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F6F6F6"
+    tools:context="com.ko.smartneck.medical.twofive.Member.MemberSelectActivity">
+
+    <FrameLayout
+        android:background="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textStyle="bold"
+            android:id="@+id/tv_member_select_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="12dp"
+            android:gravity="center"
+            android:text="title"
+            android:textColor="@color/color_title_text"
+            android:textSize="40dp" />
+        <ImageView
+            android:id="@+id/img_member_select_add"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="right"
+            android:src="@drawable/ic_baseline_person_add_24px"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tv_member_select_sign_out_btn"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:textColor="#484848"
+            android:layout_gravity="center|left"
+            android:text="@string/admin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </FrameLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorPrimary" />
+    <EditText
+        android:id="@+id/edt_member_select_search"
+        android:textSize="20dp"
+        android:hint="@string/member_search_hint"
+        android:layout_margin="20dp"
+        android:background="@drawable/edit_text_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_member_select_date_sort"
+            android:layout_weight="1"
+            android:text="@string/statistics_menu_exercise_colume_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btn_member_select_name_sort"
+            android:layout_weight="1"
+            android:text="@string/sign_up_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btn_member_select_gender_sort"
+            android:layout_weight="1"
+            android:text="@string/sign_up_gender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#F6F6F6"
+        android:id="@+id/recyclerview_member_select"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <ListView
+        android:visibility="gone"
+        android:dividerHeight="1dp"
+        android:divider="@color/color_edit_text_border"
+        android:id="@+id/listview_member_select"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

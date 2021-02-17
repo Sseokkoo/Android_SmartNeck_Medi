@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dp"
+    android:background="#fff"
+    android:layout_margin="20dp">
+
+    <TextView
+        android:layout_marginTop="30dp"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:text="@string/member_select_delete_message"
+        android:id="@+id/member_delete_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <View
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+        <View
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+        <TextView
+            android:id="@+id/member_delete_cancel"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="20dp"
+            android:text="@string/btn_close"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/member_delete_confirm"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="20dp"
+            android:text="@string/dialog_exercise_quit_ok"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</LinearLayout>

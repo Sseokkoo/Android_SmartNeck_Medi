@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="4"
+    android:orientation="vertical" >
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_gravity="center|top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:scale_base_width="400"
+        app:scale_base_height="650">
+        <ImageView
+            android:src="@drawable/logo"
+            android:id="@+id/img_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:scale_left="100"
+            app:scale_top="50"
+            app:scale_width="200"
+            app:scale_height="100" />
+
+        <EditText
+            android:paddingLeft="8dp"
+            android:background="@drawable/edit_text_background"
+            app:scale_textsize="15"
+            app:scale_left="25"
+            app:scale_top="200"
+            app:scale_width="350"
+            app:scale_height="30"
+            android:id="@+id/et_member_id"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="@string/login_insert_id"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:privateImeOptions="defaultInputmode=english" />
+
+        <EditText
+            android:paddingLeft="8dp"
+            android:background="@drawable/edit_text_background"
+            app:scale_textsize="15"
+            app:scale_left="25"
+            app:scale_top="240"
+            app:scale_width="350"
+            app:scale_height="30"
+            android:layout_weight="1"
+            android:id="@+id/et_member_password"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="@string/login_insert_pw"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:privateImeOptions="defaultInputmode=english" />
+        <LinearLayout
+            app:scale_textsize="16"
+            app:scale_left="25"
+            app:scale_top="310"
+            app:scale_width="350"
+            app:scale_height="30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textStyle="bold"
+                android:paddingLeft="8sp"
+                android:gravity="center"
+                android:textColor="@color/colorPrimary"
+                android:id="@+id/tv_member_join"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/login_sign_up" />
+
+            <TextView
+                android:textStyle="bold"
+                android:layout_marginLeft="12sp"
+                android:gravity="center"
+                android:id="@+id/tv_member_account"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/find_account"
+                android:textColor="@color/colorPrimary" />
+            <TextView
+                android:textStyle="bold"
+                android:layout_marginLeft="12sp"
+                android:gravity="center"
+                android:id="@+id/tv_member_password"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:text="@string/find_password"
+                android:textColor="@color/colorPrimary" />
+            <TextView
+                android:textStyle="bold"
+                android:layout_marginLeft="12sp"
+                android:gravity="center"
+                android:id="@+id/tv_password_change"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:text="@string/user_info_edit_pw"
+                android:textColor="@color/colorPrimary" />
+        </LinearLayout>
+
+        <CheckBox
+            app:scale_textsize="16"
+            app:scale_left="25"
+            app:scale_top="280"
+            app:scale_width="180"
+            app:scale_height="30"
+            android:id="@+id/cb_auto_login"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:checked="true"
+            android:text="@string/login_auto_login" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+
+
+
+
+
+    <LinearLayout
+        android:layout_gravity="bottom"
+        android:layout_weight="3"
+        android:gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+
+            android:textColor="#fff"
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#BDBDBD"
+            android:text="@string/login_login" />
+
+    </LinearLayout>
+
+</FrameLayout>

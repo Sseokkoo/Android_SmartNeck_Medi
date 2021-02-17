@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fff">
+    <TextView
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:textColor="@color/color_title_text"
+        android:layout_marginTop="16dp"
+        android:paddingLeft="16dp"
+        android:text="ID"
+        android:id="@+id/review_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:textSize="14dp"
+        android:layout_marginTop="16dp"
+        android:paddingLeft="16dp"
+        android:text="Date"
+        android:id="@+id/review_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:textSize="16dp"
+        android:textColor="@color/color_content_text"
+        android:layout_marginTop="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="Contents"
+        android:id="@+id/review_contents"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

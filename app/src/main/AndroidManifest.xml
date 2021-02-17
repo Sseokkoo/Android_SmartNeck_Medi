@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.ko.smartneck.medical.twofive">
+<!--   태블릿 전용   -->
+    <supports-screens android:smallScreens="false"
+        android:normalScreens="false"
+        android:largeScreens="true"
+        android:xlargeScreens="true"/>
+    <!-- 블루투스 허용 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 블루투스 BLE 전용 -->
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" /> <!-- 인터넷 허용 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 꺼짐 방지 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- 바탕화면 아이콘 생성 -->
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 기타 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+
+        android:name=".GlobalApplication"
+        android:allowBackup="true"
+        android:hardwareAccelerated="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning">
+
+        <activity android:name=".Management.MeasureManagementActivity"
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".Main.AfterMeasureActivity"
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".YouTube.ProtocolTestActivity"></activity>
+        <activity android:name=".Main.BleConnectActivity"
+            android:theme="@style/AppTheme"/>
+        <activity
+            android:name=".Member.MemberAddActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Member.MemberSelectActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Member.JoinSelectActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".FindPasswordActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".FindAccountActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".YouTube.HowToExerciseActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".YouTube.SubExerciseActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".CustomerSupport.Controller.Customer1To1Activity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".CustomerSupport.Controller.Customer1To1ListActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".CustomerSupport.Controller.CustomerFAQActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".CustomerSupport.Controller.Customer1To1InsertActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".CustomerSupport.Controller.CustomerSupportListActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Notice.NoticeActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Notice.NoticeListActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ErrorReport.ErrorReportActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Review.ReviewActivity"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".UserInfoEdit.EditPasswordActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".UserInfoEdit.UserInfoEditListActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".UserInfoEdit.EditPhoneActivity"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".WebViewActivity"
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".Member.AdminPasswordChangeActivity"
+            android:theme="@style/AppTheme"/>
+
+        <activity
+            android:name=".AppVersionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" /> <!-- <activity -->
+        <!-- android:name=".Member.Join_7_Activity" -->
+        <!-- android:screenOrientation="portrait" -->
+        <!-- android:theme="@style/AppTheme.NoActionBar" /> -->
+        <!-- <activity -->
+        <!-- android:name=".Member.Join_6_Activity" -->
+        <!-- android:screenOrientation="portrait" -->
+        <!-- android:theme="@style/AppTheme.NoActionBar" /> -->
+        <!-- <activity -->
+        <!-- android:name=".Member.Join_5_Activity" -->
+        <!-- android:screenOrientation="portrait" -->
+        <!-- android:theme="@style/AppTheme.NoActionBar" /> -->
+        <!-- <activity -->
+        <!-- android:name=".Member.Join_4_Activity" -->
+        <!-- android:screenOrientation="portrait" -->
+        <!-- android:theme="@style/AppTheme.NoActionBar" /> -->
+        <!-- <activity -->
+        <!-- android:name=".Member.Join_3_Activity" -->
+        <!-- android:screenOrientation="portrait" -->
+        <!-- android:theme="@style/AppTheme.NoActionBar" /> -->
+        <!-- <activity -->
+        <!-- android:name=".Member.Join_2_Activity" -->
+        <!-- android:screenOrientation="portrait" -->
+        <!-- android:theme="@style/AppTheme.NoActionBar" /> -->
+        <!-- <activity -->
+        <!-- android:name=".Member.Join_1_Activity" -->
+        <!-- android:screenOrientation="portrait" -->
+        <!-- android:theme="@style/AppTheme.NoActionBar" /> -->
+        <activity
+            android:name=".IntroActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Main.MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Member.LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".MeasureActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" /> <!-- 알람 -->
+        <activity
+            android:name=".tmp.Alarm.AlarmActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".tmp.Alarm.AlarmAddActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".tmp.Alarm.AlarmLockedActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Chart.ChartActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Member.JoinActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+
+        <service android:name=".tmp.Alarm.AlarmService" />
+
+        <receiver android:name=".tmp.Alarm.AlarmReceiver" />
+    </application>
+
+</manifest>
