@@ -51,7 +51,8 @@ public class HeightFragment extends Fragment {
     float tmpMaxDistance;
     int height;
     int heightMax;
-    float anglePerMillimeter = 3.6666667f;
+//    float anglePerMillimeter = 3.6666667f; 수정 1
+    float anglePerMillimeter =  1f;
     public static boolean isHeight = true;
     Handler handler;
     Context mContext;
@@ -64,9 +65,9 @@ public class HeightFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         if (Constants.DEVICE_TYPE.equals("FIT")){
-            anglePerMillimeter = 3f;
+//            anglePerMillimeter = 3f; 수정2
         }else if (Constants.DEVICE_TYPE.equals("MED")){
-            anglePerMillimeter = 3.6666667f;
+//            anglePerMillimeter = 3.6666667f; 수정3
         }
 
         view = (ViewGroup) inflater.inflate(R.layout.fragment_height, container, false);
@@ -242,9 +243,12 @@ public class HeightFragment extends Fragment {
                         tmpDistance += anglePerMillimeter;
                     }
 //                        tmpDistance *= 0.1;
+
                     if (Constants.language.equals("en")) {
-                        tmpDistance = tmpDistance / Constants.INCHES;
+//                        tmpDistance = tmpDistance / Constants.INCHES;//수정 4
+                        tmpDistance = tmpDistance;
                     }
+
                     if (height > heightMax) {
                         heightMax = height;
                         preset.setMaxHeight(height);

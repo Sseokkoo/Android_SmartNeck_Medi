@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/smartneck.android_3.4.1_med.iml" filepath="$PROJECT_DIR$/.idea/modules/smartneck.android_3.4.1_med.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/smartneck.android_3.4.1_med.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/smartneck.android_3.4.1_med.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/youtube/smartneck.android_3.4.1_med.youtube.iml" filepath="$PROJECT_DIR$/.idea/modules/youtube/smartneck.android_3.4.1_med.youtube.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Android_smartneck_med.iml" filepath="$PROJECT_DIR$/.idea/modules/Android_smartneck_med.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Android_smartneck_med.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Android_smartneck_med.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/youtube/Android_smartneck_med.youtube.iml" filepath="$PROJECT_DIR$/.idea/modules/youtube/Android_smartneck_med.youtube.iml" />
     </modules>
   </component>
 </project>

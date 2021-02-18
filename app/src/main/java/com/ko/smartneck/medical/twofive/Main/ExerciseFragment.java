@@ -701,8 +701,8 @@ public class ExerciseFragment extends Fragment {
         setEnable(false);
 
         String angleSign = "°";
-        String lengthSign_ko = "mm";
-        String lengthSign_en = "inch";
+        String lengthSign_ko = "˚";
+        String lengthSign_en = "˚";
         float height = preset.getMaxHeight();
         float angle = height * 1.1666667f;
         String heightStr = "";
@@ -715,7 +715,7 @@ public class ExerciseFragment extends Fragment {
 
         } else if (Constants.language.equals("en")) {
 
-            height *= angleLength / Constants.INCHES;
+            height *= angleLength;
             height *= preset.getHeightSetting();
             heightStr = String.format("%.1f", height) + lengthSign_en;
 
@@ -728,7 +728,7 @@ public class ExerciseFragment extends Fragment {
 //        double weight_fit = Preset.MaxWeight * 0.1;
 //
 //        tv_weight_max.setText(String.format("%.1f", weight_fit));
-        tv_weight_max.setText(angleStr + " | " + heightStr);
+        tv_weight_max.setText(angleStr);
 
         tv_count_total.setText(String.valueOf(preset.getCount()));
         tv_set_total.setText(String.valueOf(preset.getSet()));

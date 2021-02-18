@@ -45,8 +45,8 @@
     <string name="measure_flexibility">Pliability measure</string>
     <string name="measure_flexibility_message">Please follow the picture instructions and bend your neck backwards 3 to 5 times.</string>
     <string name="measure_muscle_message">Please follow the instruction audio to bend your neck backwards 3 to 5 times.</string>
-    <string name="measure_flexibility_max">Highest pliability\n(inch)</string>
-    <string name="measure_flexibility_current">Pliability\n(inch)</string>
+    <string name="measure_flexibility_max">Highest pliability(°)</string>
+    <string name="measure_flexibility_current">Pliability(°)</string>
     <string name="measure_max_weight">Weight(lb)</string>
     <string name="measure_weight_title">Muscular strength measure</string>
     <string name="measure_weight">Weight(level)</string>

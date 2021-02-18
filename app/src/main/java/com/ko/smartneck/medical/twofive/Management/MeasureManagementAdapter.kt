@@ -44,7 +44,7 @@ class MeasureManagementAdapter(var measureMents: MutableList<MeasurementFull>, v
         holder!!.tv_idx!!.text = (position+1).toString()
         holder!!.tv_name!!.text = measureMents[position].name
         holder!!.tv_weight!!.text = "${(measureMents[position].weight.toString().toFloat() / 10)}kg"
-        holder!!.tv_height!!.text = measureMents[position].height.toString() + "mm"
+        holder!!.tv_height!!.text = measureMents[position].height.toString() + "°"
         holder!!.tv_date!!.text = measureMents[position].date
         return view
     }

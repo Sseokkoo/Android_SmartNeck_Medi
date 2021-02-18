@@ -200,6 +200,7 @@ public class HomeFragment extends Fragment {
                     public void run() {
                         if (preset.getMaxWeight() == 0 || preset.getMaxHeight() == 0){
                             btn_exercise.setText(MainActivity.mContext.getString(R.string.btn_measure));
+
                         }else{
                             btn_exercise.setText(MainActivity.mContext.getString(R.string.btn_start));
                         }

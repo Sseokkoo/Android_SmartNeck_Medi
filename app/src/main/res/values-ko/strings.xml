@@ -18,10 +18,10 @@
 	<!-- Menu -->
 	<string name="menu_chair">의자</string>
 	<string name="menu_weight">웨이트</string>
-	<string name="menu_setting">설정</string>
+	<string name="menu_setting">운동설정</string>
 	<string name="menu_report">에러신고</string>
 	<string name="menu_age">목 근육 나이</string>
-	<string name="menu_flexibility">운동범위</string>
+	<string name="menu_flexibility">유연성</string>
 	<string name="menu_statistics">통계</string>
 	<string name="menu_logout">로그아웃</string>
 	<string name="menu_management">관리내용</string>
@@ -31,8 +31,8 @@
 	<string name="menu_user_info">개인정보</string>
 	<string name="menu_device_info">제품정보</string>
 	<string name="menu_start">시작</string>
-	<string name="menu_exercise_setting">설정</string>
-	<string name="menu_exercise_setting2">설정</string>
+	<string name="menu_exercise_setting">운동설정</string>
+	<string name="menu_exercise_setting2">운동설정</string>
 
 	<string name="menu_how_to_exercise">환자선택</string>
 	<string name="menu_sub_exercise">보조운동</string>
@@ -44,8 +44,11 @@
 	<string name="measure_flexibility">운동범위</string>
 	<string name="measure_flexibility_message">사진을 보고 목을 3회에서 5회 최대한 젖혀주세요.</string>
 	<string name="measure_muscle_message">안내음성에 따라 목을 3회에서 5회 뒤로 젖혀주세요.</string>
-	<string name="measure_flexibility_max">최고 유연성(mm)</string>
-	<string name="measure_flexibility_current">유연성(mm)</string>
+<!--	string 수정1-->
+	<string name="measure_flexibility_max">최고 유연성(°)</string>
+	<string name="measure_flexibility_current">유연성(°)</string>
+<!--	-->
+
 	<string name="measure_max_weight">무게(kg)</string>
 	<string name="measure_weight_title">근력측정</string>
 	<string name="measure_weight">웨이트(level)</string>
@@ -240,7 +243,7 @@
 	<string name="toast_please_measure">측정 후 이용해주세요.</string>
 	<string name="dialog_exercise_point">운동범위는 유연성 측정에서 목이 이동하는 최대 값을 말한다.\n컨디션이나 운동의 목표에 따라 설정 값을 달리 할 수 있다.\n선택하지 않으면 유연성의 80%까지로 설정되어 있으며, 사용자가 조절 할 수 있다.</string>
 	<string name="exercise_start_position">운동범위</string>
-	<string name="chart_length">(mm)</string>
+	<string name="chart_length">(˚)</string>
 	<string name="chart_weight">(kg)</string>
 	<string name="toast_weight_control">무게 조절중입니다.</string>
 	<string name="toast_chair_control">의자높이 조절중입니다.</string>

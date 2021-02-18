@@ -61,12 +61,12 @@ class MeasureManagementActivity : AppCompatActivity() {
         edt_month_end.setText(split[1])
         edt_day_end.setText(split[2])
 
-       anglePerMillimeter =  if (Constants.DEVICE_TYPE.equals("MED")){
-           3.6666667f
-
-       }else{
-            3f
-       }
+       anglePerMillimeter = 1f
+//               if (Constants.DEVICE_TYPE.equals("MED")){ 수정8
+//           3.6666667f
+//       }else{
+//            3f
+//       }
     }
 
     private fun initListener() {

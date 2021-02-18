@@ -48,7 +48,7 @@ public class Constants {
 
 
     public final static float POUND = 2.205f;
-    public final static float INCHES = 25.4f;
+//    public final static float INCHES = 25.4f;
 
     public static ArrayList<Age> ageArrayListMale;
     public static ArrayList<Age> ageArrayListFemale;

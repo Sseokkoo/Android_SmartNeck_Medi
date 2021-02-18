@@ -24,7 +24,7 @@ public class pastPreset implements Serializable {
     public static int MaxWeight;
     public static int MaxHeight;
     public static String soundType;
-    public static float userHeightSetting = 0.8f;
+    public static float userHeightSetting = 1f;
     public static String DEVICE_NAME;
     public static int breakTime;
     public static boolean isBreakTime = false;

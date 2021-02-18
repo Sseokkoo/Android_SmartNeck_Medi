@@ -372,7 +372,7 @@
                 app:scale_top="430"
                 app:scale_width="130" />
             <TextView
-                app:scale_textsize="16"
+                app:scale_textsize="18"
                 app:scale_height="30"
                 app:scale_left="250"
                 app:scale_top="445"
@@ -383,15 +383,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="40.5°" />
-            <View
-                android:background="#e4e4e4"
-                app:scale_textsize="16"
-                app:scale_height="20"
-                app:scale_left="310"
-                app:scale_top="450"
-                app:scale_width="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+
             <TextView
                 android:gravity="center"
                 app:scale_textsize="16"
@@ -402,7 +394,7 @@
                 android:id="@+id/tv_exercise_setting_height"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="270.0mm" />
+                android:text="90˚" />
 
             <!---->
             <!--Voice Guide-->

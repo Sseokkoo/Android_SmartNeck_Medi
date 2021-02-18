@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ko.smartneck.medical.twofive.R;
+import com.ko.smartneck.medical.twofive.util.Commend;
 import com.ko.smartneck.medical.twofive.util.Constants;
 import com.ko.smartneck.medical.twofive.util.NoticeDialog;
 
@@ -25,6 +26,9 @@ import static com.ko.smartneck.medical.twofive.GlobalApplication.userPreference;
 import static com.ko.smartneck.medical.twofive.Main.BleConnectActivity.tabPos;
 import static com.ko.smartneck.medical.twofive.Main.MainActivity.audioStop;
 import static com.ko.smartneck.medical.twofive.Main.MainActivity.preset;
+import static com.ko.smartneck.medical.twofive.Main.WeightSettingFragment.currentWeight;
+import static com.ko.smartneck.medical.twofive.MeasureActivity.CFG_HEIGHT;
+import static com.ko.smartneck.medical.twofive.MeasureActivity.CFG_WEIGHT_MAX;
 import static com.ko.smartneck.medical.twofive.util.Constants.TAG;
 
 public class ProcedureFragment extends Fragment {
@@ -48,21 +52,22 @@ public class ProcedureFragment extends Fragment {
 
     NoticeDialog noticeDialog;
 
-    public static float angleLength = 3.6666667f;
+    public static float angleLength = 1f;
     String angleSign = "°";
-    String lengthSign_ko = "mm";
-    String lengthSign_en = "inch";
+    String lengthSign_ko = "˚"; //수정6
+//    String lengthSign_en = "inch"; 수정6
+    String lengthSign_en = "˚";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = (ViewGroup) inflater.inflate(R.layout.fragment_procedure, container, false);
         mContext = getApllication();
         ((MainActivity) getActivity()).bottomNavigationView.setVisibility(View.VISIBLE);
-        if (Constants.DEVICE_TYPE.equals("FIT")){
-            angleLength = 3f;
-        }else if (Constants.DEVICE_TYPE.equals("MED")){
-            angleLength = 3.6666667f;
-        }
+//        if (Constants.DEVICE_TYPE.equals("FIT")){ 수정7
+//            angleLength = 1f;
+//        }else if (Constants.DEVICE_TYPE.equals("MED")){
+//            angleLength = 1f;
+//        }
         init();
 
 
@@ -339,6 +344,7 @@ public class ProcedureFragment extends Fragment {
                 } else {
                     preset.setSetup(preset.getSetup() + 5);
                     tv_weight.setText(String.valueOf(((double) preset.getSetup()) * 0.1));
+                    BleConnectActivity.setMessage(new Commend().sendWeightMove((byte) preset.getSetup()));
                 }
             }
         });
@@ -350,8 +356,10 @@ public class ProcedureFragment extends Fragment {
                     Toast.makeText(mContext, getString(R.string.toast_max), Toast.LENGTH_SHORT).show();
                     return;
                 } else {
+
                     preset.setSetup(preset.getSetup() - 5);
                     tv_weight.setText(String.valueOf(((double) preset.getSetup()) * 0.1));
+                    BleConnectActivity.setMessage(new Commend().sendWeightMove((byte) preset.getSetup()));
                 }
             }
         });
@@ -467,7 +475,8 @@ public class ProcedureFragment extends Fragment {
         preset.setHeightSelected(selected);
 
         float height = preset.getMaxHeight();
-        float angle = height * 1.1666667f;
+//        float angle = height * 1.1666667f;
+        float angle = height * 1f;
         String heightStr = "";
         String angleStr = "";
 
@@ -478,16 +487,16 @@ public class ProcedureFragment extends Fragment {
 
                 if (Constants.language.equals("en")) {
 
-                    height *= angleLength / Constants.INCHES;
+                    height *= angleLength;
                     height *= 0.4;
-                    heightStr = String.format("%.1f", height) + lengthSign_en;
+//                    heightStr = String.format("%.1f", height) + lengthSign_en; 수정6
 
                 }else {
 
                 height *= angleLength;
                 height *= 0.4;
 
-                heightStr = String.format("%.1f", height) + lengthSign_ko;
+//                heightStr = String.format("%.1f", height) + lengthSign_ko; 수정6
 
             }
 
@@ -501,15 +510,16 @@ public class ProcedureFragment extends Fragment {
 
                 if (Constants.language.equals("en")) {
 
-                    height *= angleLength / Constants.INCHES;
+//                    height *= angleLength / Constants.INCHES; //수정11
+                    height *= angleLength;
                     height *= 0.45;
-                    heightStr = String.format("%.1f", height) + lengthSign_en;
+//                    heightStr = String.format("%.1f", height) + lengthSign_en; 수정6
 
                 }else {
 
                 height *= angleLength;
                 height *= 0.45;
-                heightStr = String.format("%.1f", height) + lengthSign_ko;
+//                heightStr = String.format("%.1f", height) + lengthSign_ko; 수정6
 
             }
 
@@ -524,16 +534,15 @@ public class ProcedureFragment extends Fragment {
 
                 if (Constants.language.equals("en")) {
 
-                    height *= angleLength / Constants.INCHES;
+//                    height *= angleLength / Constants.INCHES; //수정11
+                    height *= angleLength;
                     height *= 0.5;
-                    heightStr = String.format("%.1f", height) + lengthSign_en;
-
+//                    heightStr = String.format("%.1f", height) + lengthSign_en; 수정6
                 }else {
 
                 height *= angleLength;
                 height *= 0.5;
-                heightStr = String.format("%.1f", height) + lengthSign_ko;
-
+//                heightStr = String.format("%.1f", height) + lengthSign_ko; 수정6
             }
 
                 angle *= 0.5;
@@ -545,15 +554,15 @@ public class ProcedureFragment extends Fragment {
 
                 if (Constants.language.equals("en")) {
 
-                    height *= angleLength / Constants.INCHES;
+//                    height *= angleLength / Constants.INCHES; //수정11
+                    height *= angleLength;
                     height *= 0.55;
-                    heightStr = String.format("%.1f", height) + lengthSign_en;
-
+//                    heightStr = String.format("%.1f", height) + lengthSign_en; 수정6
                 } else {
 
                     height *= angleLength;
                     height *= 0.55;
-                    heightStr = String.format("%.1f", height) + lengthSign_ko;
+//                    heightStr = String.format("%.1f", height) + lengthSign_ko; 수정6
 
                 }
 
@@ -566,15 +575,16 @@ public class ProcedureFragment extends Fragment {
 
                 if (Constants.language.equals("en")) {
 
-                    height *= angleLength / Constants.INCHES;
+//                    height *= angleLength / Constants.INCHES; //수정11
+                    height *= angleLength;
                     height *= 0.6;
-                    heightStr = String.format("%.1f", height) + lengthSign_en;
+//                    heightStr = String.format("%.1f", height) + lengthSign_en; 수정6
 
                 } else {
 
                     height *= angleLength;
                     height *= 0.6;
-                    heightStr = String.format("%.1f", height) + lengthSign_ko;
+//                    heightStr = String.format("%.1f", height) + lengthSign_ko; 수정6
 
                 }
 
@@ -587,15 +597,16 @@ public class ProcedureFragment extends Fragment {
 
                 if (Constants.language.equals("en")) {
 
-                    height *= angleLength / Constants.INCHES;
+//                    height *= angleLength / Constants.INCHES; //수정11
+                    height *= angleLength;
                     height *= 0.65;
-                    heightStr = String.format("%.1f", height) + lengthSign_en;
+//                    heightStr = String.format("%.1f", height) + lengthSign_en; 수정6
 
                 } else {
 
                     height *= angleLength;
                     height *= 0.65;
-                    heightStr = String.format("%.1f", height) + lengthSign_ko;
+//                    heightStr = String.format("%.1f", height) + lengthSign_ko; 수장6
 
                 }
 
@@ -608,15 +619,16 @@ public class ProcedureFragment extends Fragment {
 
                 if (Constants.language.equals("en")) {
 
-                    height *= angleLength / Constants.INCHES;
+//                    height *= angleLength / Constants.INCHES; //수정11
+                    height *= angleLength;
                     height *= 0.7;
-                    heightStr = String.format("%.1f", height) + lengthSign_en;
+//                    heightStr = String.format("%.1f", height) + lengthSign_en; 수정6
 
                 } else {
 
                     height *= angleLength;
                     height *= 0.7;
-                    heightStr = String.format("%.1f", height) + lengthSign_ko;
+//                    heightStr = String.format("%.1f", height) + lengthSign_ko; 수정6
 
                 }
 
@@ -629,15 +641,17 @@ public class ProcedureFragment extends Fragment {
 
                 if (Constants.language.equals("en")) {
 
-                    height *= angleLength / Constants.INCHES;
+//                    height *= angleLength / Constants.INCHES; 수정11
+                    height *= angleLength;
                     height *= 0.75;
-                    heightStr = String.format("%.1f", height) + lengthSign_en;
+
+//                    heightStr = String.format("%.1f", height) + lengthSign_en; 수정6
 
                 } else {
 
                     height *= angleLength;
                     height *= 0.75;
-                    heightStr = String.format("%.1f", height) + lengthSign_ko;
+//                    heightStr = String.format("%.1f", height) + lengthSign_ko; 수정6
 
                 }
 
@@ -649,15 +663,16 @@ public class ProcedureFragment extends Fragment {
 
                 if (Constants.language.equals("en")) {
 
-                    height *= angleLength / Constants.INCHES;
+//                    height *= angleLength / Constants.INCHES; 수정11
+                    height *= angleLength;
                     height *= 0.8;
-                    heightStr = String.format("%.1f", height) + lengthSign_en;
+//                    heightStr = String.format("%.1f", height) + lengthSign_en; 수정6
 
                 } else {
 
                     height *= angleLength;
                     height *= 0.8;
-                    heightStr = String.format("%.1f", height) + lengthSign_ko;
+//                    heightStr = String.format("%.1f", height) + lengthSign_ko; 수정6
 
                 }
 
@@ -669,15 +684,16 @@ public class ProcedureFragment extends Fragment {
 
                 if (Constants.language.equals("en")) {
 
-                    height *= angleLength / Constants.INCHES;
+//                    height *= angleLength / Constants.INCHES; 수정11
+                    height *= angleLength;
                     height *= 0.85;
-                    heightStr = String.format("%.1f", height) + lengthSign_en;
+//                    heightStr = String.format("%.1f", height) + lengthSign_en; 수정6
 
                 } else {
 
                     height *= angleLength;
                     height *= 0.85;
-                    heightStr = String.format("%.1f", height) + lengthSign_ko;
+//                    heightStr = String.format("%.1f", height) + lengthSign_ko; 수정6
 
                 }
 
@@ -689,15 +705,16 @@ public class ProcedureFragment extends Fragment {
 
                 if (Constants.language.equals("en")) {
 
-                    height *= angleLength / Constants.INCHES;
+//                    height *= angleLength / Constants.INCHES; 수정11
+                    height *= angleLength;
                     height *= 0.9;
-                    heightStr = String.format("%.1f", height) + lengthSign_en;
+//                    heightStr = String.format("%.1f", height) + lengthSign_en; 수정6
 
                 } else {
 
                     height *= 3;
                     height *= 0.9;
-                    heightStr = String.format("%.1f", height) + lengthSign_ko;
+//                    heightStr = String.format("%.1f", height) + lengthSign_ko; 수정6
 
                 }
 
@@ -709,15 +726,16 @@ public class ProcedureFragment extends Fragment {
 
                 if (Constants.language.equals("en")) {
 
-                    height *= angleLength / Constants.INCHES;
+//                    height *= angleLength / Constants.INCHES; 수정11
+                    height *= angleLength;
                     height *= 0.95;
-                    heightStr = String.format("%.1f", height) + lengthSign_en;
+//                    heightStr = String.format("%.1f", height) + lengthSign_en; 수정6
 
                 } else {
 
                     height *= angleLength;
                     height *= 0.95;
-                    heightStr = String.format("%.1f", height) + lengthSign_ko;
+//                    heightStr = String.format("%.1f", height) + lengthSign_ko; 수정6
 
                 }
 
@@ -729,15 +747,16 @@ public class ProcedureFragment extends Fragment {
 
                 if (Constants.language.equals("en")) {
 
-                    height *= angleLength / Constants.INCHES;
+//                    height *= angleLength / Constants.INCHES; 수정11
+                    height *= angleLength;
                     height *= 1;
-                    heightStr = String.format("%.1f", height) + lengthSign_en;
+//                    heightStr = String.format("%.1f", height) + lengthSign_en; 수정6
 
                 } else {
 
                     height *= angleLength;
                     height *= 1;
-                    heightStr = String.format("%.1f", height) + lengthSign_ko;
+//                    heightStr = String.format("%.1f", height) + lengthSign_ko; 수정6
 
                 }
 

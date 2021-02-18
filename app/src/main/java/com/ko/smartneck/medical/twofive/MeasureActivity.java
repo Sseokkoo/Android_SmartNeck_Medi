@@ -73,7 +73,8 @@ public class MeasureActivity extends AppCompatActivity {
     //거리변환
     float tmpDistance;
     float tmpMaxDistance;
-    float anglePerMillimeter = 3.6666667f;
+//    float anglePerMillimeter = 3.6666667f; 수정9
+    float anglePerMillimeter = 1f;
     public static int weightMoveCount;
     public static boolean isWeightMove = false;
 
@@ -97,11 +98,11 @@ public class MeasureActivity extends AppCompatActivity {
         handler = new Handler();
         isMeasure = true;
         currentWeight = 0;
-        if (Constants.DEVICE_TYPE.equals("FIT")){
-            anglePerMillimeter = 3f;
-        }else if (Constants.DEVICE_TYPE.equals("MED")){
-            anglePerMillimeter = 3.6666667f;
-        }
+//        if (Constants.DEVICE_TYPE.equals("FIT")){ 수정9
+//            anglePerMillimeter = 3f; 수정9
+//        }else if (Constants.DEVICE_TYPE.equals("MED")){
+//            anglePerMillimeter = 3.6666667f; 수정9
+//        }
 
         scale_seat = findViewById(R.id.scale_seat);
         scale_height = findViewById(R.id.scale_height);
@@ -530,7 +531,8 @@ public class MeasureActivity extends AppCompatActivity {
                             tmpDistance += anglePerMillimeter;
                         }
                         if (Constants.language.equals("en")) {
-                            tmpDistance = tmpDistance / Constants.INCHES;
+//                            tmpDistance = tmpDistance / Constants.INCHES; 수정11
+                            tmpDistance = tmpDistance;
                         }
                         if (CFG_HEIGHT[1] > CFG_HEIGHT_MAX[1]) {
                             CFG_HEIGHT_MAX[1] = CFG_HEIGHT[1];
@@ -625,7 +627,8 @@ public class MeasureActivity extends AppCompatActivity {
 
                                 if (CFG_DEVICE_MOVING == true) {
 
-                                    tv_weight.setText(String.valueOf(preset.getSetup() * 0.1));
+//                                    tv_weight.setText(String.valueOf(preset.getSetup() * 0.1)); 수정 5
+                                    tv_weight_max.setText(String.valueOf(preset.getSetup() * 0.1));
                                 } else {
                                     if (CFG_HEIGHT[1] > 0) {
                                         if (CFG_WEIGHT[1] >= 70) {

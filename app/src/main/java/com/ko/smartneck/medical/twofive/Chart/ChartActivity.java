@@ -268,17 +268,22 @@ public class ChartActivity extends DemoBase {
         if (type.equals("height")) {
             if (Constants.DEVICE_TYPE.equals("MED")) {
                 leftAxis.setLabelCount(12, true);
+//                leftAxis.setLabelCount(11, true); 수정10
 
 
-                leftAxis.setAxisMaximum(330);
+                leftAxis.setAxisMaximum(120);
+//                leftAxis.setAxisMaximum(330); 수정10
+
 //                leftAxis.mCenteredEntries = y;
 //                leftAxis.setValueFormatter();
 //                leftAxis.set
 //
 //                leftAxis.
             } else {
-                leftAxis.setAxisMaximum(270);
-                leftAxis.setLabelCount(8, false);
+                leftAxis.setAxisMaximum(90);
+//                leftAxis.setAxisMaximum(270); 수정10
+//                leftAxis.setLabelCount(9, false); 수정10
+                leftAxis.setLabelCount(9, false);
 
             }
         } else {
@@ -530,15 +535,16 @@ public class ChartActivity extends DemoBase {
 //    }
 
 
-    float anglePerMillimeter = 3.6666667f;
+//    float anglePerMillimeter = 3.6666667f; 수정10
+float anglePerMillimeter = 1f;
 
     private void setHeight() {
 
-        if (Constants.DEVICE_TYPE.equals("FIT")) {
-            anglePerMillimeter = 3f;
-        } else if (Constants.DEVICE_TYPE.equals("MED")) {
-            anglePerMillimeter = 3.6666667f;
-        }
+//        if (Constants.DEVICE_TYPE.equals("FIT")) { 수정10
+//            anglePerMillimeter = 3f;
+//        } else if (Constants.DEVICE_TYPE.equals("MED")) {
+//            anglePerMillimeter = 3.6666667f;
+//        }
 
         dateArray.clear();
         values.clear();
@@ -553,9 +559,9 @@ public class ChartActivity extends DemoBase {
             String date = heights.get(i).getDate().split("-")[1] + "/" + heights.get(i).getDate().split("-")[2].split(" ")[0];
             Log.d(TAG, "setHeight: " + date);
             float height = ((float) heights.get(i).getMaxHeight()) * anglePerMillimeter;
-            if (Constants.language.equals("en")) {
-                height /= Constants.INCHES;
-            }
+//            if (Constants.language.equals("en")) {
+//                height /= Constants.INCHES; 수정11
+//            }
             if (values.size() == 0) {
                 values.add(new BarEntry(idx, height));
                 dateArray.add(date);
