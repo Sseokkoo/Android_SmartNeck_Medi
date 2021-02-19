@@ -252,7 +252,7 @@
             android:textColor="#000000"
             android:textSize="24sp" />
         <TextView
-            android:id="@+id/tv_value_title"
+            android:id="@+id/tv_max_str"
             android:textColor="#000000"
             android:gravity="center"
             android:layout_weight="1"
@@ -261,6 +261,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <TextView
+            android:id="@+id/tv_max_ang"
             android:textColor="#000000"
             android:gravity="center"
             android:layout_weight="1"

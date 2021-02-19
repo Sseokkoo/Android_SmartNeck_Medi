@@ -176,13 +176,13 @@ public class BleConnectActivity extends AppCompatActivity {
 //            }
 //        });
 
-//        hidden.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext() , MeasureManagementActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        hidden.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext() , MeasureManagementActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

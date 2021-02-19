@@ -37,6 +37,9 @@ class MeasureManagementActivity : AppCompatActivity() {
     var isNameSort = false
     var isDateSort = false
 
+    var isStrSort = false //수정12
+    var isAngSort = false
+
     var selected = "height"
     lateinit var measureManagementAdapter: MeasureManagementAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -74,7 +77,7 @@ class MeasureManagementActivity : AppCompatActivity() {
         btn_back.setOnClickListener {
             finish()
         }
-
+//태그1
         check_all.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked){
                 lay_date_box.visibility = View.GONE
@@ -185,6 +188,30 @@ class MeasureManagementActivity : AppCompatActivity() {
             }else{
                 isDateSort = true
                 searchResults = ArrayList(searchResults.sortedBy { it.date })
+            }
+            measureManagementAdapter = MeasureManagementAdapter(searchResults, layoutInflater)
+            lv_measure_management.adapter = measureManagementAdapter
+        }
+        //수정12
+
+        tv_max_str.setOnClickListener {
+            if (isStrSort){
+                isStrSort = false
+                searchResults = ArrayList(searchResults.sortedByDescending { it.weight })
+            }else{
+                isStrSort = true
+                searchResults = ArrayList(searchResults.sortedBy { it.weight })
+            }
+            measureManagementAdapter = MeasureManagementAdapter(searchResults, layoutInflater)
+            lv_measure_management.adapter = measureManagementAdapter
+        }
+        tv_max_ang.setOnClickListener {
+            if (isAngSort){
+                isAngSort = false
+                searchResults = ArrayList(searchResults.sortedByDescending { it.height })
+            }else{
+                isAngSort = true
+                searchResults = ArrayList(searchResults.sortedBy { it.height })
             }
             measureManagementAdapter = MeasureManagementAdapter(searchResults, layoutInflater)
             lv_measure_management.adapter = measureManagementAdapter
