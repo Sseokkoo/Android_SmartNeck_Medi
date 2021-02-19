@@ -243,7 +243,7 @@
 	<string name="toast_please_measure">측정 후 이용해주세요.</string>
 	<string name="dialog_exercise_point">운동범위는 유연성 측정에서 목이 이동하는 최대 값을 말한다.\n컨디션이나 운동의 목표에 따라 설정 값을 달리 할 수 있다.\n선택하지 않으면 유연성의 80%까지로 설정되어 있으며, 사용자가 조절 할 수 있다.</string>
 	<string name="exercise_start_position">운동범위</string>
-	<string name="chart_length">(˚)</string>
+	<string name="chart_length">(Angle)</string>
 	<string name="chart_weight">(kg)</string>
 	<string name="toast_weight_control">무게 조절중입니다.</string>
 	<string name="toast_chair_control">의자높이 조절중입니다.</string>

@@ -267,7 +267,7 @@ public class ChartActivity extends DemoBase {
 
         if (type.equals("height")) {
             if (Constants.DEVICE_TYPE.equals("MED")) {
-                leftAxis.setLabelCount(12, true);
+                leftAxis.setLabelCount(13, true);
 //                leftAxis.setLabelCount(11, true); 수정10
 
 
@@ -287,8 +287,8 @@ public class ChartActivity extends DemoBase {
 
             }
         } else {
-            leftAxis.setAxisMaximum(11);
-            leftAxis.setLabelCount(8, false);
+            leftAxis.setAxisMaximum(15);
+            leftAxis.setLabelCount(15, false);
 
         }
 
@@ -572,12 +572,12 @@ float anglePerMillimeter = 1f;
                     values.add(new BarEntry(idx, height));
                     dateArray.add(date);
                     idx++;
-                } else {
-                    if (values.get(idx - 1).getY() < height) {
-                        values.set(idx - 1, new BarEntry(idx - 1, height));
-
-                    }
-
+//                } else { 수정12
+//                    if (values.get(idx - 1).getY() < height) {
+//                        values.set(idx - 1, new BarEntry(idx - 1, height));
+//
+//                    }
+//
                 }
             }
 
