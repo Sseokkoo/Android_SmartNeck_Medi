@@ -237,7 +237,7 @@
 	<string name="send_tmp_password">发送临时密码</string>
 	<string name="toast_please_measure">检测完成后请开始使用。</string>
 	<string name="exercise_start_position">运动范围</string>
-	<string name="chart_length">(Angle)</string>
+	<string name="chart_length">Angle(˚)</string>
 	<string name="chart_weight">(kg)</string>
 	<string name="dialog_exercise_point">根据检测的柔韧性，颈部向后弯曲的最大值。您可根据个人情况或者运动目标进行自由选择。若不选择，将默认设置为最大值80%。</string>
 	<string name="toast_weight_control">正在调整重量。</string>

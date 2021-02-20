@@ -242,7 +242,7 @@
     <string name="toast_please_measure">Please start exercise after measuring.</string>
     <string name="dialog_exercise_point">It refers to the degree when you bend your neck to the lowest point according to your meansured pliability. You can freely choose the percentage according to your body condition or exercise goal. If you skip this, it\'ll automatically be saved as 80%.</string>
     <string name="exercise_start_position">Bending Percentage</string>
-    <string name="chart_length">(Angle)</string>
+    <string name="chart_length">Angle(˚)</string>
     <string name="chart_weight">(lb)</string>
     <string name="toast_weight_control">Adjusting the weight.</string>
     <string name="toast_chair_control">Adjusting the seat\'s height.</string>
