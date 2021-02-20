@@ -160,9 +160,6 @@ class MeasureManagementActivity : AppCompatActivity() {
                         searchResults.add(measurements[i])
                     }
                 }
-
-
-
             measureManagementAdapter = MeasureManagementAdapter(searchResults, layoutInflater)
             lv_measure_management.adapter = measureManagementAdapter
             searchCount(searchResults.size)
