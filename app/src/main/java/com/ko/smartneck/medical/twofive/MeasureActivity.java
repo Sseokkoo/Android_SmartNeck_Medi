@@ -172,7 +172,7 @@ public class MeasureActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Log.d(TAG, "- btn_weight_up onClick");
                 if (CFG_HEIGHT[1] > 0) return;
-                if ((currentWeight + 0.5) > 6.5) {
+                if ((currentWeight + 0.5) >= 6.5) {
                     return;
                 }
                 weightMoveCount = 0;
@@ -200,7 +200,7 @@ public class MeasureActivity extends AppCompatActivity {
 
                 if (CFG_HEIGHT[1] > 0) return;
                 Log.d(TAG, "- btn_weight_down onClick");
-                if ((currentWeight - 0.5) < 0) {
+                if ((currentWeight - 0.5) <= 0) {
                     return;
                 }
                 weightMoveCount = 0;

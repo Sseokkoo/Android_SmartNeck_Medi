@@ -361,16 +361,17 @@
                 app:scale_left="95"
                 app:scale_top="430"
                 app:scale_width="24" />
+
             <Spinner
                 android:id="@+id/spn_exercise_setting_height_select"
-                android:layout_width="wrap_content"
+                android:layout_width="40dp"
                 android:layout_height="match_parent"
                 android:entries="@array/height_entry"
                 android:gravity="center"
                 app:scale_height="60"
                 app:scale_left="140"
                 app:scale_top="430"
-                app:scale_width="130" />
+                app:scale_width="92" />
             <TextView
                 app:scale_textsize="18"
                 app:scale_height="30"
@@ -381,11 +382,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center"
+                android:gravity="right"
                 android:text="40.5°" />
 
             <TextView
                 android:gravity="center"
+                android:visibility="gone"
                 app:scale_textsize="16"
                 app:scale_height="30"
                 app:scale_left="310"

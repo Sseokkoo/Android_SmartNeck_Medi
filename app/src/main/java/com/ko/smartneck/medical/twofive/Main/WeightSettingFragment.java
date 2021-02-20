@@ -200,7 +200,9 @@ public class WeightSettingFragment extends Fragment {
             public void onClick(View view) {
                 if (isSeatMove()){ return; }
 
-                if (currentWeight == 6.5) return;
+                if ((currentWeight + 0.5) >= 6.5) {
+                    return;
+                }
                 if (CFG_HEIGHT[1] > 0) return;
                 BleConnectActivity.isClick = true;
 
@@ -220,7 +222,9 @@ public class WeightSettingFragment extends Fragment {
             public void onClick(View view) {
                 if (isSeatMove()){ return; }
 
-                if (currentWeight == 0) return;
+                if ((currentWeight - 0.5) < 0) {
+                    return;
+                }
                 if (CFG_HEIGHT[1] > 0) return;
                 BleConnectActivity.isClick = true;
                 isMove = true;
