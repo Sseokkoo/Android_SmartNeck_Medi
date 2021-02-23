@@ -704,7 +704,7 @@ public class ExerciseFragment extends Fragment {
         String lengthSign_ko = "˚";
         String lengthSign_en = "˚";
         float height = preset.getMaxHeight();
-        float angle = height * 1.1666667f;
+        float angle = height * 1f;
         String heightStr = "";
         String angleStr = "";
         if (Constants.language.equals("ko")) {

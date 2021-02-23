@@ -338,7 +338,7 @@ public class ProcedureFragment extends Fragment {
         btn_weight_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (preset.getSetup() == 65) {
+                if (preset.getSetup() >= 65) {
                     Toast.makeText(mContext, getString(R.string.toast_max), Toast.LENGTH_SHORT).show();
                     return;
                 } else {
