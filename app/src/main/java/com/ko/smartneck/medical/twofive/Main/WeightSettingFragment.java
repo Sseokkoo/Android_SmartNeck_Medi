@@ -202,13 +202,14 @@ public class WeightSettingFragment extends Fragment {
 
                 if ((currentWeight + 0.5) >= 6.5) {
                     return;
+                }else{
+                    currentWeight += 0.5;
                 }
                 if (CFG_HEIGHT[1] > 0) return;
                 BleConnectActivity.isClick = true;
 
                 isMove = true;
                 preset.setSetup(preset.getSetup() + 5);
-                currentWeight += 0.5;
                 tv_result.setText(String.valueOf(currentWeight));
                 tv_result_max.setText("0.0");
                 BleConnectActivity.setMessage(new Commend().sendWeightMove((byte) preset.getSetup()));
@@ -224,12 +225,14 @@ public class WeightSettingFragment extends Fragment {
 
                 if ((currentWeight - 0.5) < 0) {
                     return;
+                }else {
+                    currentWeight -= 0.5;
                 }
                 if (CFG_HEIGHT[1] > 0) return;
                 BleConnectActivity.isClick = true;
                 isMove = true;
                 preset.setSetup(preset.getSetup() - 5);
-                currentWeight -= 0.5;
+
                 tv_result.setText(String.valueOf(currentWeight));
                 CFG_WEIGHT_MAX[1] = 0;
                 resultMax = 0;

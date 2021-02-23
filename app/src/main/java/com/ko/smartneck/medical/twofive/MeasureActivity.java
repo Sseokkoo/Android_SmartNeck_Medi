@@ -174,9 +174,11 @@ public class MeasureActivity extends AppCompatActivity {
                 if (CFG_HEIGHT[1] > 0) return;
                 if ((currentWeight + 0.5) >= 6.5) {
                     return;
+                }else {
+                    currentWeight += 0.5;
                 }
                 weightMoveCount = 0;
-                currentWeight += 0.5;
+
                 preset.setSetup(preset.getSetup() + 5);
 
                 isWeightMove = true;
@@ -202,9 +204,11 @@ public class MeasureActivity extends AppCompatActivity {
                 Log.d(TAG, "- btn_weight_down onClick");
                 if ((currentWeight - 0.5) <= 0) {
                     return;
+                }else {
+                    currentWeight -= 0.5;
                 }
                 weightMoveCount = 0;
-                currentWeight -= 0.5;
+
                 preset.setSetup(preset.getSetup() - 5);
 
                 isWeightMove = true;

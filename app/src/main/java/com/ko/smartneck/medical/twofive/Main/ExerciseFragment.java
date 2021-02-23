@@ -240,7 +240,7 @@ public class ExerciseFragment extends Fragment {
                     if (CFG_HEIGHT[1] == 0) {
                         weightString = String.format("%.1f", currentWeight);
                     } else if (CFG_HEIGHT[1] > 0) {
-
+//태그2
                         if (currentWeight >= 7) {
                             currentWeight += 0.5;
                         } else if (currentWeight >= 4.5 && currentWeight <= 6.5) {
