@@ -38,64 +38,43 @@ public class pastPreset implements Serializable {
 
         switch (selection){
             case 0:
-
                 userHeightSetting = 0.4f;
-
+                break;
+            case 1:
+                userHeightSetting = 0.45f;
                 break;
             case 2:
-
-                userHeightSetting = 0.45f;
-
+                userHeightSetting = 0.5f;
                 break;
             case 3:
-
                 userHeightSetting = 0.55f;
-
                 break;
             case 4:
-
                 userHeightSetting = 0.6f;
-
                 break;
             case 5:
-
                 userHeightSetting = 0.65f;
-
                 break;
             case 6:
-
                 userHeightSetting = 0.7f;
-
                 break;
             case 7:
-
                 userHeightSetting = 0.75f;
-
                 break;
             case 8:
-
                 userHeightSetting = 0.8f;
-
                 break;
             case 9:
-
                 userHeightSetting = 0.85f;
-
                 break;
             case 10:
-
                 userHeightSetting = 0.9f;
-
                 break;
             case 11:
-
                 userHeightSetting = 0.95f;
-
                 break;
             case 12:
-
                 userHeightSetting = 1f;
-
                 break;
         }
 
