@@ -711,13 +711,13 @@ public class ExerciseFragment extends Fragment {
 
             height *= angleLength;
             height *= preset.getHeightSetting();
-            heightStr = String.format("%.1f", height) + lengthSign_ko;
+//            heightStr = String.format("%.1f", height) + lengthSign_ko;
 
         } else if (Constants.language.equals("en")) {
 
             height *= angleLength;
             height *= preset.getHeightSetting();
-            heightStr = String.format("%.1f", height) + lengthSign_en;
+//            heightStr = String.format("%.1f", height) + lengthSign_en;
 
         }
 

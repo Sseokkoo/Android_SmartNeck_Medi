@@ -490,15 +490,12 @@ public class ProcedureFragment extends Fragment {
                     height *= angleLength;
                     height *= 0.4;
 //                    heightStr = String.format("%.1f", height) + lengthSign_en; 수정6
-
                 }else {
 
                 height *= angleLength;
                 height *= 0.4;
-
 //                heightStr = String.format("%.1f", height) + lengthSign_ko; 수정6
-
-            }
+                }
 
                 angle *= 0.4;
                 angleStr = String.format("%.1f", angle) + angleSign;

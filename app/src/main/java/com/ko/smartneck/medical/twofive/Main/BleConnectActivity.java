@@ -163,26 +163,26 @@ public class BleConnectActivity extends AppCompatActivity {
 
 
         View hidden = findViewById(R.id.hidden);
-//        hidden.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                hiddenCount++;
-//                Log.d(TAG, "onClick: " + hiddenCount + " / " + touchCount);
-//                if (hiddenCount > 5 && touchCount > 2){
-//                    Intent intent = new Intent(getApplicationContext() , MemberSelectActivity.class);
-//                    startActivity(intent);
-//                }
-//
-//            }
-//        });
-
         hidden.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext() , MeasureManagementActivity.class);
-                startActivity(intent);
+                hiddenCount++;
+                Log.d(TAG, "onClick: " + hiddenCount + " / " + touchCount);
+                if (hiddenCount > 5 && touchCount > 2){
+                    Intent intent = new Intent(getApplicationContext() , MemberSelectActivity.class);
+                    startActivity(intent);
+                }
+
             }
         });
+
+//        hidden.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getApplicationContext() , MeasureManagementActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
     }
 

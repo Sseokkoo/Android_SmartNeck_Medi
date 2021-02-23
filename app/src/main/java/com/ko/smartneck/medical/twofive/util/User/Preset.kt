@@ -46,7 +46,8 @@ class Preset : Serializable {
     fun getHeightSetting(): Float {
         when (heightSelected) {
             0 -> return 0.4f
-            2 ->  return 0.45f
+            1 -> return 0.45f
+            2 ->  return 0.5f
             3 ->  return 0.55f
             4 ->  return 0.6f
             5 ->  return 0.65f
