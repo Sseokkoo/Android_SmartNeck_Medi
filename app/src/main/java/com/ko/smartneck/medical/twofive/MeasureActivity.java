@@ -174,7 +174,9 @@ public class MeasureActivity extends AppCompatActivity {
                 if (CFG_HEIGHT[1] > 0) return;
                 if ((currentWeight + 0.5) > 6.5) {
                     return;
-                }else {
+                }else if (currentWeight > 6.5) {
+                    currentWeight = 6.5;
+                }else{
                     currentWeight += 0.5;
                 }
                 weightMoveCount = 0;
