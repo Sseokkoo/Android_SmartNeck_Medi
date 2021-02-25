@@ -200,49 +200,55 @@ public class WeightSettingFragment extends Fragment {
             public void onClick(View view) {
                 if (isSeatMove()){ return; }
 
-                //                if ((currentWeight - 0.5) < 0) {
-//                    currentWeight = 0.5;
-//                }else{
-//                    currentWeight -= 0.5;
-//                }
-//                if (currentWeight < 0) {
-//                    currentWeight = 0;
-//                }
-
-                if (currentWeight >= 6.5){
+                if ((currentWeight + 0.5) >= 6.5) {
                     currentWeight = 6.5;
-                }else if (currentWeight == 6){
-                    currentWeight = 6.5;
-                }else if (currentWeight == 5.5){
-                    currentWeight = 6.0;
-                }else if (currentWeight == 5){
-                    currentWeight = 5.5;
-                }else if (currentWeight == 4.5){
-                    currentWeight = 5.0;
-                }else if (currentWeight == 4){
-                    currentWeight = 4.5;
-                }else if (currentWeight == 3.5){
-                    currentWeight = 4;
-                }else if (currentWeight == 3){
-                    currentWeight = 3.5;
-                }else if (currentWeight == 2.5){
-                    currentWeight = 3;
-                }else if (currentWeight == 2){
-                    currentWeight = 2.5;
-                }else if (currentWeight == 1.5){
-                    currentWeight = 2;
-                }else if (currentWeight == 1){
-                    currentWeight = 1.5;
-                }else if (currentWeight == 0.5){
-                    currentWeight = 1;
-                }else if (currentWeight == 0){
-                    currentWeight = 0.5;
+                    preset.setSetup(65);
+                }else{
+                    currentWeight += 0.5;
+                    preset.setSetup(preset.getSetup() + 5);
                 }
+                if (currentWeight > 6.5) {
+                    currentWeight = 6.5;
+                    preset.setSetup(65);
+                }
+                if (preset.getSetup() > 65){
+                    preset.setSetup(65);
+                }
+//
+//                if (currentWeight >= 6.5){
+//                    currentWeight = 6.5;
+//
+//                }else if (currentWeight == 6){
+//                    currentWeight = 6.5;
+//                }else if (currentWeight == 5.5){
+//                    currentWeight = 6.0;
+//                }else if (currentWeight == 5){
+//                    currentWeight = 5.5;
+//                }else if (currentWeight == 4.5){
+//                    currentWeight = 5.0;
+//                }else if (currentWeight == 4){
+//                    currentWeight = 4.5;
+//                }else if (currentWeight == 3.5){
+//                    currentWeight = 4;
+//                }else if (currentWeight == 3){
+//                    currentWeight = 3.5;
+//                }else if (currentWeight == 2.5){
+//                    currentWeight = 3;
+//                }else if (currentWeight == 2){
+//                    currentWeight = 2.5;
+//                }else if (currentWeight == 1.5){
+//                    currentWeight = 2;
+//                }else if (currentWeight == 1){
+//                    currentWeight = 1.5;
+//                }else if (currentWeight == 0.5){
+//                    currentWeight = 1;
+//                }else if (currentWeight == 0){
+//                    currentWeight = 0.5;
+//                }
                 if (CFG_HEIGHT[1] > 0) return;
                 BleConnectActivity.isClick = true;
 
                 isMove = true;
-                preset.setSetup(preset.getSetup() + 5);
                 tv_result.setText(String.valueOf(currentWeight));
                 tv_result_max.setText("0.0");
                 BleConnectActivity.setMessage(new Commend().sendWeightMove((byte) preset.getSetup()));
@@ -256,49 +262,56 @@ public class WeightSettingFragment extends Fragment {
             public void onClick(View view) {
                 if (isSeatMove()){ return; }
 
-//                if ((currentWeight - 0.5) < 0) {
-//                    currentWeight = 0.5;
-//                }else{
-//                    currentWeight -= 0.5;
-//                }
-//                if (currentWeight < 0) {
-//                    currentWeight = 0;
-//                }
+                if ((currentWeight - 0.5) <= 0.25) {
+                    currentWeight = 0;
+                    preset.setSetup(0);
+                }else{
+                    currentWeight -= 0.5;
+                    preset.setSetup(preset.getSetup() - 5);
+                }
+                if (currentWeight < 0) {
+                    currentWeight = 0;
+                    preset.setSetup(0);
+                }
+                if (preset.getSetup() < 0){
+                    preset.setSetup(0);
+                }
+
                 if (CFG_HEIGHT[1] > 0) return;
 
-                if (currentWeight >= 6.5){
-                    currentWeight = 6;
-                }else if (currentWeight == 6){
-                    currentWeight = 5.5;
-                }else if (currentWeight == 5.5){
-                    currentWeight = 5.0;
-                }else if (currentWeight == 5){
-                    currentWeight = 4.5;
-                }else if (currentWeight == 4.5){
-                    currentWeight = 4.0;
-                }else if (currentWeight == 4){
-                    currentWeight = 3.5;
-                }else if (currentWeight == 3.5){
-                    currentWeight = 3;
-                }else if (currentWeight == 3){
-                    currentWeight = 2.5;
-                }else if (currentWeight == 2.5){
-                    currentWeight = 2;
-                }else if (currentWeight == 2){
-                    currentWeight = 1.5;
-                }else if (currentWeight == 1.5){
-                    currentWeight = 1;
-                }else if (currentWeight == 1){
-                    currentWeight = 0.5;
-                }else if (currentWeight == 0.5){
-                    currentWeight = 0;
-                }else if (currentWeight < 0){
-                    currentWeight = 0;
-                }
+//                if (currentWeight >= 6.5){
+//                    currentWeight = 6;
+//                }else if (currentWeight == 6){
+//                    currentWeight = 5.5;
+//                }else if (currentWeight == 5.5){
+//                    currentWeight = 5.0;
+//                }else if (currentWeight == 5){
+//                    currentWeight = 4.5;
+//                }else if (currentWeight == 4.5){
+//                    currentWeight = 4.0;
+//                }else if (currentWeight == 4){
+//                    currentWeight = 3.5;
+//                }else if (currentWeight == 3.5){
+//                    currentWeight = 3;
+//                }else if (currentWeight == 3){
+//                    currentWeight = 2.5;
+//                }else if (currentWeight == 2.5){
+//                    currentWeight = 2;
+//                }else if (currentWeight == 2){
+//                    currentWeight = 1.5;
+//                }else if (currentWeight == 1.5){
+//                    currentWeight = 1;
+//                }else if (currentWeight == 1){
+//                    currentWeight = 0.5;
+//                }else if (currentWeight == 0.5){
+//                    currentWeight = 0;
+//                }else if (currentWeight < 0){
+//                    currentWeight = 0;
+//                }
 
                 BleConnectActivity.isClick = true;
                 isMove = true;
-                preset.setSetup(preset.getSetup() - 5);
+//                preset.setSetup(preset.getSetup() - 5);
 
                 tv_result.setText(String.valueOf(currentWeight));
                 CFG_WEIGHT_MAX[1] = 0;
