@@ -204,8 +204,11 @@ public class MeasureActivity extends AppCompatActivity {
 
                 if (CFG_HEIGHT[1] > 0) return;
                 Log.d(TAG, "- btn_weight_down onClick");
-                if ((currentWeight - 0.5) <= 0) {
+
+                if ((currentWeight - 0.5) < 0) {
                     return;
+                }else if (currentWeight < 0){
+                    currentWeight = 0;
                 }else {
                     currentWeight -= 0.5;
                 }
