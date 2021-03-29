@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.ssomai:android.scalablelayout:2.1.6@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0b7037b9d1ca0fb850873930fbcea1af/android.scalablelayout-2.1.6/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0b7037b9d1ca0fb850873930fbcea1af/android.scalablelayout-2.1.6/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0b7037b9d1ca0fb850873930fbcea1af/android.scalablelayout-2.1.6/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c0677e2be1a3b6661130f1203dbb8c21/android.scalablelayout-2.1.6/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c0677e2be1a3b6661130f1203dbb8c21/android.scalablelayout-2.1.6/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c0677e2be1a3b6661130f1203dbb8c21/android.scalablelayout-2.1.6/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.ssomai/android.scalablelayout/2.1.6/914e9422d744a9d9441baa822a64a648fffec569/android.scalablelayout-2.1.6-javadoc.jar!/" />

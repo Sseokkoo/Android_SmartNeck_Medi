@@ -2,6 +2,7 @@ package com.ko.smartneck.medical.twofive.util.User
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.os.Build
 import android.util.Log
 import com.ko.smartneck.medical.twofive.Member.MemberSelectActivity
 import com.ko.smartneck.medical.twofive.Member.MemberSelectActivity.admin
@@ -581,9 +582,21 @@ class UserPreference(private val context: Context) {
 
     val PRE_KEY_EXERCISE = "exercise"
     fun addExericse(member: Member , preset: Preset , count: Int, set: Int) {
-        val current = LocalDateTime.now()
-        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
-        val currentDate= current.format(formatter)
+        val current = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            LocalDateTime.now()
+        } else {
+            TODO("VERSION.SDK_INT < O")
+        }
+        val formatter = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+        } else {
+            TODO("VERSION.SDK_INT < O")
+        }
+        val currentDate= if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            current.format(formatter)
+        } else {
+            TODO("VERSION.SDK_INT < O")
+        }
         val admin = member.admin
         val memberNo = member.memberNo
         val outer = JSONObject()
@@ -722,9 +735,17 @@ class UserPreference(private val context: Context) {
 
     val PRE_KEY_HEIGHT = "height"
     fun addHeight(member: Member , maxHeight: Int) {
-        val current = LocalDateTime.now()
+        val current = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            LocalDateTime.now()
+        } else {
+            TODO("VERSION.SDK_INT < O")
+        }
         val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
-        val currentDate= current.format(formatter)
+        val currentDate= if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            current.format(formatter)
+        } else {
+            TODO("VERSION.SDK_INT < O")
+        }
         val admin = member.admin
         val memberNo = member.memberNo
         val outer = JSONObject()
@@ -811,8 +832,16 @@ class UserPreference(private val context: Context) {
 
     val PRE_KEY_WEIGHT = "weight"
     fun addWeight(member: Member , maxWeight: Int) {
-        val current = LocalDateTime.now()
-        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+        val current = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            LocalDateTime.now()
+        } else {
+            TODO("VERSION.SDK_INT < O")
+        }
+        val formatter = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+        } else {
+            TODO("VERSION.SDK_INT < O")
+        }
         val currentDate= current.format(formatter)
         val admin = member.admin
         val memberNo = member.memberNo
@@ -870,7 +899,7 @@ class UserPreference(private val context: Context) {
             json.put("maxWeight", maxWeight)
             json.put("date", currentDate)
             json.put("uid", member.uid)
-            Log.e(TAG, "addWeight: ", )
+            Log.e(TAG, "addWeight: " )
             json.put("device" , Constants.DEVICE_NAME)
 
             array.put(json)

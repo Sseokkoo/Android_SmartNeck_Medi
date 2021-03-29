@@ -1,6 +1,7 @@
 package com.ko.smartneck.medical.twofive.Management
 
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
@@ -144,8 +145,16 @@ class MeasureManagementActivity : AppCompatActivity() {
             val endDay = edt_day_end.text.toString().toInt()
             searchResults.clear()
 
-            val before = LocalDate.of(startYear, startMonth, startDay)
-            val after = LocalDate.of(endYear, endMonth, endDay)
+            val before = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                LocalDate.of(startYear, startMonth, startDay)
+            } else {
+                TODO("VERSION.SDK_INT < O")
+            }
+            val after = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                LocalDate.of(endYear, endMonth, endDay)
+            } else {
+                TODO("VERSION.SDK_INT < O")
+            }
             Log.e(TAG, "initListener: for before ${measurements.size}" )
                 for (i in 0 until measurements.size) {
                     Log.e(TAG, "initListener: count $i ${measurements[i]}")
@@ -154,7 +163,11 @@ class MeasureManagementActivity : AppCompatActivity() {
                     var month = split[1].toInt()
                     var day = split[2].toInt()
 
-                    val now = LocalDate.of(year, month, day)
+                    val now = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        LocalDate.of(year, month, day)
+                    } else {
+                        TODO("VERSION.SDK_INT < O")
+                    }
                     if (now in before..after) {
                         Log.e(TAG, "INSERT: count $i ${measurements[i]}")
                         searchResults.add(measurements[i])
@@ -320,7 +333,7 @@ class MeasureManagementActivity : AppCompatActivity() {
                 if (weights[i].name == measurements[j].name){
                     if (weights[i].date == measurements[j].date){
                         measurements[j].weight = weights[i].value
-                        Log.e(TAG, "jsonParse: idx = $i , weight = ${weights[i].value} ", )
+                        Log.e(TAG, "jsonParse: idx = $i , weight = ${weights[i].value} " )
 //                        break
                     }else{
 //                        if (j == measurements.size-1){
