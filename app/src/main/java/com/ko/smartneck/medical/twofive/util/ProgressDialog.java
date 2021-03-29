@@ -3,6 +3,8 @@ package com.ko.smartneck.medical.twofive.util;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Handler;
 import android.view.KeyEvent;
@@ -12,6 +14,7 @@ import android.widget.TextView;
 
 
 import com.ko.smartneck.medical.twofive.Main.BleConnectActivity;
+import com.ko.smartneck.medical.twofive.Main.MainActivity;
 import com.ko.smartneck.medical.twofive.R;
 
 
@@ -74,6 +77,7 @@ public class ProgressDialog {
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
+                        if (MainActivity.SettingOn == false)
                         tv_close.setVisibility(View.VISIBLE);
                     }
                 });

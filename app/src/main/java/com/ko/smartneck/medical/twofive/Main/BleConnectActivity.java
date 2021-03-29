@@ -95,6 +95,7 @@ public class BleConnectActivity extends AppCompatActivity {
         mContext = this;
         bleActivity = this;
         touchCount = 0;
+        MainActivity.SettingOn = false;
         // BLE
         Constants.CFG_IS_BLUETOOTH = isBluetooth();
 
@@ -602,15 +603,13 @@ public class BleConnectActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                float count = 0;
                 while (!isBleProgress) {
-                    count += 0.5f;
-                    if (count == 20) {
+                    if (mScanning && mBluetoothAdapter == null && !mBluetoothAdapter.isEnabled() && mBluetoothLeScanner == null) {
                         progressDialog.dismiss();
                         setScanStop();
                         isBleProgress = true;
                     }
-                    Log.d(TAG, "isBleProgress: " + isBleProgress + "sec: " + count);
+                    Log.d(TAG, "isBleProgress: " + isBleProgress);
                     try {
                         Thread.sleep(499);
                     } catch (InterruptedException e) {
@@ -618,16 +617,6 @@ public class BleConnectActivity extends AppCompatActivity {
                     }
 
                 }
-
-                progressDialog.dismiss();
-
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-                isBleProgress = false;
 
                 handler.post(new Runnable() {
                     @Override

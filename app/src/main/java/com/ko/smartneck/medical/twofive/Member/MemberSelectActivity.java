@@ -276,6 +276,7 @@ public class MemberSelectActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), MemberAddActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -352,6 +353,8 @@ public class MemberSelectActivity extends AppCompatActivity {
         context = this;
         users = GlobalApplication.userPreference.getMember(admin.getAccount());
         tmpUsers = GlobalApplication.userPreference.getMember(admin.getAccount());
+        Collections.reverse(users);
+        Collections.reverse(tmpUsers);
         adapter = new MemberSelectAdapter(users, getApplicationContext(), context);
         memberList.setAdapter(adapter);
         adapter.notifyDataSetChanged();

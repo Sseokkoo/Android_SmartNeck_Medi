@@ -249,7 +249,8 @@ class MemberAddActivity : AppCompatActivity() {
             }
 
         GlobalApplication.userPreference.addMember(admin.account.toString() , name , edt_member_add_phone.text.toString() , date , gender , "ko" , "")
-
+        val nextIntent = Intent(this, MemberSelectActivity::class.java)
+        startActivity(nextIntent)
         finish()
     }
 

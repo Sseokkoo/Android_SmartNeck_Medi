@@ -266,26 +266,28 @@ public class ChartActivity extends DemoBase {
         leftAxis.setTextSize(14);
 
         if (type.equals("height")) {
-            if (Constants.DEVICE_TYPE.equals("MED")) {
-                leftAxis.setLabelCount(13, true);
-//                leftAxis.setLabelCount(11, true); 수정10
-
+//           //todo FIT, HOME = 1K, MED 3K로 구분해놓으셨었음 근데 현 1K로 통합
+//            if (Constants.DEVICE_TYPE.equals("HOME") || Constants.DEVICE_TYPE.equals("FIT")) {
+//                leftAxis.setLabelCount(10, true);
+////                leftAxis.setLabelCount(11, true); 수정10
+//
+//
+//                leftAxis.setAxisMaximum(90);
+////                leftAxis.setAxisMaximum(330); 수정10
+//
+////                leftAxis.mCenteredEntries = y;
+////                leftAxis.setValueFormatter();
+////                leftAxis.set
+////
+////                leftAxis.
+//            } else {
 
                 leftAxis.setAxisMaximum(120);
-//                leftAxis.setAxisMaximum(330); 수정10
-
-//                leftAxis.mCenteredEntries = y;
-//                leftAxis.setValueFormatter();
-//                leftAxis.set
-//
-//                leftAxis.
-            } else {
-                leftAxis.setAxisMaximum(90);
 //                leftAxis.setAxisMaximum(270); 수정10
 //                leftAxis.setLabelCount(9, false); 수정10
-                leftAxis.setLabelCount(9, false);
+                leftAxis.setLabelCount(13, false);
 
-            }
+
         } else {
             leftAxis.setAxisMaximum(15);
             leftAxis.setLabelCount(15, false);

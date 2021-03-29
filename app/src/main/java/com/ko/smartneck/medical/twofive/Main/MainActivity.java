@@ -49,8 +49,11 @@ import com.ko.smartneck.medical.twofive.util.User.Preset;
 
 import static com.ko.smartneck.medical.twofive.Main.BleConnectActivity.isBleProgress;
 import static com.ko.smartneck.medical.twofive.Main.BleConnectActivity.isInit;
+import static com.ko.smartneck.medical.twofive.Main.BleConnectActivity.isSeatMove;
+import static com.ko.smartneck.medical.twofive.Main.BleConnectActivity.isWeightMove;
 import static com.ko.smartneck.medical.twofive.Main.BleConnectActivity.mConnected;
 import static com.ko.smartneck.medical.twofive.Main.BleConnectActivity.mEchoInitialized;
+import static com.ko.smartneck.medical.twofive.Main.BleConnectActivity.mScanning;
 import static com.ko.smartneck.medical.twofive.Main.BleConnectActivity.setMessage;
 import static com.ko.smartneck.medical.twofive.MeasureActivity.isMeasure;
 import static com.ko.smartneck.medical.twofive.MeasureActivity.moveExercise;
@@ -85,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     static String currentLocation = "";
-
+    public static boolean SettingOn = false;
 
 
     @Override
@@ -324,37 +327,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-
                             progressDialog.show(getString(R.string.dialog_ble_init));
-
                         }
                     });
-                    isInit = false;
-                    float count = 0;
-                    while (!isInit) {
-                        count += 0.5f;
-                        if (count == 100) {
-                            progressDialog.dismiss();
-                            ((BleConnectActivity)BleConnectActivity.mContext).setScanStop();
-                            isInit = true;
-                        }
-                        Log.d(TAG, "isBleProgress: " + isBleProgress + "sec: " + count);
-                        try {
-                            Thread.sleep(499);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
 
+                    if (member.toString().equals("")) {
+                        ((BleConnectActivity) BleConnectActivity.mContext).setScanStop();
                     }
-                    progressDialog.dismiss();
-
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-
-                    isInit = false;
                 }
             }).start();
 
@@ -364,15 +343,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 public void run() {
                     int i = 0;
                     try {
-                        Thread.sleep(1000);
+                        Thread.sleep(500);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                     setMessage(new Commend().sendGoExercise((byte) preset.getSeat(), (byte) preset.getSetup()));
+                    try {
+                        while (true) {
+                            Thread.sleep(300);
+                            Log.e("확인", isWeightMove + "" + isSeatMove);
+                            if (isWeightMove == false && isSeatMove == false) {
+                                SettingOn = false;
+                                Log.e("확인1", isWeightMove + "" + isSeatMove);
+                                progressDialog.dismiss();
+                                break;
+                            } else {
+                                Log.e("확인2", isWeightMove + "" + isSeatMove);
+                                SettingOn = true;
+                            }
+                        }
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
 
                 }
             }).start();
-
         }
     }
 
