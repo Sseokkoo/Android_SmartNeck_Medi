@@ -66,7 +66,22 @@ public class HomeFragment extends Fragment {
         tv_ble_status = view.findViewById(R.id.tv_ble_status);
 
 
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (preset.getMaxWeight() == 0 || preset.getMaxHeight() == 0){
+                            btn_exercise.setText(MainActivity.mContext.getString(R.string.btn_measure));
 
+                        }else{
+                            btn_exercise.setText(MainActivity.mContext.getString(R.string.btn_start));
+                        }
+                    }
+                });
+            }
+        }).start();
         // Init
 
         return view;
@@ -190,11 +205,6 @@ public class HomeFragment extends Fragment {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
