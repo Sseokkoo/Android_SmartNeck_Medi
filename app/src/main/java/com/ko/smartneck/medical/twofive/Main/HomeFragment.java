@@ -200,6 +200,7 @@ public class HomeFragment extends Fragment {
 
     @Override
     public void onResume() {
+        super.onResume();
         audioStop();
         MainActivity.currentLocation = "home";
         new Thread(new Runnable() {
@@ -218,8 +219,6 @@ public class HomeFragment extends Fragment {
                 });
             }
         }).start();
-
-        super.onResume();
     }
 
 
