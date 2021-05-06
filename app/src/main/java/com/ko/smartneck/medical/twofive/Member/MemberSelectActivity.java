@@ -68,7 +68,9 @@ public class MemberSelectActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         BleConnectActivity.setMessage(new Commend().sendGoExercise((byte)0 , (byte)0));
+        if (admin.getAccount() != null){
         getMemberList();
+        }
     }
 
     @Override

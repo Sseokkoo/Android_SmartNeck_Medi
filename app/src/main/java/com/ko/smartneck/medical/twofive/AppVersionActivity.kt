@@ -14,10 +14,10 @@ class AppVersionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_app_version)
-        tv_app_version.text = "앱버전 : " + getVersionInfo(this)
+        tv_app_version.text = "ver : " + getVersionInfo(this)
 
-        tv_create_date.text = "가입일 : ${admin.createDate}"
-        tv_device_name.text = "제품번호 : ${Constants.DEVICE_NAME}"
+        tv_create_date.text = "${R.string.sign} : ${admin.createDate}"
+        tv_device_name.text = "${R.string.prduct} : ${Constants.DEVICE_NAME}"
 
         val btn_app_version_dismiss = findViewById<ImageView>(R.id.btn_app_version_dismiss)
         btn_app_version_dismiss.setOnClickListener { finish() }

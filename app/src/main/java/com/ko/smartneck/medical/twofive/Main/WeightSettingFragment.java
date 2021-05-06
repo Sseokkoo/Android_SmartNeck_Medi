@@ -51,13 +51,14 @@ public class WeightSettingFragment extends Fragment {
     boolean isComplete;
     static double currentWeight;
     Button btn_home, btn_exercise_setting, btn_previous;
-    ImageButton btn_up , btn_down;
-    TextView tv_result , tv_result_max;
+    ImageButton btn_up, btn_down;
+    TextView tv_result, tv_result_max;
     static boolean isMove;
     double maxWeight;
     ImageView gif;
 
     public static int tmpSetup;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = (ViewGroup) inflater.inflate(R.layout.fragment_weight_setting, container, false);
@@ -92,7 +93,7 @@ public class WeightSettingFragment extends Fragment {
         Log.d(TAG, "onDestroy: ");
         isComplete = true;
         type = "";
-        if (resultMax != 0){
+        if (resultMax != 0) {
 
             long now = System.currentTimeMillis();
             Date date = new Date(now);
@@ -103,15 +104,15 @@ public class WeightSettingFragment extends Fragment {
             int iday = Integer.valueOf(dateSplit[2]);
             String month = "";
             String day = "";
-            if (imonth < 10){
+            if (imonth < 10) {
                 month = "0" + imonth;
-            }else{
+            } else {
                 month = imonth + "";
             }
 
-            if (iday < 10){
+            if (iday < 10) {
                 day = "0" + iday;
-            }else{
+            } else {
                 day = iday + "";
             }
             String lately = year + "-" + month + "-" + day;
@@ -120,29 +121,29 @@ public class WeightSettingFragment extends Fragment {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    HttpConnect httpConnect  =new HttpConnect();
+                    HttpConnect httpConnect = new HttpConnect();
                     Param param = new Param();
-                    param.add("admin" , admin.getAccount());
-                    param.add("member_no" , member.getMemberNo());
-                    param.add("lately" , member.getLately());
-                    param.add("uid" , member.getUid());
+                    param.add("admin", admin.getAccount());
+                    param.add("member_no", member.getMemberNo());
+                    param.add("lately", member.getLately());
+                    param.add("uid", member.getUid());
 
-                    if (httpConnect.httpConnect(param.getValue() , new Address().getLatelyUpdate() , true) == 200){
+                    if (httpConnect.httpConnect(param.getValue(), new Address().getLatelyUpdate(), true) == 200) {
 
                     }
                 }
             }).start();
 
 
-        userPreference.addWeight(member , (int) (resultMax * 10));
-        preset.setMaxWeight((int) (resultMax * 10));
+            userPreference.addWeight(member, (int) (resultMax * 10));
+            preset.setMaxWeight((int) (resultMax * 10));
             userPreference.editPreset(preset);
 
         }
 
     }
 
-    void init(){
+    void init() {
         isWeight = true;
         CFG_WEIGHT_MAX[1] = 0;
         handler = new Handler();
@@ -178,6 +179,8 @@ public class WeightSettingFragment extends Fragment {
                     public void run() {
                         btn_up.setEnabled(true);
                         btn_down.setEnabled(true);
+                        tv_result.setText(String.valueOf(currentWeight));
+
                     }
                 });
 
@@ -194,26 +197,30 @@ public class WeightSettingFragment extends Fragment {
         });
     }
 
-    void onClickUpDown(){
+    void onClickUpDown() {
+
         btn_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (isSeatMove()){ return; }
+                if (isSeatMove()) {
+                    return;
+                }
 
-                if ((currentWeight + 0.5) >= 6.5) {
-                    currentWeight = 6.5;
-                    preset.setSetup(65);
-                }else{
+                if ((currentWeight + 0.5) >= 6.0) {
+                    currentWeight = 6.0;
+                    preset.setSetup(60);
+                } else {
                     currentWeight += 0.5;
                     preset.setSetup(preset.getSetup() + 5);
                 }
-                if (currentWeight > 6.5) {
-                    currentWeight = 6.5;
-                    preset.setSetup(65);
+                if (currentWeight > 6.0) {
+                    currentWeight = 6.0;
+                    preset.setSetup(60);
                 }
-                if (preset.getSetup() > 65){
-                    preset.setSetup(65);
+                if (preset.getSetup() > 60) {
+                    preset.setSetup(60);
                 }
+                Log.e("확인", "curren : " + currentWeight + "pre : " + preset.getSetup());
 //
 //                if (currentWeight >= 6.5){
 //                    currentWeight = 6.5;
@@ -249,7 +256,7 @@ public class WeightSettingFragment extends Fragment {
                 BleConnectActivity.isClick = true;
 
                 isMove = true;
-                tv_result.setText(String.valueOf(currentWeight));
+
                 tv_result_max.setText("0.0");
                 BleConnectActivity.setMessage(new Commend().sendWeightMove((byte) preset.getSetup()));
                 CFG_WEIGHT_MAX[1] = 0;
@@ -260,12 +267,14 @@ public class WeightSettingFragment extends Fragment {
         btn_down.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (isSeatMove()){ return; }
+                if (isSeatMove()) {
+                    return;
+                }
 
-                if ((currentWeight - 0.5) <= 0.25) {
+                if ((currentWeight - 0.5) <= 0) {
                     currentWeight = 0;
                     preset.setSetup(0);
-                }else{
+                } else {
                     currentWeight -= 0.5;
                     preset.setSetup(preset.getSetup() - 5);
                 }
@@ -273,10 +282,10 @@ public class WeightSettingFragment extends Fragment {
                     currentWeight = 0;
                     preset.setSetup(0);
                 }
-                if (preset.getSetup() < 0){
+                if (preset.getSetup() < 0) {
                     preset.setSetup(0);
                 }
-
+                Log.e("확인", "curren : " + currentWeight + "pre : " + preset.getSetup());
                 if (CFG_HEIGHT[1] > 0) return;
 
 //                if (currentWeight >= 6.5){
@@ -324,7 +333,7 @@ public class WeightSettingFragment extends Fragment {
 
     }
 
-    void onClickButton(){
+    void onClickButton() {
         btn_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -343,8 +352,9 @@ public class WeightSettingFragment extends Fragment {
 
     }
 
-    double resultMax =0;
-    void setTextThread(){
+    double resultMax = 0;
+
+    void setTextThread() {
         isComplete = false;
         Log.d(TAG, "setTextThread: " + CFG_WEIGHT[1] + " / " + currentWeight);
 
@@ -365,13 +375,31 @@ public class WeightSettingFragment extends Fragment {
 
                     }
                 });
-                while (true){
+                while (true) {
                     try {
                         Thread.sleep(300);
+                        if (getActivity()!= null) {
+                            getActivity().runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    if (currentWeight == 6.0 || preset.getSetup() == 60) {
+                                        btn_up.setEnabled(false);
+                                    } else {
+                                        btn_up.setEnabled(true);
+                                    }
+                                    if (currentWeight == 0.0 || preset.getSetup() == 0) {
+                                        btn_down.setEnabled(false);
+                                    } else {
+                                        btn_down.setEnabled(true);
+                                    }
+                                }
+
+                            });
+                        }
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    if (isComplete)break;
+                    if (isComplete) break;
 
                     handler.post(new Runnable() {
                         @Override
@@ -431,7 +459,8 @@ public class WeightSettingFragment extends Fragment {
             }
         }).start();
     }
-//    void updateWeight(){
+
+    //    void updateWeight(){
 //
 //        new Thread(new Runnable() {
 //            @Override
@@ -482,11 +511,11 @@ public class WeightSettingFragment extends Fragment {
 //
 //
 //    }
-    boolean isSeatMove(){
-        if (BleConnectActivity.isSeatMove && tabPos == 2){
+    boolean isSeatMove() {
+        if (BleConnectActivity.isSeatMove && tabPos == 2) {
             Toast.makeText(mContext, getString(R.string.toast_chair_control), Toast.LENGTH_SHORT).show();
             return true;
-        }else{
+        } else {
             return false;
         }
     }

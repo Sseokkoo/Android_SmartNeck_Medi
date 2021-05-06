@@ -241,13 +241,13 @@ public class ExerciseFragment extends Fragment {
                         weightString = String.format("%.1f", currentWeight);
                     } else if (CFG_HEIGHT[1] > 0) {
 //태그2
-                        if (currentWeight >= 7) {
-                            currentWeight += 0.5;
-                        } else if (currentWeight >= 4.5 && currentWeight <= 6.5) {
-                            currentWeight += 1;
-                        } else if (currentWeight >= 0.5 && currentWeight <= 4) {
-                            currentWeight += 1.5;
-                        }
+//                        if (currentWeight >= 5.5){
+//                            currentWeight += 0.5;
+//                        } else if (currentWeight >= 3.5 && currentWeight <= 5.0) {
+//                            currentWeight += 1;
+//                        } else if (currentWeight >= 0.5 && currentWeight <= 3) {
+//                            currentWeight += 1.5;
+//                        }
 
                         if (Constants.language.equals("en")) {
                             currentWeight *= POUND;

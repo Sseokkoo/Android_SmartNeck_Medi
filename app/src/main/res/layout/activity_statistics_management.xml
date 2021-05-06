@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
-            android:text="다운로드"
+            android:text="@string/download"
             android:textColor="#368AFF"
             android:textSize="20dp" />
     </LinearLayout>
@@ -57,7 +57,7 @@
             android:checked="true"
             android:textSize="20dp"
             android:layout_marginLeft="16dp"
-            android:text="전체"
+            android:text="@string/all"
             android:id="@+id/check_all"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -205,7 +205,7 @@
             android:layout_marginTop="8dp"
             android:textSize="20dp"
             android:textColor="#368AFF"
-            android:text="검색"
+            android:text="@string/sel"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -229,7 +229,7 @@
             android:layout_weight="1"
             android:textColor="#000000"
             android:gravity="center"
-            android:text="NO"
+            android:text="@string/num"
             android:textSize="24sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -239,7 +239,7 @@
             android:gravity="center"
             android:layout_weight="1"
             android:textSize="24sp"
-            android:text="이름"
+            android:text="@string/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <TextView
@@ -248,7 +248,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="날짜"
+            android:text="@string/day"
             android:textColor="#000000"
             android:textSize="24sp" />
         <TextView
@@ -257,7 +257,7 @@
             android:gravity="center"
             android:layout_weight="1"
             android:textSize="24sp"
-            android:text="최대근력"
+            android:text="@string/fullpower"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <TextView
@@ -266,7 +266,7 @@
             android:gravity="center"
             android:layout_weight="1"
             android:textSize="24sp"
-            android:text="운동범위"
+            android:text="@string/snake"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 

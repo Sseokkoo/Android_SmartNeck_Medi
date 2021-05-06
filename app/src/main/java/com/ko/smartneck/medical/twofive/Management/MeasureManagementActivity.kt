@@ -22,6 +22,7 @@ import kotlinx.android.synthetic.main.activity_statistics_management.*
 import kotlinx.android.synthetic.main.admin_member_add_activity.*
 import org.json.JSONArray
 import org.json.JSONObject
+import java.text.Collator
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.util.*
@@ -65,6 +66,8 @@ class MeasureManagementActivity : AppCompatActivity() {
         edt_month_end.setText(split[1])
         edt_day_end.setText(split[2])
 
+
+        Collections.reverse(measurements)
        anglePerMillimeter = 1f
 //               if (Constants.DEVICE_TYPE.equals("MED")){ 수정8
 //           3.6666667f

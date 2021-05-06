@@ -3,6 +3,7 @@ package com.ko.smartneck.medical.twofive
 import android.content.Context
 import android.content.Intent
 import android.media.AudioManager
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
@@ -50,6 +51,9 @@ class IntroActivity : AppCompatActivity() {
         // audioManager.setStreamVolume(볼륨컨트롤, 뷰륨크기, 볼륨상태(audioManager.FLAG...으로 시작하는 인자들...) );
         //Stream music volume max = 15
         audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, 10, 0)
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.Q) {
+            audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, 4, 0)
+        }
     }
 
     fun autoLogin() {

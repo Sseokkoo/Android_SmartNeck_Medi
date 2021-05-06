@@ -311,6 +311,22 @@
 	<string name="seat_control">"椅子调整 "</string>
 	<string name="menu_measure_management">测量管理</string>
 	<string name="menu_exercise_management">运动管理</string>
+<!--	추가번역-->
+	<string name="delete">删除</string>
+	<string name="Modify">调整</string>
 
-
+	<string name="prduct">产品编号</string>
+	<string name="sign">入会日期</string>
+	<string name="company">公司名称：TwoFive Co.，Ltd.</string>
+	<string name="add">地址：京畿道义王市安洞38-3 A栋2楼</string>
+	<string name="tel">电话号码 : 031-441-3274</string>
+	<string name="home">主页 : http://smart-neck.com/"</string>
+	<string name="download">下载</string>
+	<string name="all">全部</string>
+	<string name="sel">搜索</string>
+	<string name="day">日期</string>
+	<string name="fullpower">最大的力量</string>
+	<string name="num">数字</string>
+	<string name="name">名称</string>
+	<string name="snake">灵活性</string>
 </resources>

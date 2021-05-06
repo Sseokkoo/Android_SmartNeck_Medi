@@ -4,12 +4,12 @@
 
     <item
         android:id="@+id/menu_member_select_delete"
-        android:title="삭제"
+        android:title="@string/delete"
 
         />
     <item
         android:id="@+id/menu_member_select_edit"
-        android:title="수정"
+        android:title="@string/Modify"
         />
 
 </menu>

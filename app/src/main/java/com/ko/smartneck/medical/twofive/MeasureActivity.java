@@ -174,23 +174,23 @@ public class MeasureActivity extends AppCompatActivity {
                 Log.d(TAG, "- btn_weight_up onClick");
                 if (CFG_HEIGHT[1] > 0) return;
 
-                if ((currentWeight + 0.5) >= 6.5) {
-                    currentWeight = 6.5;
-                    preset.setSetup(65);
+                if ((currentWeight + 0.5) >= 6.0) {
+                    currentWeight = 6.0;
+                    preset.setSetup(60);
                 }else{
                     currentWeight += 0.5;
                     preset.setSetup(preset.getSetup() + 5);
                 }
-                if (currentWeight > 6.5) {
-                    currentWeight = 6.5;
-                    preset.setSetup(65);
+                if (currentWeight > 6.0) {
+                    currentWeight = 6.0;
+                    preset.setSetup(60);
                 }
-                if (preset.getSetup() > 65){
-                    preset.setSetup(65);
+                if (preset.getSetup() > 60){
+                    preset.setSetup(60);
                 }else {
                     tv_weight.setText(String.valueOf(preset.getSetup() * 0.1));
                 }
-
+                Log.e("확인", "curren : "+currentWeight + "pre : "+preset.getSetup());
 //                if (currentWeight >= 6.5){
 //                    currentWeight = 6.5;
 //                }else if (currentWeight == 6){
@@ -246,6 +246,8 @@ Log.e("확인", ""+ preset.getSetup());
                 Log.d(TAG, "- btn_weight_down onClick");
 
                 if ((currentWeight - 0.5) <= 0) {
+                    currentWeight = 0;
+                    preset.setSetup(0);
                 }else{
                     currentWeight -= 0.5;
                     preset.setSetup(preset.getSetup() - 5);
@@ -255,13 +257,16 @@ Log.e("확인", ""+ preset.getSetup());
                     preset.setSetup(0);
                 }
                 if ((preset.getSetup()-0.5) <= 0){
+                    currentWeight = 0;
+                    preset.setSetup(0);
                 }
                 if (preset.getSetup() < 0){
+                    currentWeight = 0;
                     preset.setSetup(0);
                 }else {
                     tv_weight.setText(String.valueOf(preset.getSetup() * 0.1));
                 }
-
+                    Log.e("확인", "curren : "+currentWeight + "pre : "+preset.getSetup());
 
 //                if (currentWeight >= 6.5){
 //                    currentWeight = 6;
@@ -728,13 +733,13 @@ Log.e("확인", ""+ preset.getSetup());
                                             result += 1.5;
                                         }
                                         if (Constants.language.equals("ko")) {
-                                            tv_weight.setText(String.format("%.1f", result));
+//                                            tv_weight.setText(String.format("%.1f", result));
 
                                         } else if (Constants.language.equals("en")) {
-                                            tv_weight.setText(String.format("%.1f", result * POUND));
+//                                            tv_weight.setText(String.format("%.1f", result * POUND));
 
                                         } else {
-                                            tv_weight.setText(String.format("%.1f", result));
+//                                            tv_weight.setText(String.format("%.1f", result));
 
                                         }
                                     } else {
@@ -773,7 +778,6 @@ Log.e("확인", ""+ preset.getSetup());
                 break;
         }
     }
-
     double result_max = 0;
 
 

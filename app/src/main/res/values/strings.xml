@@ -320,4 +320,22 @@
 
     <string name="menu_measure_management">Measure Management</string>
     <string name="menu_exercise_management">Exercise Management</string>
+<!--추가 번역-->
+    <string name="delete">delete</string>
+    <string name="Modify">Modify</string>
+    <string name="prduct">Product information</string>
+    <string name="sign">Sign-up date</string>
+    <string name="company">Company name: Two Five Co., Ltd.</string>
+    <string name="add">Address: 2nd floor, A building, 38-3, Ojeon-dong, Uiwang-si, Gyeonggi-do</string>
+    <string name="tel">Tel: 031-441-3274</string>
+    <string name="home">Homepage : http://smart-neck.com/"</string>
+    <string name="download">Download</string>
+    <string name="all">All</string>
+    <string name="sel">Search</string>
+    <string name="day">Day</string>
+    <string name="fullpower">FullPower</string>
+    <string name="num">No.</string>
+    <string name="name">Name</string>
+    <string name="snake">Flexibility</string>
+
 </resources>

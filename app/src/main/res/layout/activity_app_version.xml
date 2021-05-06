@@ -37,7 +37,7 @@
         android:background="#cc1b17" />
     <TextView
         android:textColor="@color/color_small_text"
-        android:text="제품번호"
+        android:text="@string/prduct"
         android:textSize="20dp"
         android:layout_margin="8dp"
         android:id="@+id/tv_device_name"
@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"/>
     <TextView
         android:textColor="@color/color_small_text"
-        android:text="회원가입일"
+        android:text="@string/sign"
         android:textSize="20dp"
         android:layout_margin="8dp"
         android:id="@+id/tv_create_date"
@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"/>
     <TextView
         android:textColor="@color/color_small_text"
-        android:text="상호명 : (주)투파이브"
+        android:text="@string/company"
         android:textSize="20dp"
         android:layout_margin="8dp"
         android:id="@+id/tv_com_name"
@@ -70,7 +70,7 @@
         android:layout_height="wrap_content"/>
     <TextView
         android:textColor="@color/color_small_text"
-        android:text="주소 : 14098 I 경기도 안양시 만안구 시민대로 34\n(안양동,성일디지털타워) 102호"
+        android:text="@string/add"
         android:textSize="20dp"
         android:layout_margin="8dp"
         android:id="@+id/tv_address"
@@ -78,7 +78,7 @@
         android:layout_height="wrap_content"/>
     <TextView
         android:textColor="@color/color_small_text"
-        android:text="전화 : 031-441-3274"
+        android:text="@string/tel"
         android:textSize="20dp"
         android:layout_margin="8dp"
         android:id="@+id/tv_phone"
@@ -86,7 +86,7 @@
         android:layout_height="wrap_content"/>
     <TextView
         android:textColor="@color/color_small_text"
-        android:text="홈페이지 : http://smart-neck.com/"
+        android:text="@string/home"
         android:textSize="20dp"
         android:layout_margin="8dp"
         android:id="@+id/tv_home_page"
