@@ -116,12 +116,13 @@ public class ChartActivity extends DemoBase {
         tv_axis_y = findViewById(R.id.tv_legend_y);
 
         exerciseItems = userPreference.getExercise(member);
-        Collections.reverse(exerciseItems);
+//        Collections.reverse(exerciseItems);
         Log.d(TAG, "init: " + exerciseItems.toString());
         exerciseList = findViewById(R.id.listview_exercise);
         exerciseAdapter = new ExerciseAdapter(exerciseItems, getLayoutInflater());
         exerciseList.setAdapter(exerciseAdapter);
         exerciseAdapter.notifyDataSetChanged();
+
 
 
         //초기 실행 시 목근육 나이

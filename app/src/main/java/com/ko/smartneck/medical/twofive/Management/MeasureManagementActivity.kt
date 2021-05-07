@@ -67,7 +67,6 @@ class MeasureManagementActivity : AppCompatActivity() {
         edt_day_end.setText(split[2])
 
 
-        Collections.reverse(measurements)
        anglePerMillimeter = 1f
 //               if (Constants.DEVICE_TYPE.equals("MED")){ 수정8
 //           3.6666667f
@@ -128,6 +127,7 @@ class MeasureManagementActivity : AppCompatActivity() {
             if (check_all.isChecked){
                 searchResults.clear()
                 searchResults.addAll(measurements)
+                Collections.reverse(searchResults)
                 measureManagementAdapter = MeasureManagementAdapter(searchResults, layoutInflater)
                 lv_measure_management.adapter = measureManagementAdapter
                 searchCount(searchResults.size)
@@ -159,6 +159,7 @@ class MeasureManagementActivity : AppCompatActivity() {
                 TODO("VERSION.SDK_INT < O")
             }
             Log.e(TAG, "initListener: for before ${measurements.size}" )
+
                 for (i in 0 until measurements.size) {
                     Log.e(TAG, "initListener: count $i ${measurements[i]}")
                     val split = measurements[i].date.split("-")
