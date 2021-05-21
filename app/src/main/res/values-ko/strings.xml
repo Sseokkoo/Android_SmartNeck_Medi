@@ -1,7 +1,7 @@
 <resources>
 
 	<!-- App name -->
-	<string name="app_name">Smart Neck&#10;Medical</string>
+	<string name="app_name">Smart Neck</string>
 
 	<!-- Login -->
 	<string name="login_login">로그인</string>
@@ -331,4 +331,6 @@
 	<string name="num">번호</string>
 	<string name="name">이름</string>
 	<string name="snake">유연성</string>
+	<string name="mode">모드 선택</string>
+	<string name="mode_sub">이용하실 모드를 선택해주세요</string>
 </resources>

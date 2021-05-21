@@ -8,7 +8,7 @@ android {
     buildToolsVersion "28.0.3"
 
     defaultConfig {
-        applicationId "com.ko.smartneck.medical.twofive"
+        applicationId "com.smartneck.twofive"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 12

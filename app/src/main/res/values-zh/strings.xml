@@ -1,7 +1,7 @@
 <resources>
 
 	<!-- App name -->
-	<string name="app_name">Smart Neck&#10;Medical</string>
+	<string name="app_name">Smart Neck</string>
 
 	<!-- Login -->
 	<string name="login_login">登录</string>
@@ -314,7 +314,6 @@
 <!--	추가번역-->
 	<string name="delete">删除</string>
 	<string name="Modify">调整</string>
-
 	<string name="prduct">产品编号</string>
 	<string name="sign">入会日期</string>
 	<string name="company">公司名称：TwoFive Co.，Ltd.</string>
