@@ -111,7 +111,6 @@ public class ChartActivity extends DemoBase {
 
         chart_container = findViewById(R.id.chart_container);
 
-
         tv_axis_x = findViewById(R.id.tv_legend_x);
         tv_axis_y = findViewById(R.id.tv_legend_y);
 
@@ -122,8 +121,6 @@ public class ChartActivity extends DemoBase {
         exerciseAdapter = new ExerciseAdapter(exerciseItems, getLayoutInflater());
         exerciseList.setAdapter(exerciseAdapter);
         exerciseAdapter.notifyDataSetChanged();
-
-
 
         //초기 실행 시 목근육 나이
         setTabButtonColor(1);
@@ -168,7 +165,6 @@ public class ChartActivity extends DemoBase {
                 setTitleSize();
                 listview_container.setVisibility(View.VISIBLE);
                 chart_container.setVisibility(View.GONE);
-
             }
         });
         btn_dismiss.setOnClickListener(new View.OnClickListener() {
@@ -196,10 +192,8 @@ public class ChartActivity extends DemoBase {
 
         chart.setDrawGridBackground(false);
 
-
         //범례 Enableed => false == Visible.Gone
         chart.getLegend().setEnabled(false);
-
 
         YAxis rightAxis = chart.getAxisRight();
         rightAxis.setEnabled(false);
@@ -218,15 +212,15 @@ public class ChartActivity extends DemoBase {
         chart.animateY(500);
         Log.d(TAG, "setData: " + chart.getMaxVisibleCount());
         BarDataSet set1;
+
         if (labelCount > 5) {
             chart.getLayoutParams().width = 250 * labelCount;
             Log.d(TAG, "setData: size" + 250 * labelCount);
-
         } else {
             chart.getLayoutParams().width = 1000;
             Log.d(TAG, "setData: size" + 1000);
-
         }
+
         chart.setLayoutParams(chart.getLayoutParams());
 
         XAxis xAxis = chart.getXAxis();

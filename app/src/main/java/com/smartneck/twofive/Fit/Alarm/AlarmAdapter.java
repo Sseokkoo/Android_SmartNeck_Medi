@@ -180,7 +180,6 @@ public class AlarmAdapter extends BaseAdapter {
             holder.weekLinear.setVisibility(View.INVISIBLE);
         }
 
-
         //선택요일 색상변경
         if (alarms.get(i).isMon()) {
             holder.mon.setTextColor(Color.parseColor("#cc1b17"));

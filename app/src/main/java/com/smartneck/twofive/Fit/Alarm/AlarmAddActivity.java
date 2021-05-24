@@ -6,6 +6,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
@@ -136,9 +137,10 @@ public class AlarmAddActivity extends AppCompatActivity {
             if (selectFri) fri.setTextColor(Color.parseColor("#cc1b17"));
             if (selectSat) sat.setTextColor(Color.parseColor("#cc1b17"));
             //타임피커에 세팅
-            timePicker.setHour(hour);
-            timePicker.setMinute(minute);
-
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                timePicker.setHour(hour);
+                timePicker.setMinute(minute);
+            }
         }
     }
 
@@ -247,8 +249,10 @@ public class AlarmAddActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                hour = timePicker.getHour();
-                minute = timePicker.getMinute();
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    hour = timePicker.getHour();
+                    minute = timePicker.getMinute();
+                }
 
                 //날짜, 요일 미선택 type = 0
                 if (!selectSun && !selectMon && !selectTue &&

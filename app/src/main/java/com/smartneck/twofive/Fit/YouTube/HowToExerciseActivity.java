@@ -11,7 +11,7 @@ import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
 
 import com.smartneck.twofive.R;
-import com.smartneck.twofive.Fit.util.Address;
+import com.smartneck.twofive.Fit.util.Fit_Address;
 
 public class HowToExerciseActivity extends YouTubeBaseActivity {
     YouTubePlayerView youTubeView;
@@ -28,7 +28,7 @@ public class HowToExerciseActivity extends YouTubeBaseActivity {
             //초기화 성공시
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
-                youTubePlayer.loadVideo(Address.YOUTUBE_HOW_TO_EXERCISE);//url의 맨 뒷부분 ID값만 넣으면 됨
+                youTubePlayer.loadVideo(Fit_Address.YOUTUBE_HOW_TO_EXERCISE);//url의 맨 뒷부분 ID값만 넣으면 됨
             }
 
             @Override

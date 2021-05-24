@@ -55,8 +55,6 @@ public class CustomerFAQActivity extends AppCompatActivity {
                 }else if (tv_anwser.getVisibility() == View.GONE){
                     tv_anwser.setVisibility(View.VISIBLE);
                 }
-
-
             }
         });
         btn_dismiss.setOnClickListener(new View.OnClickListener() {

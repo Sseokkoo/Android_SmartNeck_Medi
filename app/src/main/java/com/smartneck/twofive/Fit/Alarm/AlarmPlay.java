@@ -5,7 +5,7 @@ import android.media.MediaPlayer;
 import android.os.Vibrator;
 import android.util.Log;
 
-import static com.smartneck.twofive.Fit.util.Constants.TAG;
+import static com.smartneck.twofive.Fit.util.Fit_Constants.TAG;
 
 public class AlarmPlay {
     static MediaPlayer mediaPlayer;

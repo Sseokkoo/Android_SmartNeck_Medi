@@ -69,7 +69,6 @@ public class Customer1To1InsertActivity extends AppCompatActivity {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-
                         String type = spinner.getSelectedItem().toString();
 
                         HttpConnect httpConnect = new HttpConnect();

@@ -77,7 +77,6 @@ public class AlarmStorage {
 
                     jsonObject = jsonArray.getJSONObject(i);
 
-
                     if (!jsonObject.isNull("sun"))sun = jsonObject.getBoolean("sun");
                     if (!jsonObject.isNull("mon"))mon = jsonObject.getBoolean("mon");
                     if (!jsonObject.isNull("tue"))tue = jsonObject.getBoolean("tue");

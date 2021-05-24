@@ -9,7 +9,7 @@ import android.util.Log;
 import java.util.Calendar;
 
 import static com.smartneck.twofive.Fit.Alarm.AlarmActivity.alarms;
-import static com.smartneck.twofive.Fit.util.Constants.TAG;
+import static com.smartneck.twofive.Fit.util.Fit_Constants.TAG;
 
 
 public class AlarmReceiver extends BroadcastReceiver

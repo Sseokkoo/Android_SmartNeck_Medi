@@ -8,15 +8,16 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import com.smartneck.twofive.Fit.Main.MainActivity;
-import com.smartneck.twofive.Fit.util.Address;
-import com.smartneck.twofive.Fit.util.Constants;
-import com.smartneck.twofive.Fit.util.HttpConnect;
-import com.smartneck.twofive.Fit.util.Param;
-import com.smartneck.twofive.Fit.util.User.Preset;
-import com.smartneck.twofive.Fit.util.User.User;
+import com.smartneck.twofive.Fit.Main.Fit_MainActivity;
+import com.smartneck.twofive.Fit.util.Fit_Address;
+import com.smartneck.twofive.Fit.util.Fit_Constants;
+import com.smartneck.twofive.Fit.util.Fit_HttpConnect;
+import com.smartneck.twofive.Fit.util.Fit_Param;
+import com.smartneck.twofive.Fit.util.User.Fit_Preset;
+import com.smartneck.twofive.Fit.util.User.Fit_User;
+import com.smartneck.twofive.R;
 
-import static com.smartneck.twofive.Fit.util.Constants.TAG;
+import static com.smartneck.twofive.Fit.util.Fit_Constants.TAG;
 
 
 public class IntroActivity extends AppCompatActivity {
@@ -28,8 +29,6 @@ public class IntroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
 
-
-
         handler = new Handler();
         setVolume();
         getYoutubeUrl();
@@ -37,21 +36,17 @@ public class IntroActivity extends AppCompatActivity {
         getTerms();
         String locale = getResources().getConfiguration().locale.getCountry();
         String language = getResources().getConfiguration().locale.getLanguage();
-        User.language = language;
-        User.country = locale;
-        Log.d(Constants.TAG, "local: " + locale + " / lang: " + language);
-        Constants constants = new Constants();
+        Fit_User.language = language;
+        Fit_User.country = locale;
+        Log.d(Fit_Constants.TAG, "local: " + locale + " / lang: " + language);
+        Fit_Constants constants = new Fit_Constants();
         constants.setAgeArray();
         setVolueHeight();
-
     }
 
     void setVolueHeight(){
-        Log.d(TAG, "setVolueHeight: " + Preset.getHomeHeightValue(50));
+        Log.d(TAG, "setVolueHeight: " + Fit_Preset.getHomeHeightValue(50));
     }
-
-
-
 
     //볼륨조절
     void setVolume() {
@@ -74,10 +69,10 @@ public class IntroActivity extends AppCompatActivity {
      */
 
     void autoLogin() {
-        User.getToken(this);
+        Fit_User.getToken(this);
 
-        if (!User.getAutoLoginState(this)) {
-            Intent intent = new Intent(getApplicationContext(), com.smartneck.twofive.Fit.LoginActivity.class);
+        if (!Fit_User.getAutoLoginState(this)) {
+            Intent intent = new Intent(getApplicationContext(), Fit_LoginActivity.class);
             startActivity(intent);
             finish();
             return;
@@ -93,25 +88,25 @@ public class IntroActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                Param param = new Param();
-                param.add("token", User.token);
-                Address address = new Address();
-                HttpConnect httpConnect = new HttpConnect();
+                Fit_Param param = new Fit_Param();
+                param.add("token", Fit_User.token);
+                Fit_Address address = new Fit_Address();
+                Fit_HttpConnect httpConnect = new Fit_HttpConnect();
                 Log.d(TAG, "param: " + param.getParam());
                 if (httpConnect.httpConnect(param.getParam(), address.getAutoLogin()) == 200) {
                     Log.d(TAG, "receive message : " + httpConnect.getReceiveMessage());
                     if (!httpConnect.getReceiveMessage().equals("fail")) {
-                        User.getUserInfoJson(getApplicationContext(), httpConnect.getReceiveMessage());
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        Fit_User.getUserInfoJson(getApplicationContext(), httpConnect.getReceiveMessage());
+                        Intent intent = new Intent(getApplicationContext(), Fit_MainActivity.class);
                         startActivity(intent);
                         finish();
                     } else {
-                        Intent intent = new Intent(getApplicationContext(), com.smartneck.twofive.Fit.LoginActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), Fit_LoginActivity.class);
                         startActivity(intent);
                         finish();
                     }
                 } else {
-                    Intent intent = new Intent(getApplicationContext(), com.smartneck.twofive.Fit.LoginActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), Fit_LoginActivity.class);
                     startActivity(intent);
                     finish();
                     Log.d(TAG, "response code : " + httpConnect.getResponseCode());
@@ -131,15 +126,15 @@ public class IntroActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                final HttpConnect httpConnect = new HttpConnect();
-                Address address = new Address();
+                final Fit_HttpConnect httpConnect = new Fit_HttpConnect();
+                Fit_Address address = new Fit_Address();
                 if (httpConnect.httpConnect("", address.getYouTubeUrl()) == 200) {
-                    if (!httpConnect.getReceiveMessage().equals(Constants.FAIL)) {
+                    if (!httpConnect.getReceiveMessage().equals(Fit_Constants.FAIL)) {
 
                         String[] urlSplit = httpConnect.getReceiveMessage().split("@");
-                        Address.YOUTUBE_HOW_TO_EXERCISE = urlSplit[0];
-                        Address.YOUTUBE_SUB_EXERCISE = urlSplit[1];
-                        Log.d(TAG, " - - - - - - - - - - YOUTUBE URL: " + Address.YOUTUBE_HOW_TO_EXERCISE);
+                        Fit_Address.YOUTUBE_HOW_TO_EXERCISE = urlSplit[0];
+                        Fit_Address.YOUTUBE_SUB_EXERCISE = urlSplit[1];
+                        Log.d(TAG, " - - - - - - - - - - YOUTUBE URL: " + Fit_Address.YOUTUBE_HOW_TO_EXERCISE);
 //                        Address.domain = urlSplit[2];
                     }
                 }
@@ -158,25 +153,25 @@ public class IntroActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                HttpConnect httpConnect = new HttpConnect();
-                Address address = new Address();
+                Fit_HttpConnect httpConnect = new Fit_HttpConnect();
+                Fit_Address address = new Fit_Address();
                 if (httpConnect.httpConnect("" , address.getTermsOfUse()) == 200){
                     String split[] = httpConnect.getReceiveMessage().split("#");
-                    if (User.language.equals("ko")){
-                        Constants.Terms1 = split[0];
-                        Constants.Terms2 = split[1];
-                        Constants.Terms3 = split[2];
-                        Constants.Terms4 = split[3];
-                    }else if (User.language.equals("en")){
-                        Constants.Terms1 = split[4];
-                        Constants.Terms2 = split[5];
-                        Constants.Terms3 = split[6];
-                        Constants.Terms4 = split[7];
+                    if (Fit_User.language.equals("ko")){
+                        Fit_Constants.Terms1 = split[0];
+                        Fit_Constants.Terms2 = split[1];
+                        Fit_Constants.Terms3 = split[2];
+                        Fit_Constants.Terms4 = split[3];
+                    }else if (Fit_User.language.equals("en")){
+                        Fit_Constants.Terms1 = split[4];
+                        Fit_Constants.Terms2 = split[5];
+                        Fit_Constants.Terms3 = split[6];
+                        Fit_Constants.Terms4 = split[7];
                     }else {
-                        Constants.Terms1 = split[4];
-                        Constants.Terms2 = split[5];
-                        Constants.Terms3 = split[6];
-                        Constants.Terms4 = split[7];
+                        Fit_Constants.Terms1 = split[4];
+                        Fit_Constants.Terms2 = split[5];
+                        Fit_Constants.Terms3 = split[6];
+                        Fit_Constants.Terms4 = split[7];
                     }
 
                 }
