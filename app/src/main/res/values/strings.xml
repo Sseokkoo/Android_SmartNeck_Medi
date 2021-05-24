@@ -337,5 +337,10 @@
     <string name="num">No.</string>
     <string name="name">Name</string>
     <string name="snake">Flexibility</string>
+    <string name="mode">Mode selection</string>
+    <string name="mode_sub">Please select the mode you want to use</string>
+    <string name="choice_med">For business [MED]</string>
+    <string name="choice_fit">Personal [FIT]</string>
+
 
 </resources>

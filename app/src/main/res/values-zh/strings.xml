@@ -328,4 +328,9 @@
 	<string name="num">数字</string>
 	<string name="name">名称</string>
 	<string name="snake">灵活性</string>
+	<string name="mode">模式选择</string>
+	<string name="mode_sub">请选择您要使用的模式</string>
+	<string name="choice_med">商业用途 [MED]</string>
+	<string name="choice_fit">个人的 [FIT]</string>
+
 </resources>

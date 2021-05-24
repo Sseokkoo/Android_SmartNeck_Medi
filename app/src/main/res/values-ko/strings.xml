@@ -333,4 +333,8 @@
 	<string name="snake">유연성</string>
 	<string name="mode">모드 선택</string>
 	<string name="mode_sub">이용하실 모드를 선택해주세요</string>
+	<string name="choice_med">기업용 [MED]</string>
+	<string name="choice_fit">개인용 [FIT]</string>
+
+
 </resources>

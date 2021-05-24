@@ -4,55 +4,65 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<LinearLayout
-    android:id="@+id/title"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintVertical_bias="0.2">
-
-    <TextView
+    <LinearLayout
+        android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="모드 선택"
-        android:textAlignment="center"
-        android:textSize="35sp"
-        android:fontFamily="@font/titlefont"/>
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.2">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="이용하실 모드를 선택해주세요"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mode"
+            android:textAlignment="center"
+            android:textSize="35sp"
+            android:fontFamily="@font/titlefont"/>
 
-</LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@string/mode_sub"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            />
+
+    </LinearLayout>
 
     <Button
+        android:id="@+id/start_med"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="기업용 [Med]"
+        android:text="@string/choice_med"
+        android:textSize="30sp"
+        android:padding="10dp"
+        android:fontFamily="@font/titlefont"
+        android:background="@drawable/custom_btn"
         app:layout_constraintTop_toBottomOf="@id/title"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.2"
-        app:layout_constraintHorizontal_bias="0.2"/>
+        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintHorizontal_bias="0.5"/>
 
     <Button
+        android:id="@+id/start_fit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="개인용 [Fit]"
+        android:text="@string/choice_fit"
+        android:padding="10dp"
+        android:textSize="30sp"
+        android:fontFamily="@font/titlefont"
+        android:background="@drawable/custom_btn"
         app:layout_constraintTop_toBottomOf="@id/title"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.2"
-        app:layout_constraintHorizontal_bias="0.8"/>
+        app:layout_constraintVertical_bias="0.7"
+        app:layout_constraintHorizontal_bias="0.5"/>
 
 
 

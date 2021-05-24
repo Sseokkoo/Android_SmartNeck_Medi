@@ -8,16 +8,12 @@ import android.os.Bundle
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import android.widget.Toast
-import com.smartneck.twofive.GlobalApplication.userPreference
-import com.smartneck.twofive.Main.BleConnectActivity
-import com.smartneck.twofive.Member.LoginActivity
-import com.smartneck.twofive.Member.MemberSelectActivity
-import com.smartneck.twofive.Member.MemberSelectActivity.admin
 import com.smartneck.twofive.SQ.DBHelper
-import com.smartneck.twofive.util.*
+import com.smartneck.twofive.util.Address
+import com.smartneck.twofive.util.Constants
 import com.smartneck.twofive.util.Constants.TAG
-import kotlinx.android.synthetic.main.activity_login.*
+import com.smartneck.twofive.util.HttpConnect
+import com.smartneck.twofive.util.NetworkStatus
 
 class IntroActivity : AppCompatActivity() {
     var handler: Handler? = null

@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("kr.co.twofive.neckthpower", appContext.getPackageName());
+        assertEquals("com.smartneck.twofive.Fit", appContext.getPackageName());
     }
 }
