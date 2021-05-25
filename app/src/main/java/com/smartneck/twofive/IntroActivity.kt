@@ -8,6 +8,14 @@ import android.os.Bundle
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import com.smartneck.twofive.Fit.Fit_LoginActivity
+import com.smartneck.twofive.Fit.Main.Fit_MainActivity
+import com.smartneck.twofive.Fit.util.Fit_Address
+import com.smartneck.twofive.Fit.util.Fit_Constants
+import com.smartneck.twofive.Fit.util.Fit_HttpConnect
+import com.smartneck.twofive.Fit.util.Fit_Param
+import com.smartneck.twofive.Fit.util.User.Fit_Preset
+import com.smartneck.twofive.Fit.util.User.Fit_User
 import com.smartneck.twofive.SQ.DBHelper
 import com.smartneck.twofive.util.Address
 import com.smartneck.twofive.util.Constants

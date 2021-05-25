@@ -43,7 +43,7 @@ public class Fit_ProcedureDefaultFragment extends Fragment {
     Fit_NoticeDialog noticeDialog;
 
     TextView tv_procedure_btn;
-여기서부터 , xml 도같이 합쳐야함
+
     static int strength = 3;
 
     @Override
