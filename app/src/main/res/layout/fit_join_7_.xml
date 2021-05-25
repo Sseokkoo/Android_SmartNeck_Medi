@@ -1,0 +1,197 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        app:scale_base_height="620"
+        app:scale_base_width="400">
+
+        <ImageView
+            android:id="@+id/join_7_previous"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24px"
+            app:scale_height="30"
+            app:scale_left="10"
+            app:scale_top="20"
+            app:scale_width="30" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/sign_up_agreement"
+            android:textColor="#000"
+            app:scale_height="60"
+            app:scale_left="100"
+            app:scale_textsize="24"
+            app:scale_top="20"
+            app:scale_width="200" />
+
+        <CheckBox
+            app:scale_height="30"
+            app:scale_left="25"
+            app:scale_textsize="16"
+            app:scale_top="90"
+            app:scale_width="350"
+            android:id="@+id/cb_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:text="@string/sign_up_agree_all" />
+
+        <CheckBox
+            app:scale_height="30"
+            app:scale_left="25"
+            app:scale_textsize="16"
+            app:scale_top="125"
+            app:scale_width="350"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:id="@+id/cb_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:text="@string/sign_up_option1_check" />
+
+        <TextView
+            android:background="@drawable/edit_text_background"
+            app:scale_height="80"
+            app:scale_left="25"
+            app:scale_textsize="16"
+            app:scale_top="160"
+            app:scale_width="350"
+            android:maxLines="1000"
+            android:id="@+id/join_7_terms_1"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="5"
+            android:scrollbars="vertical"
+            android:text="@string/sign_up_option1_title"
+            android:textSize="14sp" />
+
+        <CheckBox
+            app:scale_height="30"
+            app:scale_left="25"
+            app:scale_textsize="16"
+            app:scale_top="245"
+            app:scale_width="350"
+            android:id="@+id/cb_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:text="@string/sign_up_option2_check" />
+
+        <TextView
+            android:background="@drawable/edit_text_background"
+            app:scale_height="80"
+            app:scale_left="25"
+            app:scale_textsize="16"
+            app:scale_top="280"
+            app:scale_width="350"
+            android:layout_marginRight="20dp"
+            android:id="@+id/join_7_terms_2"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="5"
+            android:scrollbars="vertical"
+            android:text="@string/sign_up_option2_title"
+            android:textSize="14sp" />
+
+        <CheckBox
+            app:scale_height="30"
+            app:scale_left="25"
+            app:scale_textsize="16"
+            app:scale_top="365"
+            app:scale_width="350"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:id="@+id/cb_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:text="@string/sign_up_option3_check" />
+
+        <TextView
+            android:background="@drawable/edit_text_background"
+            app:scale_height="90"
+            app:scale_left="25"
+            app:scale_textsize="16"
+            app:scale_top="400"
+            app:scale_width="350"
+            android:layout_marginRight="20dp"
+            android:id="@+id/join_7_terms_3"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="5"
+            android:scrollbars="vertical"
+            android:text="@string/sign_up_option3_title"
+            android:textSize="14sp" />
+
+        <CheckBox
+            app:scale_height="30"
+            app:scale_left="25"
+            app:scale_textsize="16"
+            app:scale_top="495"
+            app:scale_width="350"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:id="@+id/cb_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:text="@string/sign_up_option4_check" />
+
+        <TextView
+            android:background="@drawable/edit_text_background"
+            app:scale_height="90"
+            app:scale_left="25"
+            app:scale_textsize="16"
+            app:scale_top="530"
+            app:scale_width="350"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="8dp"
+            android:id="@+id/join_7_terms_4"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="5"
+            android:scrollbars="vertical"
+            android:text="@string/sign_up_option4_title"
+            android:textSize="14sp" />
+
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+
+
+    <Button
+        android:layout_gravity="bottom"
+        android:id="@+id/join_7_next"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/color_grey"
+        android:text="@string/btn_next"
+        android:textColor="#fff" />
+</FrameLayout>
+
+
+
+
+
+
