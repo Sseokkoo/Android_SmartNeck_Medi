@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="top"
+        android:background="#e4e4e4" />
+
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/scale_seat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        android:visibility="visible"
+        app:scale_base_height="600"
+        app:scale_base_width="400">
+
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#e4e4e4"
+            app:scale_height="1"
+            app:scale_left="80"
+            app:scale_top="102"
+            app:scale_width="240" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/menu_weight"
+            app:scale_height="40"
+            app:scale_left="20"
+            app:scale_textsize="20"
+            app:scale_top="10"
+            app:scale_width="360" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="@string/measure_muscle_message"
+            android:textSize="16sp"
+            app:scale_height="60"
+            app:scale_left="50"
+            app:scale_textsize="16"
+            app:scale_top="50"
+            app:scale_width="300" />
+
+        <ImageView
+            android:id="@+id/weight_setting_gif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="#f6f6f6"
+            app:scale_height="200"
+            app:scale_left="60"
+            app:scale_textsize="16"
+            app:scale_top="110"
+            app:scale_width="280" />
+
+        <TextView
+            android:id="@+id/tv_f_max_weight_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="0.0"
+            android:textAlignment="center"
+            android:textColor="@color/color_accent"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:scale_height="70"
+            app:scale_left="70"
+            app:scale_textsize="30"
+            app:scale_top="330" />
+
+        <TextView
+            android:id="@+id/tv_f_weight_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="0.0"
+            android:textColor="@color/color_accent"
+            android:textStyle="bold"
+            app:scale_height="70"
+            app:scale_left="230"
+            app:scale_textsize="30"
+            app:scale_top="330"
+            app:scale_width="100" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/measure_max_weight"
+            android:textColor="#737373"
+            app:scale_height="70"
+            app:scale_left="70"
+            app:scale_textsize="16"
+            app:scale_top="380" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:text="@string/measure_weight"
+            app:scale_height="70"
+            app:scale_left="230"
+            app:scale_textsize="16"
+            app:scale_top="380" />
+
+        <ImageButton
+            android:id="@+id/btn_f_weight_setting_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_control_up_small"
+            android:scaleType="center"
+            app:scale_height="50"
+            app:scale_left="320"
+            app:scale_top="340"
+            app:scale_width="50" />
+
+
+        <ImageButton
+            android:id="@+id/btn_f_weight_setting_down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_control_down_small"
+            app:scale_height="50"
+            app:scale_left="190"
+            app:scale_top="340"
+            app:scale_width="50" />
+
+
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="60dp"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:visibility="gone"
+            android:id="@+id/btn_f_weight_setting_seat"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="#bdbdbd"
+            android:text="@string/btn_previous"
+            android:textColor="#fff" />
+
+        <Button
+            android:visibility="gone"
+            android:id="@+id/btn_f_weight_setting_start"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:text="@string/btn_next"
+            android:textColor="#fff" />
+
+
+        <Button
+            android:id="@+id/btn_f_weight_setting_home"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_background_enabled"
+            android:text="운동시작"
+            android:textColor="#fff"
+            android:visibility="gone" />
+    </LinearLayout>
+</FrameLayout>
+
+

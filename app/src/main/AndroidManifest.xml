@@ -188,6 +188,77 @@
         <service android:name=".tmp.Alarm.AlarmService" />
 
         <receiver android:name=".tmp.Alarm.AlarmReceiver" />
+
+<!--        FIT-->
+        <activity android:name=".Fit.Main.Fit_AfterMeasureActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Fit.Fit_FindAccountActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Fit.Fit_FindPasswordActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Fit.YouTube.HowToExerciseActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Fit.YouTube.SubExerciseActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Fit.Review.Fit_ReviewActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".Fit.UserInfoEdit.Fit_EditPasswordActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Fit.UserInfoEdit.Fit_UserInfoEditListActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Fit.UserInfoEdit.Fit_EditPhoneActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Fit.Fit_AppVersionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Fit.Join.Fit_Join_1_Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Fit.Join.Fit_Join_2_Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Fit.Join.Fit_Join_3_Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Fit.Join.Fit_Join_4_Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Fit.Join.Fit_Join_5_Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Fit.Join.Fit_Join_6_Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Fit.Join.Fit_Join_7_Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Fit.Main.Fit_MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Fit.Fit_LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Fit.Fit_MeasureActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Fit.Fit_BrowserActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Fit.Alarm.AlarmActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"/>
+        <activity android:name=".Fit.Alarm.AlarmAddActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Fit.Alarm.AlarmLockedActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Fit.Chart.Fit_ChartActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <service android:name=".Fit.Alarm.AlarmService"/>
+        <receiver android:name=".Fit.Alarm.AlarmReceiver"/>
     </application>
 
 </manifest>

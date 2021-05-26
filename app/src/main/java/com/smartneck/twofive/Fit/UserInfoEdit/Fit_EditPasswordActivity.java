@@ -30,7 +30,7 @@ public class Fit_EditPasswordActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_info_password);
+        setContentView(R.layout.fit_user_info_password);
         init();
     }
 

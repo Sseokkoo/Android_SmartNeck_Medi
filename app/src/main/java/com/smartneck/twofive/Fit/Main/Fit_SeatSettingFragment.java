@@ -46,7 +46,7 @@ public class Fit_SeatSettingFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = (ViewGroup) inflater.inflate(R.layout.fragment_seat_setting, container, false);
+        view = (ViewGroup) inflater.inflate(R.layout.fit_fragment_seat_setting, container, false);
         mContext = getApllication();
         Fit_MainActivity.setAudio("chair");
         init();

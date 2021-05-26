@@ -18,12 +18,14 @@ import android.widget.Toast;
 
 import com.smartneck.twofive.ErrorReport.ErrorReportActivity;
 import com.smartneck.twofive.Fit.Fit_MeasureActivity;
+import com.smartneck.twofive.Main.MainActivity;
 import com.smartneck.twofive.R;
 import com.smartneck.twofive.Fit.YouTube.HowToExerciseActivity;
 import com.smartneck.twofive.Fit.YouTube.SubExerciseActivity;
 import com.smartneck.twofive.Fit.util.Fit_BluetoothUtils;
 import com.smartneck.twofive.Fit.util.Fit_ProgressDialog;
 import com.smartneck.twofive.Fit.util.User.Fit_Preset;
+import com.smartneck.twofive.util.User.Preset;
 
 import static com.smartneck.twofive.Fit.Main.Fit_ExerciseFragment.CFG_COUNT;
 import static com.smartneck.twofive.Fit.Main.Fit_ExerciseFragment.CFG_SET;
@@ -48,7 +50,7 @@ public class Fit_HomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = (ViewGroup) inflater.inflate(R.layout.fragment_home, container, false);
+        view = (ViewGroup) inflater.inflate(R.layout.fit_fragment_home, container, false);
         mContext = getActivity();
         handler = new Handler();
         progressDialog = new Fit_ProgressDialog(mContext, getLayoutInflater());
@@ -109,7 +111,7 @@ public class Fit_HomeFragment extends Fragment {
         btn_weight = view.findViewById(R.id.home_exercise_weight_btn);
         btn_exercise = view.findViewById(R.id.home_exercise_btn);
 
-        btn_exercise.setText("");
+//        btn_exercise.setText(R.string.btn_measure);
 
     }
 
@@ -210,6 +212,24 @@ public class Fit_HomeFragment extends Fragment {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate:  homeFragment");
         Fit_MainActivity.isMain = true;
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (Fit_Preset.MaxWeight == 0 || Fit_Preset.MaxHeight == 0){
+                            btn_exercise.setText(Fit_MainActivity.mContext.getString(R.string.btn_measure));
+
+                        }else{
+                            btn_exercise.setText(Fit_MainActivity.mContext.getString(R.string.btn_start));
+                        }
+                    }
+                });
+            }
+        }).start();
+
     }
 
     @Override
@@ -226,16 +246,17 @@ public class Fit_HomeFragment extends Fragment {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                handler.postDelayed(new Runnable() {
+                handler.post(new Runnable() {
                     @Override
                     public void run() {
                         if (Fit_Preset.MaxWeight == 0 || Fit_Preset.MaxHeight == 0){
                             btn_exercise.setText(Fit_MainActivity.mContext.getString(R.string.btn_measure));
+
                         }else{
                             btn_exercise.setText(Fit_MainActivity.mContext.getString(R.string.btn_start));
                         }
                     }
-                },1500);
+                });
             }
         }).start();
 

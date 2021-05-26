@@ -195,7 +195,22 @@ public class HomeFragment extends Fragment {
         Log.d(TAG, "onCreate:  homeFragment");
         MainActivity.isMain = true;
 
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (preset.getMaxWeight() == 0 || preset.getMaxHeight() == 0){
+                            btn_exercise.setText(MainActivity.mContext.getString(R.string.btn_measure));
 
+                        }else{
+                            btn_exercise.setText(MainActivity.mContext.getString(R.string.btn_start));
+                        }
+                    }
+                });
+            }
+        }).start();
     }
 
     @Override

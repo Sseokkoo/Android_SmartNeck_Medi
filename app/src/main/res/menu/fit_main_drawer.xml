@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item android:title="">
+        <menu>
+            <!--<item-->
+                <!--android:icon="@drawable/menu_alarm"-->
+                <!--android:id="@+id/nav_alarm"-->
+                <!--android:title="@string/menu_alarm"-->
+                <!--/>-->
+            <item
+                android:icon="@drawable/menu_error"
+                android:id="@+id/nav_error"
+                android:title="@string/menu_report"
+                />
+            <item
+                android:icon="@drawable/menu_user"
+                android:id="@+id/nav_user_info"
+                android:title="@string/menu_user_info"
+                />
+            <item
+                android:icon="@drawable/menu_info"
+                android:id="@+id/nav_device_info"
+                android:title="@string/menu_device_info"
+                />
+            <!--<item-->
+                <!--android:icon="@drawable/menu_age"-->
+                <!--android:id="@+id/nav_neck_age"-->
+                <!--android:title="@string/menu_age"-->
+                <!--/>-->
+            <!--<item-->
+                <!--android:icon="@drawable/menu_flexibility"-->
+                <!--android:id="@+id/nav_height"-->
+                <!--android:title="@string/menu_flexibility"-->
+                <!--/>-->
+            <item
+                android:icon="@drawable/menu_statistics"
+                android:id="@+id/nav_statistics"
+                android:title="@string/menu_statistics"
+                />
+
+
+            <!--<item-->
+                <!--android:icon="@drawable/menu_admin"-->
+                <!--android:id="@+id/nav_management"-->
+                <!--android:title="@string/menu_management"-->
+                <!--/>-->
+            <item
+                android:icon="@drawable/menu_report"
+                android:id="@+id/nav_review"
+                android:title="@string/review_title"
+                />
+            <item
+                android:icon="@drawable/menu_notice"
+                android:id="@+id/nav_notice"
+                android:title="@string/menu_announce"
+                />
+            <item
+                android:icon="@drawable/menu_customer"
+                android:id="@+id/nav_inquery"
+                android:title="@string/menu_support"
+                />
+            <item
+                android:icon="@drawable/menu_logout"
+                android:id="@+id/nav_logout"
+                android:title="@string/menu_logout"/>
+        </menu>
+    </item>
+
+
+
+
+
+
+</menu>

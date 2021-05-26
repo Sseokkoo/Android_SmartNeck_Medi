@@ -31,7 +31,7 @@ public class Fit_FindAccountActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_find_account);
+        setContentView(R.layout.fit_find_account);
         init();
         setEvent();
     }

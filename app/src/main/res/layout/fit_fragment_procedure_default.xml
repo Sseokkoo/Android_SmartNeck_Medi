@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_white">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        app:scale_base_height="600"
+        app:scale_base_width="400">
+
+        <!---->
+        <!--count-->
+        <!---->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/menu_exercise_setting"
+            android:textColor="#000"
+            app:scale_height="60"
+            app:scale_textsize="28"
+            app:scale_width="400" />
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/exericse_setting_weight"
+            app:scale_height="60"
+            app:scale_textsize="16"
+            app:scale_top="100"
+            app:scale_width="80" />
+
+        <ImageView
+            android:id="@+id/procedure_default_help"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/btn_exercise_setting_info"
+            app:scale_height="60"
+            app:scale_left="95"
+            app:scale_top="100"
+            app:scale_width="24" />
+        <RadioButton
+            app:scale_textsize="16"
+            app:scale_height="60"
+            app:scale_left="140"
+            app:scale_top="100"
+            app:scale_width="80"
+            android:id="@+id/rb_exercise_default_setting_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="@string/exercise_strength_high" />
+
+        <RadioButton
+            app:scale_textsize="16"
+            app:scale_height="60"
+            app:scale_left="225"
+            app:scale_top="100"
+            app:scale_width="80"
+            android:id="@+id/rb_exercise_default_setting_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/exercise_strength_mid" />
+
+        <RadioButton
+            app:scale_textsize="16"
+            app:scale_height="60"
+            app:scale_left="305"
+            app:scale_top="100"
+            app:scale_width="80"
+            android:visibility="visible"
+            android:id="@+id/rb_exercise_default_setting_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/exercise_strength_low" />
+
+
+        <TextView
+            android:id="@+id/tv_procedure_default_setting_btn"
+            android:background="@drawable/button_background_enabled"
+            android:textColor="@color/colorWhite"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_start"
+            app:scale_textsize="16"
+            app:scale_height="40"
+            app:scale_left="140"
+            app:scale_top="200"
+            app:scale_width="120"/>
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+
+
+
+    <!---->
+    <!--button-->
+    <!---->
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/button_background_colored"
+        android:text="@string/exercise_detail_setting"
+        android:textColor="#fff" />
+
+
+</FrameLayout>

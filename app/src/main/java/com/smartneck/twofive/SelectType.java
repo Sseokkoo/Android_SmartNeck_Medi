@@ -133,68 +133,73 @@ public class SelectType extends AppCompatActivity {
         Fit_User.getToken(this);
 
         if (!Fit_User.getAutoLoginState(this)) {
-            Intent intent = new Intent(getApplicationContext(), Fit_LoginActivity.class);
+            Intent intent = new Intent(this, Fit_LoginActivity.class);
             startActivity(intent);
             finish();
             return;
         }
 
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Fit_Param param = new Fit_Param();
+                param.add("token", Fit_User.token);
+                Fit_Address address = new Fit_Address();
+                Fit_HttpConnect httpConnect = new Fit_HttpConnect();
+                Log.d(TAG, "param: " + param.getParam());
+                if (httpConnect.httpConnect(param.getParam(), address.getAutoLogin()) == 200) {
+                    Log.d(TAG, "receive message : " + httpConnect.getReceiveMessage());
+                    if (!httpConnect.getReceiveMessage().equals("fail")) {
+                        Fit_User.getUserInfoJson(SelectType.this, httpConnect.getReceiveMessage());
+                        Intent intent = new Intent(SelectType.this, Fit_MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Intent intent = new Intent(SelectType.this, Fit_LoginActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                } else {
+                    Intent intent = new Intent(SelectType.this, Fit_LoginActivity.class);
+                    startActivity(intent);
+                    finish();
+                    Log.d(TAG, "response code : " + httpConnect.getResponseCode());
+                }
 
-        Fit_Param param = new Fit_Param();
-        param.add("token", Fit_User.token);
-        Fit_Address address = new Fit_Address();
-        Fit_HttpConnect httpConnect = new Fit_HttpConnect();
-        Log.d(TAG, "param: " + param.getParam());
-        if (httpConnect.httpConnect(param.getParam(), address.getAutoLogin()) == 200) {
-            Log.d(TAG, "receive message : " + httpConnect.getReceiveMessage());
-            if (!httpConnect.getReceiveMessage().equals("fail")) {
-                Fit_User.getUserInfoJson(getApplicationContext(), httpConnect.getReceiveMessage());
-                Intent intent = new Intent(getApplicationContext(), Fit_MainActivity.class);
-                startActivity(intent);
-                finish();
-            } else {
-                Intent intent = new Intent(getApplicationContext(), Fit_LoginActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        } else {
-            Intent intent = new Intent(getApplicationContext(), Fit_LoginActivity.class);
-            startActivity(intent);
-            finish();
-            Log.d(TAG, "response code : " + httpConnect.getResponseCode());
-        }
+                if (httpConnect.httpConnect("", address.getYouTubeUrl()) == 200) {
+                    if (!httpConnect.getReceiveMessage().equals(Fit_Constants.FAIL)) {
 
-        if (httpConnect.httpConnect("", address.getYouTubeUrl()) == 200) {
-            if (!httpConnect.getReceiveMessage().equals(Fit_Constants.FAIL)) {
-
-                String[] urlSplit = httpConnect.getReceiveMessage().split("@");
-                Fit_Address.YOUTUBE_HOW_TO_EXERCISE = urlSplit[0];
-                Fit_Address.YOUTUBE_SUB_EXERCISE = urlSplit[1];
-                Log.d(TAG, " - - - - - - - - - - YOUTUBE URL: " + Fit_Address.YOUTUBE_HOW_TO_EXERCISE);
+                        String[] urlSplit = httpConnect.getReceiveMessage().split("@");
+                        Fit_Address.YOUTUBE_HOW_TO_EXERCISE = urlSplit[0];
+                        Fit_Address.YOUTUBE_SUB_EXERCISE = urlSplit[1];
+                        Log.d(TAG, " - - - - - - - - - - YOUTUBE URL: " + Fit_Address.YOUTUBE_HOW_TO_EXERCISE);
 //                        Address.domain = urlSplit[2];
-            }
-        }
+                    }
+                }
 
-        if (httpConnect.httpConnect("", address.getTermsOfUse()) == 200) {
-            String split[] = httpConnect.getReceiveMessage().split("#");
-            if (Fit_User.language.equals("ko")) {
-                Fit_Constants.Terms1 = split[0];
-                Fit_Constants.Terms2 = split[1];
-                Fit_Constants.Terms3 = split[2];
-                Fit_Constants.Terms4 = split[3];
-            } else if (Fit_User.language.equals("en")) {
-                Fit_Constants.Terms1 = split[4];
-                Fit_Constants.Terms2 = split[5];
-                Fit_Constants.Terms3 = split[6];
-                Fit_Constants.Terms4 = split[7];
-            } else {
-                Fit_Constants.Terms1 = split[4];
-                Fit_Constants.Terms2 = split[5];
-                Fit_Constants.Terms3 = split[6];
-                Fit_Constants.Terms4 = split[7];
-            }
+                if (httpConnect.httpConnect("", address.getTermsOfUse()) == 200) {
+                    String split[] = httpConnect.getReceiveMessage().split("#");
+                    if (Fit_User.language.equals("ko")) {
+                        Fit_Constants.Terms1 = split[0];
+                        Fit_Constants.Terms2 = split[1];
+                        Fit_Constants.Terms3 = split[2];
+                        Fit_Constants.Terms4 = split[3];
+                    } else if (Fit_User.language.equals("en")) {
+                        Fit_Constants.Terms1 = split[4];
+                        Fit_Constants.Terms2 = split[5];
+                        Fit_Constants.Terms3 = split[6];
+                        Fit_Constants.Terms4 = split[7];
+                    } else {
+                        Fit_Constants.Terms1 = split[4];
+                        Fit_Constants.Terms2 = split[5];
+                        Fit_Constants.Terms3 = split[6];
+                        Fit_Constants.Terms4 = split[7];
+                    }
 
-        }
+                }
+
+            }
+        }).start();
 
     }
 

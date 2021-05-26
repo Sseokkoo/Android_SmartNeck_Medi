@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.smartneck.twofive.R;
 import com.ssomai.android.scalablelayout.ScalableLayout;
 
 import com.smartneck.twofive.Fit.Main.Fit_MainActivity;
@@ -131,7 +132,7 @@ public class Fit_MeasureActivity extends AppCompatActivity {
         btn_seat_down.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "- btn_seat_down onClick");
+                Log.d("확인", "- btn_seat_down onClick");
 
                 if (Fit_Preset.seat > 0) {
 
@@ -153,7 +154,7 @@ public class Fit_MeasureActivity extends AppCompatActivity {
         btn_seat_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "- btn_seat_up onClick");
+                Log.d("확인", "- btn_seat_up onClick");
 
                 if (Fit_Preset.seat < 20) {
 
@@ -237,7 +238,7 @@ public class Fit_MeasureActivity extends AppCompatActivity {
         btn_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "- btn_cancel onClick");
+                Log.d("확인", "- btn_cancel onClick");
 
                 finish();
             }
@@ -247,7 +248,7 @@ public class Fit_MeasureActivity extends AppCompatActivity {
         btn_prev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "- btn_prev onClick");
+                Log.d("확인", "- btn_prev onClick");
 
 
 
@@ -269,7 +270,7 @@ public class Fit_MeasureActivity extends AppCompatActivity {
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "- btn_next onClick");
+                Log.d("확인", "- btn_next onClick");
 
                 if (isHeight) {
                     if (CFG_HEIGHT_MAX[1] == 0) {
@@ -309,7 +310,7 @@ public class Fit_MeasureActivity extends AppCompatActivity {
 //        btn_finish.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                Log.d(TAG, "- btn_finish onClick");
+//                Log.d("확인", "- btn_finish onClick");
 //                if (CFG_WEIGHT_MAX[1] == 0) {
 //                    Toast.makeText(getApplicationContext(), getString(R.string.toast_measure_weight), Toast.LENGTH_SHORT).show();
 //                    return;
@@ -349,10 +350,10 @@ public class Fit_MeasureActivity extends AppCompatActivity {
 
     @Override
     public void onResume() {
-        Log.d(TAG, "----- MeasureActivity onResume");
+        Log.d("확인", "----- MeasureActivity onResume");
 
 
-        Log.d(TAG, "onResume: " + CFG_SEQ);
+        Log.d("확인", "onResume: " + CFG_SEQ);
 
 
         super.onResume();
@@ -372,9 +373,9 @@ public class Fit_MeasureActivity extends AppCompatActivity {
     }
 
 //    public void setDeviceType(String DeviceType) {
-//        Log.d(TAG, "----- MeasureActivity setDeviceType: " + DeviceType);
+//        Log.d("확인", "----- MeasureActivity setDeviceType: " + DeviceType);
 //
-//        Log.d(TAG, "setDeviceType: " + CFG_SEQ);
+//        Log.d("확인", "setDeviceType: " + CFG_SEQ);
 //
 //        switch (DeviceType) {
 //            case "HOM":
@@ -404,7 +405,7 @@ public class Fit_MeasureActivity extends AppCompatActivity {
 
 
     public void setMeasureSeq(int seq) {
-        Log.d(TAG, "----- setMeasureSeq: " + seq);
+        Log.d("확인", "----- setMeasureSeq: " + seq);
 
         CFG_SEQ = seq;
 
@@ -476,7 +477,7 @@ public class Fit_MeasureActivity extends AppCompatActivity {
                         }
                         while (true) {
                             if (isHeiProgress) break;
-                            Log.d(TAG, "isHeiProgress: " + isHeiProgress);
+                            Log.d("확인", "isHeiProgress: " + isHeiProgress);
                             try {
                                 Thread.sleep(500);
                             } catch (InterruptedException e) {
@@ -538,7 +539,7 @@ public class Fit_MeasureActivity extends AppCompatActivity {
 //                        ((MainActivity) MainActivity.mContext).setMessage(StringUtils.getCommand("44 3A 07 00 03 " + StringUtils.getHexStringCode(Preset.seat) + " 00 00 00 00 00 00 00 00 00 00 " + StringUtils.getHexStringCode(CFG_WEIGHT_DEF[1]) + " 00 00"));
 //
 //                        while (!isWeiProgress) {
-//                            Log.d(TAG, "isWeiProgress: " + isWeiProgress);
+//                            Log.d("확인", "isWeiProgress: " + isWeiProgress);
 //                            try {
 //                                Thread.sleep(500);
 //                            } catch (InterruptedException e) {
@@ -561,7 +562,7 @@ public class Fit_MeasureActivity extends AppCompatActivity {
     }
 
     public void setMeasure(String[] CFG_RECEIVED) {
-        Log.d(TAG, "----- setMeasure: " + CFG_RECEIVED[2]);
+        Log.d("확인", "----- setMeasure: " + CFG_RECEIVED[2]);
 
         String CFG_RECEIVE_CODE = CFG_RECEIVED[2];
 
@@ -585,12 +586,12 @@ public class Fit_MeasureActivity extends AppCompatActivity {
 
                     case 2:
                         CFG_WEIGHT_DEF[1] = Integer.parseInt(CFG_RECEIVED[14], 16);
-                        Log.d(TAG, "- CFG_WEIGHT_DEF[1]: " + CFG_WEIGHT_DEF[1]);
+                        Log.d("확인", "- CFG_WEIGHT_DEF[1]: " + CFG_WEIGHT_DEF[1]);
                         break;
 
                     case 3:
                         CFG_WEIGHT_DEF[1] = Integer.parseInt(CFG_RECEIVED[14], 16);
-                        Log.d(TAG, "- CFG_WEIGHT_DEF[1]: " + CFG_WEIGHT_DEF[1]);
+                        Log.d("확인", "- CFG_WEIGHT_DEF[1]: " + CFG_WEIGHT_DEF[1]);
                         break;
                 }
                 break;
@@ -725,7 +726,7 @@ public class Fit_MeasureActivity extends AppCompatActivity {
                                 double result_def = CFG_WEIGHT_DEF[1] * 0.1;
                                 double result = CFG_WEIGHT[1] * 0.1;
 
-                                Log.i(TAG, "weight: " + CFG_WEIGHT[1] + "  def: " + CFG_WEIGHT_DEF[1] + "  current: " + currentWeight);
+                                Log.i("확인", "weight: " + CFG_WEIGHT[1] + "  def: " + CFG_WEIGHT_DEF[1] + "  current: " + currentWeight);
 
                                 if (result == currentWeight) {
 
@@ -809,11 +810,11 @@ public class Fit_MeasureActivity extends AppCompatActivity {
 
                 Fit_Address address = new Fit_Address();
 
-                Log.d(TAG, "param: " + param.getParam() + "  url: " + address.getUpdatePreset());
+                Log.d("확인", "param: " + param.getParam() + "  url: " + address.getUpdatePreset());
 
                 Fit_HttpConnect httpConnect = new Fit_HttpConnect();
                 if (httpConnect.httpConnect(param.getParam(), address.getUpdatePreset()) == 200) {
-                    Log.d(TAG, "receive message: " + httpConnect.getReceiveMessage());
+                    Log.d("확인", "receive message: " + httpConnect.getReceiveMessage());
                     if (httpConnect.getReceiveMessage().equals("success")) {
                         handler.post(new Runnable() {
                             @Override
@@ -867,8 +868,8 @@ public class Fit_MeasureActivity extends AppCompatActivity {
                         }
                     });
                 }
-                Log.d(TAG, "updateMeasure: " + httpConnect.getResponseCode());
-                Log.d(TAG, "updateMeasure: " + httpConnect.getReceiveMessage());
+                Log.d("확인", "updateMeasure: " + httpConnect.getResponseCode());
+                Log.d("확인", "updateMeasure: " + httpConnect.getReceiveMessage());
             }
         }).start();
     }

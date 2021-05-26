@@ -101,6 +101,8 @@ import static com.smartneck.twofive.Fit.util.User.Fit_Preset.DEVICE_NAME;
 import static com.smartneck.twofive.Fit.util.User.Fit_Preset.getEntrySelection;
 
 public class Fit_MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+
     public static Context mContext;
     public static Activity activity;
     public static boolean isLogout;
@@ -144,7 +146,7 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.fit_main);
         getEntrySelection(this);
         Fit_Preset.soundType = "female";
         mContext = this;

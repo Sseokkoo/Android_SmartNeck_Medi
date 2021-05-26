@@ -107,7 +107,7 @@
                 android:gravity="center"
                 android:paddingTop="16dp"
                 android:paddingBottom="16dp"
-                android:text="No"
+                android:text="No."
                 android:textColor="#000"
                 android:textSize="18dp" />
 

@@ -77,7 +77,7 @@ public class Fit_ChartActivity extends DemoBase {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.chart_activity_main);
+        setContentView(R.layout.chart_fit_main);
 
         init();
     }

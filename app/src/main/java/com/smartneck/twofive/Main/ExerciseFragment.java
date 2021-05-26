@@ -72,7 +72,7 @@ public class ExerciseFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        ViewGroup view = (ViewGroup) inflater.inflate(R.layout.fragment_exercise, container, false);
+        ViewGroup view = (ViewGroup) inflater.inflate(R.layout.fit_fragment_exercise, container, false);
         mContext = GlobalApplication.getApllication();
         mediaPlayer = MediaPlayer.create(getActivity(), R.raw.set_end);
         stop = preset.getStop();

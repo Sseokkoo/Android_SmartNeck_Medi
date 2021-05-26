@@ -15,7 +15,7 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="105dp"
             android:text="@string/mode"
             android:textAlignment="center"
             android:autoSizeTextType="uniform"
@@ -25,7 +25,7 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_marginTop="30dp"
             android:text="@string/mode_sub"
             android:textAlignment="center"
@@ -38,8 +38,8 @@
 
     <Button
         android:id="@+id/start_med"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="180dp"
+        android:layout_height="95dp"
         android:text="@string/choice_med"
         android:autoSizeTextType="uniform"
         android:autoSizeMinTextSize="30sp"
@@ -56,8 +56,8 @@
 
     <Button
         android:id="@+id/start_fit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="180dp"
+        android:layout_height="95dp"
         android:text="@string/choice_fit"
         android:autoSizeTextType="uniform"
         android:autoSizeMinTextSize="30sp"

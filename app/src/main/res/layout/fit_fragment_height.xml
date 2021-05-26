@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#fff">
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:id="@+id/scale_height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        app:scale_base_height="650"
+        app:scale_base_width="400">
+
+
+
+        <View
+            android:background="#e4e4e4"
+            app:scale_width="240"
+            app:scale_height="1"
+            app:scale_left="80"
+            app:scale_top="105"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            app:scale_height="40"
+            app:scale_left="20"
+            app:scale_top="10"
+            app:scale_textsize="20"
+            app:scale_width="360"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/measure_flexibility"
+            android:gravity="center" />
+        <TextView
+            app:scale_height="60"
+            app:scale_left="50"
+            app:scale_top="50"
+            app:scale_textsize="16"
+            app:scale_width="300"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="@string/measure_flexibility_message"
+            android:textSize="16sp" />
+
+        <ImageView
+            app:scale_height="200"
+            app:scale_left="60"
+            app:scale_top="130"
+            app:scale_textsize="16"
+            app:scale_width="280"
+            android:id="@+id/measure_height_gif_frag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="#f6f6f6" />
+
+
+
+
+
+        <TextView
+            android:textColor="@color/color_accent"
+            android:textStyle="bold"
+            android:id="@+id/tv_height_max_frag"
+            app:scale_height="70"
+            app:scale_left="50"
+            app:scale_top="350"
+            app:scale_textsize="40"
+            app:scale_width="150"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="0.0"
+            android:gravity="center" />
+        <TextView
+            android:textColor="@color/color_accent"
+            android:textStyle="bold"
+            android:id="@+id/tv_height_frag"
+            app:scale_height="70"
+            app:scale_left="200"
+            app:scale_top="350"
+            app:scale_textsize="40"
+            app:scale_width="150"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="0.0"
+            android:gravity="center" />
+        <TextView
+            app:scale_textsize="16"
+            app:scale_left="50"
+            app:scale_top="420"
+            app:scale_width="150"
+            app:scale_height="30"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/measure_flexibility_max"
+            android:gravity="center" />
+        <TextView
+            app:scale_textsize="16"
+            app:scale_left="200"
+            app:scale_top="420"
+            app:scale_width="150"
+            app:scale_height="30"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/measure_flexibility_current"
+            android:gravity="center" />
+
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+
+</FrameLayout>

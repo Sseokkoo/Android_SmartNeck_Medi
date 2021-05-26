@@ -26,6 +26,7 @@ import com.smartneck.twofive.Fit.util.Fit_Constants;
 import com.smartneck.twofive.Fit.util.Fit_HttpConnect;
 import com.smartneck.twofive.Fit.util.Fit_Param;
 import com.smartneck.twofive.Fit.util.User.Fit_User;
+import com.smartneck.twofive.R;
 
 public class Fit_FindPasswordActivity extends AppCompatActivity {
     Spinner phone1;
@@ -37,7 +38,7 @@ public class Fit_FindPasswordActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_find_password);
+        setContentView(R.layout.fit_find_password);
         init();
         setEvent();
     }

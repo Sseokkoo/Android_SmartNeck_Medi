@@ -41,7 +41,7 @@ public class Fit_ExerciseAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
-            view = inflater.inflate(R.layout.item_exercise, null);
+            view = inflater.inflate(R.layout.fit_item_exercise, null);
             holder = new Holder();
         }
 

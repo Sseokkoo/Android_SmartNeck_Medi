@@ -33,7 +33,7 @@ import static com.smartneck.twofive.Fit.Fit_FindAccountActivity.ACCOUNT;
 public class Fit_LoginActivity extends AppCompatActivity {
     EditText et_member_id, et_member_password;
     CheckBox cb_auto_login;
-    TextView tv_member_join, tv_member_account , tv_member_password;
+    TextView tv_member_join, tv_member_account , tv_member_password, tv_password_change;
     Button btn_login;
     Handler handler;
 
@@ -55,8 +55,10 @@ public class Fit_LoginActivity extends AppCompatActivity {
         tv_member_account = findViewById(R.id.tv_member_account);
         tv_member_password = findViewById(R.id.tv_member_password);
         tv_member_join = findViewById(R.id.tv_member_join);
+        tv_password_change = findViewById(R.id.tv_password_change);
         cb_auto_login = findViewById(R.id.cb_auto_login);
         setEvent();
+        tv_password_change.setVisibility(View.GONE);
 
 
         /* 블루투스 권한설정 */
@@ -106,7 +108,7 @@ public class Fit_LoginActivity extends AppCompatActivity {
         tv_member_join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "----- tv_member_join onClick");
+                Log.d("확인", "----- tv_member_join onClick");
 
                 Intent intent = new Intent(getApplicationContext(), Fit_Join_1_Activity.class);
                 startActivity(intent);
@@ -132,7 +134,7 @@ public class Fit_LoginActivity extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "----- btn_login onClick");
+                Log.d("확인", "----- btn_login onClick");
                 String id = et_member_id.getText().toString().trim();
                 String pw = et_member_password.getText().toString().trim();
                 login(id, pw);
@@ -181,13 +183,13 @@ public class Fit_LoginActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             Toast.makeText(Fit_LoginActivity.this, "internet connect check", Toast.LENGTH_SHORT).show();
-                            Log.d(TAG, "run: "+address.getLogin());
+                            Log.d("확인", "run: "+address.getLogin());
 
                         }
                     });
                 }
-                Log.d(TAG, "response code: " + httpConnect.getResponseCode());
-                Log.d(TAG, "receive message: " + httpConnect.getReceiveMessage());
+                Log.d("확인", "response code: " + httpConnect.getResponseCode());
+                Log.d("확인", "receive message: " + httpConnect.getReceiveMessage());
             }
         }).start();
     }
@@ -196,9 +198,9 @@ public class Fit_LoginActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
-        Log.d(TAG, "onActivityResult: ");
+        Log.d("확인", "onActivityResult: ");
         if (resultCode == RESULT_OK){
-            Log.d(TAG, "onActivityResult: " + data.getStringExtra("account"));
+            Log.d("확인", "onActivityResult: " + data.getStringExtra("account"));
             et_member_id.setText(data.getStringExtra("account"));
         }
 

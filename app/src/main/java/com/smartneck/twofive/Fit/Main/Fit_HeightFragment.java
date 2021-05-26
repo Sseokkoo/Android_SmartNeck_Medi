@@ -48,7 +48,7 @@ public class Fit_HeightFragment extends Fragment {
     float tmpMaxDistance;
     int height;
     int heightMax;
-    final int anglePerMillimeter = 3;
+    final int anglePerMillimeter = 1;
     public static boolean isHeight = true;
     Handler handler;
     Context mContext;
@@ -60,7 +60,7 @@ public class Fit_HeightFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        view = (ViewGroup) inflater.inflate(R.layout.fragment_height, container, false);
+        view = (ViewGroup) inflater.inflate(R.layout.fit_fragment_height, container, false);
         mContext = getApllication();
         Fit_MainActivity.setAudio("height");
 

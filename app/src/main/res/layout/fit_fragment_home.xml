@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.ssomai.android.scalablelayout.ScalableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:scale_base_height="700"
+        app:scale_base_width="400">
+
+        <TextView
+            android:id="@+id/tv_ble_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_background_disabled"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text=""
+            app:scale_height="50"
+            app:scale_left="5"
+            app:scale_textsize="14"
+            app:scale_top="20"
+            app:scale_width="280" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_bluetooth_24px"
+            app:scale_height="50"
+            app:scale_left="10"
+            app:scale_top="20"
+            app:scale_width="25" />
+
+        <Button
+            android:id="@+id/btn_ble"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_background_enabled"
+            android:text="@string/btn_ble_connect"
+            android:textColor="@color/colorWhite"
+            app:scale_height="50"
+            app:scale_left="295"
+            app:scale_textsize="14"
+            app:scale_top="20"
+            app:scale_width="100" />
+
+
+        <TextView
+            android:id="@+id/home_exercise_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/btn_start"
+            android:gravity="center"
+            android:text="@string/btn_start"
+            android:textColor="#cc1b17"
+            android:textSize="28dp"
+            android:textStyle="bold"
+            app:scale_height="120"
+            app:scale_textsize="22"
+            app:scale_width="120" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#fff"
+            app:scale_height="1"
+            app:scale_left="180"
+            app:scale_top="368"
+            app:scale_width="40" />
+
+
+        <ImageView
+            android:id="@+id/home_exercise_setting_btn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_home_circle"
+            android:src="@drawable/btn_home_intensity"
+            app:scale_height="80"
+            app:scale_left="160"
+            app:scale_top="160"
+            app:scale_width="80" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|top"
+            android:text="@string/menu_exercise_setting"
+            android:textColor="@drawable/btn_home_press_textview"
+            app:scale_height="50"
+            app:scale_left="150"
+            app:scale_textsize="18"
+            app:scale_top="240"
+            app:scale_width="100" />
+
+
+        <ImageView
+            android:id="@+id/home_exercise_weight_btn"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_home_circle"
+            android:src="@drawable/btn_home_weight"
+            app:scale_height="80"
+            app:scale_left="40"
+            app:scale_top="230"
+            app:scale_width="80" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|top"
+            android:text="@string/menu_weight"
+            android:textColor="@drawable/btn_home_press_textview"
+            app:scale_height="30"
+            app:scale_left="30"
+            app:scale_textsize="18"
+            app:scale_top="310"
+            app:scale_width="100" />
+
+
+        <ImageView
+            android:id="@+id/home_report_btn"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_home_circle"
+            android:gravity="top|center"
+            android:src="@drawable/btn_home_report"
+            app:scale_height="80"
+            app:scale_left="280"
+            app:scale_top="230"
+            app:scale_width="80" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|top"
+            android:text="@string/menu_report"
+            android:textColor="@drawable/btn_home_press_textview"
+            app:scale_height="50"
+            app:scale_left="270"
+            app:scale_textsize="18"
+            app:scale_top="310"
+            app:scale_width="100" />
+
+
+        <ImageView
+            android:id="@+id/home_exercise_seat_btn"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_home_circle"
+            android:gravity="top|center"
+            android:src="@drawable/btn_home_chair"
+            app:scale_height="80"
+            app:scale_left="30"
+            app:scale_top="355"
+            app:scale_width="80" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|top"
+            android:text="@string/menu_chair"
+            android:textColor="@drawable/btn_home_press_textview"
+            app:scale_height="30"
+            app:scale_left="20"
+            app:scale_textsize="18"
+            app:scale_top="435"
+            app:scale_width="100" />
+
+
+        <ImageView
+            android:id="@+id/home_height_btn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_home_circle"
+            android:gravity="top|center"
+            android:padding="16dp"
+            android:src="@drawable/menu_flexibility"
+            app:scale_height="80"
+            app:scale_left="290"
+            app:scale_top="355"
+            app:scale_width="80" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|top"
+            android:text="@string/menu_flexibility"
+            android:textColor="@drawable/btn_home_press_textview"
+            app:scale_height="30"
+            app:scale_left="280"
+            app:scale_textsize="18"
+            app:scale_top="435"
+            app:scale_width="100" />
+
+
+        <ImageView
+            android:id="@+id/home_sub_exrcise_btn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_home_circle"
+            android:gravity="top|center"
+            android:src="@drawable/btn_home_assist"
+            app:scale_height="80"
+            app:scale_left="105"
+            app:scale_top="440"
+            app:scale_width="80" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center|top"
+            android:text="@string/menu_sub_exercise"
+            android:textColor="@drawable/btn_home_press_textview"
+            app:scale_height="80"
+            app:scale_left="80"
+            app:scale_textsize="18"
+            app:scale_top="520"
+            app:scale_width="130" />
+
+
+        <ImageView
+            android:id="@+id/home_how_to_exercise_btn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_home_circle"
+            android:gravity="top|center"
+            android:src="@drawable/btn_home_method"
+            app:scale_height="80"
+            app:scale_left="215"
+            app:scale_top="440"
+            app:scale_width="80" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|top"
+            android:text="@string/Fit_menu_how_to_exercise"
+            android:textColor="@drawable/btn_home_press_textview"
+            app:scale_height="50"
+            app:scale_left="205"
+            app:scale_textsize="18"
+            app:scale_top="520"
+            app:scale_width="100" />
+    </com.ssomai.android.scalablelayout.ScalableLayout>
+</FrameLayout>

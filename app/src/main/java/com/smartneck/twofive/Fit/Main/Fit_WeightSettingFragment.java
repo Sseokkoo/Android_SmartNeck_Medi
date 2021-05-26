@@ -56,7 +56,7 @@ public class Fit_WeightSettingFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        view = (ViewGroup) inflater.inflate(R.layout.fragment_weight_setting, container, false);
+        view = (ViewGroup) inflater.inflate(R.layout.fit_fragment_weight_setting, container, false);
         mContext = getApllication();
         Fit_MainActivity.setAudio("weight");
 

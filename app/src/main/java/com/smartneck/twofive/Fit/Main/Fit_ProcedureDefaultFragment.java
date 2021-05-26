@@ -48,7 +48,7 @@ public class Fit_ProcedureDefaultFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = (ViewGroup) inflater.inflate(R.layout.fragment_procedure_default, container, false);
+        view = (ViewGroup) inflater.inflate(R.layout.fit_fragment_procedure_default, container, false);
         mContext = getApllication();
         ((Fit_MainActivity) getActivity()).bottomNavigationView.setVisibility(View.VISIBLE);
 

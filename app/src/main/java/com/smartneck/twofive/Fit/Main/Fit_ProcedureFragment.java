@@ -57,7 +57,7 @@ public class Fit_ProcedureFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = (ViewGroup) inflater.inflate(R.layout.fragment_procedure, container, false);
+        view = (ViewGroup) inflater.inflate(R.layout.fit_fragment_procedure, container, false);
         mContext = getApllication();
         ((Fit_MainActivity) getActivity()).bottomNavigationView.setVisibility(View.VISIBLE);
 
