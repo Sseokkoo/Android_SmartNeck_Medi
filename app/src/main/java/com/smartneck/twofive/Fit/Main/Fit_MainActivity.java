@@ -66,10 +66,10 @@ import com.smartneck.twofive.CustomerSupport.Controller.CustomerSupportListActiv
 import com.smartneck.twofive.ErrorReport.ErrorReportActivity;
 import com.smartneck.twofive.Fit.Fit_AppVersionActivity;
 import com.smartneck.twofive.Fit.Chart.Fit_ChartActivity;
-import com.smartneck.twofive.Fit.Fit_GlobalApplication;
 import com.smartneck.twofive.Fit.Fit_LoginActivity;
 import com.smartneck.twofive.Fit.Fit_MeasureActivity;
 
+import com.smartneck.twofive.GlobalApplication;
 import com.smartneck.twofive.Notice.NoticeListActivity;
 import com.smartneck.twofive.R;
 import com.smartneck.twofive.Review.ReviewActivity;
@@ -716,7 +716,7 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
         // TODO: 2019-05-10 audioStop() 메소드 추가
 
         Log.d("확인", "----- setAudio: " + Code);
-        Context context = Fit_GlobalApplication.getAppContext();
+        Context context = GlobalApplication.getAppContext();
 
         SharedPreferences sharedPreferences = context.getSharedPreferences("sound", MODE_PRIVATE);
         String gender = sharedPreferences.getString("sound", "female");

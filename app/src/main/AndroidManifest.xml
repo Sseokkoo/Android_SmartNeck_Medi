@@ -139,11 +139,9 @@
         <!-- android:name=".Member.Join_1_Activity" -->
         <!-- android:screenOrientation="portrait" -->
         <!-- android:theme="@style/AppTheme.NoActionBar" /> -->
-        <activity android:name=".SelectType"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"/>
+
         <activity
-            android:name=".IntroActivity"
+            android:name=".Fit.Fit_IntroActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <intent-filter>

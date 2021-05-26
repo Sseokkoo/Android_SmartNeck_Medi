@@ -13,11 +13,11 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.smartneck.twofive.GlobalApplication;
 import com.smartneck.twofive.R;
 import com.smartneck.twofive.Fit.util.Fit_NoticeDialog;
 import com.smartneck.twofive.Fit.util.User.Fit_Preset;
 
-import static com.smartneck.twofive.Fit.Fit_GlobalApplication.getApllication;
 import static com.smartneck.twofive.Fit.Main.Fit_ExerciseFragment.defaultCount;
 import static com.smartneck.twofive.Fit.Main.Fit_ExerciseFragment.defaultHeight;
 import static com.smartneck.twofive.Fit.Main.Fit_ExerciseFragment.defaultSet;
@@ -49,7 +49,7 @@ public class Fit_ProcedureDefaultFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = (ViewGroup) inflater.inflate(R.layout.fit_fragment_procedure_default, container, false);
-        mContext = getApllication();
+        mContext = GlobalApplication.getApllication();
         ((Fit_MainActivity) getActivity()).bottomNavigationView.setVisibility(View.VISIBLE);
 
         init();

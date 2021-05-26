@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import com.smartneck.twofive.GlobalApplication;
 import com.smartneck.twofive.R;
 import com.smartneck.twofive.Fit.util.Fit_Address;
 import com.smartneck.twofive.Fit.util.Fit_Commend;
@@ -26,7 +27,6 @@ import com.smartneck.twofive.Fit.util.Fit_StringUtils;
 import com.smartneck.twofive.Fit.util.User.Fit_Preset;
 import com.smartneck.twofive.Fit.util.User.Fit_User;
 
-import static com.smartneck.twofive.Fit.Fit_GlobalApplication.getApllication;
 import static com.smartneck.twofive.Fit.Main.Fit_MainActivity.audioStop;
 import static com.smartneck.twofive.Fit.Main.Fit_MainActivity.isHeiProgress;
 import static com.smartneck.twofive.Fit.Main.Fit_MainActivity.protocolType;
@@ -61,7 +61,7 @@ public class Fit_HeightFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         view = (ViewGroup) inflater.inflate(R.layout.fit_fragment_height, container, false);
-        mContext = getApllication();
+        mContext = GlobalApplication.getApllication();
         Fit_MainActivity.setAudio("height");
 
         init();

@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
+import com.smartneck.twofive.GlobalApplication;
 import com.smartneck.twofive.R;
 import com.smartneck.twofive.Fit.util.Fit_Address;
 import com.smartneck.twofive.Fit.util.Fit_Commend;
@@ -27,7 +28,6 @@ import com.smartneck.twofive.Fit.util.Fit_StringUtils;
 import com.smartneck.twofive.Fit.util.User.Fit_Preset;
 import com.smartneck.twofive.Fit.util.User.Fit_User;
 
-import static com.smartneck.twofive.Fit.Fit_GlobalApplication.getApllication;
 import static com.smartneck.twofive.Fit.Main.Fit_MainActivity.audioStop;
 import static com.smartneck.twofive.Fit.Main.Fit_MainActivity.isClick;
 import static com.smartneck.twofive.Fit.Main.Fit_MainActivity.protocolType;
@@ -57,7 +57,7 @@ public class Fit_WeightSettingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         view = (ViewGroup) inflater.inflate(R.layout.fit_fragment_weight_setting, container, false);
-        mContext = getApllication();
+        mContext = GlobalApplication.getApllication();
         Fit_MainActivity.setAudio("weight");
 
         init();

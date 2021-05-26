@@ -17,6 +17,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.smartneck.twofive.GlobalApplication;
 import com.smartneck.twofive.R;
 import com.smartneck.twofive.Fit.util.Fit_Address;
 import com.smartneck.twofive.Fit.util.Fit_Constants;
@@ -26,7 +27,6 @@ import com.smartneck.twofive.Fit.util.Fit_Param;
 import com.smartneck.twofive.Fit.util.User.Fit_Preset;
 import com.smartneck.twofive.Fit.util.User.Fit_User;
 
-import static com.smartneck.twofive.Fit.Fit_GlobalApplication.getApllication;
 import static com.smartneck.twofive.Fit.Main.Fit_MainActivity.audioStop;
 import static com.smartneck.twofive.Fit.util.Fit_Constants.TAG;
 
@@ -58,7 +58,7 @@ public class Fit_ProcedureFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = (ViewGroup) inflater.inflate(R.layout.fit_fragment_procedure, container, false);
-        mContext = getApllication();
+        mContext = GlobalApplication.getApllication();
         ((Fit_MainActivity) getActivity()).bottomNavigationView.setVisibility(View.VISIBLE);
 
         init();

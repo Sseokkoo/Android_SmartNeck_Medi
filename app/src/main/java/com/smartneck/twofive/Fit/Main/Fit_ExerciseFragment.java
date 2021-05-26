@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 import org.jetbrains.annotations.Nullable;
 
-import com.smartneck.twofive.Fit.Fit_GlobalApplication;
+import com.smartneck.twofive.GlobalApplication;
 import com.smartneck.twofive.R;
 import com.smartneck.twofive.Fit.util.Fit_Address;
 import com.smartneck.twofive.Fit.util.Fit_BreakTimeDialog;
@@ -77,7 +77,7 @@ public class Fit_ExerciseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup view = (ViewGroup) inflater.inflate(R.layout.fragment_exercise, container, false);
-        mContext = Fit_GlobalApplication.getApllication();
+        mContext = GlobalApplication.getApllication();
         mediaPlayer = MediaPlayer.create(getActivity(), R.raw.set_end);
 
         ((Fit_MainActivity) getActivity()).bottomNavigationView.setVisibility(View.VISIBLE);

@@ -8,20 +8,13 @@ import android.os.Bundle
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import com.smartneck.twofive.Fit.Fit_LoginActivity
-import com.smartneck.twofive.Fit.Main.Fit_MainActivity
-import com.smartneck.twofive.Fit.util.Fit_Address
-import com.smartneck.twofive.Fit.util.Fit_Constants
-import com.smartneck.twofive.Fit.util.Fit_HttpConnect
-import com.smartneck.twofive.Fit.util.Fit_Param
-import com.smartneck.twofive.Fit.util.User.Fit_Preset
-import com.smartneck.twofive.Fit.util.User.Fit_User
+import com.smartneck.twofive.GlobalApplication.userPreference
+import com.smartneck.twofive.Main.BleConnectActivity
+import com.smartneck.twofive.Member.LoginActivity
+import com.smartneck.twofive.Member.MemberSelectActivity.admin
 import com.smartneck.twofive.SQ.DBHelper
-import com.smartneck.twofive.util.Address
-import com.smartneck.twofive.util.Constants
+import com.smartneck.twofive.util.*
 import com.smartneck.twofive.util.Constants.TAG
-import com.smartneck.twofive.util.HttpConnect
-import com.smartneck.twofive.util.NetworkStatus
 
 class IntroActivity : AppCompatActivity() {
     var handler: Handler? = null
@@ -43,12 +36,9 @@ class IntroActivity : AppCompatActivity() {
         Log.d(TAG, "local: $locale / lang: $language")
         val constants = Constants()
         constants.setAgeArray()
+        autoLogin()
 
-//        autoLogin() 메디로 가는 오토 로그인 잠금
 
-        val intent = Intent(this, SelectType::class.java)
-        startActivity(intent)
-        finish()
     }
 
     //볼륨조절
@@ -63,62 +53,62 @@ class IntroActivity : AppCompatActivity() {
         }
     }
 
-//    fun autoLogin() {
-//
-//        val account = userPreference.getString("autoAccount" , "");
-//        val password = userPreference.getString("autoPassword" , "")
-//        val auto = userPreference.getBoolean("auto" , false)
-//        Log.d(TAG , "auto login run\naccount -> $account\npassword -> $password\nauto -> $auto")
-//
-//        if (!auto){
-//
-//            val intent = Intent(applicationContext , LoginActivity::class.java)
-//            startActivity(intent)
-//            finish()
-//            return
-//        }
-//
-//
-//        if (NetworkStatus.CURRENT_STATUS != NetworkStatus.TYPE_NOT_CONNECTED){
-//            Log.d(TAG , "NetWork State > Connected")
-//
-//            Thread{
-//                val httpConnect = HttpConnect()
-//                val param = Param()
-//                param.add("account" , account)
-//                param.add("password" , password)
-//                if (httpConnect.httpConnect(param.value , Address().login , true ) == 200){
-//                    if (httpConnect.getReceiveMessage() == "success"){
-//                        val intent = Intent(applicationContext , BleConnectActivity::class.java)
-//                        admin = userPreference.login(account,password)
-//                        startActivity(intent)
-//                        finish()
-//                    }else{
-//                        val intent = Intent(applicationContext , LoginActivity::class.java)
-//                        startActivity(intent)
-//                        finish()
-//                    }
-//                }
-//            }.start()
-//
-//
-//        }else{
-//            Log.d(TAG , "NetWork State > Not Connected")
-//
-//            admin = userPreference.login(account , password)
-//
-//            if (admin.account.length == 0){
-//                val intent = Intent(applicationContext , LoginActivity::class.java)
-//                startActivity(intent)
-//                finish()
-//                return
-//            }
-//            val intent = Intent(applicationContext , BleConnectActivity::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
-//
-//    }
+    fun autoLogin() {
+
+        val account = userPreference.getString("autoAccount" , "");
+        val password = userPreference.getString("autoPassword" , "")
+        val auto = userPreference.getBoolean("auto" , false)
+        Log.d(TAG , "auto login run\naccount -> $account\npassword -> $password\nauto -> $auto")
+
+        if (!auto){
+
+            val intent = Intent(applicationContext , LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+            return
+        }
+
+
+        if (NetworkStatus.CURRENT_STATUS != NetworkStatus.TYPE_NOT_CONNECTED){
+            Log.d(TAG , "NetWork State > Connected")
+
+            Thread{
+                val httpConnect = HttpConnect()
+                val param = Param()
+                param.add("account" , account)
+                param.add("password" , password)
+                if (httpConnect.httpConnect(param.value , Address().login , true ) == 200){
+                    if (httpConnect.getReceiveMessage() == "success"){
+                        val intent = Intent(applicationContext , BleConnectActivity::class.java)
+                        admin = userPreference.login(account,password)
+                        startActivity(intent)
+                        finish()
+                    }else{
+                        val intent = Intent(applicationContext , LoginActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+                }
+            }.start()
+
+
+        }else{
+            Log.d(TAG , "NetWork State > Not Connected")
+
+            admin = userPreference.login(account , password)
+
+            if (admin.account.length == 0){
+                val intent = Intent(applicationContext , LoginActivity::class.java)
+                startActivity(intent)
+                finish()
+                return
+            }
+            val intent = Intent(applicationContext , BleConnectActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+    }
 
     private val terms: Unit
         private get() {
