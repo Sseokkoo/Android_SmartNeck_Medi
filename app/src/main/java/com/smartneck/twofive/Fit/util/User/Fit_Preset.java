@@ -21,7 +21,7 @@ public class Fit_Preset {
     public static int MaxWeight;
     public static int MaxHeight;
     public static String soundType;
-    public static float userHeightSetting = 0.8f;
+    public static float userHeightSetting = 1f;
     public static String DEVICE_NAME;
     public static int strength = 3;
     public static int breakTime;
@@ -47,14 +47,14 @@ public class Fit_Preset {
             MaxHeight = jsonObject.getInt("MaxHeight");
             strength = jsonObject.getInt("Strength");
             breakTime = jsonObject.getInt("BreakTime");
-            Log.d(TAG, "getPresetJson: Count -> " + count);
-            Log.d(TAG, "getPresetJson: Set -> " + set);
-            Log.d(TAG, "getPresetJson: Stop -> " + stop);
-            Log.d(TAG, "getPresetJson: Seat -> " + seat);
-            Log.d(TAG, "getPresetJson: Setup -> " + setup);
-            Log.d(TAG, "getPresetJson: MaxWeight -> " + MaxWeight);
-            Log.d(TAG, "getPresetJson: MaxHeight -> " + MaxHeight);
-            Log.d(TAG, "getPresetJson: Strength -> " + strength);
+//            Log.d(TAG, "getPresetJson: Count -> " + count);
+//            Log.d(TAG, "getPresetJson: Set -> " + set);
+//            Log.d(TAG, "getPresetJson: Stop -> " + stop);
+//            Log.d(TAG, "getPresetJson: Seat -> " + seat);
+//            Log.d(TAG, "getPresetJson: Setup -> " + setup);
+//            Log.d(TAG, "getPresetJson: MaxWeight -> " + MaxWeight);
+//            Log.d(TAG, "getPresetJson: MaxHeight -> " + MaxHeight);
+//            Log.d(TAG, "getPresetJson: Strength -> " + strength);
 
             Fit_User.setToken(context);
 
@@ -108,50 +108,53 @@ public class Fit_Preset {
                 break;
             case 3:
 
-                userHeightSetting = 0.55f;
+                userHeightSetting = 0.5f;
 
                 break;
             case 4:
 
-                userHeightSetting = 0.6f;
+                userHeightSetting = 0.55f;
 
                 break;
             case 5:
 
-                userHeightSetting = 0.65f;
+                userHeightSetting = 0.6f;
 
                 break;
             case 6:
 
-                userHeightSetting = 0.7f;
+                userHeightSetting = 0.65f;
 
                 break;
             case 7:
 
-                userHeightSetting = 0.75f;
+                userHeightSetting = 0.70f;
 
                 break;
             case 8:
 
-                userHeightSetting = 0.8f;
+                userHeightSetting = 0.75f;
 
                 break;
             case 9:
 
-                userHeightSetting = 0.85f;
+                userHeightSetting = 0.8f;
 
                 break;
             case 10:
 
-                userHeightSetting = 0.9f;
+                userHeightSetting = 0.85f;
 
                 break;
             case 11:
 
-                userHeightSetting = 0.95f;
+                userHeightSetting = 0.9f;
 
                 break;
             case 12:
+
+                userHeightSetting = 0.95f;
+            case 13:
 
                 userHeightSetting = 1f;
 

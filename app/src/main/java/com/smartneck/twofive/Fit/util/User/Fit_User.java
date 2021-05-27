@@ -60,13 +60,13 @@ public class Fit_User {
             Fit_User.phone = jsonObject.getString("Phone");
             Fit_User.country = jsonObject.getString("Country");
 
-            Log.d(TAG, "getUserInfoJson: MemberNo -> " + Fit_User.MemberNo);
-            Log.d(TAG, "getUserInfoJson: Token -> " + Fit_User.token);
-            Log.d(TAG, "getUserInfoJson: Name -> " + Fit_User.name);
-            Log.d(TAG, "getUserInfoJson: Birth -> " + Fit_User.birth);
-            Log.d(TAG, "getUserInfoJson: Gender -> " + Fit_User.gender);
-            Log.d(TAG, "getUserInfoJson: Phone -> " + Fit_User.phone);
-            Log.d(TAG, "getUserInfoJson: Country -> " + Fit_User.country);
+//            Log.d(TAG, "getUserInfoJson: MemberNo -> " + Fit_User.MemberNo);
+//            Log.d(TAG, "getUserInfoJson: Token -> " + Fit_User.token);
+//            Log.d(TAG, "getUserInfoJson: Name -> " + Fit_User.name);
+//            Log.d(TAG, "getUserInfoJson: Birth -> " + Fit_User.birth);
+//            Log.d(TAG, "getUserInfoJson: Gender -> " + Fit_User.gender);
+//            Log.d(TAG, "getUserInfoJson: Phone -> " + Fit_User.phone);
+//            Log.d(TAG, "getUserInfoJson: Country -> " + Fit_User.country);
 
 
             long now = System.currentTimeMillis();

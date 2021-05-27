@@ -30,6 +30,7 @@ import com.smartneck.twofive.R;
 
 import static com.smartneck.twofive.Fit.Fit_FindAccountActivity.ACCOUNT;
 
+
 public class Fit_LoginActivity extends AppCompatActivity {
     EditText et_member_id, et_member_password;
     CheckBox cb_auto_login;

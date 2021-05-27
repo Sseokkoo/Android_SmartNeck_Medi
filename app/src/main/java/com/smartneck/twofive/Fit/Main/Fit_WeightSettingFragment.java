@@ -72,18 +72,12 @@ public class Fit_WeightSettingFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         audioStop();
-
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        if (protocolType.equals("3a")){
-            setMessage(Fit_StringUtils.getCommand("44 3A 07 00 03 " + Fit_StringUtils.getHexStringCode(Fit_Preset.seat) + " 00 00 00 00 00 00 00 00 00 00 " + Fit_StringUtils.getHexStringCode(Fit_Preset.measureSetup) + " 00 00"));
-
-        }else if (protocolType.equals("3b")){
-            setMessage(new Fit_Commend().sendWeightMove((byte) Fit_Preset.measureSetup));
-        }
+//        if (protocolType.equals("3a")){
+//            setMessage(Fit_StringUtils.getCommand("44 3A 07 00 03 " + Fit_StringUtils.getHexStringCode(Fit_Preset.seat) + " 00 00 00 00 00 00 00 00 00 00 " + Fit_StringUtils.getHexStringCode(Fit_Preset.measureSetup) + " 00 00"));
+//
+//        }else if (protocolType.equals("3b")){
+        setMessage(new Fit_Commend().sendWeightMove((byte) Fit_Preset.measureSetup));
+//        }
     }
 
     @Override
@@ -119,10 +113,10 @@ public class Fit_WeightSettingFragment extends Fragment {
         btn_previous = view.findViewById(R.id.btn_f_weight_setting_seat);
 
         tv_result = view.findViewById(R.id.tv_f_weight_result);
+
         tv_result_max = view.findViewById(R.id.tv_f_max_weight_result);
         btn_home.setVisibility(View.GONE);
-        btn_up.setEnabled(false);
-        btn_down.setEnabled(false);
+
         gif = view.findViewById(R.id.weight_setting_gif);
         Glide.with(this)
                 .asGif()
@@ -134,7 +128,7 @@ public class Fit_WeightSettingFragment extends Fragment {
             public void run() {
 
                 try {
-                    Thread.sleep(1100);
+                    Thread.sleep(300);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -143,8 +137,7 @@ public class Fit_WeightSettingFragment extends Fragment {
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        btn_up.setEnabled(true);
-                        btn_down.setEnabled(true);
+                        tv_result.setText(String.valueOf(currentWeight));
                     }
                 });
 
@@ -165,25 +158,25 @@ public class Fit_WeightSettingFragment extends Fragment {
                     return;
                 }
 
-                if (currentWeight == 6.5) return;
+                if (currentWeight >= 6.0) return;
                 if (CFG_HEIGHT[1] > 0) return;
                 Fit_MainActivity.isClick = true;
 
                 isMove = true;
                 Fit_Preset.measureSetup += 5;
                 currentWeight += 0.5;
-                tv_result.setText(String.valueOf(currentWeight));
+                tv_result.setText(String.valueOf(Fit_Preset.measureSetup*0.1));
                 tv_result_max.setText("0.0");
                 CFG_WEIGHT_MAX[1] = 0;
                 resultMax = 0;
                 tv_result_max.setText(String.valueOf(resultMax));
 
-                if (protocolType.equals("3a")){
-                    ((Fit_MainActivity) Fit_MainActivity.mContext).setMessage(Fit_StringUtils.getCommand("44 3A 04 02 01"));
-
-                }else if (protocolType.equals("3b")){
+//                if (protocolType.equals("3a")){
+//                    ((Fit_MainActivity) Fit_MainActivity.mContext).setMessage(Fit_StringUtils.getCommand("44 3A 04 02 01"));
+//
+//                }else if (protocolType.equals("3b")){
                     setMessage(new Fit_Commend().sendWeightMove((byte) Fit_Preset.measureSetup));
-                }
+//                }
             }
         });
         btn_down.setOnClickListener(new View.OnClickListener() {
@@ -193,22 +186,22 @@ public class Fit_WeightSettingFragment extends Fragment {
                     return;
                 }
 
-                if (currentWeight == 0) return;
+                if (currentWeight <= 0) return;
                 if (CFG_HEIGHT[1] > 0) return;
                 Fit_MainActivity.isClick = true;
                 isMove = true;
                 Fit_Preset.measureSetup -= 5;
                 currentWeight -= 0.5;
-                tv_result.setText(String.valueOf(currentWeight));
+                tv_result.setText(String.valueOf(Fit_Preset.measureSetup*0.1));
                 CFG_WEIGHT_MAX[1] = 0;
                 resultMax = 0;
                 tv_result_max.setText(String.valueOf(resultMax));
-                if (protocolType.equals("3a")){
-                    ((Fit_MainActivity) Fit_MainActivity.mContext).setMessage(Fit_StringUtils.getCommand("44 3A 04 02 02"));
-
-                }else if (protocolType.equals("3b")){
+//                if (protocolType.equals("3a")){
+//                    ((Fit_MainActivity) Fit_MainActivity.mContext).setMessage(Fit_StringUtils.getCommand("44 3A 04 02 02"));
+//
+//                }else if (protocolType.equals("3b")){
                     setMessage(new Fit_Commend().sendWeightMove((byte) Fit_Preset.measureSetup));
-                }
+//                }
             }
         });
 
@@ -251,20 +244,7 @@ public class Fit_WeightSettingFragment extends Fragment {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
 
-
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        tv_result.setText(String.valueOf(currentWeight));
-
-                    }
-                });
                 while (true) {
                     try {
                         Thread.sleep(300);
@@ -285,24 +265,26 @@ public class Fit_WeightSettingFragment extends Fragment {
 //                                return;
 //                            }
                             if (CFG_HEIGHT[1] > 0) {
-                                if (CFG_WEIGHT[1] > 0) {
-                                    if (CFG_WEIGHT[1] >= 70) {
-                                        result += 0.5;
-                                    } else if (CFG_WEIGHT[1] >= 45 && CFG_WEIGHT[1] <= 65) {
-                                        result += 1;
-                                    } else if (CFG_WEIGHT[1] >= 5 && CFG_WEIGHT[1] <= 40) {
-                                        result += 1.5;
-                                    }
-                                }
+//                                if (CFG_WEIGHT[1] > 0) {
+//                                    if (CFG_WEIGHT[1] >= 60) {
+//                                        result += 0.5;
+//                                    } else if (CFG_WEIGHT[1] >= 35 && CFG_WEIGHT[1] <= 55) {
+//                                        result += 1;
+//                                    } else if (CFG_WEIGHT[1] >= 5 && CFG_WEIGHT[1] <= 30) {
+//                                        result += 1.5;
+//                                    }
+//                                }
 //                                if (User.language.equals("en")) {
 //                                    result *= Constants.POUND;
 //                                }
-
+                                if (CFG_WEIGHT[1] >= 0.5) {
+                                        result += 0.5;
+                                    }
 
                                 if (Fit_User.language.equals("en")){
-                                    tv_result.setText(String.format("%.1f", result * Fit_Constants.POUND));
+//                                    tv_result.setText(String.format("%.1f", result * Fit_Constants.POUND));
                                 }else{
-                                    tv_result.setText(String.format("%.1f", result));
+//                                    tv_result.setText(String.format("%.1f", result));
                                 }
 
                                 if (CFG_WEIGHT[1] >= CFG_WEIGHT_MAX[1]) resultMax = result;
@@ -319,7 +301,7 @@ public class Fit_WeightSettingFragment extends Fragment {
                                     currentWeight = (double) Fit_Preset.measureSetup * 0.1;
 
                                 }
-                                tv_result.setText(String.valueOf(currentWeight));
+//                                tv_result.setText(String.valueOf(currentWeight));
 
                             }
 

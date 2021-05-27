@@ -92,10 +92,8 @@ public class Fit_ExerciseFragment extends Fragment {
         btn_setup = view.findViewById(R.id.btn_setup);
         if (isDefault) {
             tv_stop.setText(String.valueOf(defaultStop));
-
         } else {
             tv_stop.setText(String.valueOf(Fit_Preset.stop));
-
         }
 
 
@@ -124,8 +122,6 @@ public class Fit_ExerciseFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "- btn_save onClick");
-
-
                 if (CFG_COUNT[1] == 0 && CFG_SET[1] == 0) {
                     // TODO: 2019-07-20 운동 종료 다이얼로그
                     Toast.makeText(mContext, Fit_MainActivity.mContext.getString(R.string.dialog_exercise_quit_message), Toast.LENGTH_SHORT).show();
@@ -138,11 +134,11 @@ public class Fit_ExerciseFragment extends Fragment {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            try {
-                                Thread.sleep(500);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
+//                            try {
+//                                Thread.sleep(500);
+//                            } catch (InterruptedException e) {
+//                                e.printStackTrace();
+//                            }
                             handler.post(new Runnable() {
                                 @Override
                                 public void run() {
@@ -157,7 +153,6 @@ public class Fit_ExerciseFragment extends Fragment {
             }
         });
 
-
         setDeviceType();
         isExerciseFinish = false;
         return view;
@@ -166,18 +161,11 @@ public class Fit_ExerciseFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
-
         super.onCreate(savedInstanceState);
         handler = new Handler();
+        setExerciseStart();
         audioStop();
 
-
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        setExerciseStart();
     }
 
     @Override
@@ -389,29 +377,29 @@ public class Fit_ExerciseFragment extends Fragment {
         setEnable(false);
 
         String angleSign = "°";
-        String lengthSign_ko = "mm";
-        String lengthSign_en = "inch";
-        float height = Fit_Preset.MaxHeight * 3;
+//        String lengthSign_ko = "mm";
+//        String lengthSign_en = "inch";
+//        float height = Fit_Preset.MaxHeight * 3;
         float angle = 81f;
         String heightStr = "";
         String angleStr = "";
-        if (Fit_User.language.equals("ko")) {
-
-            height *= userHeightSetting;
-            heightStr = String.format("%.1f", height) + lengthSign_ko;
-
-        } else if (Fit_User.language.equals("en")) {
-
-            height /= Fit_Constants.INCHES;
-            height *= userHeightSetting;
-            heightStr = String.format("%.1f", height) + lengthSign_en;
-
-        }
+//        if (Fit_User.language.equals("ko")) {
+//
+//            height *= userHeightSetting;
+//            heightStr = String.format("%.1f", height) + lengthSign_ko;
+//
+//        } else if (Fit_User.language.equals("en")) {
+//
+//            height /= Fit_Constants.INCHES;
+//            height *= userHeightSetting;
+//            heightStr = String.format("%.1f", height) + lengthSign_en;
+//
+//        }
 
         angle *= userHeightSetting;
         angleStr = String.format("%.1f", angle) + angleSign;
 
-        tv_weight_max.setText(angleStr + " | " + heightStr);
+        tv_weight_max.setText(angleStr);
 
 //
 //        double weight_fit = Preset.MaxWeight * 0.1;

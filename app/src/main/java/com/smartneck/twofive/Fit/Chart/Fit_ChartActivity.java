@@ -589,15 +589,15 @@ public class Fit_ChartActivity extends DemoBase {
                     if (tmpMine > 10){
                         tmpMine = 10;
                     }
+                    if (ageArrayListMale.size() > 0)
                     for (int i = 0; i < ageArrayListMale.size(); i++) {
                         if (tmpMine * 10 == ageArrayListMale.get(i).getAgeWeight()) {
                             tmpAgeArrayList.add(ageArrayListMale.get(i).getAge());
-                            Log.d(TAG, " * * * * * * * * * * ArrayAdd " + ageArrayListMale.get(i).getAge());
                         }
                     }
                     int tmpMin = 0;
                     int tmpNum = 0;
-
+                    if (tmpAgeArrayList.size() > 0)
                     for (int i = 0; i < tmpAgeArrayList.size(); i++) {
                         if (i == 0){
                             tmpNum = tmpAgeArrayList.get(i);
@@ -630,6 +630,7 @@ public class Fit_ChartActivity extends DemoBase {
                     if (tmpMine > 8.5){
                         tmpMine = 8.5f;
                     }
+                    if (ageArrayListFemale.size() >0)
                     for (int i = 0; i < ageArrayListFemale.size(); i++) {
                         if (tmpMine * 10 == ageArrayListFemale.get(i).getAgeWeight()) {
                             tmpAgeArrayList.add(ageArrayListFemale.get(i).getAge());
@@ -638,7 +639,7 @@ public class Fit_ChartActivity extends DemoBase {
                     }
                     int tmpMin = 0;
                     int tmpNum = 0;
-
+                    if (tmpAgeArrayList.size() > 0)
                     for (int i = 0; i < tmpAgeArrayList.size(); i++) {
                         if (i == 0){
                             tmpNum = tmpAgeArrayList.get(i);
@@ -669,7 +670,7 @@ public class Fit_ChartActivity extends DemoBase {
 
 
             if (Fit_User.gender.equals("남자")) {
-
+                if (ageArrayListMale.size() > 0)
                 for (int i = 0; i < Constants.ageArrayListMale.size(); i++) {
 
                     if (Fit_User.age == Constants.ageArrayListMale.get(i).getAge()) {
@@ -678,6 +679,7 @@ public class Fit_ChartActivity extends DemoBase {
                     }
                 }
             } else if (Fit_User.gender.equals("여자")) {
+                if (ageArrayListFemale.size() >0)
                 for (int i = 0; i < Constants.ageArrayListFemale.size(); i++) {
                     if (Fit_User.age == Constants.ageArrayListFemale.get(i).getAge()) {
                         avg = Constants.ageArrayListFemale.get(i).getAgeWeight();

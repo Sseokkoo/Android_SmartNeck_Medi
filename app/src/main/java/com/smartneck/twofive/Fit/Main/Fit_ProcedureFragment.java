@@ -17,8 +17,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.smartneck.twofive.GlobalApplication;
-import com.smartneck.twofive.R;
 import com.smartneck.twofive.Fit.util.Fit_Address;
 import com.smartneck.twofive.Fit.util.Fit_Constants;
 import com.smartneck.twofive.Fit.util.Fit_HttpConnect;
@@ -26,9 +24,13 @@ import com.smartneck.twofive.Fit.util.Fit_NoticeDialog;
 import com.smartneck.twofive.Fit.util.Fit_Param;
 import com.smartneck.twofive.Fit.util.User.Fit_Preset;
 import com.smartneck.twofive.Fit.util.User.Fit_User;
+import com.smartneck.twofive.GlobalApplication;
+import com.smartneck.twofive.R;
+import com.smartneck.twofive.util.Commend;
 
 import static com.smartneck.twofive.Fit.Main.Fit_MainActivity.audioStop;
-import static com.smartneck.twofive.Fit.util.Fit_Constants.TAG;
+import static com.smartneck.twofive.Fit.Main.Fit_MainActivity.setMessage;
+import static com.smartneck.twofive.Main.MainActivity.preset;
 
 public class Fit_ProcedureFragment extends Fragment {
 
@@ -42,7 +44,7 @@ public class Fit_ProcedureFragment extends Fragment {
     ImageView btn_help_count, btn_help_set, btn_help_stop, btn_help_voice, btn_help_height , btn_help_weight , btn_help_break;
     ImageView btn_count_up, btn_count_down, btn_set_up, btn_set_down, btn_stop_up, btn_stop_down , btn_break_up , btn_break_down , btn_weight_up , btn_weight_down;
 
-    TextView tv_count, tv_set, tv_stop, tv_angle, tv_height , tv_weight , tv_break;
+    TextView tv_count, tv_set, tv_stop, tv_angle , tv_weight , tv_break;
 
     RadioButton sound_man, sound_woman, sound_child;
     RadioButton strength_high, strength_mid, strength_low;
@@ -52,8 +54,8 @@ public class Fit_ProcedureFragment extends Fragment {
     Fit_NoticeDialog noticeDialog;
 
     String angleSign = "°";
-    String lengthSign_ko = "mm";
-    String lengthSign_en = "inch";
+//    String lengthSign_ko = "mm";
+//    String lengthSign_en = "inch";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -85,7 +87,7 @@ public class Fit_ProcedureFragment extends Fragment {
         super.onResume();
         Fit_ExerciseFragment.isDefault = false;
         Fit_MainActivity.setAudio("exercise_setting");
-        Log.d(TAG, "----- ProcedureFragment onResume");
+
         Fit_MainActivity.tabPos = 2;
 
         SharedPreferences sharedPreferences = mContext.getSharedPreferences("sound", Context.MODE_PRIVATE);
@@ -166,7 +168,7 @@ public class Fit_ProcedureFragment extends Fragment {
 
 
         tv_angle = view.findViewById(R.id.tv_exercise_setting_angle);
-        tv_height = view.findViewById(R.id.tv_exercise_setting_height);
+//        tv_height = view.findViewById(R.id.tv_exercise_setting_height);
         spn_height_select = view.findViewById(R.id.spn_exercise_setting_height_select);
 
         strength_high = view.findViewById(R.id.exercise_strength_3);
@@ -391,12 +393,13 @@ public class Fit_ProcedureFragment extends Fragment {
         btn_weight_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Fit_Preset.setup == 65){
+                if (Fit_Preset.setup >= 60){
                     Toast.makeText(mContext, getString(R.string.toast_max), Toast.LENGTH_SHORT).show();
                     return;
                 }else{
                     Fit_Preset.setup +=5;
                     tv_weight.setText(String.valueOf((Fit_Preset.setup) * 0.1));
+                    setMessage(new Commend().sendWeightMove((byte) Fit_Preset.setup));
                 }
             }
         });
@@ -404,12 +407,13 @@ public class Fit_ProcedureFragment extends Fragment {
         btn_weight_down.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Fit_Preset.setup == 0){
+                if (Fit_Preset.setup <= 0){
                     Toast.makeText(mContext, getString(R.string.toast_max), Toast.LENGTH_SHORT).show();
                     return;
                 }else{
                     Fit_Preset.setup -=5;
                     tv_weight.setText(String.valueOf((Fit_Preset.setup) * 0.1));
+                    setMessage(new Commend().sendWeightMove((byte) Fit_Preset.setup));
                 }
             }
         });
@@ -507,7 +511,7 @@ public class Fit_ProcedureFragment extends Fragment {
 
                 editor.apply();
 
-                Log.d(TAG, "sound: " + sharedPreferences.getString("sound", "non"));
+
                 updatePreset();
                 ((Fit_MainActivity) getActivity()).setBottomNavigation("EXERCISE");
 
@@ -581,7 +585,7 @@ public class Fit_ProcedureFragment extends Fragment {
                 param.add("breakTime" , Fit_Preset.breakTime);
                 param.add("setup" , Fit_Preset.setup);
                 Fit_Address address = new Fit_Address();
-                Log.d(TAG, "param: " + param.getParam());
+
                 Fit_HttpConnect httpConnect = new Fit_HttpConnect();
                 if (httpConnect.httpConnect(param.getParam(), address.getUpdatePreset()) == 200) {
 
@@ -594,7 +598,7 @@ public class Fit_ProcedureFragment extends Fragment {
                         }
                     });
                 }
-                Log.d(TAG, "receive: " + httpConnect.getReceiveMessage());
+
 
 
             }
@@ -608,7 +612,7 @@ public class Fit_ProcedureFragment extends Fragment {
         editor.putInt("entry", selected);
         editor.apply();
 
-        float angle = Fit_Preset.MaxHeight * 0.9f;
+        float angle = Fit_Preset.MaxHeight * 1f;
         float height = Fit_Preset.MaxHeight;
         String heightStr = "";
         String angleStr;
@@ -618,20 +622,20 @@ public class Fit_ProcedureFragment extends Fragment {
             //(%)
             case 0://40
 
-                if (!Fit_User.language.equals("en")) {
+//                if (!Fit_User.language.equals("en")) {
+//
+//                    height *= 3;
+//                    height *= 0.4;
+//
+//                    heightStr = String.format("%.1f", height) + lengthSign_ko;
 
-                    height *= 3;
-                    height *= 0.4;
+//                } else if (Fit_User.language.equals("en")) {
+//
+//                    height *= 3 / Fit_Constants.INCHES;
+//                    height *= 0.4;
+//                    heightStr = String.format("%.1f", height) + lengthSign_en;
 
-                    heightStr = String.format("%.1f", height) + lengthSign_ko;
-
-                } else if (Fit_User.language.equals("en")) {
-
-                    height *= 3 / Fit_Constants.INCHES;
-                    height *= 0.4;
-                    heightStr = String.format("%.1f", height) + lengthSign_en;
-
-                }
+//                }
 
                 angle *= 0.4;
                 angleStr = String.format("%.1f", angle) + angleSign;
@@ -639,25 +643,25 @@ public class Fit_ProcedureFragment extends Fragment {
                 Fit_Preset.userHeightSetting = 0.4f;
 
                 tv_angle.setText(angleStr);
-                tv_height.setText(heightStr);
+//                tv_height.setText(heightStr);
 
                 break;
 
             case 1://45
 
-                if (Fit_User.language.equals("en!")) {
-
-                    height *= 3;
-                    height *= 0.45;
-                    heightStr = String.format("%.1f", height) + lengthSign_ko;
-
-                } else if (Fit_User.language.equals("en")) {
-
-                    height *= 3 / Fit_Constants.INCHES;
-                    height *= 0.45;
-                    heightStr = String.format("%.1f", height) + lengthSign_en;
-
-                }
+//                if (Fit_User.language.equals("en!")) {
+//
+//                    height *= 3;
+//                    height *= 0.45;
+//                    heightStr = String.format("%.1f", height) + lengthSign_ko;
+//
+//                } else if (Fit_User.language.equals("en")) {
+//
+//                    height *= 3 / Fit_Constants.INCHES;
+//                    height *= 0.45;
+//                    heightStr = String.format("%.1f", height) + lengthSign_en;
+//
+//                }
 
                 angle *= 0.45;
                 angleStr = String.format("%.1f", angle) + angleSign;
@@ -665,24 +669,24 @@ public class Fit_ProcedureFragment extends Fragment {
                 Fit_Preset.userHeightSetting = 0.45f;
 
                 tv_angle.setText(angleStr);
-                tv_height.setText(heightStr);
+//                tv_height.setText(heightStr);
 
                 break;
             case 2://50
 
-                if (!Fit_User.language.equals("en")) {
-
-                    height *= 3;
-                    height *= 0.5;
-                    heightStr = String.format("%.1f", height) + lengthSign_ko;
-
-                } else if (Fit_User.language.equals("en")) {
-
-                    height *= 3 / Fit_Constants.INCHES;
-                    height *= 0.5;
-                    heightStr = String.format("%.1f", height) + lengthSign_en;
-
-                }
+//                if (!Fit_User.language.equals("en")) {
+//
+//                    height *= 3;
+//                    height *= 0.5;
+//                    heightStr = String.format("%.1f", height) + lengthSign_ko;
+//
+//                } else if (Fit_User.language.equals("en")) {
+//
+//                    height *= 3 / Fit_Constants.INCHES;
+//                    height *= 0.5;
+//                    heightStr = String.format("%.1f", height) + lengthSign_en;
+//
+//                }
 
                 angle *= 0.5;
                 angleStr = String.format("%.1f", angle) + angleSign;
@@ -690,24 +694,24 @@ public class Fit_ProcedureFragment extends Fragment {
                 Fit_Preset.userHeightSetting = 0.5f;
 
                 tv_angle.setText(angleStr);
-                tv_height.setText(heightStr);
+//                tv_height.setText(heightStr);
 
                 break;
             case 3://55
 
-                if (!Fit_User.language.equals("en")) {
-
-                    height *= 3;
-                    height *= 0.55;
-                    heightStr = String.format("%.1f", height) + lengthSign_ko;
-
-                } else if (Fit_User.language.equals("en")) {
-
-                    height *= 3 / Fit_Constants.INCHES;
-                    height *= 0.55;
-                    heightStr = String.format("%.1f", height) + lengthSign_en;
-
-                }
+//                if (!Fit_User.language.equals("en")) {
+//
+//                    height *= 3;
+//                    height *= 0.55;
+//                    heightStr = String.format("%.1f", height) + lengthSign_ko;
+//
+//                } else if (Fit_User.language.equals("en")) {
+//
+//                    height *= 3 / Fit_Constants.INCHES;
+//                    height *= 0.55;
+//                    heightStr = String.format("%.1f", height) + lengthSign_en;
+//
+//                }
 
                 angle *= 0.55;
                 angleStr = String.format("%.1f", angle) + angleSign;
@@ -715,24 +719,24 @@ public class Fit_ProcedureFragment extends Fragment {
                 Fit_Preset.userHeightSetting = 0.55f;
 
                 tv_angle.setText(angleStr);
-                tv_height.setText(heightStr);
+//                tv_height.setText(heightStr);
 
                 break;
             case 4://60
 
-                if (!Fit_User.language.equals("en")) {
-
-                    height *= 3;
-                    height *= 0.6;
-                    heightStr = String.format("%.1f", height) + lengthSign_ko;
-
-                } else if (Fit_User.language.equals("en")) {
-
-                    height *= 3 / Fit_Constants.INCHES;
-                    height *= 0.6;
-                    heightStr = String.format("%.1f", height) + lengthSign_en;
-
-                }
+//                if (!Fit_User.language.equals("en")) {
+//
+//                    height *= 3;
+//                    height *= 0.6;
+//                    heightStr = String.format("%.1f", height) + lengthSign_ko;
+//
+//                } else if (Fit_User.language.equals("en")) {
+//
+//                    height *= 3 / Fit_Constants.INCHES;
+//                    height *= 0.6;
+//                    heightStr = String.format("%.1f", height) + lengthSign_en;
+//
+//                }
 
                 angle *= 0.6;
                 angleStr = String.format("%.1f", angle) + angleSign;
@@ -740,24 +744,24 @@ public class Fit_ProcedureFragment extends Fragment {
                 Fit_Preset.userHeightSetting = 0.6f;
 
                 tv_angle.setText(angleStr);
-                tv_height.setText(heightStr);
+//                tv_height.setText(heightStr);
 
                 break;
             case 5://65
 
-                if (!Fit_User.language.equals("en")) {
-
-                    height *= 3;
-                    height *= 0.65;
-                    heightStr = String.format("%.1f", height) + lengthSign_ko;
-
-                } else if (Fit_User.language.equals("en")) {
-
-                    height *= 3 / Fit_Constants.INCHES;
-                    height *= 0.65;
-                    heightStr = String.format("%.1f", height) + lengthSign_en;
-
-                }
+//                if (!Fit_User.language.equals("en")) {
+//
+//                    height *= 3;
+//                    height *= 0.65;
+//                    heightStr = String.format("%.1f", height) + lengthSign_ko;
+//
+//                } else if (Fit_User.language.equals("en")) {
+//
+//                    height *= 3 / Fit_Constants.INCHES;
+//                    height *= 0.65;
+//                    heightStr = String.format("%.1f", height) + lengthSign_en;
+//
+//                }
 
                 angle *= 0.65;
                 angleStr = String.format("%.1f", angle) + angleSign;
@@ -765,24 +769,24 @@ public class Fit_ProcedureFragment extends Fragment {
                 Fit_Preset.userHeightSetting = 0.65f;
 
                 tv_angle.setText(angleStr);
-                tv_height.setText(heightStr);
+//                tv_height.setText(heightStr);
 
                 break;
             case 6://70
 
-                if (!Fit_User.language.equals("en")) {
-
-                    height *= 3;
-                    height *= 0.7;
-                    heightStr = String.format("%.1f", height) + lengthSign_ko;
-
-                } else if (Fit_User.language.equals("en")) {
-
-                    height *= 3 / Fit_Constants.INCHES;
-                    height *= 0.7;
-                    heightStr = String.format("%.1f", height) + lengthSign_en;
-
-                }
+//                if (!Fit_User.language.equals("en")) {
+//
+//                    height *= 3;
+//                    height *= 0.7;
+//                    heightStr = String.format("%.1f", height) + lengthSign_ko;
+//
+//                } else if (Fit_User.language.equals("en")) {
+//
+//                    height *= 3 / Fit_Constants.INCHES;
+//                    height *= 0.7;
+//                    heightStr = String.format("%.1f", height) + lengthSign_en;
+//
+//                }
 
                 angle *= 0.7;
                 angleStr = String.format("%.1f", angle) + angleSign;
@@ -790,24 +794,24 @@ public class Fit_ProcedureFragment extends Fragment {
                 Fit_Preset.userHeightSetting = 0.7f;
 
                 tv_angle.setText(angleStr);
-                tv_height.setText(heightStr);
+//                tv_height.setText(heightStr);
 
                 break;
             case 7://75
 
-                if (!Fit_User.language.equals("en")) {
-
-                    height *= 3;
-                    height *= 0.75;
-                    heightStr = String.format("%.1f", height) + lengthSign_ko;
-
-                } else if (Fit_User.language.equals("en")) {
-
-                    height *= 3 / Fit_Constants.INCHES;
-                    height *= 0.75;
-                    heightStr = String.format("%.1f", height) + lengthSign_en;
-
-                }
+//                if (!Fit_User.language.equals("en")) {
+//
+//                    height *= 3;
+//                    height *= 0.75;
+//                    heightStr = String.format("%.1f", height) + lengthSign_ko;
+//
+//                } else if (Fit_User.language.equals("en")) {
+//
+//                    height *= 3 / Fit_Constants.INCHES;
+//                    height *= 0.75;
+//                    heightStr = String.format("%.1f", height) + lengthSign_en;
+//
+//                }
 
                 angle *= 0.75;
                 angleStr = String.format("%.1f", angle) + angleSign;
@@ -815,24 +819,24 @@ public class Fit_ProcedureFragment extends Fragment {
                 Fit_Preset.userHeightSetting = 0.75f;
 
                 tv_angle.setText(angleStr);
-                tv_height.setText(heightStr);
+//                tv_height.setText(heightStr);
 
                 break;
             case 8://80
 
-                if (!Fit_User.language.equals("en")) {
-
-                    height *= 3;
-                    height *= 0.8;
-                    heightStr = String.format("%.1f", height) + lengthSign_ko;
-
-                } else if (Fit_User.language.equals("en")) {
-
-                    height *= 3 / Fit_Constants.INCHES;
-                    height *= 0.8;
-                    heightStr = String.format("%.1f", height) + lengthSign_en;
-
-                }
+//                if (!Fit_User.language.equals("en")) {
+//
+//                    height *= 3;
+//                    height *= 0.8;
+//                    heightStr = String.format("%.1f", height) + lengthSign_ko;
+//
+//                } else if (Fit_User.language.equals("en")) {
+//
+//                    height *= 3 / Fit_Constants.INCHES;
+//                    height *= 0.8;
+//                    heightStr = String.format("%.1f", height) + lengthSign_en;
+//
+//                }
 
                 angle *= 0.8;
                 angleStr = String.format("%.1f", angle) + angleSign;
@@ -840,24 +844,24 @@ public class Fit_ProcedureFragment extends Fragment {
                 Fit_Preset.userHeightSetting = 0.8f;
 
                 tv_angle.setText(angleStr);
-                tv_height.setText(heightStr);
+//                tv_height.setText(heightStr);
 
                 break;
             case 9://85
 
-                if (!Fit_User.language.equals("en")) {
-
-                    height *= 3;
-                    height *= 0.85;
-                    heightStr = String.format("%.1f", height) + lengthSign_ko;
-
-                } else if (Fit_User.language.equals("en")) {
-
-                    height *= 3 / Fit_Constants.INCHES;
-                    height *= 0.85;
-                    heightStr = String.format("%.1f", height) + lengthSign_en;
-
-                }
+//                if (!Fit_User.language.equals("en")) {
+//
+//                    height *= 3;
+//                    height *= 0.85;
+//                    heightStr = String.format("%.1f", height) + lengthSign_ko;
+//
+//                } else if (Fit_User.language.equals("en")) {
+//
+//                    height *= 3 / Fit_Constants.INCHES;
+//                    height *= 0.85;
+//                    heightStr = String.format("%.1f", height) + lengthSign_en;
+//
+//                }
 
                 angle *= 0.85;
                 angleStr = String.format("%.1f", angle) + angleSign;
@@ -865,24 +869,24 @@ public class Fit_ProcedureFragment extends Fragment {
                 Fit_Preset.userHeightSetting = 0.85f;
 
                 tv_angle.setText(angleStr);
-                tv_height.setText(heightStr);
+//                tv_height.setText(heightStr);
 
                 break;
             case 10://90
 
-                if (!Fit_User.language.equals("en")) {
-
-                    height *= 3;
-                    height *= 0.9;
-                    heightStr = String.format("%.1f", height) + lengthSign_ko;
-
-                } else if (Fit_User.language.equals("en")) {
-
-                    height *= 3 / Fit_Constants.INCHES;
-                    height *= 0.9;
-                    heightStr = String.format("%.1f", height) + lengthSign_en;
-
-                }
+//                if (!Fit_User.language.equals("en")) {
+//
+//                    height *= 3;
+//                    height *= 0.9;
+//                    heightStr = String.format("%.1f", height) + lengthSign_ko;
+//
+//                } else if (Fit_User.language.equals("en")) {
+//
+//                    height *= 3 / Fit_Constants.INCHES;
+//                    height *= 0.9;
+//                    heightStr = String.format("%.1f", height) + lengthSign_en;
+//
+//                }
 
                 angle *= 0.9;
                 angleStr = String.format("%.1f", angle) + angleSign;
@@ -890,24 +894,24 @@ public class Fit_ProcedureFragment extends Fragment {
                 Fit_Preset.userHeightSetting = 0.9f;
 
                 tv_angle.setText(angleStr);
-                tv_height.setText(heightStr);
+//                tv_height.setText(heightStr);
 
                 break;
             case 11://95
 
-                if (!Fit_User.language.equals("en")) {
-
-                    height *= 3;
-                    height *= 0.95;
-                    heightStr = String.format("%.1f", height) + lengthSign_ko;
-
-                } else if (Fit_User.language.equals("en")) {
-
-                    height *= 3 / Fit_Constants.INCHES;
-                    height *= 0.95;
-                    heightStr = String.format("%.1f", height) + lengthSign_en;
-
-                }
+//                if (!Fit_User.language.equals("en")) {
+//
+//                    height *= 3;
+//                    height *= 0.95;
+//                    heightStr = String.format("%.1f", height) + lengthSign_ko;
+//
+//                } else if (Fit_User.language.equals("en")) {
+//
+//                    height *= 3 / Fit_Constants.INCHES;
+//                    height *= 0.95;
+//                    heightStr = String.format("%.1f", height) + lengthSign_en;
+//
+//                }
 
                 angle *= 0.95;
                 angleStr = String.format("%.1f", angle) + angleSign;
@@ -915,24 +919,24 @@ public class Fit_ProcedureFragment extends Fragment {
                 Fit_Preset.userHeightSetting = 0.95f;
 
                 tv_angle.setText(angleStr);
-                tv_height.setText(heightStr);
+//                tv_height.setText(heightStr);
 
                 break;
             case 12://40
 
-                if (!Fit_User.language.equals("en")) {
-
-                    height *= 3;
-                    height *= 1;
-                    heightStr = String.format("%.1f", height) + lengthSign_ko;
-
-                } else if (Fit_User.language.equals("en")) {
-
-                    height *= 3 / Fit_Constants.INCHES;
-                    height *= 1;
-                    heightStr = String.format("%.1f", height) + lengthSign_en;
-
-                }
+//                if (!Fit_User.language.equals("en")) {
+//
+//                    height *= 3;
+//                    height *= 1;
+//                    heightStr = String.format("%.1f", height) + lengthSign_ko;
+//
+//                } else if (Fit_User.language.equals("en")) {
+//
+//                    height *= 3 / Fit_Constants.INCHES;
+//                    height *= 1;
+//                    heightStr = String.format("%.1f", height) + lengthSign_en;
+//
+//                }
 
                 angle *= 1;
                 angleStr = String.format("%.1f", angle) + angleSign;
@@ -940,7 +944,7 @@ public class Fit_ProcedureFragment extends Fragment {
                 Fit_Preset.userHeightSetting = 1f;
 
                 tv_angle.setText(angleStr);
-                tv_height.setText(heightStr);
+//                tv_height.setText(heightStr);
 
                 break;
 

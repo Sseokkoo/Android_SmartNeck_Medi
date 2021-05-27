@@ -70,10 +70,10 @@
         <TextView
             android:gravity="center"
             app:scale_height="70"
-            app:scale_left="175"
+            app:scale_left="165"
             app:scale_top="330"
             app:scale_textsize="50"
-            app:scale_width="50"
+            app:scale_width="70"
             android:id="@+id/tv_f_seat_setting_result"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
             android:textStyle="bold" />
 
         <ImageButton
-            app:scale_left="240"
+            app:scale_left="250"
             app:scale_top="340"
             android:id="@+id/btn_f_seat_setting_up"
             app:scale_width="50"
@@ -97,7 +97,7 @@
 
 
         <ImageButton
-            app:scale_left="110"
+            app:scale_left="100"
             app:scale_top="340"
             app:scale_width="50"
             app:scale_height="50"

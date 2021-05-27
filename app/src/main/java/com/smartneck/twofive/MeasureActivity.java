@@ -725,13 +725,13 @@ Log.e("확인", ""+ preset.getSetup());
                                     tv_weight_max.setText(String.valueOf(preset.getSetup() * 0.1));
                                 } else {
                                     if (CFG_HEIGHT[1] > 0) {
-                                        if (CFG_WEIGHT[1] >= 70) {
-                                            result += 0.5;
-                                        } else if (CFG_WEIGHT[1] >= 45 && CFG_WEIGHT[1] <= 65) {
-                                            result += 1;
-                                        } else if (CFG_WEIGHT[1] >= 5 && CFG_WEIGHT[1] <= 40) {
-                                            result += 1.5;
-                                        }
+//                                        if (CFG_WEIGHT[1] >= 70) {
+//                                            result += 0.5;
+//                                        } else if (CFG_WEIGHT[1] >= 45 && CFG_WEIGHT[1] <= 65) {
+//                                            result += 1;
+//                                        } else if (CFG_WEIGHT[1] >= 5 && CFG_WEIGHT[1] <= 40) {
+//                                            result += 1.5;
+//                                        }
                                         if (Constants.language.equals("ko")) {
 //                                            tv_weight.setText(String.format("%.1f", result));
 

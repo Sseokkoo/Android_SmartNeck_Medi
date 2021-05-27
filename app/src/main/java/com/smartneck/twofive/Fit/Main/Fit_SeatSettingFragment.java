@@ -1,6 +1,7 @@
 package com.smartneck.twofive.Fit.Main;
 
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -48,21 +49,10 @@ public class Fit_SeatSettingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = (ViewGroup) inflater.inflate(R.layout.fit_fragment_seat_setting, container, false);
         mContext = GlobalApplication.getApllication();
-        Fit_MainActivity.setAudio("chair");
+        audioStop();
         init();
-        onClickBotton();
-        onClickPosition();
-        setSeatTextThraed();
         return view;
     }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        audioStop();
-
-    }
-
     @Override
     public void onResume() {
         super.onResume();
@@ -86,7 +76,6 @@ public class Fit_SeatSettingFragment extends Fragment {
         btn_up = view.findViewById(R.id.btn_f_seat_setting_up);
         btn_down = view.findViewById(R.id.btn_f_seat_setting_down);
         tv_seat = view.findViewById(R.id.tv_f_seat_setting_result);
-        tv_seat.setText(String.valueOf(Fit_Preset.seat));
 
         btn_home.setText(getString(R.string.btn_close));
         btn_home.setVisibility(View.GONE);
@@ -97,31 +86,12 @@ public class Fit_SeatSettingFragment extends Fragment {
                 .asGif()
                 .load(R.drawable.seat)
                 .into(gif);
+        setMessage(new Fit_Commend().sendSeatMove((byte) Fit_Preset.seat));
+        tv_seat.setText(String.valueOf(Fit_Preset.seat));
 
-
-    }
-
-    void setSeatTextThraed() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                isActivitiy = true;
-                while (isActivitiy) {
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            tv_seat.setText(String.valueOf(Fit_Preset.seat));
-                        }
-                    });
-                }
-            }
-        }).start();
+        Fit_MainActivity.setAudio("chair");
+        onClickBotton();
+        onClickPosition();
     }
 
     void onClickPosition() {
@@ -136,11 +106,12 @@ public class Fit_SeatSettingFragment extends Fragment {
 
                     Fit_Preset.seat = Fit_Preset.seat + 1;
                     tv_seat.setText(String.valueOf(Fit_Preset.seat));
+                    setMessage(new Fit_Commend().sendSeatMove((byte) Fit_Preset.seat));
 //                    if (protocolType.equals("3a")){
 //                        ((MainActivity) MainActivity.mContext).setMessage(StringUtils.getCommand("44 3A 03 01 01"));
 //
 //                    }else if (protocolType.equals("3b")){
-                        setMessage(new Fit_Commend().sendSeatMove((byte) Fit_Preset.seat));
+
 //                    }
                 }
             }
@@ -158,12 +129,13 @@ public class Fit_SeatSettingFragment extends Fragment {
 
                     Fit_Preset.seat = Fit_Preset.seat - 1;
                     tv_seat.setText(String.valueOf(Fit_Preset.seat));
-                    if (protocolType.equals("3a")){
-                        Fit_MainActivity.setMessage(Fit_StringUtils.getCommand("44 3a 03 01 02"));
+                    setMessage(new Fit_Commend().sendSeatMove((byte) Fit_Preset.seat));
+//                    if (protocolType.equals("3a")){
+//                        Fit_MainActivity.setMessage(Fit_StringUtils.getCommand("44 3a 03 01 02"));
+//
+//                    }else if (protocolType.equals("3b")){
 
-                    }else if (protocolType.equals("3b")){
-                        setMessage(new Fit_Commend().sendSeatMove((byte) Fit_Preset.seat));
-                    }
+//                    }
                 }
             }
         });
@@ -172,7 +144,7 @@ public class Fit_SeatSettingFragment extends Fragment {
     void onClickBotton() {
         btn_home.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { 
 
                 type = "HOME";
                 updateSeat();

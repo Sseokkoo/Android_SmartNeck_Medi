@@ -58,33 +58,12 @@
             android:inputType="textPersonName"
             android:imeOptions="actionNext"
             android:singleLine="true"
-            android:id="@+id/find_account_name1"
+            android:id="@+id/find_account_name"
 
-            android:hint="@string/sign_up_first_name"
+            android:hint="@string/sign_up_name_hint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-        <EditText
-            android:background="@drawable/edit_text_background"
-            android:layout_marginTop="16dp"
-            android:inputType="textPersonName"
-            android:imeOptions="actionDone"
-            android:singleLine="true"
-            android:id="@+id/find_account_name2"
 
-            android:hint="@string/sign_up_middle_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-        <EditText
-            android:background="@drawable/edit_text_background"
-            android:layout_marginTop="16dp"
-            android:inputType="textPersonName"
-            android:imeOptions="actionDone"
-            android:singleLine="true"
-            android:id="@+id/find_account_name3"
-
-            android:hint="@string/sign_up_last_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
     </LinearLayout>
     <TextView
         android:layout_marginLeft="16dp"

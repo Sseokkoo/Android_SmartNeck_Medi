@@ -176,7 +176,7 @@ public class Fit_MeasureActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (CFG_HEIGHT[1] > 0) return;
-                if ((currentWeight + 0.5) > 6.5) {
+                if ((currentWeight + 0.5) > 6.0) {
                     return;
                 }
                 weightMoveCount = 0;
@@ -190,12 +190,12 @@ public class Fit_MeasureActivity extends AppCompatActivity {
                 tv_weight.setText(String.valueOf(currentWeight));
 
 
-                if (protocolType.equals("3a")){
-                    ((Fit_MainActivity) Fit_MainActivity.mContext).setMessage(Fit_StringUtils.getCommand("44 3A 04 02 01"));
-
-                }else if (protocolType.equals("3b")){
+//                if (protocolType.equals("3a")){
+//                    ((Fit_MainActivity) Fit_MainActivity.mContext).setMessage(Fit_StringUtils.getCommand("44 3A 04 02 01"));
+//
+//                }else if (protocolType.equals("3b")){
                     setMessage(new Fit_Commend().sendWeightMove((byte)(currentWeight * 10)));
-                }
+//                }
 
             }
 
@@ -224,12 +224,12 @@ public class Fit_MeasureActivity extends AppCompatActivity {
                 tv_weight.setText(String.valueOf(currentWeight));
 
 
-                if (protocolType.equals("3a")){
-                    ((Fit_MainActivity) Fit_MainActivity.mContext).setMessage(Fit_StringUtils.getCommand("44 3A 04 02 02"));
-
-                }else if (protocolType.equals("3b")){
+//                if (protocolType.equals("3a")){
+//                    ((Fit_MainActivity) Fit_MainActivity.mContext).setMessage(Fit_StringUtils.getCommand("44 3A 04 02 02"));
+//
+//                }else if (protocolType.equals("3b")){
                     setMessage(new Fit_Commend().sendWeightMove((byte)(currentWeight * 10)));
-                }
+//                }
             }
         });
 
@@ -279,12 +279,12 @@ public class Fit_MeasureActivity extends AppCompatActivity {
                         updateHeight();
                         finish();
                     }
-                    if (protocolType.equals("3a")){
-                        setMessage(Fit_StringUtils.getCommand("44 3A 07 00 03 " + Fit_StringUtils.getHexStringCode(Fit_Preset.seat) + " 00 00 00 00 00 00 00 00 00 00 " + Fit_StringUtils.getHexStringCode(Fit_Preset.setup) + " 00 00"));
-
-                    }else if (protocolType.equals("3b")){
+//                    if (protocolType.equals("3a")){
+//                        setMessage(Fit_StringUtils.getCommand("44 3A 07 00 03 " + Fit_StringUtils.getHexStringCode(Fit_Preset.seat) + " 00 00 00 00 00 00 00 00 00 00 " + Fit_StringUtils.getHexStringCode(Fit_Preset.setup) + " 00 00"));
+//
+//                    }else if (protocolType.equals("3b")){
                         setMessage(new Fit_Commend().sendGoExercise((byte) Fit_Preset.seat , (byte) Fit_Preset.setup));
-                    }
+//                    }
 
                     return;
                 }
@@ -605,10 +605,10 @@ public class Fit_MeasureActivity extends AppCompatActivity {
 //                            CFG_HEIGHT_MAX[1] = CFG_HEIGHT[1];
 //                        }
 
-                        if (protocolType.equals("3a")){
-                            CFG_HEIGHT[1] = Integer.parseInt(CFG_RECEIVED[4], 16);
-
-                        }else if (protocolType.equals("3b")){
+//                        if (protocolType.equals("3a")){
+//                            CFG_HEIGHT[1] = Integer.parseInt(CFG_RECEIVED[4], 16);
+//
+//                        }else if (protocolType.equals("3b")){
 
                             if (deviceType.equals("HOM")){
                                 CFG_HEIGHT[1] = Fit_Preset.getHomeHeightValue(Integer.parseInt(CFG_RECEIVED[8], 16), Integer.parseInt(CFG_RECEIVED[5], 16));
@@ -617,7 +617,7 @@ public class Fit_MeasureActivity extends AppCompatActivity {
                             }
 
 
-                        }
+//                        }
                         tmpDistance = 0;
                         for (int i = 0; i < CFG_HEIGHT[1]; i++) {
                             tmpDistance += anglePerMillimeter;
@@ -741,13 +741,13 @@ public class Fit_MeasureActivity extends AppCompatActivity {
                                     tv_weight.setText(String.valueOf(currentWeight));
                                 } else {
                                     if (CFG_HEIGHT[1] > 0) {
-                                        if (CFG_WEIGHT[1] >= 70) {
-                                            result += 0.5;
-                                        } else if (CFG_WEIGHT[1] >= 45 && CFG_WEIGHT[1] <= 65) {
-                                            result += 1;
-                                        } else if (CFG_WEIGHT[1] >= 5 && CFG_WEIGHT[1] <= 40) {
-                                            result += 1.5;
-                                        }
+//                                        if (CFG_WEIGHT[1] >= 70) {
+//                                            result += 0.5;
+//                                        } else if (CFG_WEIGHT[1] >= 45 && CFG_WEIGHT[1] <= 65) {
+//                                            result += 1;
+//                                        } else if (CFG_WEIGHT[1] >= 5 && CFG_WEIGHT[1] <= 40) {
+//                                            result += 1.5;
+//                                        }
                                         if (Fit_User.language.equals("ko")) {
                                             tv_weight.setText(String.format("%.1f", result));
 
@@ -766,13 +766,13 @@ public class Fit_MeasureActivity extends AppCompatActivity {
 
                                 }
                                 double result_max = 0;
-                                if (CFG_WEIGHT_MAX[1] >= 70) {
-                                    result_max = (CFG_WEIGHT_MAX[1] + 5) * 0.1;
-                                } else if (CFG_WEIGHT_MAX[1] >= 45 && CFG_WEIGHT_MAX[1] <= 65) {
-                                    result_max = (CFG_WEIGHT_MAX[1] + 10) * 0.1;
-                                } else if (CFG_WEIGHT_MAX[1] >= 5 && CFG_WEIGHT_MAX[1] <= 40) {
-                                    result_max = (CFG_WEIGHT_MAX[1] + 15) * 0.1;
-                                }
+//                                if (CFG_WEIGHT_MAX[1] >= 70) {
+//                                    result_max = (CFG_WEIGHT_MAX[1] + 5) * 0.1;
+//                                } else if (CFG_WEIGHT_MAX[1] >= 45 && CFG_WEIGHT_MAX[1] <= 65) {
+//                                    result_max = (CFG_WEIGHT_MAX[1] + 10) * 0.1;
+//                                } else if (CFG_WEIGHT_MAX[1] >= 5 && CFG_WEIGHT_MAX[1] <= 40) {
+//                                    result_max = (CFG_WEIGHT_MAX[1] + 15) * 0.1;
+//                                }
                                 double tmpMaxd = result_max * 10;
                                 int tmpMax = (int) tmpMaxd;
                                 Fit_Preset.MaxWeight = tmpMax;

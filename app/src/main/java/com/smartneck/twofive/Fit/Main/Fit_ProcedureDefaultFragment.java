@@ -62,7 +62,7 @@ public class Fit_ProcedureDefaultFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         audioStop();
-
+        defaultHeight = 1f;
     }
 
     @Override
@@ -100,7 +100,7 @@ public class Fit_ProcedureDefaultFragment extends Fragment {
             Fit_Preset.strength = 3;
             defaultCount = 15;
             defaultSet = 2;
-            defaultStop = 5;
+            defaultStop = 6;
             defaultHeight = 0.8f;
 
         } else if (strength_mid.isChecked()) {
@@ -108,7 +108,7 @@ public class Fit_ProcedureDefaultFragment extends Fragment {
             defaultCount = 12;
             defaultSet = 2;
             defaultStop = 4;
-            defaultHeight = 0.8f;
+            defaultHeight = 0.7f;
 
         } else if (strength_low.isChecked()) {
             Fit_Preset.strength = 1;
@@ -193,7 +193,7 @@ public class Fit_ProcedureDefaultFragment extends Fragment {
                 Fit_Preset.strength = 1;
                 defaultCount = 10;
                 defaultSet = 2;
-                defaultStop = 3;
+                defaultStop = 2;
                 defaultHeight = 0.6f;
             }
         });

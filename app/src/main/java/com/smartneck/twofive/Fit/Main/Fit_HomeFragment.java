@@ -43,7 +43,7 @@ public class Fit_HomeFragment extends Fragment {
     Button btn_ble;
     Fit_ProgressDialog progressDialog;
 
-    Handler handler;
+    Handler handler = new Handler();
     ImageView btn_weight, btn_exercise_setting, btn_report, btn_height, btn_seat, btn_sub_exercise, btn_how_to_exercise;
     ViewGroup view;
 
@@ -52,7 +52,6 @@ public class Fit_HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = (ViewGroup) inflater.inflate(R.layout.fit_fragment_home, container, false);
         mContext = getActivity();
-        handler = new Handler();
         progressDialog = new Fit_ProgressDialog(mContext, getLayoutInflater());
         init();
         onClick();
@@ -78,22 +77,6 @@ public class Fit_HomeFragment extends Fragment {
 
             }
         });
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (Fit_Preset.MaxWeight == 0 || Fit_Preset.MaxHeight == 0){
-                            btn_exercise.setText(Fit_MainActivity.mContext.getString(R.string.btn_measure));
-
-                        }else{
-                            btn_exercise.setText(Fit_MainActivity.mContext.getString(R.string.btn_start));
-                        }
-                    }
-                });
-            }
-        }).start();
         // Init
 
         // Init

@@ -76,12 +76,12 @@ public class Fit_HeightFragment extends Fragment {
         audioStop();
         isWeight= false;
         handler = new Handler();
-        if (protocolType.equals("3a")) {
-            setMessage(Fit_StringUtils.getCommand("44 3A 07 00 03 " + Fit_StringUtils.getHexStringCode(Fit_Preset.seat) + " 00 00 00 00 00 00 00 00 00 00 " + "00" + " 00 00"));
-
-        } else if (protocolType.equals("3b")) {
+//        if (protocolType.equals("3a")) {
+//            setMessage(Fit_StringUtils.getCommand("44 3A 07 00 03 " + Fit_StringUtils.getHexStringCode(Fit_Preset.seat) + " 00 00 00 00 00 00 00 00 00 00 " + "00" + " 00 00"));
+//
+//        } else if (protocolType.equals("3b")) {
             setMessage(new Fit_Commend().sendWeightMove((byte) 0));
-        }
+//        }
 
         progressDialog = new Fit_ProgressDialog(getActivity(), getLayoutInflater());
         new Thread(new Runnable() {
@@ -100,17 +100,13 @@ public class Fit_HeightFragment extends Fragment {
             @Override
             public void run() {
                 float count = 0;
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                if (protocolType.equals("3a")) {
-                    setMessage(Fit_StringUtils.getCommand("44 3A 07 00 03 " + Fit_StringUtils.getHexStringCode(Fit_Preset.seat) + " 00 00 00 00 00 00 00 00 00 00 " + "00" + " 00 00"));
 
-                } else if (protocolType.equals("3b")) {
+//                if (protocolType.equals("3a")) {
+//                    setMessage(Fit_StringUtils.getCommand("44 3A 07 00 03 " + Fit_StringUtils.getHexStringCode(Fit_Preset.seat) + " 00 00 00 00 00 00 00 00 00 00 " + "00" + " 00 00"));
+//
+//                } else if (protocolType.equals("3b")) {
                     setMessage(new Fit_Commend().sendWeightMove((byte) 0));
-                }
+//                }
                 while (true) {
                     if (isDestroy) break;
                     if (isHeiProgress) break;
@@ -125,12 +121,12 @@ public class Fit_HeightFragment extends Fragment {
                     count += 0.5f;
                     if (count == 5) {
 
-                        if (protocolType.equals("3a")) {
-                            setMessage(Fit_StringUtils.getCommand("44 3A 07 00 03 " + Fit_StringUtils.getHexStringCode(Fit_Preset.seat) + " 00 00 00 00 00 00 00 00 00 00 " + "00" + " 00 00"));
-
-                        } else if (protocolType.equals("3b")) {
+//                        if (protocolType.equals("3a")) {
+//                            setMessage(Fit_StringUtils.getCommand("44 3A 07 00 03 " + Fit_StringUtils.getHexStringCode(Fit_Preset.seat) + " 00 00 00 00 00 00 00 00 00 00 " + "00" + " 00 00"));
+//
+//                        } else if (protocolType.equals("3b")) {
                             setMessage(new Fit_Commend().sendWeightMove((byte) 0));
-                        }
+//                        }
                         count = 0;
                     }
                 }
@@ -153,12 +149,12 @@ public class Fit_HeightFragment extends Fragment {
         tmpSetup = Fit_Preset.setup;
         isHeight = false;
         isDestroy = true;
-        if (protocolType.equals("3a")) {
-            setMessage(Fit_StringUtils.getCommand("44 3A 07 00 03 " + Fit_StringUtils.getHexStringCode(Fit_Preset.seat) + " 00 00 00 00 00 00 00 00 00 00 " + Fit_StringUtils.getHexStringCode(Fit_Preset.setup) + " 00 00"));
-
-        } else if (protocolType.equals("3b")) {
+//        if (protocolType.equals("3a")) {
+//            setMessage(Fit_StringUtils.getCommand("44 3A 07 00 03 " + Fit_StringUtils.getHexStringCode(Fit_Preset.seat) + " 00 00 00 00 00 00 00 00 00 00 " + Fit_StringUtils.getHexStringCode(Fit_Preset.setup) + " 00 00"));
+//
+//        } else if (protocolType.equals("3b")) {
             setMessage(new Fit_Commend().sendWeightMove((byte) Fit_Preset.setup));
-        }
+//        }
         setWeightThread();
         if (heightMax > 0)
             updateHeight();
@@ -177,15 +173,15 @@ public class Fit_HeightFragment extends Fragment {
                     }
                     Log.d(TAG, "run: "+currentWeight + " / " + Fit_Preset.setup);
                     if (currentWeight != tmpSetup * 0.1){
-                        if (protocolType.equals("3a")){
-                            setMessage(Fit_StringUtils.getCommand("44 3A 07 00 03 " + Fit_StringUtils.getHexStringCode(Fit_Preset.seat) + " 00 00 00 00 00 00 00 00 00 00 " + Fit_StringUtils.getHexStringCode(tmpSetup) + " 00 00"));
-
-                        }else if (protocolType.equals("3b")){
+//                        if (protocolType.equals("3a")){
+//                            setMessage(Fit_StringUtils.getCommand("44 3A 07 00 03 " + Fit_StringUtils.getHexStringCode(Fit_Preset.seat) + " 00 00 00 00 00 00 00 00 00 00 " + Fit_StringUtils.getHexStringCode(tmpSetup) + " 00 00"));
+//
+//                        }else if (protocolType.equals("3b")){
                             setMessage(new Fit_Commend().sendWeightMove((byte)tmpSetup));
-                        }
+//                        }
 
                     }else if (currentWeight == tmpSetup){
-                        Log.d(TAG, "GO_EXERCISE_BREAK: ");
+//                        Log.d(TAG, "GO_EXERCISE_BREAK: ");
                         Fit_Preset.setup = tmpSetup;
                         break;
                     }
@@ -229,12 +225,12 @@ public class Fit_HeightFragment extends Fragment {
 //                            CFG_HEIGHT_MAX[1] = CFG_HEIGHT[1];
 //                        }
 //                if (CFG_RECEIVED[8].equals("00")) isHeiProgress = true;
-            if (protocolType.equals("3a")) {
-                height = Integer.parseInt(CFG_RECEIVED[4], 16);
-                if (!isHeiProgress && Integer.parseInt(CFG_RECEIVED[8], 16) <= 0) {
-                    isHeiProgress = true;
-                }
-            } else if (protocolType.equals("3b")) {
+//            if (protocolType.equals("3a")) {
+//                height = Integer.parseInt(CFG_RECEIVED[4], 16);
+//                if (!isHeiProgress && Integer.parseInt(CFG_RECEIVED[8], 16) <= 0) {
+//                    isHeiProgress = true;
+//                }
+//            } else if (protocolType.equals("3b")) {
                 if (deviceType.equals("HOM")) {
                     height = Fit_Preset.getHomeHeightValue(Integer.parseInt(CFG_RECEIVED[8], 16) , Integer.parseInt(CFG_RECEIVED[5], 16));
                     Log.d(TAG, "setHeight: " + height);
@@ -245,7 +241,7 @@ public class Fit_HeightFragment extends Fragment {
                 if (!isHeiProgress && Integer.parseInt(CFG_RECEIVED[5], 16) <= 0) {
                     isHeiProgress = true;
                 }
-            }
+//            }
             tmpDistance = 0;
             for (int i = 0; i < height; i++) {
                 tmpDistance += anglePerMillimeter;

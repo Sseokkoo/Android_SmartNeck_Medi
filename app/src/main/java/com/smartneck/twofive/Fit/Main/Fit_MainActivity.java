@@ -53,31 +53,18 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Timer;
-import java.util.TimerTask;
-
 import com.smartneck.twofive.BleDialog.BleAdapter;
 import com.smartneck.twofive.BleDialog.BleItem;
 import com.smartneck.twofive.CustomerSupport.Controller.CustomerSupportListActivity;
 import com.smartneck.twofive.ErrorReport.ErrorReportActivity;
-import com.smartneck.twofive.Fit.Fit_AppVersionActivity;
 import com.smartneck.twofive.Fit.Chart.Fit_ChartActivity;
+import com.smartneck.twofive.Fit.Fit_AppVersionActivity;
 import com.smartneck.twofive.Fit.Fit_LoginActivity;
 import com.smartneck.twofive.Fit.Fit_MeasureActivity;
-
-import com.smartneck.twofive.GlobalApplication;
-import com.smartneck.twofive.Notice.NoticeListActivity;
-import com.smartneck.twofive.R;
-import com.smartneck.twofive.Review.ReviewActivity;
 import com.smartneck.twofive.Fit.UserInfoEdit.Fit_UserInfoEditListActivity;
 import com.smartneck.twofive.Fit.util.Fit_Address;
 import com.smartneck.twofive.Fit.util.Fit_BluetoothUtils;
 import com.smartneck.twofive.Fit.util.Fit_BottomNavigationHelper;
-import com.smartneck.twofive.Fit.util.Fit_Commend;
 import com.smartneck.twofive.Fit.util.Fit_Constants;
 import com.smartneck.twofive.Fit.util.Fit_HttpConnect;
 import com.smartneck.twofive.Fit.util.Fit_Param;
@@ -85,24 +72,39 @@ import com.smartneck.twofive.Fit.util.Fit_ProgressDialog;
 import com.smartneck.twofive.Fit.util.Fit_StringUtils;
 import com.smartneck.twofive.Fit.util.User.Fit_Preset;
 import com.smartneck.twofive.Fit.util.User.Fit_User;
+import com.smartneck.twofive.GlobalApplication;
+import com.smartneck.twofive.Main.MainActivity;
+import com.smartneck.twofive.Notice.NoticeListActivity;
+import com.smartneck.twofive.R;
+import com.smartneck.twofive.Review.ReviewActivity;
+import com.smartneck.twofive.util.Commend;
+import com.smartneck.twofive.util.ProgressDialog;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static com.smartneck.twofive.Fit.Fit_BrowserActivity.isBrowser;
-import static com.smartneck.twofive.Fit.Main.Fit_WeightSettingFragment.currentWeight;
-import static com.smartneck.twofive.Fit.Main.Fit_WeightSettingFragment.isMove;
-import static com.smartneck.twofive.Fit.Main.Fit_WeightSettingFragment.isWeight;
 import static com.smartneck.twofive.Fit.Fit_MeasureActivity.CFG_HEIGHT;
 import static com.smartneck.twofive.Fit.Fit_MeasureActivity.CFG_WEIGHT;
 import static com.smartneck.twofive.Fit.Fit_MeasureActivity.CFG_WEIGHT_MAX;
 import static com.smartneck.twofive.Fit.Fit_MeasureActivity.isMeasure;
 import static com.smartneck.twofive.Fit.Fit_MeasureActivity.moveExercise;
 import static com.smartneck.twofive.Fit.Fit_MeasureActivity.moveProcedure;
+import static com.smartneck.twofive.Fit.Main.Fit_WeightSettingFragment.currentWeight;
+import static com.smartneck.twofive.Fit.Main.Fit_WeightSettingFragment.isMove;
+import static com.smartneck.twofive.Fit.Main.Fit_WeightSettingFragment.isWeight;
 import static com.smartneck.twofive.Fit.util.Fit_Constants.CFG_IS_EXERCISE;
 import static com.smartneck.twofive.Fit.util.User.Fit_Preset.DEVICE_NAME;
 import static com.smartneck.twofive.Fit.util.User.Fit_Preset.getEntrySelection;
+import static com.smartneck.twofive.Fit.util.User.Fit_User.language;
 
 public class Fit_MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-
+    static MediaPlayer mp;
     public static Context mContext;
     public static Activity activity;
     public static boolean isLogout;
@@ -133,6 +135,7 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
     static String currentLocation = "";
 
     public static String protocolType = "";
+    private boolean SettingOn = false;
 
 
     @Override
@@ -144,8 +147,8 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
         Log.d("어플시작", "■■■■■■■■■■■■■■■■■■■■ START ■■■■■■■■■■■■■■■■■■■■");
         Log.d("어플시작", " ");
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.fit_main);
         getEntrySelection(this);
         Fit_Preset.soundType = "female";
@@ -409,7 +412,6 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
         } else if (id == R.id.nav_device_info) {
             Intent intent = new Intent(getApplicationContext(), Fit_AppVersionActivity.class);
             startActivity(intent);
-
 
         } else if (id == R.id.nav_statistics) {
 
@@ -686,11 +688,7 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
         new Thread(new Runnable() {
             @Override
             public void run() {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+
                 Fit_HttpConnect httpConnect = new Fit_HttpConnect();
                 Fit_Param param = new Fit_Param();
                 param.add("token", Fit_User.token);
@@ -709,8 +707,6 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
 
 
     }
-
-    static MediaPlayer mp;
 
     public static void setAudio(String Code) {
         // TODO: 2019-05-10 audioStop() 메소드 추가
@@ -743,6 +739,118 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
         final int count[] = new int[16];
 
         switch (Code) {
+            case "please_measure":
+                // 측정 버튼을 눌러서 측정을 해주시기 바랍니다. (1회)
+                if (language.equals("ko")) {
+                    mp = MediaPlayer.create(context, R.raw.female_kr_script_please_measure);
+
+                } else if (language.equals("en")) {
+                    mp = MediaPlayer.create(context, R.raw.female_kr_script_please_measure);
+
+                } else if (language.equals("zh")) {
+
+//                    mp = MediaPlayer.create(context, R.raw.tmp_cn_s);
+                } else {
+                    mp = MediaPlayer.create(context, R.raw.female_kr_script_please_measure);
+
+                }
+                break;
+
+            case "chair":
+                if (language.equals("ko")) {
+                    mp = MediaPlayer.create(context, R.raw.female_kr_script_chiar);
+
+                } else if (language.equals("en")) {
+                    mp = MediaPlayer.create(context, R.raw.female_us_script_chiar);
+
+                } else if (language.equals("zh")) {
+
+                    mp = MediaPlayer.create(context, R.raw.tmp_cn_script_chair);
+                } else {
+                    mp = MediaPlayer.create(context, R.raw.female_us_script_chiar);
+
+                }
+                break;
+            case "height":
+                if (language.equals("ko")) {
+                    mp = MediaPlayer.create(context, R.raw.female_kr_script_height);
+
+                } else if (language.equals("en")) {
+                    mp = MediaPlayer.create(context, R.raw.female_us_script_height);
+
+                } else if (language.equals("zh")) {
+
+                    mp = MediaPlayer.create(context, R.raw.tmp_cn_script_height);
+                } else {
+                    mp = MediaPlayer.create(context, R.raw.female_us_script_height);
+
+                }
+                break;
+
+            case "weight":
+                if (language.equals("ko")) {
+                    mp = MediaPlayer.create(context, R.raw.female_kr_script_weight);
+
+                } else if (language.equals("en")) {
+                    mp = MediaPlayer.create(context, R.raw.female_us_script_weight);
+
+                } else if (language.equals("zh")) {
+
+                    mp = MediaPlayer.create(context, R.raw.tmp_cn_script_weight);
+                } else {
+                    mp = MediaPlayer.create(context, R.raw.female_us_script_weight);
+
+                }
+                break;
+
+
+            case "exercise_setting":
+                if (language.equals("ko")) {
+                    mp = MediaPlayer.create(context, R.raw.female_kr_script_exericse_setting);
+
+                } else if (language.equals("en")) {
+                    mp = MediaPlayer.create(context, R.raw.female_us_script_exericse_setting);
+
+                } else if (language.equals("zh")) {
+
+                    mp = MediaPlayer.create(context, R.raw.tmp_cn_script_exercise_setting);
+                } else {
+                    mp = MediaPlayer.create(context, R.raw.female_us_script_exericse_setting);
+
+                }
+                break;
+            case "exercise_start":
+                if (language.equals("ko")) {
+                    mp = MediaPlayer.create(context, R.raw.female_kr_script_exercise_start);
+
+                } else if (language.equals("en")) {
+                    mp = MediaPlayer.create(context, R.raw.female_us_script_exercise_start);
+
+                } else if (language.equals("zh")) {
+
+                    mp = MediaPlayer.create(context, R.raw.tmp_cn_script_exercise_start);
+                } else {
+                    mp = MediaPlayer.create(context, R.raw.female_us_script_exercise_start);
+
+                }
+                break;
+            case "exercise_finish":
+                if (language.equals("ko")) {
+                    mp = MediaPlayer.create(context, R.raw.female_kr_script_exercise_finish);
+
+                } else if (language.equals("en")) {
+                    mp = MediaPlayer.create(context, R.raw.female_us_script_exercise_finish);
+
+                } else if (language.equals("zh")) {
+
+                    mp = MediaPlayer.create(context, R.raw.tmp_cn_script_exercise_finish);
+                } else {
+                    mp = MediaPlayer.create(context, R.raw.female_us_script_exercise_finish);
+
+                }
+                CFG_IS_EXERCISE = false;
+                break;
+
             case "count_start":
                 // 카운트
                 Log.d("확인", "setAudio: countstart");
@@ -818,11 +926,11 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
             case "f1":
                 // 카운트
                 Log.d("확인", "setAudio: count");
-                if (Fit_User.language.equals("ko")) {
+                if (language.equals("ko")) {
                     count[1] = sound.load(context, R.raw.female_kr_1, 0);
-                } else if (Fit_User.language.equals("en")) {
+                } else if (language.equals("en")) {
                     count[1] = sound.load(context, R.raw.female_us_1, 0);
-                } else if (Fit_User.language.equals("zh")) {
+                } else if (language.equals("zh")) {
 
                     count[1] = sound.load(context, R.raw.tmp_cn_1, 0);
                 } else {
@@ -852,11 +960,11 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
             case "f2":
                 // 카운트
                 Log.d("확인", "setAudio: count");
-                if (Fit_User.language.equals("ko")) {
+                if (language.equals("ko")) {
                     count[2] = sound.load(context, R.raw.female_kr_2, 0);
-                } else if (Fit_User.language.equals("en")) {
+                } else if (language.equals("en")) {
                     count[2] = sound.load(context, R.raw.female_us_2, 0);
-                } else if (Fit_User.language.equals("zh")) {
+                } else if (language.equals("zh")) {
 
                     count[2] = sound.load(context, R.raw.tmp_cn_2, 0);
                 } else {
@@ -886,11 +994,11 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
             case "f3":
                 // 카운트
                 Log.d("확인", "setAudio: count");
-                if (Fit_User.language.equals("ko")) {
+                if (language.equals("ko")) {
                     count[3] = sound.load(context, R.raw.female_kr_3, 0);
-                } else if (Fit_User.language.equals("en")) {
+                } else if (language.equals("en")) {
                     count[3] = sound.load(context, R.raw.female_us_3, 0);
-                } else if (Fit_User.language.equals("zh")) {
+                } else if (language.equals("zh")) {
 
                     count[3] = sound.load(context, R.raw.tmp_cn_3, 0);
                 } else {
@@ -920,11 +1028,11 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
             case "f4":
                 // 카운트
                 Log.d("확인", "setAudio: count");
-                if (Fit_User.language.equals("ko")) {
+                if (language.equals("ko")) {
                     count[4] = sound.load(context, R.raw.female_kr_4, 0);
-                } else if (Fit_User.language.equals("en")) {
+                } else if (language.equals("en")) {
                     count[4] = sound.load(context, R.raw.female_us_4, 0);
-                } else if (Fit_User.language.equals("zh")) {
+                } else if (language.equals("zh")) {
 
                     count[4] = sound.load(context, R.raw.tmp_cn_4, 0);
                 } else {
@@ -954,11 +1062,11 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
             case "f5":
                 // 카운트
                 Log.d("확인", "setAudio: count");
-                if (Fit_User.language.equals("ko")) {
+                if (language.equals("ko")) {
                     count[5] = sound.load(context, R.raw.female_kr_5, 0);
-                } else if (Fit_User.language.equals("en")) {
+                } else if (language.equals("en")) {
                     count[5] = sound.load(context, R.raw.female_us_5, 0);
-                } else if (Fit_User.language.equals("zh")) {
+                } else if (language.equals("zh")) {
 
                     count[5] = sound.load(context, R.raw.tmp_cn_5, 0);
                 } else {
@@ -988,11 +1096,11 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
             case "f6":
                 // 카운트
                 Log.d("확인", "setAudio: count");
-                if (Fit_User.language.equals("ko")) {
+                if (language.equals("ko")) {
                     count[6] = sound.load(context, R.raw.female_kr_6, 0);
-                } else if (Fit_User.language.equals("en")) {
+                } else if (language.equals("en")) {
                     count[6] = sound.load(context, R.raw.female_us_6, 0);
-                } else if (Fit_User.language.equals("zh")) {
+                } else if (language.equals("zh")) {
 
                     count[6] = sound.load(context, R.raw.tmp_cn_6, 0);
                 } else {
@@ -1022,11 +1130,11 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
             case "f7":
                 // 카운트
                 Log.d("확인", "setAudio: count");
-                if (Fit_User.language.equals("ko")) {
+                if (language.equals("ko")) {
                     count[7] = sound.load(context, R.raw.female_kr_7, 0);
-                } else if (Fit_User.language.equals("en")) {
+                } else if (language.equals("en")) {
                     count[7] = sound.load(context, R.raw.female_us_7, 0);
-                } else if (Fit_User.language.equals("zh")) {
+                } else if (language.equals("zh")) {
 
                     count[7] = sound.load(context, R.raw.tmp_cn_7, 0);
                 } else {
@@ -1056,11 +1164,11 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
             case "f8":
                 // 카운트
                 Log.d("확인", "setAudio: count");
-                if (Fit_User.language.equals("ko")) {
+                if (language.equals("ko")) {
                     count[8] = sound.load(context, R.raw.female_kr_8, 0);
-                } else if (Fit_User.language.equals("en")) {
+                } else if (language.equals("en")) {
                     count[8] = sound.load(context, R.raw.female_us_8, 0);
-                } else if (Fit_User.language.equals("zh")) {
+                } else if (language.equals("zh")) {
 
                     count[8] = sound.load(context, R.raw.tmp_cn_8, 0);
                 } else {
@@ -1090,11 +1198,11 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
             case "f9":
                 // 카운트
                 Log.d("확인", "setAudio: count");
-                if (Fit_User.language.equals("ko")) {
+                if (language.equals("ko")) {
                     count[9] = sound.load(context, R.raw.female_kr_9, 0);
-                } else if (Fit_User.language.equals("en")) {
+                } else if (language.equals("en")) {
                     count[9] = sound.load(context, R.raw.female_us_9, 0);
-                } else if (Fit_User.language.equals("zh")) {
+                } else if (language.equals("zh")) {
 
                     count[9] = sound.load(context, R.raw.tmp_cn_9, 0);
                 } else {
@@ -1124,11 +1232,11 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
             case "f10":
                 // 카운트
                 Log.d("확인", "setAudio: count");
-                if (Fit_User.language.equals("ko")) {
+                if (language.equals("ko")) {
                     count[10] = sound.load(context, R.raw.female_kr_10, 0);
-                } else if (Fit_User.language.equals("en")) {
+                } else if (language.equals("en")) {
                     count[10] = sound.load(context, R.raw.female_us_10, 0);
-                } else if (Fit_User.language.equals("zh")) {
+                } else if (language.equals("zh")) {
 
                     count[10] = sound.load(context, R.raw.tmp_cn_10, 0);
                 } else {
@@ -1158,11 +1266,11 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
             case "f11":
                 // 카운트
                 Log.d("확인", "setAudio: count");
-                if (Fit_User.language.equals("ko")) {
+                if (language.equals("ko")) {
                     count[11] = sound.load(context, R.raw.female_kr_11, 0);
-                } else if (Fit_User.language.equals("en")) {
+                } else if (language.equals("en")) {
                     count[11] = sound.load(context, R.raw.female_us_11, 0);
-                } else if (Fit_User.language.equals("zh")) {
+                } else if (language.equals("zh")) {
 
                     count[11] = sound.load(context, R.raw.tmp_cn_11, 0);
                 } else {
@@ -1192,11 +1300,11 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
             case "f12":
                 // 카운트
                 Log.d("확인", "setAudio: count");
-                if (Fit_User.language.equals("ko")) {
+                if (language.equals("ko")) {
                     count[12] = sound.load(context, R.raw.female_kr_12, 0);
-                } else if (Fit_User.language.equals("en")) {
+                } else if (language.equals("en")) {
                     count[12] = sound.load(context, R.raw.female_us_12, 0);
-                } else if (Fit_User.language.equals("zh")) {
+                } else if (language.equals("zh")) {
 
                     count[12] = sound.load(context, R.raw.tmp_cn_12, 0);
                 } else {
@@ -1226,11 +1334,11 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
             case "f13":
                 // 카운트
                 Log.d("확인", "setAudio: count");
-                if (Fit_User.language.equals("ko")) {
+                if (language.equals("ko")) {
                     count[13] = sound.load(context, R.raw.female_kr_13, 0);
-                } else if (Fit_User.language.equals("en")) {
+                } else if (language.equals("en")) {
                     count[13] = sound.load(context, R.raw.female_us_13, 0);
-                } else if (Fit_User.language.equals("zh")) {
+                } else if (language.equals("zh")) {
 
                     count[13] = sound.load(context, R.raw.tmp_cn_13, 0);
                 } else {
@@ -1260,11 +1368,11 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
             case "f14":
                 // 카운트
                 Log.d("확인", "setAudio: count");
-                if (Fit_User.language.equals("ko")) {
+                if (language.equals("ko")) {
                     count[14] = sound.load(context, R.raw.female_kr_14, 0);
-                } else if (Fit_User.language.equals("en")) {
+                } else if (language.equals("en")) {
                     count[14] = sound.load(context, R.raw.female_us_14, 0);
-                } else if (Fit_User.language.equals("zh")) {
+                } else if (language.equals("zh")) {
 
                     count[14] = sound.load(context, R.raw.tmp_cn_14, 0);
                 } else {
@@ -1294,11 +1402,11 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
             case "f15":
                 // 카운트
                 Log.d("확인", "setAudio: count");
-                if (Fit_User.language.equals("ko")) {
+                if (language.equals("ko")) {
                     count[15] = sound.load(context, R.raw.female_kr_15, 0);
-                } else if (Fit_User.language.equals("en")) {
+                } else if (language.equals("en")) {
                     count[15] = sound.load(context, R.raw.female_us_15, 0);
-                } else if (Fit_User.language.equals("zh")) {
+                } else if (language.equals("zh")) {
 
                     count[15] = sound.load(context, R.raw.tmp_cn_15, 0);
                 } else {
@@ -1328,11 +1436,11 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
             case "m1":
                 // 카운트
                 Log.d("확인", "setAudio: count");
-                if (Fit_User.language.equals("ko")) {
+                if (language.equals("ko")) {
                     count[1] = sound.load(context, R.raw.male_kr_1, 0);
-                } else if (Fit_User.language.equals("en")) {
+                } else if (language.equals("en")) {
                     count[1] = sound.load(context, R.raw.male_us_1, 0);
-                } else if (Fit_User.language.equals("zh")) {
+                } else if (language.equals("zh")) {
 
                     count[1] = sound.load(context, R.raw.tmp_cn_1, 0);
                 } else {
@@ -1362,11 +1470,11 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
             case "m2":
                 // 카운트
                 Log.d("확인", "setAudio: count");
-                if (Fit_User.language.equals("ko")) {
+                if (language.equals("ko")) {
                     count[2] = sound.load(context, R.raw.male_kr_2, 0);
-                } else if (Fit_User.language.equals("en")) {
+                } else if (language.equals("en")) {
                     count[2] = sound.load(context, R.raw.male_us_2, 0);
-                } else if (Fit_User.language.equals("zh")) {
+                } else if (language.equals("zh")) {
 
                     count[2] = sound.load(context, R.raw.tmp_cn_2, 0);
                 } else {
@@ -1396,11 +1504,11 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
             case "m3":
                 // 카운트
                 Log.d("확인", "setAudio: count");
-                if (Fit_User.language.equals("ko")) {
+                if (language.equals("ko")) {
                     count[3] = sound.load(context, R.raw.male_kr_3, 0);
-                } else if (Fit_User.language.equals("en")) {
+                } else if (language.equals("en")) {
                     count[3] = sound.load(context, R.raw.male_us_3, 0);
-                } else if (Fit_User.language.equals("zh")) {
+                } else if (language.equals("zh")) {
 
                     count[3] = sound.load(context, R.raw.tmp_cn_3, 0);
                 } else {
@@ -1430,11 +1538,11 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
             case "m4":
                 // 카운트
                 Log.d("확인", "setAudio: count");
-                if (Fit_User.language.equals("ko")) {
+                if (language.equals("ko")) {
                     count[4] = sound.load(context, R.raw.male_kr_4, 0);
-                } else if (Fit_User.language.equals("en")) {
+                } else if (language.equals("en")) {
                     count[4] = sound.load(context, R.raw.male_us_4, 0);
-                } else if (Fit_User.language.equals("zh")) {
+                } else if (language.equals("zh")) {
 
                     count[4] = sound.load(context, R.raw.tmp_cn_4, 0);
                 } else {
@@ -1464,11 +1572,11 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
             case "m5":
                 // 카운트
                 Log.d("확인", "setAudio: count");
-                if (Fit_User.language.equals("ko")) {
+                if (language.equals("ko")) {
                     count[5] = sound.load(context, R.raw.male_kr_5, 0);
-                } else if (Fit_User.language.equals("en")) {
+                } else if (language.equals("en")) {
                     count[5] = sound.load(context, R.raw.male_us_5, 0);
-                } else if (Fit_User.language.equals("zh")) {
+                } else if (language.equals("zh")) {
 
                     count[5] = sound.load(context, R.raw.tmp_cn_5, 0);
                 } else {
@@ -1498,11 +1606,11 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
             case "m6":
                 // 카운트
                 Log.d("확인", "setAudio: count");
-                if (Fit_User.language.equals("ko")) {
+                if (language.equals("ko")) {
                     count[6] = sound.load(context, R.raw.male_kr_6, 0);
-                } else if (Fit_User.language.equals("en")) {
+                } else if (language.equals("en")) {
                     count[6] = sound.load(context, R.raw.male_us_6, 0);
-                } else if (Fit_User.language.equals("zh")) {
+                } else if (language.equals("zh")) {
 
                     count[6] = sound.load(context, R.raw.tmp_cn_6, 0);
                 } else {
@@ -1532,11 +1640,11 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
             case "m7":
                 // 카운트
                 Log.d("확인", "setAudio: count");
-                if (Fit_User.language.equals("ko")) {
+                if (language.equals("ko")) {
                     count[7] = sound.load(context, R.raw.male_kr_7, 0);
-                } else if (Fit_User.language.equals("en")) {
+                } else if (language.equals("en")) {
                     count[7] = sound.load(context, R.raw.male_us_7, 0);
-                } else if (Fit_User.language.equals("zh")) {
+                } else if (language.equals("zh")) {
 
                     count[7] = sound.load(context, R.raw.tmp_cn_7, 0);
                 } else {
@@ -1566,11 +1674,11 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
             case "m8":
                 // 카운트
                 Log.d("확인", "setAudio: count");
-                if (Fit_User.language.equals("ko")) {
+                if (language.equals("ko")) {
                     count[8] = sound.load(context, R.raw.male_kr_8, 0);
-                } else if (Fit_User.language.equals("en")) {
+                } else if (language.equals("en")) {
                     count[8] = sound.load(context, R.raw.male_us_8, 0);
-                } else if (Fit_User.language.equals("zh")) {
+                } else if (language.equals("zh")) {
 
                     count[8] = sound.load(context, R.raw.tmp_cn_8, 0);
                 } else {
@@ -1600,11 +1708,11 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
             case "m9":
                 // 카운트
                 Log.d("확인", "setAudio: count");
-                if (Fit_User.language.equals("ko")) {
+                if (language.equals("ko")) {
                     count[9] = sound.load(context, R.raw.male_kr_9, 0);
-                } else if (Fit_User.language.equals("en")) {
+                } else if (language.equals("en")) {
                     count[9] = sound.load(context, R.raw.male_us_9, 0);
-                } else if (Fit_User.language.equals("zh")) {
+                } else if (language.equals("zh")) {
 
                     count[9] = sound.load(context, R.raw.tmp_cn_9, 0);
                 } else {
@@ -1634,11 +1742,11 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
             case "m10":
                 // 카운트
                 Log.d("확인", "setAudio: count");
-                if (Fit_User.language.equals("ko")) {
+                if (language.equals("ko")) {
                     count[10] = sound.load(context, R.raw.male_kr_10, 0);
-                } else if (Fit_User.language.equals("en")) {
+                } else if (language.equals("en")) {
                     count[10] = sound.load(context, R.raw.male_us_10, 0);
-                } else if (Fit_User.language.equals("zh")) {
+                } else if (language.equals("zh")) {
 
                     count[10] = sound.load(context, R.raw.tmp_cn_10, 0);
                 } else {
@@ -1668,11 +1776,11 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
             case "m11":
                 // 카운트
                 Log.d("확인", "setAudio: count");
-                if (Fit_User.language.equals("ko")) {
+                if (language.equals("ko")) {
                     count[11] = sound.load(context, R.raw.male_kr_11, 0);
-                } else if (Fit_User.language.equals("en")) {
+                } else if (language.equals("en")) {
                     count[11] = sound.load(context, R.raw.male_us_11, 0);
-                } else if (Fit_User.language.equals("zh")) {
+                } else if (language.equals("zh")) {
 
                     count[11] = sound.load(context, R.raw.tmp_cn_11, 0);
                 } else {
@@ -1702,11 +1810,11 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
             case "m12":
                 // 카운트
                 Log.d("확인", "setAudio: count");
-                if (Fit_User.language.equals("ko")) {
+                if (language.equals("ko")) {
                     count[12] = sound.load(context, R.raw.male_kr_12, 0);
-                } else if (Fit_User.language.equals("en")) {
+                } else if (language.equals("en")) {
                     count[12] = sound.load(context, R.raw.male_us_12, 0);
-                } else if (Fit_User.language.equals("zh")) {
+                } else if (language.equals("zh")) {
 
                     count[12] = sound.load(context, R.raw.tmp_cn_12, 0);
                 } else {
@@ -1736,11 +1844,11 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
             case "m13":
                 // 카운트
                 Log.d("확인", "setAudio: count");
-                if (Fit_User.language.equals("ko")) {
+                if (language.equals("ko")) {
                     count[13] = sound.load(context, R.raw.male_kr_13, 0);
-                } else if (Fit_User.language.equals("en")) {
+                } else if (language.equals("en")) {
                     count[13] = sound.load(context, R.raw.male_us_13, 0);
-                } else if (Fit_User.language.equals("zh")) {
+                } else if (language.equals("zh")) {
 
                     count[13] = sound.load(context, R.raw.tmp_cn_13, 0);
                 } else {
@@ -1770,11 +1878,11 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
             case "m14":
                 // 카운트
                 Log.d("확인", "setAudio: count");
-                if (Fit_User.language.equals("ko")) {
+                if (language.equals("ko")) {
                     count[14] = sound.load(context, R.raw.male_kr_14, 0);
-                } else if (Fit_User.language.equals("en")) {
+                } else if (language.equals("en")) {
                     count[14] = sound.load(context, R.raw.male_us_14, 0);
-                } else if (Fit_User.language.equals("zh")) {
+                } else if (language.equals("zh")) {
 
                     count[14] = sound.load(context, R.raw.tmp_cn_14, 0);
                 } else {
@@ -1804,11 +1912,11 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
             case "m15":
                 // 카운트
                 Log.d("확인", "setAudio: count");
-                if (Fit_User.language.equals("ko")) {
+                if (language.equals("ko")) {
                     count[15] = sound.load(context, R.raw.male_kr_15, 0);
-                } else if (Fit_User.language.equals("en")) {
+                } else if (language.equals("en")) {
                     count[15] = sound.load(context, R.raw.male_us_15, 0);
-                } else if (Fit_User.language.equals("zh")) {
+                } else if (language.equals("zh")) {
                     count[14] = sound.load(context, R.raw.tmp_cn_15, 0);
                 } else {
                     count[15] = sound.load(context, R.raw.male_us_15, 0);
@@ -1839,118 +1947,7 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
 //                mp = MediaPlayer.create(context, R.raw.audio_01);
 //                break;
 
-            case "please_measure":
-                // 측정 버튼을 눌러서 측정을 해주시기 바랍니다. (1회)
-                if (Fit_User.language.equals("ko")) {
-                    mp = MediaPlayer.create(context, R.raw.female_kr_script_please_measure);
 
-                } else if (Fit_User.language.equals("en")) {
-                    mp = MediaPlayer.create(context, R.raw.female_kr_script_please_measure);
-
-                } else if (Fit_User.language.equals("zh")) {
-
-//                    mp = MediaPlayer.create(context, R.raw.tmp_cn_s);
-                } else {
-                    mp = MediaPlayer.create(context, R.raw.female_kr_script_please_measure);
-
-                }
-                break;
-
-            case "chair":
-                if (Fit_User.language.equals("ko")) {
-                    mp = MediaPlayer.create(context, R.raw.female_kr_script_chiar);
-
-                } else if (Fit_User.language.equals("en")) {
-                    mp = MediaPlayer.create(context, R.raw.female_us_script_chiar);
-
-                } else if (Fit_User.language.equals("zh")) {
-
-                    mp = MediaPlayer.create(context, R.raw.tmp_cn_script_chair);
-                } else {
-                    mp = MediaPlayer.create(context, R.raw.female_us_script_chiar);
-
-                }
-                break;
-
-            case "height":
-                if (Fit_User.language.equals("ko")) {
-                    mp = MediaPlayer.create(context, R.raw.female_kr_script_height);
-
-                } else if (Fit_User.language.equals("en")) {
-                    mp = MediaPlayer.create(context, R.raw.female_us_script_height);
-
-                } else if (Fit_User.language.equals("zh")) {
-
-                    mp = MediaPlayer.create(context, R.raw.tmp_cn_script_height);
-                } else {
-                    mp = MediaPlayer.create(context, R.raw.female_us_script_height);
-
-                }
-                break;
-
-            case "weight":
-                if (Fit_User.language.equals("ko")) {
-                    mp = MediaPlayer.create(context, R.raw.female_kr_script_weight);
-
-                } else if (Fit_User.language.equals("en")) {
-                    mp = MediaPlayer.create(context, R.raw.female_us_script_weight);
-
-                } else if (Fit_User.language.equals("zh")) {
-
-                    mp = MediaPlayer.create(context, R.raw.tmp_cn_script_weight);
-                } else {
-                    mp = MediaPlayer.create(context, R.raw.female_us_script_weight);
-
-                }
-                break;
-
-
-            case "exercise_setting":
-                if (Fit_User.language.equals("ko")) {
-                    mp = MediaPlayer.create(context, R.raw.female_kr_script_exericse_setting);
-
-                } else if (Fit_User.language.equals("en")) {
-                    mp = MediaPlayer.create(context, R.raw.female_us_script_exericse_setting);
-
-                } else if (Fit_User.language.equals("zh")) {
-
-                    mp = MediaPlayer.create(context, R.raw.tmp_cn_script_exercise_setting);
-                } else {
-                    mp = MediaPlayer.create(context, R.raw.female_us_script_exericse_setting);
-
-                }
-                break;
-            case "exercise_start":
-                if (Fit_User.language.equals("ko")) {
-                    mp = MediaPlayer.create(context, R.raw.female_kr_script_exercise_start);
-
-                } else if (Fit_User.language.equals("en")) {
-                    mp = MediaPlayer.create(context, R.raw.female_us_script_exercise_start);
-
-                } else if (Fit_User.language.equals("zh")) {
-
-                    mp = MediaPlayer.create(context, R.raw.tmp_cn_script_exercise_start);
-                } else {
-                    mp = MediaPlayer.create(context, R.raw.female_us_script_exercise_start);
-
-                }
-                break;
-            case "exercise_finish":
-                if (Fit_User.language.equals("ko")) {
-                    mp = MediaPlayer.create(context, R.raw.female_kr_script_exercise_finish);
-
-                } else if (Fit_User.language.equals("en")) {
-                    mp = MediaPlayer.create(context, R.raw.female_us_script_exercise_finish);
-
-                } else if (Fit_User.language.equals("zh")) {
-
-                    mp = MediaPlayer.create(context, R.raw.tmp_cn_script_exercise_finish);
-                } else {
-                    mp = MediaPlayer.create(context, R.raw.female_us_script_exercise_finish);
-
-                }
-                CFG_IS_EXERCISE = false;
-                break;
         }
 
         if (!CFG_IS_EXERCISE) {
@@ -2330,52 +2327,20 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
     int sentCount = 0;
 
     public void setDeviceInit() {
-//        Log.d("확인", "----- setDeviceInit: " + Constants.CFG_DEVICE_TYPE + " / " + CFG_HEIGHT_MAX[1] + " / " + CFG_MEMBER_NO);
-
         if (mConnected || mEchoInitialized) {
-            if (Fit_Preset.MaxWeight == 0 || Fit_Preset.MaxHeight == 0) {
-                Log.d("확인", "setDeviceInit: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-                Fit_Preset.seat = 0;
-                Fit_Preset.setup = 0;
-            }
-            final Fit_ProgressDialog progressDialog = new Fit_ProgressDialog(mContext, getLayoutInflater());
+
+            final ProgressDialog progressDialog = new ProgressDialog(mContext, getLayoutInflater());
+
             new Thread(new Runnable() {
                 @Override
                 public void run() {
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-
                             progressDialog.show(getString(R.string.dialog_ble_init));
-
                         }
                     });
-                    isInit = false;
-                    float count = 0;
-                    while (!isInit) {
-                        count += 0.5f;
-                        if (count == 100) {
-                            progressDialog.dismiss();
-                            ((Fit_MainActivity) Fit_MainActivity.mContext).setScanStop();
-                            isInit = true;
-                        }
-                        Log.d("확인", "isBleProgress: " + isBleProgress + "sec: " + count);
-                        try {
-                            Thread.sleep(499);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
 
-                    }
-                    progressDialog.dismiss();
-
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-
-                    isInit = false;
                 }
             }).start();
 
@@ -2385,78 +2350,34 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
                 public void run() {
                     int i = 0;
                     try {
-                        Thread.sleep(1000);
+                        Thread.sleep(500);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    setMessage(new Fit_Commend().sendGoExercise((byte) Fit_Preset.seat, (byte) Fit_Preset.setup));
+                    setMessage(new Commend().sendGoExercise((byte) Fit_Preset.seat, (byte) Fit_Preset.setup));
                     try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-
-                    setMessage(Fit_StringUtils.getCommand("44 3A 07 00 03 " + Fit_StringUtils.getHexStringCode(Fit_Preset.seat) + " 00 00 00 00 00 00 00 00 00 00 " + Fit_StringUtils.getHexStringCode(Fit_Preset.setup) + " 00 00"));
-                    while (true) {
-
-
-                        try {
+                        while (true) {
                             Thread.sleep(300);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        if (!is_82) {
-                            if (i == 3) {
-
-
-                                setMessage(new Fit_Commend().sendGoExercise((byte) Fit_Preset.seat, (byte) Fit_Preset.setup));
-
-                                try {
-                                    Thread.sleep(100);
-                                } catch (InterruptedException e) {
-                                    e.printStackTrace();
-                                }
-                                setMessage(Fit_StringUtils.getCommand("44 3A 07 00 03 " + Fit_StringUtils.getHexStringCode(Fit_Preset.seat) + " 00 00 00 00 00 00 00 00 00 00 " + Fit_StringUtils.getHexStringCode(Fit_Preset.setup) + " 00 00"));
-
-
-
-                                i = 0;
-
+                            Log.e("확인", isWeightMove + "" + isSeatMove);
+                            if (isWeightMove == false && isSeatMove == false) {
+                                SettingOn = false;
+                                Log.e("확인1", isWeightMove + "" + isSeatMove);
+                                progressDialog.dismiss();
+                                break;
+                            } else {
+                                Log.e("확인2", isWeightMove + "" + isSeatMove);
+                                SettingOn = true;
                             }
-                        } else {
-                            break;
                         }
-
-                        i++;
-
-                    }
-                }
-            }).start();
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        Thread.sleep(1500);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    while (true) {
-                        try {
-                            Thread.sleep(1000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
 
-                        if (!mConnected) break;
-                        if (sentCount > 3) break;
-                        if (protocolType.equals("3b")) break;
-                        setMessage(Fit_StringUtils.getCommand("44 3A 09 01 76"));
-
-                    }
                 }
             }).start();
         }
     }
+
 
     public void enableCharacteristicNotification(BluetoothGatt
                                                          gatt, BluetoothGattCharacteristic characteristic) {
