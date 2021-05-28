@@ -733,13 +733,13 @@ Log.e("확인", ""+ preset.getSetup());
 //                                            result += 1.5;
 //                                        }
                                         if (Constants.language.equals("ko")) {
-//                                            tv_weight.setText(String.format("%.1f", result));
+                                            tv_weight.setText(String.format("%.1f", result));
 
                                         } else if (Constants.language.equals("en")) {
-//                                            tv_weight.setText(String.format("%.1f", result * POUND));
+                                            tv_weight.setText(String.format("%.1f", result * POUND));
 
                                         } else {
-//                                            tv_weight.setText(String.format("%.1f", result));
+                                            tv_weight.setText(String.format("%.1f", result));
 
                                         }
                                     } else {
@@ -749,14 +749,14 @@ Log.e("확인", ""+ preset.getSetup());
 
 
                                 }
-                                result_max = 0;
-                                if (CFG_WEIGHT_MAX[1] >= 70) {
-                                    result_max = (CFG_WEIGHT_MAX[1] + 5) * 0.1;
-                                } else if (CFG_WEIGHT_MAX[1] >= 45 && CFG_WEIGHT_MAX[1] <= 65) {
-                                    result_max = (CFG_WEIGHT_MAX[1] + 10) * 0.1;
-                                } else if (CFG_WEIGHT_MAX[1] >= 5 && CFG_WEIGHT_MAX[1] <= 40) {
-                                    result_max = (CFG_WEIGHT_MAX[1] + 15) * 0.1;
-                                }
+                                result_max = (CFG_WEIGHT_MAX[1] * 0.1);
+//                                if (CFG_WEIGHT_MAX[1] >= 70) {
+//                                    result_max = (CFG_WEIGHT_MAX[1] + 5) * 0.1;
+//                                } else if (CFG_WEIGHT_MAX[1] >= 45 && CFG_WEIGHT_MAX[1] <= 65) {
+//                                    result_max = (CFG_WEIGHT_MAX[1] + 10) * 0.1;
+//                                } else if (CFG_WEIGHT_MAX[1] >= 5 && CFG_WEIGHT_MAX[1] <= 40) {
+//                                    result_max = (CFG_WEIGHT_MAX[1] + 15) * 0.1;
+//                                }
                                 double tmpMaxd = result_max * 10;
                                 preset.setMaxWeight((int) (result_max * 10) );
                                 int tmpMax = (int) tmpMaxd;

@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -34,6 +35,7 @@ public class Fit_FindPasswordActivity extends AppCompatActivity {
     Button btn_find_password, btn_tmp_password;
     Handler handler;
     ImageView btn_dismiss;
+    private Spinner spn_country;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,9 +47,9 @@ public class Fit_FindPasswordActivity extends AppCompatActivity {
 
     private void init() {
         handler = new Handler();
-        phone1 = findViewById(R.id.find_password_phone1);
-        phone2 = findViewById(R.id.find_password_phone2);
-        phone3 = findViewById(R.id.find_password_phone3);
+        phone1 = findViewById(R.id.find_account_phone1);
+        phone2 = findViewById(R.id.find_account_phone2);
+        phone3 = findViewById(R.id.find_account_phone3);
         name1 = findViewById(R.id.find_password_name1);
         name2 = findViewById(R.id.find_password_name2);
         name3 = findViewById(R.id.find_password_name3);
@@ -55,6 +57,7 @@ public class Fit_FindPasswordActivity extends AppCompatActivity {
         btn_find_password = findViewById(R.id.find_password_find_btn);
         btn_tmp_password = findViewById(R.id.find_password_tmp_password);
         btn_dismiss = findViewById(R.id.find_password_dismiss);
+        spn_country = findViewById(R.id.spn_country);
         if (!Fit_User.language.equals("en")) {
             name3.setVisibility(View.GONE);
             name2.setImeOptions(EditorInfo.IME_ACTION_DONE);
@@ -62,7 +65,23 @@ public class Fit_FindPasswordActivity extends AppCompatActivity {
             name3.setVisibility(View.VISIBLE);
             name2.setImeOptions(EditorInfo.IME_ACTION_NEXT);
         }
+        spn_country.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if (i == 0){
+                    Fit_User.country = Fit_Constants.KR;
+                }else if (i == 1){
+                    Fit_User.country = Fit_Constants.US;
+                }else if (i == 2){
+                    Fit_User.country = Fit_Constants.CN;
+                }
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 
     private void setEvent() {
@@ -97,8 +116,11 @@ public class Fit_FindPasswordActivity extends AppCompatActivity {
                     fullName = firstName + " " + middleName;
 
                 }
+                String countryCode = spn_country.getSelectedItem().toString();
+                phone = countryCode +"-"+ phone1.getSelectedItem().toString() +"-"+ phone2.getText().toString() + "-"+phone3.getText().toString();
 
-                phone = phone1.getSelectedItem().toString() + "-" + phone2.getText().toString() + "-" + phone3.getText().toString();
+                Log.e("확인",fullName+phone);
+
                 getPassword(fullName, phone, account.getText().toString(), "password");
             }
         });
@@ -128,7 +150,11 @@ public class Fit_FindPasswordActivity extends AppCompatActivity {
 
                 }
 
-                phone = phone1.getSelectedItem().toString() + "-" + phone2.getText().toString() + "-" + phone3.getText().toString();
+                String countryCode = spn_country.getSelectedItem().toString();
+                phone = countryCode +"-"+ phone1.getSelectedItem().toString() +"-"+ phone2.getText().toString() + "-"+phone3.getText().toString();
+
+                Log.e("확인",fullName+phone);
+
                 getPassword(fullName, phone, account.getText().toString(), "tmpPassword");
 
             }

@@ -31,7 +31,7 @@ public class Fit_Join_4_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_join_4_);
+        setContentView(R.layout.fit_join_4_);
         init();
         onClick();
     }

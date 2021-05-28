@@ -35,7 +35,7 @@ public class Fit_Join_7_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_join_7_);
+        setContentView(R.layout.fit_join_7_);
 
         init();
         onClick();
@@ -67,6 +67,7 @@ public class Fit_Join_7_Activity extends AppCompatActivity {
         terms_2.setText(Fit_Constants.Terms2);
         terms_3.setText(Fit_Constants.Terms3);
         terms_4.setText(Fit_Constants.Terms4);
+
         terms_1.setMovementMethod(new ScrollingMovementMethod());
         terms_2.setMovementMethod(new ScrollingMovementMethod());
         terms_3.setMovementMethod(new ScrollingMovementMethod());
@@ -221,7 +222,7 @@ public class Fit_Join_7_Activity extends AppCompatActivity {
                 param.add("name" , Fit_Join_3_Activity.joinName);
                 param.add("gender" , Fit_Join_4_Activity.joinGender);
                 param.add("birthday" , Fit_Join_4_Activity.joinBirth);
-                param.add("hphone" , Fit_Join_5_Activity.joinPhone);
+                param.add("phone" , Fit_Join_5_Activity.joinPhone);
                 param.add("country" , Fit_User.country);
 
 

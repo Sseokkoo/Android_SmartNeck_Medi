@@ -26,7 +26,7 @@ public class Fit_Join_3_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_join_3_);
+        setContentView(R.layout.fit_join_3_);
         init();
         onClick();
 

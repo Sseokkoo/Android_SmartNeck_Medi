@@ -30,7 +30,7 @@ public class Fit_Join_5_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_join_5_);
+        setContentView(R.layout.fit_join_5_);
         init();
         onClick();
 
@@ -88,7 +88,7 @@ public class Fit_Join_5_Activity extends AppCompatActivity {
                 }
                 String countryCode = spn_country.getSelectedItem().toString();
 //                int firstNum = Integer.parseInt(edt_phone.getText().toString());
-                joinPhone = countryCode + "-" + edt_phone.getText().toString() + "-" + edt_second.getText().toString() + "-" + edt_third.getText().toString();
+                joinPhone = countryCode +"-"+edt_phone.getText().toString() + "-" + edt_second.getText().toString() + "-" + edt_third.getText().toString();
                 Log.d(Fit_Constants.TAG, "onClick: " + joinPhone);
                 activityList.add(Fit_Join_5_Activity.this);
 

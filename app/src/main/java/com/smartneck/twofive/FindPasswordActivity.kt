@@ -1,9 +1,17 @@
 package com.smartneck.twofive
 
 import android.app.ProgressDialog
+import android.graphics.Color
+import android.graphics.Typeface
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
+import android.text.Spannable
+import android.text.SpannableStringBuilder
+import android.text.style.StyleSpan
+import android.util.Log
+import android.widget.TextView
 import android.widget.Toast
 import com.smartneck.twofive.util.Address
 import com.smartneck.twofive.util.HttpConnect
@@ -43,10 +51,12 @@ class FindPasswordActivity : AppCompatActivity() {
         Thread(Runnable {
 
             var param = Param()
-            val phone = "${phone1.selectedItem.toString()}${phone2.text.toString()}${phone3.text.toString()}"
+//            val phone = "${spn_country.selectedItem.toString()}-${find_account_phone1.selectedItem.toString()}-${find_account_phone2.text.toString()}-${find_account_phone3.text.toString()}"
+            val phone = "${find_account_phone1.selectedItem.toString()}${find_account_phone2.text.toString()}${find_account_phone3.text.toString()}"
             val account = edtAccount.text.toString()
-            param.add("phone", phone)
+            Log.e("확인",phone);
             param.add("account", account)
+            param.add("phone", phone)
             val address = Address()
             var httpConnect = HttpConnect()
             if (httpConnect.httpConnect(param.value, address.findPassword, true) == 200) {

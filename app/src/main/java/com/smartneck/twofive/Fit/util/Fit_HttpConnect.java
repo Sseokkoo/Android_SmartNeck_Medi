@@ -1,5 +1,7 @@
 package com.smartneck.twofive.Fit.util;
 
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -53,8 +55,8 @@ public class Fit_HttpConnect {
             }
             //서버에서 받은 메시지
             receiveMessage = buff.toString().trim();
-//            Log.e("RECV DATA", receiveMessage);
-//            Log.e("RECV DATA", "responeseCode: " + serverResponseCode );
+            Log.e("RECV DATA", receiveMessage);
+            Log.e("RECV DATA", "여긴가: " + serverResponseCode );
 
         } catch (MalformedURLException e) {
             e.printStackTrace();

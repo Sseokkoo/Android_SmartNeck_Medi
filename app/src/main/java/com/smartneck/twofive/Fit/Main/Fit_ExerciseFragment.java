@@ -955,13 +955,13 @@ public class Fit_ExerciseFragment extends Fragment {
 
                                 if (height_current > 0) {
                                     if (CFG_WEIGHT_CURRENT > 0) {
-                                        if (CFG_WEIGHT_CURRENT >= 70) {
-                                            result += 0.5;
-                                        } else if (CFG_WEIGHT_CURRENT >= 45 && CFG_WEIGHT_CURRENT <= 65) {
-                                            result += 1;
-                                        } else if (CFG_WEIGHT_CURRENT >= 5 && CFG_WEIGHT_CURRENT <= 40) {
-                                            result += 1.5;
-                                        }
+//                                        if (CFG_WEIGHT_CURRENT >= 70) {
+//                                            result += 0.5;
+//                                        } else if (CFG_WEIGHT_CURRENT >= 45 && CFG_WEIGHT_CURRENT <= 65) {
+//                                            result += 1;
+//                                        } else if (CFG_WEIGHT_CURRENT >= 5 && CFG_WEIGHT_CURRENT <= 40) {
+//                                            result += 1.5;
+//                                        }
                                     }
 
                                     if (Fit_User.language.equals("en")) {

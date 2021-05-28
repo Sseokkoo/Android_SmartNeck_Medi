@@ -195,6 +195,7 @@ class JoinActivity : AppCompatActivity() {
                 param.add("address" , edt_address.text.toString())
                 param.add("country" , country)//스피너 값 edt_ceo_name
 
+                Log.e("확인1", account + edt_password + edt_admin_phone + edt_admin_email)
                 val httpConnect = HttpConnect()
                 if (httpConnect.httpConnect(param.value, Address().adminRegists, true) == 200) {
 

@@ -277,9 +277,9 @@ public class Fit_WeightSettingFragment extends Fragment {
 //                                if (User.language.equals("en")) {
 //                                    result *= Constants.POUND;
 //                                }
-                                if (CFG_WEIGHT[1] >= 0.5) {
-                                        result += 0.5;
-                                    }
+//                                if (CFG_WEIGHT[1] >= 0.5) {
+//                                        result += 0.5;
+//                                    }
 
                                 if (Fit_User.language.equals("en")){
 //                                    tv_result.setText(String.format("%.1f", result * Fit_Constants.POUND));
@@ -289,13 +289,13 @@ public class Fit_WeightSettingFragment extends Fragment {
 
                                 if (CFG_WEIGHT[1] >= CFG_WEIGHT_MAX[1]) resultMax = result;
 
-                                if (Fit_User.language.equals("en")){
-                                    tv_result_max.setText(String.format("%.1f", resultMax * Fit_Constants.POUND));
-
-                                }else{
+//                                if (Fit_User.language.equals("en")){
+//                                    tv_result_max.setText(String.format("%.1f", resultMax * Fit_Constants.POUND));
+//
+//                                }else{
                                     tv_result_max.setText(String.format("%.1f", resultMax));
 
-                                }
+//                                }
                             } else {
                                 if (!isClick) {
                                     currentWeight = (double) Fit_Preset.measureSetup * 0.1;
@@ -322,16 +322,16 @@ public class Fit_WeightSettingFragment extends Fragment {
 
 
 //                final double measureSetup = currentWeight * 10;
-                double max = resultMax * 10;
-                int tmpmax = (int) max;
-                if (tmpmax != 0) {
-                    Fit_Preset.MaxWeight = tmpmax;
-
-                }
+//                double max = resultMax * 10;
+//                int tmpmax = (int) max;
+//                if (tmpmax != 0) {
+//                    Fit_Preset.MaxWeight = tmpmax;
+//
+//                }
                 Fit_Param param = new Fit_Param();
                 Fit_HttpConnect httpConnect = new Fit_HttpConnect();
 
-                param.add("maxWeight", tmpmax);
+                param.add("maxWeight", Fit_Preset.MaxWeight);
                 param.add("token", Fit_User.token);
                 param.add("measureSetup", Fit_Preset.measureSetup);
                 param.add("memberNo", Fit_User.MemberNo);

@@ -346,5 +346,4 @@
 	<string name="exericse_setting_weight_notice">상 - 웨이트(Level) : -0.5\n\n중 - 웨이트(Level) : -1.0\n\n하 - 웨이트(Level) : -2.0\n\n강도에 따른 웨이트(Level)조절은 3.0이상부터 적용됩니다.</string>
 	<string name="exercise_setting_weight">무게</string>
 	<string name="exercise_setting_break_time">쉬는시간</string>
-
 </resources>
