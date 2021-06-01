@@ -37,6 +37,8 @@ import android.widget.Toast;
 
 import com.smartneck.twofive.BleDialog.BleAdapter;
 import com.smartneck.twofive.BleDialog.BleItem;
+import com.smartneck.twofive.Fit.Fit_MeasureActivity;
+import com.smartneck.twofive.Fit.Main.Fit_WeightSettingFragment;
 import com.smartneck.twofive.Management.MeasureManagementActivity;
 import com.smartneck.twofive.MeasureActivity;
 import com.smartneck.twofive.Member.LoginActivity;
@@ -58,10 +60,12 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
+
 import static com.smartneck.twofive.GlobalApplication.userPreference;
 import static com.smartneck.twofive.Main.ExerciseFragment.isCount;
 import static com.smartneck.twofive.Main.ExerciseFragment.isTimer;
 import static com.smartneck.twofive.Main.MainActivity.preset;
+import static com.smartneck.twofive.Main.WeightSettingFragment.MaxZero;
 import static com.smartneck.twofive.Main.WeightSettingFragment.currentWeight;
 import static com.smartneck.twofive.Main.WeightSettingFragment.isMove;
 import static com.smartneck.twofive.MeasureActivity.CFG_HEIGHT;
@@ -686,9 +690,9 @@ public class BleConnectActivity extends AppCompatActivity {
         boolean success = mBluetoothGatt.writeCharacteristic(characteristic_write);
 
         if (success) {
-            Log.d(TAG, "▶ Sent Message: " + StringUtils.byteArrayInHexFormat(messageBytes));
+//            Log.d(TAG, "▶ Sent Message: " + StringUtils.byteArrayInHexFormat(messageBytes));
         } else {
-            Log.d(TAG, "▶ Sent Message: Failed to write dat.");
+//            Log.d(TAG, "▶ Sent Message: Failed to write dat.");
         }
     }
 
@@ -804,6 +808,22 @@ public class BleConnectActivity extends AppCompatActivity {
                     CFG_HEIGHT[1] = Integer.parseInt(values[8], 16);
                     CFG_WEIGHT[1] = Integer.parseInt(values[5], 16);
 
+                    if (MaxZero) {
+                        CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (CFG_WEIGHT[1] == currentWeight * 10) {
+                                    CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
+                                    MaxZero = false;
+                                }
+                            }
+                        },500);
+
+                    } else {
+                        if (CFG_WEIGHT[1] >= CFG_WEIGHT_MAX[1])
+                            CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
+                    }
 
                 } else if (tabPos == 2) {
 
@@ -816,8 +836,22 @@ public class BleConnectActivity extends AppCompatActivity {
                     CFG_HEIGHT[1] = Integer.parseInt(values[8], 16);
                     CFG_WEIGHT[1] = Integer.parseInt(values[5], 16);
 
-                    if (CFG_WEIGHT[1] >= CFG_WEIGHT_MAX[1] && CFG_HEIGHT[1] > 0)
+                    if (MaxZero) {
                         CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (CFG_WEIGHT[1] == currentWeight * 10) {
+                                    CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
+                                    MaxZero = false;
+                                }
+                            }
+                        },500);
+
+                    } else {
+                        if (CFG_WEIGHT[1] >= CFG_WEIGHT_MAX[1])
+                            CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
+                    }
 
                     if (!isClick) {
 //                        Preset.setup = Integer.parseInt(values[7], 16);
@@ -867,8 +901,22 @@ public class BleConnectActivity extends AppCompatActivity {
                     CFG_HEIGHT[1] = Integer.parseInt(values[8], 16);
                     CFG_WEIGHT[1] = Integer.parseInt(values[5], 16);
 
-                    if (CFG_WEIGHT[1] >= CFG_WEIGHT_MAX[1] && CFG_HEIGHT[1] > 0)
+                    if (MaxZero) {
                         CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (CFG_WEIGHT[1] == currentWeight * 10) {
+                                    CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
+                                    MaxZero = false;
+                                }
+                            }
+                        },500);
+
+                    } else {
+                        if (CFG_WEIGHT[1] >= CFG_WEIGHT_MAX[1])
+                            CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
+                    }
 
 
 //                    ExerciseFragment frag = (ExerciseFragment) getSupportFragmentManager().findFragmentById(R.id.frame_container);

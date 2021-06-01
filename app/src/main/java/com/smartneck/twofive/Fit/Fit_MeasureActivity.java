@@ -15,9 +15,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.smartneck.twofive.R;
-import com.ssomai.android.scalablelayout.ScalableLayout;
-
 import com.smartneck.twofive.Fit.Main.Fit_MainActivity;
 import com.smartneck.twofive.Fit.util.Fit_Address;
 import com.smartneck.twofive.Fit.util.Fit_Commend;
@@ -26,16 +23,16 @@ import com.smartneck.twofive.Fit.util.Fit_HttpConnect;
 import com.smartneck.twofive.Fit.util.Fit_NoticeDialog;
 import com.smartneck.twofive.Fit.util.Fit_Param;
 import com.smartneck.twofive.Fit.util.Fit_ProgressDialog;
-import com.smartneck.twofive.Fit.util.Fit_StringUtils;
 import com.smartneck.twofive.Fit.util.User.Fit_Preset;
 import com.smartneck.twofive.Fit.util.User.Fit_User;
+import com.smartneck.twofive.R;
+import com.ssomai.android.scalablelayout.ScalableLayout;
 
 import static com.smartneck.twofive.Fit.Main.Fit_MainActivity.isHeiProgress;
 import static com.smartneck.twofive.Fit.Main.Fit_MainActivity.isWeiProgress;
-import static com.smartneck.twofive.Fit.Main.Fit_MainActivity.protocolType;
 import static com.smartneck.twofive.Fit.Main.Fit_MainActivity.setMessage;
+import static com.smartneck.twofive.Fit.Main.Fit_WeightSettingFragment.FMaxZero;
 import static com.smartneck.twofive.Fit.util.Fit_Constants.POUND;
-import static com.smartneck.twofive.Fit.util.Fit_Constants.deviceType;
 
 public class Fit_MeasureActivity extends AppCompatActivity {
     public static boolean isHeight;
@@ -192,6 +189,7 @@ public class Fit_MeasureActivity extends AppCompatActivity {
                 tv_weight_max.setText("0.0");
                 currentWeight += 0.5;
                 Fit_Preset.measureSetup += 5;
+                FMaxZero = false;
                 tv_weight.setText(String.valueOf(Fit_Preset.measureSetup*0.1));
 
 
@@ -231,7 +229,7 @@ public class Fit_MeasureActivity extends AppCompatActivity {
                 currentWeight -= 0.5;
                 Fit_Preset.measureSetup -= 5;
                 tv_weight.setText(String.valueOf(Fit_Preset.measureSetup*0.1));
-
+                FMaxZero = true;
 
 //                if (protocolType.equals("3a")){
 //                    ((Fit_MainActivity) Fit_MainActivity.mContext).setMessage(Fit_StringUtils.getCommand("44 3A 04 02 02"));
@@ -414,7 +412,7 @@ public class Fit_MeasureActivity extends AppCompatActivity {
 
 
     public void setMeasureSeq(int seq) {
-        Log.d("확인", "----- setMeasureSeq: " + seq);
+//        Log.d("확인", "----- setMeasureSeq: " + seq);
 
         CFG_SEQ = seq;
 
@@ -474,7 +472,7 @@ public class Fit_MeasureActivity extends AppCompatActivity {
                     public void run() {
                         float count = 0;
                         try {
-                            Thread.sleep(1000);
+                            Thread.sleep(500);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -488,7 +486,7 @@ public class Fit_MeasureActivity extends AppCompatActivity {
                             if (isHeiProgress) break;
                             Log.d("확인", "isHeiProgress: " + isHeiProgress);
                             try {
-                                Thread.sleep(500);
+                                Thread.sleep(200);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
@@ -573,7 +571,7 @@ public class Fit_MeasureActivity extends AppCompatActivity {
     }
 
     public void setMeasure(String[] CFG_RECEIVED) {
-        Log.d("확인", "----- setMeasure: " + CFG_RECEIVED[2]);
+//        Log.d("확인", "----- setMeasure: " + CFG_RECEIVED[2]);
 
         String CFG_RECEIVE_CODE = CFG_RECEIVED[2];
 
@@ -634,9 +632,9 @@ public class Fit_MeasureActivity extends AppCompatActivity {
                             tmpDistance += anglePerMillimeter;
                         }
 //                        tmpDistance *= 0.1;
-                        if (Fit_User.language.equals("en")) {
-                            tmpDistance = tmpDistance / Fit_Constants.INCHES;
-                        }
+//                        if (Fit_User.language.equals("en")) {
+//                            tmpDistance = tmpDistance / Fit_Constants.INCHES;
+//                        }
                         if (CFG_HEIGHT[1] > CFG_HEIGHT_MAX[1]) {
                             CFG_HEIGHT_MAX[1] = CFG_HEIGHT[1];
                             Fit_Preset.MaxHeight = CFG_HEIGHT[1];
@@ -661,13 +659,9 @@ public class Fit_MeasureActivity extends AppCompatActivity {
 
 
                         //double height_limit = CFG_HEIGHT_MAX[1] * 0.8;
-
-                        if (CFG_WEIGHT[1] > CFG_WEIGHT_MAX[1] && CFG_HEIGHT[1] > 0) {
-
-                            CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
-
-
-                        }
+//                        if (CFG_WEIGHT[1] > CFG_WEIGHT_MAX[1]) {
+//                            CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
+//                        }
                         break;
                 }
                 break;
@@ -723,28 +717,34 @@ public class Fit_MeasureActivity extends AppCompatActivity {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
 
-                                if (isWeightMove) {
-                                    weightMoveCount++;
-                                    if (weightMoveCount == 20) {
-                                        isWeightMove = false;
+                                    if (isWeightMove) {
+                                        weightMoveCount++;
+                                        if (weightMoveCount == 20) {
+                                            isWeightMove = false;
+                                        }
+                                        return;
                                     }
-                                    return;
-                                }
+//                                    if (CFG_WEIGHT[1] >= CFG_WEIGHT_MAX[1] && CFG_HEIGHT[1] > 0)
+//                                        CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
+                                    if (CFG_WEIGHT[1] >= 130 || CFG_WEIGHT_MAX[1] >= 130) {
+                                        CFG_WEIGHT[1] = 0;
+                                        CFG_WEIGHT_MAX[1] = 0;
+                                    }
                                 double result_def = CFG_WEIGHT_DEF[1] * 0.1;
-//                                double result = CFG_WEIGHT[1] * 0.1;
+                                double result = CFG_WEIGHT[1] * 0.1;
 
-                                Log.i("확인", "weight: " + CFG_WEIGHT[1] + "  def: " + CFG_WEIGHT_DEF[1] + "  current: " + currentWeight);
+                                    Log.e("확인", "weight: " + CFG_WEIGHT[1] + "  MAX: " + CFG_WEIGHT_MAX[1] + "  current: " + currentWeight);
 
-//                                if (result == currentWeight) {
+                                if (result == currentWeight) {
 //
-//                                    CFG_DEVICE_MOVING = false;
-//                                } else if (result != currentWeight) {
-//                                    currentWeight = result;
-//                                }
+                                    CFG_DEVICE_MOVING = false;
+                                } else if (result != currentWeight) {
+                                    currentWeight = result;
+                                }
 
 //                                if (CFG_DEVICE_MOVING == true) {
 //
@@ -776,7 +776,9 @@ public class Fit_MeasureActivity extends AppCompatActivity {
 
 
 //                                }
-                                double result_max = (CFG_WEIGHT_MAX[1]) * 0.1;
+
+
+                                    double result_max = CFG_WEIGHT_MAX[1] * 0.1;
 //                                if (CFG_WEIGHT_MAX[1] >= 70) {
 //                                    result_max = (CFG_WEIGHT_MAX[1] + 5) * 0.1;
 //                                } else if (CFG_WEIGHT_MAX[1] >= 45 && CFG_WEIGHT_MAX[1] <= 65) {
@@ -784,23 +786,23 @@ public class Fit_MeasureActivity extends AppCompatActivity {
 //                                } else if (CFG_WEIGHT_MAX[1] >= 5 && CFG_WEIGHT_MAX[1] <= 40) {
 //                                    result_max = (CFG_WEIGHT_MAX[1] + 15) * 0.1;
 //                                }
-//                                double tmpMaxd = result_max * 10;
-//                                int tmpMax = (int) tmpMaxd;
-//                                Fit_Preset.MaxWeight = tmpMax;
-                                if (Fit_User.language.equals("ko")) {
-                                    tv_weight_max.setText(String.format("%.1f", result_max));
+                                    double tmpMaxd = result_max * 10;
+                                    int tmpMax = (int) tmpMaxd;
+                                    Fit_Preset.MaxWeight = tmpMax;
+                                    if (Fit_User.language.equals("ko")) {
+                                        tv_weight_max.setText(String.format("%.1f", result_max));
 
-                                } else if (Fit_User.language.equals("en")) {
-                                    tv_weight_max.setText(String.format("%.1f", result_max * POUND));
+                                    } else if (Fit_User.language.equals("en")) {
+                                        tv_weight_max.setText(String.format("%.1f", result_max * POUND));
 
-                                } else {
-                                    tv_weight_max.setText(String.format("%.1f", result_max));
+                                    } else {
+                                        tv_weight_max.setText(String.format("%.1f", result_max));
+
+                                    }
 
                                 }
-
-                            }
-                        });
-                    }
+                            });
+                        }
                 }).start();
                 break;
         }

@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.smartneck.twofive.Fit.Fit_MeasureActivity;
 import com.smartneck.twofive.R;
 import com.smartneck.twofive.util.Address;
 import com.smartneck.twofive.util.Commend;
@@ -58,6 +59,7 @@ public class WeightSettingFragment extends Fragment {
     ImageView gif;
 
     public static int tmpSetup;
+    public static boolean MaxZero;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -256,12 +258,12 @@ public class WeightSettingFragment extends Fragment {
                 BleConnectActivity.isClick = true;
 
                 isMove = true;
-
+                MaxZero = false;
                 tv_result_max.setText("0.0");
                 BleConnectActivity.setMessage(new Commend().sendWeightMove((byte) preset.getSetup()));
-                CFG_WEIGHT_MAX[1] = 0;
-                resultMax = 0;
-                tv_result_max.setText(String.valueOf(resultMax));
+//                CFG_WEIGHT_MAX[1] = 0;
+//                resultMax = 0;
+//                tv_result_max.setText(String.valueOf(resultMax));
             }
         });
         btn_down.setOnClickListener(new View.OnClickListener() {
@@ -321,11 +323,11 @@ public class WeightSettingFragment extends Fragment {
                 BleConnectActivity.isClick = true;
                 isMove = true;
 //                preset.setSetup(preset.getSetup() - 5);
-
+                MaxZero = true;
                 tv_result.setText(String.valueOf(currentWeight));
-                CFG_WEIGHT_MAX[1] = 0;
-                resultMax = 0;
-                tv_result_max.setText(String.valueOf(resultMax));
+//                CFG_WEIGHT_MAX[1] = 0;
+//                resultMax = 0;
+//                tv_result_max.setText(String.valueOf(resultMax));
                 BleConnectActivity.setMessage(new Commend().sendWeightMove((byte) preset.getSetup()));
 
             }
@@ -377,7 +379,7 @@ public class WeightSettingFragment extends Fragment {
                 });
                 while (true) {
                     try {
-                        Thread.sleep(300);
+                        Thread.sleep(200);
                         if (getActivity()!= null) {
                             getActivity().runOnUiThread(new Runnable() {
                                 @Override
@@ -405,15 +407,22 @@ public class WeightSettingFragment extends Fragment {
                         @Override
                         public void run() {
 
-                            double result = CFG_WEIGHT[1] * 0.1;
+//                            double result = CFG_WEIGHT[1] * 0.1;
 
 
 //                            if (isMove){
 //                                tv_result.setText(String.valueOf(currentWeight));
 //                                return;
 //                            }
-
-                            if (CFG_HEIGHT[1] > 0){
+//                            if (CFG_WEIGHT[1] >= CFG_WEIGHT_MAX[1]) {
+//                                CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
+                                resultMax = CFG_WEIGHT_MAX[1] * 0.1;
+//                            }
+                            if (CFG_WEIGHT[1] >= 150 || CFG_WEIGHT_MAX[1] >= 150) {
+                                CFG_WEIGHT[1] = 0;
+                                CFG_WEIGHT_MAX[1] = 0;
+                            }
+//                            if (CFG_HEIGHT[1] > 0){
 
 //                                if (CFG_WEIGHT[1] > 0){
 //                                    if (CFG_WEIGHT[1] >= 70){
@@ -431,8 +440,8 @@ public class WeightSettingFragment extends Fragment {
 //                                }
 
 
-                                tv_result.setText(String.format("%.1f" , result));
-                                if (CFG_WEIGHT[1] >= CFG_WEIGHT_MAX[1]) resultMax = result;
+//                                tv_result.setText(String.format("%.1f" , result));
+//                                if (CFG_WEIGHT[1] >= CFG_WEIGHT_MAX[1]) resultMax = result;
 
                                 if (Constants.language.equals("en")){
                                     tv_result_max.setText(String.format("%.1f" , resultMax * Constants.POUND));
@@ -441,14 +450,14 @@ public class WeightSettingFragment extends Fragment {
                                     tv_result_max.setText(String.format("%.1f" , resultMax));
 //                                    preset.setMaxWeight((int) resultMax * 10);
                                 }
-                            }else{
+//                            }else{
                                 if (!isClick){
                                     currentWeight = (double) preset.getSetup() * 0.1;
 
                                 }
-                                tv_result.setText(String.valueOf(currentWeight));
+//                                tv_result.setText(String.valueOf(currentWeight));
 
-                            }
+//                            }
 
 
 

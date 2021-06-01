@@ -2,7 +2,9 @@ package com.smartneck.twofive.Fit;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.media.AudioManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -55,8 +57,11 @@ public class Fit_IntroActivity extends AppCompatActivity {
 
         // audioManager.setStreamVolume(볼륨컨트롤, 뷰륨크기, 볼륨상태(audioManager.FLAG...으로 시작하는 인자들...) );
         //Stream music volume max = 15
-
-        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, 10, 0);
+        if (Build.VERSION_CODES.Q >= Build.VERSION.SDK_INT) {
+            audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, 10, 0);
+        }else {
+            audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, 1, 0);
+        }
 
     }
 

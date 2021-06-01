@@ -404,10 +404,10 @@ public class Fit_ChartActivity extends DemoBase {
                 String date = Integer.parseInt(month) + "/" + Integer.parseInt(day);
 
                 int valueJson = jsonObject.getInt("MaxHeight");
-                float height = ((float) valueJson) * 3;
-                if (Fit_User.language.equals("en")) {
-                    height /= Fit_Constants.INCHES;
-                }
+                float height = ((float) valueJson) * 1;
+//                if (Fit_User.language.equals("en")) {
+//                    height /= Fit_Constants.INCHES;
+//                }
                 if (values.size() == 0) {
                     values.add(new BarEntry(idx, height));
                     dateArray.add(date);

@@ -41,7 +41,7 @@ public class Fit_Constants {
 
 
     public final static float POUND = 2.205f;
-    public final static float INCHES = 25.4f;
+//    public final static float INCHES = 25.4f;
 
     public static ArrayList<Fit_Age> ageArrayListMale;
     public static ArrayList<Fit_Age> ageArrayListFemale;

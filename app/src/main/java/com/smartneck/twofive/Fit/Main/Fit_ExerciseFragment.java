@@ -203,27 +203,27 @@ public class Fit_ExerciseFragment extends Fragment {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                if (protocolType.equals("3a")) {
-                    setMessage(Fit_StringUtils.getCommand("44 3A 07 00 03 " + Fit_StringUtils.getHexStringCode(Fit_Preset.seat) + " 00 00 00 00 00 00 00 00 00 00 " + Fit_StringUtils.getHexStringCode(setup) + " 00 00"));
+//                if (protocolType.equals("3a")) {
+//                    setMessage(Fit_StringUtils.getCommand("44 3A 07 00 03 " + Fit_StringUtils.getHexStringCode(Fit_Preset.seat) + " 00 00 00 00 00 00 00 00 00 00 " + Fit_StringUtils.getHexStringCode(setup) + " 00 00"));
 
-                } else if (protocolType.equals("3b")) {
+//                } else if (protocolType.equals("3b")) {
                     setMessage(new Fit_Commend().sendWeightMove((byte) setup));
-                }
+//                }
                 int count = 0;
                 while (mConnected) {
                     try {
-                        Thread.sleep(1000);
+                        Thread.sleep(200);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                     Log.d(TAG, "run: " + currentWeight + " / " + Fit_Preset.setup);
                     if (CFG_WEIGHT[1] != tmpSetup) {
-                        if (protocolType.equals("3a")) {
-                            setMessage(Fit_StringUtils.getCommand("44 3A 07 00 03 " + Fit_StringUtils.getHexStringCode(Fit_Preset.seat) + " 00 00 00 00 00 00 00 00 00 00 " + Fit_StringUtils.getHexStringCode(setup) + " 00 00"));
+//                        if (protocolType.equals("3a")) {
+//                            setMessage(Fit_StringUtils.getCommand("44 3A 07 00 03 " + Fit_StringUtils.getHexStringCode(Fit_Preset.seat) + " 00 00 00 00 00 00 00 00 00 00 " + Fit_StringUtils.getHexStringCode(setup) + " 00 00"));
 
-                        } else if (protocolType.equals("3b")) {
+//                        } else if (protocolType.equals("3b")) {
                             setMessage(new Fit_Commend().sendWeightMove((byte) setup));
-                        }
+//                        }
 
                     } else if (CFG_WEIGHT[1] == tmpSetup) {
                         Log.d(TAG, "GO_EXERCISE_BREAK: ");
@@ -253,15 +253,15 @@ public class Fit_ExerciseFragment extends Fragment {
             setup = getExerciseSetup(Fit_Preset.setup);
         }
 
-        if (protocolType.equals("3a")) {
-
-            setMessage(Fit_StringUtils.getCommand("44 3A 07 00 03 " + Fit_StringUtils.getHexStringCode(Fit_Preset.seat) + " 00 00 00 00 00 00 00 00 00 00 " + Fit_StringUtils.getHexStringCode(setup) + " 00 00"));
-
-        } else if (protocolType.equals("3b")) {
+//        if (protocolType.equals("3a")) {
+//
+//            setMessage(Fit_StringUtils.getCommand("44 3A 07 00 03 " + Fit_StringUtils.getHexStringCode(Fit_Preset.seat) + " 00 00 00 00 00 00 00 00 00 00 " + Fit_StringUtils.getHexStringCode(setup) + " 00 00"));
+//
+//        } else if (protocolType.equals("3b")) {
 
             setMessage(new Fit_Commend().sendWeightMove((byte) setup));
 
-        }
+//        }
 
 
     }
@@ -380,7 +380,7 @@ public class Fit_ExerciseFragment extends Fragment {
 //        String lengthSign_ko = "mm";
 //        String lengthSign_en = "inch";
 //        float height = Fit_Preset.MaxHeight * 3;
-        float angle = 81f;
+        float angle = 1f;
         String heightStr = "";
         String angleStr = "";
 //        if (Fit_User.language.equals("ko")) {

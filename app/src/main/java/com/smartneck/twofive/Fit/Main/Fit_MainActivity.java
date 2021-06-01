@@ -94,6 +94,7 @@ import static com.smartneck.twofive.Fit.Fit_MeasureActivity.CFG_WEIGHT_MAX;
 import static com.smartneck.twofive.Fit.Fit_MeasureActivity.isMeasure;
 import static com.smartneck.twofive.Fit.Fit_MeasureActivity.moveExercise;
 import static com.smartneck.twofive.Fit.Fit_MeasureActivity.moveProcedure;
+import static com.smartneck.twofive.Fit.Main.Fit_WeightSettingFragment.FMaxZero;
 import static com.smartneck.twofive.Fit.Main.Fit_WeightSettingFragment.currentWeight;
 import static com.smartneck.twofive.Fit.Main.Fit_WeightSettingFragment.isMove;
 import static com.smartneck.twofive.Fit.Main.Fit_WeightSettingFragment.isWeight;
@@ -118,7 +119,7 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
     Fit_ExerciseFragment fragment_exercise;
     Fit_ProcedureFragment fragment_procedure;
     Fit_ProcedureDefaultFragment fragment_procedure_default;
-//    SeatSettingFragment fragment_seat;
+    //    SeatSettingFragment fragment_seat;
 //    WeightSettingFragment fragment_weight;
 //    HeightFragment fragment_height;
     final int rssiDistance = -90;
@@ -241,13 +242,13 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
         int IS_ACCESS_COARSE_LOCATION = ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION);
         int IS_ACCESS_FINE_LOCATION = ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
 
-        if (Build.VERSION.SDK_INT >= 29){
+        if (Build.VERSION.SDK_INT >= 29) {
             if (IS_ACCESS_FINE_LOCATION == PackageManager.PERMISSION_GRANTED) {
                 setInit();
             } else {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 2);
             }
-        }else{
+        } else {
             if (IS_ACCESS_COARSE_LOCATION == PackageManager.PERMISSION_GRANTED && IS_ACCESS_FINE_LOCATION == PackageManager.PERMISSION_GRANTED) {
                 setInit();
             } else {
@@ -255,7 +256,6 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 2);
             }
         }
-
 
 
     }
@@ -2190,9 +2190,9 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
         GattClientCallback gattClientCallback = new GattClientCallback();
         mBluetoothGatt = device.connectGatt(this, true, gattClientCallback);
 //        mBluetoothGatt.requestMtu(60);
-        if (device.getName().contains("SMARTNECK1")){
+        if (device.getName().contains("SMARTNECK1")) {
             Fit_Constants.deviceType = "FIT";
-        }else if (device.getName().contains("SMARTNECK2")){
+        } else if (device.getName().contains("SMARTNECK2")) {
             Fit_Constants.deviceType = "HOM";
             Log.d("확인", " - - - - - - - - - - Current Device Type -> HOM");
         }
@@ -2249,7 +2249,7 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
         }
 
 //        if (Constants.CFG_FRAG_MODE == 0) {
-        if (fragment_home != null){
+        if (fragment_home != null) {
             fragment_home = (Fit_HomeFragment) getSupportFragmentManager().findFragmentById(R.id.frame_container);
             fragment_home.setBleStatus(3);
         }
@@ -2286,9 +2286,9 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
         boolean success = mBluetoothGatt.writeCharacteristic(characteristic_write);
 
         if (success) {
-            Log.d("확인", "▶ Sent Message: " + Fit_StringUtils.byteArrayInHexFormat(messageBytes));
+//            Log.d("확인", "▶ Sent Message: " + Fit_StringUtils.byteArrayInHexFormat(messageBytes));
         } else {
-            Log.d("확인", "▶ Sent Message: Failed to write dat.");
+//            Log.d("확인", "▶ Sent Message: Failed to write dat.");
         }
     }
 
@@ -2318,9 +2318,9 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
         boolean success = mBluetoothGatt.writeCharacteristic(characteristic_write);
 
         if (success) {
-            Log.d("확인", "▶ Sent Message: " + Fit_StringUtils.byteArrayInHexFormat(commend));
+//            Log.d("확인", "▶ Sent Message: " + Fit_StringUtils.byteArrayInHexFormat(commend));
         } else {
-            Log.d("확인", "▶ Sent Message: Failed to write dat.");
+//            Log.d("확인", "▶ Sent Message: Failed to write dat.");
         }
     }
 
@@ -2410,14 +2410,14 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
         byte[] bytes = characteristic.getValue();
 
         String CFG_RECEIVED_RAW = Fit_StringUtils.byteArrayInHexFormat2(bytes).replace("0x", "");
-        Log.d("확인", "◀ CFG_RECEIVED_RAW: " + CFG_RECEIVED_RAW);
+//        Log.d("확인", "◀ CFG_RECEIVED_RAW: " + CFG_RECEIVED_RAW);
 
         String[] CFG_RECEIVED = CFG_RECEIVED_RAW.split(" ");
 
 
         if (CFG_RECEIVED[1].equals("3a")) {
             protocolType = "3a";
-            Log.d("확인", "readCharacteristic: Protocol Type = 3a");
+//            Log.d("확인", "readCharacteristic: Protocol Type = 3a");
 
             if (isMeasure) {
                 ((Fit_MeasureActivity) Fit_MeasureActivity.mContext).setMeasure(CFG_RECEIVED);
@@ -2461,11 +2461,25 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
 //                        Log.d("확인", "isMove: " + isMove);
 //                    }
 //
-//                    CFG_HEIGHT[1] = Integer.parseInt(CFG_RECEIVED[4], 16);
-//                    CFG_WEIGHT[1] = Integer.parseInt(CFG_RECEIVED[8], 16);
-//
-//                    if (CFG_WEIGHT[1] >= CFG_WEIGHT_MAX[1] && CFG_HEIGHT[1] > 0)
-//                        CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
+                    CFG_HEIGHT[1] = Integer.parseInt(CFG_RECEIVED[4], 16);
+                    CFG_WEIGHT[1] = Integer.parseInt(CFG_RECEIVED[8], 16);
+
+                    if (FMaxZero) {
+                        CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (CFG_WEIGHT[1] == currentWeight * 10) {
+                                    CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
+                                    FMaxZero = false;
+                                }
+                            }
+                        },500);
+
+                    } else {
+                        if (CFG_WEIGHT[1] >= CFG_WEIGHT_MAX[1])
+                            CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
+                    }
 
 
                     if (!isClick && !isWeightMove && !isSeatMove) {
@@ -2483,7 +2497,7 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
 
 //            Log.d("확인", "isSeatMove: " + isSeatMove);
 //            Log.d("확인", "isWeightMove: " + isWeightMove);
-                Log.d("확인", "readCharacteristic: seat->" + Fit_Preset.seat);
+//                Log.d("확인", "readCharacteristic: seat->" + Fit_Preset.seat);
             }
 
             if (!is_82 && CFG_RECEIVED[2].equals("82")) {
@@ -2508,8 +2522,22 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
                 CFG_HEIGHT[1] = Integer.parseInt(CFG_RECEIVED[4], 16);
                 CFG_WEIGHT[1] = Integer.parseInt(CFG_RECEIVED[8], 16);
 
-                if (CFG_WEIGHT[1] >= CFG_WEIGHT_MAX[1] && CFG_HEIGHT[1] > 0)
+                if (FMaxZero) {
                     CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (CFG_WEIGHT[1] == currentWeight * 10) {
+                                CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
+                                FMaxZero = false;
+                            }
+                        }
+                    },500);
+
+                } else {
+                    if (CFG_WEIGHT[1] >= CFG_WEIGHT_MAX[1])
+                        CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
+                }
             }
 
 
@@ -2541,27 +2569,40 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
                 Fit_HeightFragment frag = (Fit_HeightFragment) getSupportFragmentManager().findFragmentById(R.id.frame_container);
                 frag.setHeight(CFG_RECEIVED);
             }
-            if (tabPos == 1){
+            if (tabPos == 1) {
 //                if (!MeasureActivity.isHeight) {
 //
 //                }
 //                Log.d("확인", "tabPos: " + tabPos);
 //                    Log.d("확인", "isMove: " + isMove + "/ weight: " + Integer.parseInt(CFG_RECEIVED[8], 16) + " / current: " + currentWeight);
 
-                    if (isMove && currentWeight * 10 == Integer.parseInt(CFG_RECEIVED[8], 16)) {
-                        isMove = false;
+                if (isMove && currentWeight * 10 == Integer.parseInt(CFG_RECEIVED[8], 16)) {
+                    isMove = false;
 //                        Log.d("확인", "isMove: " + isMove);
-                    }
+                }
 
-                    CFG_HEIGHT[1] = Integer.parseInt(CFG_RECEIVED[4], 16);
-                    CFG_WEIGHT[1] = Integer.parseInt(CFG_RECEIVED[8], 16);
+                CFG_HEIGHT[1] = Integer.parseInt(CFG_RECEIVED[4], 16);
+                CFG_WEIGHT[1] = Integer.parseInt(CFG_RECEIVED[8], 16);
 
-                    if (CFG_WEIGHT[1] >= CFG_WEIGHT_MAX[1] && CFG_HEIGHT[1] > 0)
+                if (FMaxZero) {
+                    CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (CFG_WEIGHT[1] == currentWeight * 10) {
+                                CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
+                                FMaxZero = false;
+                            }
+                        }
+                    },500);
+
+                } else {
+                    if (CFG_WEIGHT[1] >= CFG_WEIGHT_MAX[1])
                         CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
+                }
             }
 
             if (tabPos == 3) {
-
 
                 Fit_ExerciseFragment frag = (Fit_ExerciseFragment) getSupportFragmentManager().findFragmentById(R.id.frame_container);
                 frag.setExercise(CFG_RECEIVED);
@@ -2569,7 +2610,7 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
             }
         } else if (CFG_RECEIVED[1].equals("3b")) {
             protocolType = "3b";
-            Log.d("확인", "readCharacteristic: Protocol Type = 3b");
+//            Log.d("확인", "readCharacteristic: Protocol Type = 3b");
             if (isMeasure) {
                 ((Fit_MeasureActivity) Fit_MeasureActivity.mContext).setMeasure(CFG_RECEIVED);
             }
@@ -2588,7 +2629,6 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
             if (CFG_RECEIVED[2].equals("82")) {
                 if (!is_82) is_82 = true;
                 CFG_WEIGHT[1] = Integer.parseInt(CFG_RECEIVED[5], 16);
-
 
 
                 if (CFG_RECEIVED[4].equals("00")) {
@@ -2648,8 +2688,22 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
                 CFG_HEIGHT[1] = Integer.parseInt(CFG_RECEIVED[8], 16);
                 CFG_WEIGHT[1] = Integer.parseInt(CFG_RECEIVED[5], 16);
 
-                if (CFG_WEIGHT[1] >= CFG_WEIGHT_MAX[1] && CFG_HEIGHT[1] > 0)
+                if (FMaxZero) {
                     CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (CFG_WEIGHT[1] == currentWeight * 10) {
+                                CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
+                                FMaxZero = false;
+                            }
+                        }
+                    },500);
+
+                } else {
+                    if (CFG_WEIGHT[1] >= CFG_WEIGHT_MAX[1])
+                        CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
+                }
             }
 
 

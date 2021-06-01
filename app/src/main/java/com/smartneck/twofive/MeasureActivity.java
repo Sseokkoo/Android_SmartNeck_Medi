@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.smartneck.twofive.Main.BleConnectActivity;
 import com.smartneck.twofive.Main.MainActivity;
+import com.smartneck.twofive.Main.WeightSettingFragment;
 import com.smartneck.twofive.util.Address;
 import com.smartneck.twofive.util.Commend;
 import com.smartneck.twofive.util.Constants;
@@ -37,6 +38,7 @@ import static com.smartneck.twofive.Main.BleConnectActivity.setMessage;
 import static com.smartneck.twofive.Main.BleConnectActivity.tabPos;
 import static com.smartneck.twofive.Main.MainActivity.member;
 import static com.smartneck.twofive.Main.MainActivity.preset;
+import static com.smartneck.twofive.Main.WeightSettingFragment.MaxZero;
 import static com.smartneck.twofive.Member.MemberSelectActivity.admin;
 import static com.smartneck.twofive.util.Constants.POUND;
 import static com.smartneck.twofive.util.Constants.TAG;
@@ -74,7 +76,7 @@ public class MeasureActivity extends AppCompatActivity {
     //거리변환
     float tmpDistance;
     float tmpMaxDistance;
-//    float anglePerMillimeter = 3.6666667f; 수정9
+    //    float anglePerMillimeter = 3.6666667f; 수정9
     float anglePerMillimeter = 1f;
     public static int weightMoveCount;
     public static boolean isWeightMove = false;
@@ -177,7 +179,7 @@ public class MeasureActivity extends AppCompatActivity {
                 if ((currentWeight + 0.5) >= 6.0) {
                     currentWeight = 6.0;
                     preset.setSetup(60);
-                }else{
+                } else {
                     currentWeight += 0.5;
                     preset.setSetup(preset.getSetup() + 5);
                 }
@@ -185,12 +187,12 @@ public class MeasureActivity extends AppCompatActivity {
                     currentWeight = 6.0;
                     preset.setSetup(60);
                 }
-                if (preset.getSetup() > 60){
+                if (preset.getSetup() > 60) {
                     preset.setSetup(60);
-                }else {
+                } else {
                     tv_weight.setText(String.valueOf(preset.getSetup() * 0.1));
                 }
-                Log.e("확인", "curren : "+currentWeight + "pre : "+preset.getSetup());
+                Log.e("확인", "curren : " + currentWeight + "pre : " + preset.getSetup());
 //                if (currentWeight >= 6.5){
 //                    currentWeight = 6.5;
 //                }else if (currentWeight == 6){
@@ -226,10 +228,11 @@ public class MeasureActivity extends AppCompatActivity {
 
                 isWeightMove = true;
                 CFG_DEVICE_MOVING = true;
-                ((BleConnectActivity) BleConnectActivity.mContext).setMessage(new Commend().sendWeightMove((byte)preset.getSetup()));
-                CFG_WEIGHT_MAX[1] = 0;
-                tv_weight_max.setText("0.0");
-Log.e("확인", ""+ preset.getSetup());
+                ((BleConnectActivity) BleConnectActivity.mContext).setMessage(new Commend().sendWeightMove((byte) preset.getSetup()));
+//                CFG_WEIGHT_MAX[1] = 0;
+//                tv_weight_max.setText("0.0");
+                MaxZero = false;
+                Log.e("확인", "" + preset.getSetup());
                 tv_weight.setText(String.valueOf(preset.getSetup() * 0.1));
             }
 
@@ -248,7 +251,7 @@ Log.e("확인", ""+ preset.getSetup());
                 if ((currentWeight - 0.5) <= 0) {
                     currentWeight = 0;
                     preset.setSetup(0);
-                }else{
+                } else {
                     currentWeight -= 0.5;
                     preset.setSetup(preset.getSetup() - 5);
                 }
@@ -256,17 +259,17 @@ Log.e("확인", ""+ preset.getSetup());
                     currentWeight = 0;
                     preset.setSetup(0);
                 }
-                if ((preset.getSetup()-0.5) <= 0){
+                if ((preset.getSetup() - 0.5) <= 0) {
                     currentWeight = 0;
                     preset.setSetup(0);
                 }
-                if (preset.getSetup() < 0){
+                if (preset.getSetup() < 0) {
                     currentWeight = 0;
                     preset.setSetup(0);
-                }else {
+                } else {
                     tv_weight.setText(String.valueOf(preset.getSetup() * 0.1));
                 }
-                    Log.e("확인", "curren : "+currentWeight + "pre : "+preset.getSetup());
+                Log.e("확인", "curren : " + currentWeight + "pre : " + preset.getSetup());
 
 //                if (currentWeight >= 6.5){
 //                    currentWeight = 6;
@@ -303,10 +306,10 @@ Log.e("확인", ""+ preset.getSetup());
 
                 isWeightMove = true;
                 CFG_DEVICE_MOVING = true;
-                ((BleConnectActivity) BleConnectActivity.mContext).setMessage(new Commend().sendWeightMove((byte)preset.getSetup()));
-                CFG_WEIGHT_MAX[1] = 0;
-                tv_weight_max.setText("0.0");
-
+                ((BleConnectActivity) BleConnectActivity.mContext).setMessage(new Commend().sendWeightMove((byte) preset.getSetup()));
+//                CFG_WEIGHT_MAX[1] = 0;
+//                tv_weight_max.setText("0.0");
+                MaxZero = true;
 
                 tv_weight.setText(String.valueOf(preset.getSetup() * 0.1));
 
@@ -410,12 +413,12 @@ Log.e("확인", ""+ preset.getSetup());
                     moveProcedure = true;
                     double tmpWeight = currentWeight * 10;
                     preset.setSetup((int) tmpWeight);
-                    preset.setMaxWeight((int) (result_max * 10) );
+                    preset.setMaxWeight((int) (result_max * 10));
 
 //                    preset.setMaxWeight(CFG_WEIGHT_MAX[1]);
                     userPreference.editPreset(preset);
-                    userPreference.addHeight(member , CFG_HEIGHT_MAX[1]);
-                    userPreference.addWeight(member , preset.getMaxWeight());
+                    userPreference.addHeight(member, CFG_HEIGHT_MAX[1]);
+                    userPreference.addWeight(member, preset.getMaxWeight());
 
                     long now = System.currentTimeMillis();
                     Date date = new Date(now);
@@ -426,15 +429,15 @@ Log.e("확인", ""+ preset.getSetup());
                     int iday = Integer.valueOf(dateSplit[2]);
                     String month = "";
                     String day = "";
-                    if (imonth < 10){
+                    if (imonth < 10) {
                         month = "0" + imonth;
-                    }else{
+                    } else {
                         month = imonth + "";
                     }
 
-                    if (iday < 10){
+                    if (iday < 10) {
                         day = "0" + iday;
-                    }else{
+                    } else {
                         day = iday + "";
                     }
                     String lately = year + "-" + month + "-" + day;
@@ -443,14 +446,14 @@ Log.e("확인", ""+ preset.getSetup());
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            HttpConnect httpConnect  =new HttpConnect();
+                            HttpConnect httpConnect = new HttpConnect();
                             Param param = new Param();
-                            param.add("admin" , admin.getAccount());
-                            param.add("member_no" , member.getMemberNo());
-                            param.add("lately" , member.getLately());
-                            param.add("uid" , member.getUid());
+                            param.add("admin", admin.getAccount());
+                            param.add("member_no", member.getMemberNo());
+                            param.add("lately", member.getLately());
+                            param.add("uid", member.getUid());
 
-                            if (httpConnect.httpConnect(param.getValue() , new Address().getLatelyUpdate() , true) == 200){
+                            if (httpConnect.httpConnect(param.getValue(), new Address().getLatelyUpdate(), true) == 200) {
 
                             }
                         }
@@ -503,7 +506,7 @@ Log.e("확인", ""+ preset.getSetup());
 
 
     public void setMeasureSeq(int seq) {
-        Log.d(TAG, "----- setMeasureSeq: " + seq);
+//        Log.d(TAG, "----- setMeasureSeq: " + seq);
 
         CFG_SEQ = seq;
 
@@ -647,12 +650,9 @@ Log.e("확인", ""+ preset.getSetup());
 
                         //double height_limit = CFG_HEIGHT_MAX[1] * 0.8;
 
-                        if (CFG_WEIGHT[1] > CFG_WEIGHT_MAX[1] && CFG_HEIGHT[1] > 0) {
-
-                            CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
-
-
-                        }
+//                        if (CFG_WEIGHT[1] > CFG_WEIGHT_MAX[1]) {
+//                            CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
+//                        }
                         break;
                 }
                 break;
@@ -695,9 +695,16 @@ Log.e("확인", ""+ preset.getSetup());
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
+                        if (getFragmentManager() != null)
+                        while (true) {
+                            try {
+                                Thread.sleep(200);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
 
 //                                if (isWeightMove) {
 //                                    weightMoveCount++;
@@ -706,25 +713,32 @@ Log.e("확인", ""+ preset.getSetup());
 //                                    }
 //                                    return;
 //                                }
-                                double result_def = CFG_WEIGHT_DEF[1] * 0.1;
-                                double result = CFG_WEIGHT[1] * 0.1;
-                                float cur = ((float) preset.getSetup()) / 10;
+//                                double result_def = CFG_WEIGHT_DEF[1] * 0.1;
+//                                double result = CFG_WEIGHT[1] * 0.1;
+//                                float cur = ((float) preset.getSetup()) / 10;
 
-                                Log.i(TAG, "weight: " + CFG_WEIGHT[1] + "  def: " + CFG_WEIGHT_DEF[1] + "  current: " + currentWeight);
+                                    Log.e(TAG, "weight: " + CFG_WEIGHT[1] + "  Max: " + CFG_WEIGHT_MAX[1] + "  current: " + currentWeight);
 
-                                if (result == currentWeight) {
+                                    if (CFG_WEIGHT[1] >= 150 || CFG_WEIGHT_MAX[1] >= 150) {
+                                        CFG_WEIGHT[1] = 0;
+                                        CFG_WEIGHT_MAX[1] = 0;
+                                    }
+//                                    if (CFG_WEIGHT[1] >= CFG_WEIGHT_MAX[1]) {
+//                                        CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
+//                                    }
+//                                if (result == currentWeight) {
 
-                                    CFG_DEVICE_MOVING = false;
-                                } else if (result != currentWeight) {
-                                    currentWeight = result;
-                                }
+//                                    CFG_DEVICE_MOVING = false;
+//                                } else if (result != currentWeight) {
+//                                    currentWeight = result;
+//                                }
 
-                                if (CFG_DEVICE_MOVING == true) {
+//                                if (CFG_DEVICE_MOVING == true) {
 
 //                                    tv_weight.setText(String.valueOf(preset.getSetup() * 0.1)); 수정 5
-                                    tv_weight_max.setText(String.valueOf(preset.getSetup() * 0.1));
-                                } else {
-                                    if (CFG_HEIGHT[1] > 0) {
+//                                    tv_weight_max.setText(String.valueOf(preset.getSetup() * 0.1));
+//                                } else {
+//                                    if (CFG_HEIGHT[1] > 0) {
 //                                        if (CFG_WEIGHT[1] >= 70) {
 //                                            result += 0.5;
 //                                        } else if (CFG_WEIGHT[1] >= 45 && CFG_WEIGHT[1] <= 65) {
@@ -732,24 +746,24 @@ Log.e("확인", ""+ preset.getSetup());
 //                                        } else if (CFG_WEIGHT[1] >= 5 && CFG_WEIGHT[1] <= 40) {
 //                                            result += 1.5;
 //                                        }
-                                        if (Constants.language.equals("ko")) {
-                                            tv_weight.setText(String.format("%.1f", result));
+//                                        if (Constants.language.equals("ko")) {
+//                                            tv_weight.setText(String.format("%.1f", result));
+//
+//                                        } else if (Constants.language.equals("en")) {
+//                                            tv_weight.setText(String.format("%.1f", result * POUND));
+//
+//                                        } else {
+//                                            tv_weight.setText(String.format("%.1f", result));
+//
+//                                        }
+//                                    } else {
+//                                        tv_weight.setText(String.valueOf(cur));
+//
+//                                    }
 
-                                        } else if (Constants.language.equals("en")) {
-                                            tv_weight.setText(String.format("%.1f", result * POUND));
 
-                                        } else {
-                                            tv_weight.setText(String.format("%.1f", result));
-
-                                        }
-                                    } else {
-                                        tv_weight.setText(String.valueOf(cur));
-
-                                    }
-
-
-                                }
-                                result_max = (CFG_WEIGHT_MAX[1] * 0.1);
+//                                }
+                                    result_max = CFG_WEIGHT_MAX[1] * 0.1;
 //                                if (CFG_WEIGHT_MAX[1] >= 70) {
 //                                    result_max = (CFG_WEIGHT_MAX[1] + 5) * 0.1;
 //                                } else if (CFG_WEIGHT_MAX[1] >= 45 && CFG_WEIGHT_MAX[1] <= 65) {
@@ -757,27 +771,29 @@ Log.e("확인", ""+ preset.getSetup());
 //                                } else if (CFG_WEIGHT_MAX[1] >= 5 && CFG_WEIGHT_MAX[1] <= 40) {
 //                                    result_max = (CFG_WEIGHT_MAX[1] + 15) * 0.1;
 //                                }
-                                double tmpMaxd = result_max * 10;
-                                preset.setMaxWeight((int) (result_max * 10) );
-                                int tmpMax = (int) tmpMaxd;
-                                if (Constants.language.equals("ko")) {
-                                    tv_weight_max.setText(String.format("%.1f", result_max));
+                                    double tmpMaxd = result_max * 10;
+                                    preset.setMaxWeight((int) (result_max * 10));
+                                    int tmpMax = (int) tmpMaxd;
+                                    if (Constants.language.equals("ko")) {
+                                        tv_weight_max.setText(String.format("%.1f", result_max));
 
-                                } else if (Constants.language.equals("en")) {
-                                    tv_weight_max.setText(String.format("%.1f", result_max * POUND));
+                                    } else if (Constants.language.equals("en")) {
+                                        tv_weight_max.setText(String.format("%.1f", result_max * POUND));
 
-                                } else {
-                                    tv_weight_max.setText(String.format("%.1f", result_max));
+                                    } else {
+                                        tv_weight_max.setText(String.format("%.1f", result_max));
+
+                                    }
 
                                 }
-
-                            }
-                        });
+                            });
+                        }
                     }
                 }).start();
                 break;
         }
     }
+
     double result_max = 0;
 
 

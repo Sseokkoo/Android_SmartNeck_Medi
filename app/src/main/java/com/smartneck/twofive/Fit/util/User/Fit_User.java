@@ -76,8 +76,6 @@ public class Fit_User {
             int currentYear = Integer.parseInt(getYear);
 
 
-
-
             String[] split = Fit_User.birth.split("-");
 
             age = currentYear - Integer.parseInt(split[0]) + 1;

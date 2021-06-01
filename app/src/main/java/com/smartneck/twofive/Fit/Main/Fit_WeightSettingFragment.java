@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 
 import com.smartneck.twofive.GlobalApplication;
+import com.smartneck.twofive.Member.User;
 import com.smartneck.twofive.R;
 import com.smartneck.twofive.Fit.util.Fit_Address;
 import com.smartneck.twofive.Fit.util.Fit_Commend;
@@ -27,6 +28,7 @@ import com.smartneck.twofive.Fit.util.Fit_Param;
 import com.smartneck.twofive.Fit.util.Fit_StringUtils;
 import com.smartneck.twofive.Fit.util.User.Fit_Preset;
 import com.smartneck.twofive.Fit.util.User.Fit_User;
+import com.smartneck.twofive.util.Constants;
 
 import static com.smartneck.twofive.Fit.Main.Fit_MainActivity.audioStop;
 import static com.smartneck.twofive.Fit.Main.Fit_MainActivity.isClick;
@@ -52,6 +54,7 @@ public class Fit_WeightSettingFragment extends Fragment {
     boolean isDestroy = false;
     public static int tmpSetup;
     ImageView gif;
+    public static boolean FMaxZero;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -94,7 +97,7 @@ public class Fit_WeightSettingFragment extends Fragment {
 
         tmpSetup = Fit_Preset.measureSetup;
         isComplete = true;
-        isDestroy =true;
+        isDestroy = true;
         type = "";
         isWeight = false;
 
@@ -148,8 +151,6 @@ public class Fit_WeightSettingFragment extends Fragment {
     }
 
 
-
-
     void onClickUpDown() {
         btn_up.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -165,17 +166,22 @@ public class Fit_WeightSettingFragment extends Fragment {
                 isMove = true;
                 Fit_Preset.measureSetup += 5;
                 currentWeight += 0.5;
-                tv_result.setText(String.valueOf(Fit_Preset.measureSetup*0.1));
+                tv_result.setText(String.valueOf(Fit_Preset.measureSetup * 0.1));
                 tv_result_max.setText("0.0");
-                CFG_WEIGHT_MAX[1] = 0;
-                resultMax = 0;
+//                CFG_WEIGHT_MAX[1] = 0;
+//                resultMax = 0;
                 tv_result_max.setText(String.valueOf(resultMax));
+
+                    FMaxZero = false;
+
+
+
 
 //                if (protocolType.equals("3a")){
 //                    ((Fit_MainActivity) Fit_MainActivity.mContext).setMessage(Fit_StringUtils.getCommand("44 3A 04 02 01"));
 //
 //                }else if (protocolType.equals("3b")){
-                    setMessage(new Fit_Commend().sendWeightMove((byte) Fit_Preset.measureSetup));
+                setMessage(new Fit_Commend().sendWeightMove((byte) Fit_Preset.measureSetup));
 //                }
             }
         });
@@ -192,15 +198,19 @@ public class Fit_WeightSettingFragment extends Fragment {
                 isMove = true;
                 Fit_Preset.measureSetup -= 5;
                 currentWeight -= 0.5;
-                tv_result.setText(String.valueOf(Fit_Preset.measureSetup*0.1));
-                CFG_WEIGHT_MAX[1] = 0;
-                resultMax = 0;
+                tv_result.setText(String.valueOf(Fit_Preset.measureSetup * 0.1));
+//                CFG_WEIGHT_MAX[1] = 0;
+//                resultMax = 0;
                 tv_result_max.setText(String.valueOf(resultMax));
+
+                        FMaxZero = true;
+
+
 //                if (protocolType.equals("3a")){
 //                    ((Fit_MainActivity) Fit_MainActivity.mContext).setMessage(Fit_StringUtils.getCommand("44 3A 04 02 02"));
 //
 //                }else if (protocolType.equals("3b")){
-                    setMessage(new Fit_Commend().sendWeightMove((byte) Fit_Preset.measureSetup));
+                setMessage(new Fit_Commend().sendWeightMove((byte) Fit_Preset.measureSetup));
 //                }
             }
         });
@@ -239,32 +249,39 @@ public class Fit_WeightSettingFragment extends Fragment {
 
     void setTextThread() {
         isComplete = false;
-        Log.d(TAG, "setTextThread: " + CFG_WEIGHT[1] + " / " + currentWeight);
 
         new Thread(new Runnable() {
             @Override
             public void run() {
+                if (getFragmentManager() != null)
+                    while (true) {
+                        try {
+                            Thread.sleep(100);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        if (isComplete) break;
 
-                while (true) {
-                    try {
-                        Thread.sleep(300);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    if (isComplete) break;
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
 
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
+//                            double result = CFG_WEIGHT[1] * 0.1;
+                                Log.e(TAG, "setTextThread: " + CFG_WEIGHT[1] + " / " + currentWeight + " / " + CFG_WEIGHT_MAX[1]);
+//                                if (CFG_WEIGHT[1] >= CFG_WEIGHT_MAX[1] ) {
+//                                    CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
+                                    resultMax = CFG_WEIGHT_MAX[1] * 0.1;
+//                                }
 
-                            double result = CFG_WEIGHT[1] * 0.1;
-
-
+                                if (CFG_WEIGHT[1] >= 130 || CFG_WEIGHT_MAX[1] >= 130) {
+                                    CFG_WEIGHT[1] = 0;
+                                    CFG_WEIGHT_MAX[1] = 0;
+                                }
 //                            if (isMove){
 //                                tv_result.setText(String.valueOf(currentWeight));
 //                                return;
 //                            }
-                            if (CFG_HEIGHT[1] > 0) {
+//                            if (CFG_HEIGHT[1] > 0) {
 //                                if (CFG_WEIGHT[1] > 0) {
 //                                    if (CFG_WEIGHT[1] >= 60) {
 //                                        result += 0.5;
@@ -281,35 +298,29 @@ public class Fit_WeightSettingFragment extends Fragment {
 //                                        result += 0.5;
 //                                    }
 
-                                if (Fit_User.language.equals("en")){
-//                                    tv_result.setText(String.format("%.1f", result * Fit_Constants.POUND));
-                                }else{
-//                                    tv_result.setText(String.format("%.1f", result));
-                                }
-
-                                if (CFG_WEIGHT[1] >= CFG_WEIGHT_MAX[1]) resultMax = result;
-
 //                                if (Fit_User.language.equals("en")){
-//                                    tv_result_max.setText(String.format("%.1f", resultMax * Fit_Constants.POUND));
-//
+//                                    tv_result.setText(String.format("%.1f", result * Fit_Constants.POUND));
 //                                }else{
-                                    tv_result_max.setText(String.format("%.1f", resultMax));
-
+//                                    tv_result.setText(String.format("%.1f", result));
 //                                }
-                            } else {
+                                if (Fit_User.language.equals("en")) {
+                                    tv_result_max.setText(String.format("%.1f", resultMax * Fit_Constants.POUND));
+                                } else {
+                                    tv_result_max.setText(String.format("%.1f", resultMax));
+                                }
+//                            } else {
                                 if (!isClick) {
                                     currentWeight = (double) Fit_Preset.measureSetup * 0.1;
-
                                 }
 //                                tv_result.setText(String.valueOf(currentWeight));
 
+//                            }
+
+
                             }
+                        });
 
-
-                        }
-                    });
-
-                }
+                    }
             }
         }).start();
     }

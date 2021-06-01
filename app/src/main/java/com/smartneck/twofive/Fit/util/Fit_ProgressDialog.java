@@ -18,6 +18,7 @@ public class Fit_ProgressDialog {
     AlertDialog.Builder builder;
     AlertDialog dialog;
     Handler handler;
+    private boolean ischeck;
 
     public Fit_ProgressDialog(Context activityContext, LayoutInflater inflater) {
         this.activityContext = activityContext;
@@ -62,6 +63,7 @@ public class Fit_ProgressDialog {
             public void run() {
 
                 try {
+                    ischeck = false;
                     Thread.sleep(5000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -78,7 +80,14 @@ public class Fit_ProgressDialog {
     }
 
     public void dismiss() {
-        dialog.dismiss();
+        if (!ischeck)
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                dialog.dismiss();
+                ischeck = true;
+            }
+        },1000);
     }
 
 

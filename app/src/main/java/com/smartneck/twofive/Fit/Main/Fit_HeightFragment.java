@@ -90,7 +90,7 @@ public class Fit_HeightFragment extends Fragment {
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        progressDialog.show(getString(R.string.dialog_height));
+                        progressDialog.show(getResources().getString(R.string.dialog_height));
                     }
                 });
             }
@@ -130,10 +130,8 @@ public class Fit_HeightFragment extends Fragment {
                         count = 0;
                     }
                 }
-                progressDialog.dismiss();
             }
         }).start();
-
     }
 
     @Override
@@ -191,7 +189,7 @@ public class Fit_HeightFragment extends Fragment {
                     count ++;
                 }
 
-
+                progressDialog.dismiss();
             }
         }).start();
     }
@@ -247,9 +245,9 @@ public class Fit_HeightFragment extends Fragment {
                 tmpDistance += anglePerMillimeter;
             }
 //                        tmpDistance *= 0.1;
-            if (Fit_User.language.equals("en")) {
-                tmpDistance = tmpDistance / Fit_Constants.INCHES;
-            }
+//            if (Fit_User.language.equals("en")) {
+//                tmpDistance = tmpDistance / Fit_Constants.INCHES;
+//            }
             if (height > heightMax) {
                 heightMax = height;
                 Fit_Preset.MaxHeight = heightMax;
