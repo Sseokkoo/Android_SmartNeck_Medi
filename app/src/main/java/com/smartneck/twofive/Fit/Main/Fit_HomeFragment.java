@@ -16,16 +16,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.smartneck.twofive.ErrorReport.ErrorReportActivity;
+import com.smartneck.twofive.Fit.ErrorReport.Fit_ErrorReportActivity;
 import com.smartneck.twofive.Fit.Fit_MeasureActivity;
-import com.smartneck.twofive.Main.MainActivity;
+import com.smartneck.twofive.Fit.YouTube.Fit_SubExerciseActivity;
 import com.smartneck.twofive.R;
-import com.smartneck.twofive.Fit.YouTube.HowToExerciseActivity;
-import com.smartneck.twofive.Fit.YouTube.SubExerciseActivity;
+import com.smartneck.twofive.Fit.YouTube.Fit_HowToExerciseActivity;
 import com.smartneck.twofive.Fit.util.Fit_BluetoothUtils;
 import com.smartneck.twofive.Fit.util.Fit_ProgressDialog;
 import com.smartneck.twofive.Fit.util.User.Fit_Preset;
-import com.smartneck.twofive.util.User.Preset;
 
 import static com.smartneck.twofive.Fit.Main.Fit_ExerciseFragment.CFG_COUNT;
 import static com.smartneck.twofive.Fit.Main.Fit_ExerciseFragment.CFG_SET;
@@ -169,7 +167,7 @@ public class Fit_HomeFragment extends Fragment {
         btn_report.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(mContext.getApplicationContext() , ErrorReportActivity.class);
+                Intent intent = new Intent(mContext.getApplicationContext() , Fit_ErrorReportActivity.class);
                 startActivity(intent);
             }
         });
@@ -177,14 +175,14 @@ public class Fit_HomeFragment extends Fragment {
         btn_sub_exercise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(mContext.getApplicationContext() , SubExerciseActivity.class);
+                Intent intent = new Intent(mContext.getApplicationContext() , Fit_SubExerciseActivity.class);
                 startActivity(intent);
             }
         });
         btn_how_to_exercise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(mContext.getApplicationContext() , HowToExerciseActivity.class);
+                Intent intent = new Intent(mContext.getApplicationContext() , Fit_HowToExerciseActivity.class);
                 startActivity(intent);
             }
         });

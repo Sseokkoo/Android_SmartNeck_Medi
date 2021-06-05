@@ -26,13 +26,12 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.model.GradientColor;
-import com.smartneck.twofive.Chart.ChartItem.ExerciseChartItem;
-import com.smartneck.twofive.Chart.custom.HeightAxisValueFormatter;
-import com.smartneck.twofive.Chart.custom.MyValueFormatter;
-import com.smartneck.twofive.Chart.custom.XYMarkerView;
-import com.smartneck.twofive.Chart.notimportant.DemoBase;
+import com.smartneck.twofive.Fit.Chart.notimportant.Fit_DemoBase;
+import com.smartneck.twofive.Fit.Chart.ChartItem.Fit_ExerciseChartItem;
+import com.smartneck.twofive.Fit.Chart.custom.Fit_HeightAxisValueFormatter;
+import com.smartneck.twofive.Fit.Chart.custom.Fit_MyValueFormatter;
+import com.smartneck.twofive.Fit.Chart.custom.Fit_XYMarkerView;
 import com.smartneck.twofive.Fit.util.Fit_Address;
-import com.smartneck.twofive.Fit.util.Fit_Constants;
 import com.smartneck.twofive.Fit.util.Fit_HttpConnect;
 import com.smartneck.twofive.Fit.util.Fit_Param;
 import com.smartneck.twofive.Fit.util.User.Fit_Preset;
@@ -47,13 +46,14 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.smartneck.twofive.Fit.util.Fit_Constants.TAG;
+import static com.smartneck.twofive.Fit.util.Fit_Constants.ageArrayListFemale;
+import static com.smartneck.twofive.Fit.util.Fit_Constants.ageArrayListMale;
 import static com.smartneck.twofive.Fit.util.User.Fit_User.MemberNo;
 import static com.smartneck.twofive.Fit.util.User.Fit_User.token;
-import static com.smartneck.twofive.util.Constants.TAG;
-import static com.smartneck.twofive.util.Constants.ageArrayListFemale;
-import static com.smartneck.twofive.util.Constants.ageArrayListMale;
 
-public class Fit_ChartActivity extends DemoBase {
+
+public class Fit_ChartActivity extends Fit_DemoBase {
     BarChart chart;
     TextView title;//title
 
@@ -67,7 +67,7 @@ public class Fit_ChartActivity extends DemoBase {
     ArrayList<BarEntry> values;
 
     ListView exerciseList;
-    ArrayList<ExerciseChartItem> exerciseItems;
+    ArrayList<Fit_ExerciseChartItem> exerciseItems;
     Fit_ExerciseAdapter exerciseAdapter;
 
     LinearLayout listview_container;
@@ -211,7 +211,6 @@ public class Fit_ChartActivity extends DemoBase {
 
         BarDataSet set1;
 
-
         XAxis xAxis = chart.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setTypeface(tfLight);
@@ -221,17 +220,17 @@ public class Fit_ChartActivity extends DemoBase {
         xAxis.setTextSize(14);
         chart.setExtraBottomOffset(20);
 
-        ValueFormatter xAxisFormatter = new HeightAxisValueFormatter(chart, dateArray);
+        ValueFormatter xAxisFormatter = new Fit_HeightAxisValueFormatter(chart, dateArray);
 
 
         xAxis.setValueFormatter(xAxisFormatter);
 
-        XYMarkerView mv = new XYMarkerView(this, xAxisFormatter);
+        Fit_XYMarkerView mv = new Fit_XYMarkerView(this, xAxisFormatter);
         mv.setChartView(chart); // For bounds control
         chart.setMarker(mv); // Set the marker to the chart
         chart.setTouchEnabled(false);
 
-        ValueFormatter custom = new MyValueFormatter("");
+        ValueFormatter custom = new Fit_MyValueFormatter("");
 
         YAxis leftAxis = chart.getAxisLeft();
         leftAxis.setTypeface(tfLight);
@@ -861,7 +860,7 @@ public class Fit_ChartActivity extends DemoBase {
 
                 int stop = jsonObject.getInt("Stop");
 
-                exerciseItems.add(new ExerciseChartItem(count, totalCount, set, totalSet, stop, date));
+                exerciseItems.add(new Fit_ExerciseChartItem(count, totalCount, set, totalSet, stop, date));
 
                 Log.d(TAG, " - - - - - getExerciseData: Date->" + date);
                 Log.d(TAG, " - - - - - getExerciseData: Date->" + count);

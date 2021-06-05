@@ -196,15 +196,18 @@
         <receiver android:name=".tmp.Alarm.AlarmReceiver" />
 
 <!--        FIT-->
+        <activity
+            android:name=".Fit.ErrorReport.Fit_ErrorReportActivity"
+            android:theme="@style/AppTheme" />
         <activity android:name=".Fit.Main.Fit_AfterMeasureActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".Fit.Fit_FindAccountActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".Fit.Fit_FindPasswordActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".Fit.YouTube.HowToExerciseActivity"
+        <activity android:name=".Fit.YouTube.Fit_HowToExerciseActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".Fit.YouTube.SubExerciseActivity"
+        <activity android:name=".Fit.YouTube.Fit_SubExerciseActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".Fit.Review.Fit_ReviewActivity"
             android:theme="@style/AppTheme.NoActionBar"

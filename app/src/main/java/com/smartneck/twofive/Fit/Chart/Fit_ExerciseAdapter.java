@@ -10,15 +10,16 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import com.smartneck.twofive.Chart.ChartItem.ExerciseChartItem;
+import com.smartneck.twofive.Fit.Chart.ChartItem.Fit_ExerciseChartItem;
 import com.smartneck.twofive.R;
 
 import static android.support.constraint.Constraints.TAG;
 
 public class Fit_ExerciseAdapter extends BaseAdapter {
-    ArrayList<ExerciseChartItem> exerciseItems;
+    ArrayList<Fit_ExerciseChartItem> exerciseItems;
     LayoutInflater inflater;
     Holder holder;
-    public Fit_ExerciseAdapter(ArrayList<ExerciseChartItem> exerciseItems, LayoutInflater inflater) {
+    public Fit_ExerciseAdapter(ArrayList<Fit_ExerciseChartItem> exerciseItems, LayoutInflater inflater) {
         this.exerciseItems = exerciseItems;
         this.inflater = inflater;
     }
