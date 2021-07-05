@@ -40,7 +40,7 @@ import static com.smartneck.twofive.Main.MainActivity.member;
 import static com.smartneck.twofive.Main.MainActivity.preset;
 import static com.smartneck.twofive.Main.WeightSettingFragment.MaxZero;
 import static com.smartneck.twofive.Member.MemberSelectActivity.admin;
-import static com.smartneck.twofive.util.Constants.POUND;
+//import static com.smartneck.twofive.util.Constants.POUND;
 import static com.smartneck.twofive.util.Constants.TAG;
 
 public class MeasureActivity extends AppCompatActivity {
@@ -774,16 +774,16 @@ public class MeasureActivity extends AppCompatActivity {
                                     double tmpMaxd = result_max * 10;
                                     preset.setMaxWeight((int) (result_max * 10));
                                     int tmpMax = (int) tmpMaxd;
-                                    if (Constants.language.equals("ko")) {
+//                                    if (Constants.language.equals("ko")) {
                                         tv_weight_max.setText(String.format("%.1f", result_max));
 
-                                    } else if (Constants.language.equals("en")) {
-                                        tv_weight_max.setText(String.format("%.1f", result_max * POUND));
-
-                                    } else {
-                                        tv_weight_max.setText(String.format("%.1f", result_max));
-
-                                    }
+//                                    } else if (Constants.language.equals("en")) {
+//                                        tv_weight_max.setText(String.format("%.1f", result_max * POUND));
+//
+//                                    } else {
+//                                        tv_weight_max.setText(String.format("%.1f", result_max));
+//
+//                                    }
 
                                 }
                             });

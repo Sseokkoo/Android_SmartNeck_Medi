@@ -443,13 +443,13 @@ public class WeightSettingFragment extends Fragment {
 //                                tv_result.setText(String.format("%.1f" , result));
 //                                if (CFG_WEIGHT[1] >= CFG_WEIGHT_MAX[1]) resultMax = result;
 
-                                if (Constants.language.equals("en")){
-                                    tv_result_max.setText(String.format("%.1f" , resultMax * Constants.POUND));
-
-                                }else{
+//                                if (Constants.language.equals("en")){
+//                                    tv_result_max.setText(String.format("%.1f" , resultMax * Constants.POUND));
+//
+//                                }else{
                                     tv_result_max.setText(String.format("%.1f" , resultMax));
 //                                    preset.setMaxWeight((int) resultMax * 10);
-                                }
+//                                }
 //                            }else{
                                 if (!isClick){
                                     currentWeight = (double) preset.getSetup() * 0.1;

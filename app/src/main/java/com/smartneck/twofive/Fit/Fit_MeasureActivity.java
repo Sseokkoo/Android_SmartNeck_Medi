@@ -32,7 +32,7 @@ import static com.smartneck.twofive.Fit.Main.Fit_MainActivity.isHeiProgress;
 import static com.smartneck.twofive.Fit.Main.Fit_MainActivity.isWeiProgress;
 import static com.smartneck.twofive.Fit.Main.Fit_MainActivity.setMessage;
 import static com.smartneck.twofive.Fit.Main.Fit_WeightSettingFragment.FMaxZero;
-import static com.smartneck.twofive.Fit.util.Fit_Constants.POUND;
+//import static com.smartneck.twofive.Fit.util.Fit_Constants.POUND;
 
 public class Fit_MeasureActivity extends AppCompatActivity {
     public static boolean isHeight;
@@ -789,16 +789,16 @@ public class Fit_MeasureActivity extends AppCompatActivity {
                                     double tmpMaxd = result_max * 10;
                                     int tmpMax = (int) tmpMaxd;
                                     Fit_Preset.MaxWeight = tmpMax;
-                                    if (Fit_User.language.equals("ko")) {
+//                                    if (Fit_User.language.equals("ko")) {
                                         tv_weight_max.setText(String.format("%.1f", result_max));
 
-                                    } else if (Fit_User.language.equals("en")) {
-                                        tv_weight_max.setText(String.format("%.1f", result_max * POUND));
-
-                                    } else {
-                                        tv_weight_max.setText(String.format("%.1f", result_max));
-
-                                    }
+//                                    } else if (Fit_User.language.equals("en")) {
+//                                        tv_weight_max.setText(String.format("%.1f", result_max * POUND));
+//
+//                                    } else {
+//                                        tv_weight_max.setText(String.format("%.1f", result_max));
+//
+//                                    }
 
                                 }
                             });

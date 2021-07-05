@@ -789,22 +789,22 @@ float anglePerMillimeter = 1f;
             avg = 0;
         }
 
-        if (Constants.language.equals("ko")) {
+//        if (Constants.language.equals("ko")) {
             values.add(new BarEntry(0, max * 0.1f));
             values.add(new BarEntry(1, min * 0.1f));
             values.add(new BarEntry(2, avg * 0.1f));
             values.add(new BarEntry(3, mine));
-        } else if (Constants.language.equals("en")) {
-            values.add(new BarEntry(0, max * 0.1f * Constants.POUND));
-            values.add(new BarEntry(1, min * 0.1f * Constants.POUND));
-            values.add(new BarEntry(2, avg * 0.1f * Constants.POUND));
-            values.add(new BarEntry(3, mine * Constants.POUND));
-        } else if (Constants.language.equals("zh")) {
-            values.add(new BarEntry(0, max * 0.1f));
-            values.add(new BarEntry(1, min * 0.1f));
-            values.add(new BarEntry(2, avg * 0.1f));
-            values.add(new BarEntry(3, mine));
-        }
+//        } else if (Constants.language.equals("en")) {
+//            values.add(new BarEntry(0, max * 0.1f * Constants.POUND));
+//            values.add(new BarEntry(1, min * 0.1f * Constants.POUND));
+//            values.add(new BarEntry(2, avg * 0.1f * Constants.POUND));
+//            values.add(new BarEntry(3, mine * Constants.POUND));
+//        } else if (Constants.language.equals("zh")) {
+//            values.add(new BarEntry(0, max * 0.1f));
+//            values.add(new BarEntry(1, min * 0.1f));
+//            values.add(new BarEntry(2, avg * 0.1f));
+//            values.add(new BarEntry(3, mine));
+//        }
 
         Log.e(TAG, "avg: " + avg);
 

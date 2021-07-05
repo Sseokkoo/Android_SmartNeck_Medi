@@ -131,7 +131,7 @@ public class Fit_WeightSettingFragment extends Fragment {
             public void run() {
 
                 try {
-                    Thread.sleep(300);
+                    Thread.sleep(100);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -303,11 +303,11 @@ public class Fit_WeightSettingFragment extends Fragment {
 //                                }else{
 //                                    tv_result.setText(String.format("%.1f", result));
 //                                }
-                                if (Fit_User.language.equals("en")) {
-                                    tv_result_max.setText(String.format("%.1f", resultMax * Fit_Constants.POUND));
-                                } else {
+//                                if (Fit_User.language.equals("en")) {
+//                                    tv_result_max.setText(String.format("%.1f", resultMax * Fit_Constants.POUND));
+//                                } else {
                                     tv_result_max.setText(String.format("%.1f", resultMax));
-                                }
+//                                }
 //                            } else {
                                 if (!isClick) {
                                     currentWeight = (double) Fit_Preset.measureSetup * 0.1;

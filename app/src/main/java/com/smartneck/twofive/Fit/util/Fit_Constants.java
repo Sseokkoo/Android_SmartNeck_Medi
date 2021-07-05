@@ -40,7 +40,7 @@ public class Fit_Constants {
     public static String Terms4 = "";
 
 
-    public final static float POUND = 2.205f;
+//    public final static float POUND = 2.205f;
 //    public final static float INCHES = 25.4f;
 
     public static ArrayList<Fit_Age> ageArrayListMale;

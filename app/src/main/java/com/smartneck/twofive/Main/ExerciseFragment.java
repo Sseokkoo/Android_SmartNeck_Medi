@@ -49,7 +49,7 @@ import static com.smartneck.twofive.MeasureActivity.CFG_HEIGHT;
 import static com.smartneck.twofive.MeasureActivity.CFG_WEIGHT;
 import static com.smartneck.twofive.Member.MemberSelectActivity.admin;
 import static com.smartneck.twofive.util.Constants.CFG_IS_EXERCISE;
-import static com.smartneck.twofive.util.Constants.POUND;
+//import static com.smartneck.twofive.util.Constants.POUND;
 import static com.smartneck.twofive.util.Constants.TAG;
 
 public class ExerciseFragment extends Fragment {
@@ -249,9 +249,9 @@ public class ExerciseFragment extends Fragment {
 //                            currentWeight += 1.5;
 //                        }
 
-                        if (Constants.language.equals("en")) {
-                            currentWeight *= POUND;
-                        }
+//                        if (Constants.language.equals("en")) {
+//                            currentWeight *= POUND;
+//                        }
                         weightString = String.format("%.1f", currentWeight);
 
 

@@ -964,11 +964,11 @@ public class Fit_ExerciseFragment extends Fragment {
 //                                        }
                                     }
 
-                                    if (Fit_User.language.equals("en")) {
-                                        result *= Fit_Constants.POUND;
-                                    }
-                                    tv_weight_current.setText(String.format("%.1f", result));
-                                } else {
+//                                    if (Fit_User.language.equals("en")) {
+//                                        result *= Fit_Constants.POUND;
+//                                    }
+//                                    tv_weight_current.setText(String.format("%.1f", result));
+//                                } else {
                                     tv_weight_current.setText(String.format("%.1f", result));
                                 }
                             }

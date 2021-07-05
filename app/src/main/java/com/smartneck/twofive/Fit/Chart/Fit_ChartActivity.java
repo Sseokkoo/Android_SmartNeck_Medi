@@ -493,9 +493,9 @@ public class Fit_ChartActivity extends Fit_DemoBase {
 
                 int valueJson = jsonObject.getInt("MaxWeight");
                 float weight = ((float) valueJson) * 0.1f;
-                if (Fit_User.language.equals("en")) {
-                    weight *= Constants.POUND;
-                }
+//                if (Fit_User.language.equals("en")) {
+//                    weight *= Constants.POUND;
+//                }
                 if (values.size() == 0) {
                     values.add(new BarEntry(idx, weight));
                     dateArray.add(date);
@@ -705,22 +705,22 @@ public class Fit_ChartActivity extends Fit_DemoBase {
                 avg = 0;
             }
 
-            if (Fit_User.language.equals("ko")) {
+//            if (Fit_User.language.equals("ko")) {
                 values.add(new BarEntry(0, max * 0.1f));
                 values.add(new BarEntry(1, min * 0.1f));
                 values.add(new BarEntry(2, avg * 0.1f));
                 values.add(new BarEntry(3, mine));
-            } else if (Fit_User.language.equals("en")) {
-                values.add(new BarEntry(0, max * 0.1f * Constants.POUND));
-                values.add(new BarEntry(1, min * 0.1f * Constants.POUND));
-                values.add(new BarEntry(2, avg * 0.1f * Constants.POUND));
-                values.add(new BarEntry(3, mine * Constants.POUND));
-            }else if (Fit_User.language.equals("zh")){
-                values.add(new BarEntry(0, max * 0.1f));
-                values.add(new BarEntry(1, min * 0.1f));
-                values.add(new BarEntry(2, avg * 0.1f));
-                values.add(new BarEntry(3, mine));
-            }
+//            } else if (Fit_User.language.equals("en")) {
+//                values.add(new BarEntry(0, max * 0.1f * Constants.POUND));
+//                values.add(new BarEntry(1, min * 0.1f * Constants.POUND));
+//                values.add(new BarEntry(2, avg * 0.1f * Constants.POUND));
+//                values.add(new BarEntry(3, mine * Constants.POUND));
+//            }else if (Fit_User.language.equals("zh")){
+//                values.add(new BarEntry(0, max * 0.1f));
+//                values.add(new BarEntry(1, min * 0.1f));
+//                values.add(new BarEntry(2, avg * 0.1f));
+//                values.add(new BarEntry(3, mine));
+//            }
 
             Log.e(TAG, "avg: " + avg);
 
