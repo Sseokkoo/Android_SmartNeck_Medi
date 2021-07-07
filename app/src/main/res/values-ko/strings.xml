@@ -319,6 +319,7 @@
 	<string name="Modify">수정</string>
 	<string name="prduct">제품번호</string>
 	<string name="sign">회원가입 일</string>
+	<string name="login_id">계정 : </string>
 	<string name="company">회사명 : 투파이브 (주)</string>
 	<string name="add">주소 : 경기도 의왕시 오전동 38-3 A동 2층</string>
 	<string name="tel">전화번호 : 031-441-3274</string>

@@ -2,6 +2,7 @@ package com.smartneck.twofive.Fit.Main;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -287,17 +288,19 @@ public class Fit_HomeFragment extends Fragment {
     static boolean isConnectedBle() {
         if (mConnected) {
             return true;
-        } else {
+        }else {
             Toast.makeText(mContext, Fit_MainActivity.mContext.getString(R.string.toast_please_connect), Toast.LENGTH_SHORT).show();
             return false;
+            //태그1
         }
     }
     boolean isMeasure(){
         if (Fit_Preset.MaxWeight == 0 || Fit_Preset.MaxHeight == 0){
             Toast.makeText(mContext, getString(R.string.toast_please_measure), Toast.LENGTH_SHORT).show();
             return false;
+            //태그 2
         }else{
-            return true;
+            return false;
         }
     }
 

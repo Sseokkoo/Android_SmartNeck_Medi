@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
-            android:text="@string/menu_how_to_exercise"
+            android:text="@string/Fit_menu_how_to_exercise"
             android:textColor="#cc1b17"
             android:textSize="24dp" />
     </LinearLayout>

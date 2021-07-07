@@ -236,8 +236,8 @@
     <string name="_1to1_state_complete">Completed</string>
     <string name="toast_back2">Click the Last button to return to the main page.</string>
     <string name="send_to_mail">Temporary password has been sent to your email.</string>
-    <string name="find_password">Forgot password?</string>
-    <string name="find_account">Forgot account?</string>
+    <string name="find_password">Forgot\npassword?</string>
+    <string name="find_account">Forgot\naccount?</string>
     <string name="send_tmp_password">Send temporary password</string>
     <string name="toast_please_measure">Please start exercise after measuring.</string>
     <string name="dialog_exercise_point">It refers to the degree when you bend your neck to the lowest point according to your meansured pliability. You can freely choose the percentage according to your body condition or exercise goal. If you skip this, it\'ll automatically be saved as 80%.</string>
@@ -325,6 +325,7 @@
     <string name="Modify">Modify</string>
     <string name="prduct">Product information</string>
     <string name="sign">Sign-up date</string>
+    <string name="login_id">Account : </string>
     <string name="company">Company name: Two Five Co., Ltd.</string>
     <string name="add">Address: 2nd floor, A building, 38-3, Ojeon-dong, Uiwang-si, Gyeonggi-do</string>
     <string name="tel">Tel: 031-441-3274</string>

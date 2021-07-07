@@ -2,6 +2,7 @@ package com.smartneck.twofive.Fit;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -60,6 +61,7 @@ public class Fit_LoginActivity extends AppCompatActivity {
         cb_auto_login = findViewById(R.id.cb_auto_login);
         setEvent();
         tv_password_change.setVisibility(View.GONE);
+
 
 
         /* 블루투스 권한설정 */
@@ -156,6 +158,10 @@ public class Fit_LoginActivity extends AppCompatActivity {
                 Fit_Param param = new Fit_Param();
                 param.add("id", id);
                 param.add("pw", pw);
+                SharedPreferences pref = getSharedPreferences("UserInfo", MODE_PRIVATE);
+                SharedPreferences.Editor editor = pref.edit();
+                editor.putString("id", id);
+                editor.apply();
                 final Fit_Address address = new Fit_Address();
                 if (httpConnect.httpConnect(param.getParam(), address.getLogin()) == 200) {
                     if (!httpConnect.getReceiveMessage().equals("fail")) {

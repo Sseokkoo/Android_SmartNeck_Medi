@@ -47,6 +47,12 @@
                 <!--android:id="@+id/nav_management"-->
                 <!--android:title="@string/menu_management"-->
                 <!--/>-->
+
+            <item
+                android:icon="@drawable/menu_logout"
+                android:id="@+id/nav_logout"
+                android:title="@string/menu_logout"/>
+
             <item
                 android:icon="@drawable/menu_report"
                 android:id="@+id/nav_review"
@@ -62,10 +68,7 @@
                 android:id="@+id/nav_inquery"
                 android:title="@string/menu_support"
                 />
-            <item
-                android:icon="@drawable/menu_logout"
-                android:id="@+id/nav_logout"
-                android:title="@string/menu_logout"/>
+
         </menu>
     </item>
 

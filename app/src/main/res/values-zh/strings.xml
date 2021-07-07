@@ -316,6 +316,7 @@
 	<string name="Modify">调整</string>
 	<string name="prduct">产品编号</string>
 	<string name="sign">入会日期</string>
+	<string name="login_id">账目 : </string>
 	<string name="company">公司名称：TwoFive Co.，Ltd.</string>
 	<string name="add">地址：京畿道义王市安洞38-3 A栋2楼</string>
 	<string name="tel">电话号码 : 031-441-3274</string>

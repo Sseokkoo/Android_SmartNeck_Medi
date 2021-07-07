@@ -2464,22 +2464,10 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
                     CFG_HEIGHT[1] = Integer.parseInt(CFG_RECEIVED[4], 16);
                     CFG_WEIGHT[1] = Integer.parseInt(CFG_RECEIVED[8], 16);
 
-                    if (FMaxZero) {
-                        CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
-                        handler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                if (CFG_WEIGHT[1] == currentWeight * 10) {
-                                    CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
-                                    FMaxZero = false;
-                                }
-                            }
-                        },500);
 
-                    } else {
-                        if (CFG_WEIGHT[1] >= CFG_WEIGHT_MAX[1])
-                            CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
-                    }
+                    if (CFG_WEIGHT[1] >= CFG_WEIGHT_MAX[1] && CFG_HEIGHT[1] > 0)
+                        CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
+
 
 
                     if (!isClick && !isWeightMove && !isSeatMove) {
@@ -2522,22 +2510,8 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
                 CFG_HEIGHT[1] = Integer.parseInt(CFG_RECEIVED[4], 16);
                 CFG_WEIGHT[1] = Integer.parseInt(CFG_RECEIVED[8], 16);
 
-                if (FMaxZero) {
+                if (CFG_WEIGHT[1] >= CFG_WEIGHT_MAX[1] && CFG_HEIGHT[1] > 0)
                     CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (CFG_WEIGHT[1] == currentWeight * 10) {
-                                CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
-                                FMaxZero = false;
-                            }
-                        }
-                    },500);
-
-                } else {
-                    if (CFG_WEIGHT[1] >= CFG_WEIGHT_MAX[1])
-                        CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
-                }
             }
 
 
@@ -2584,22 +2558,8 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
                 CFG_HEIGHT[1] = Integer.parseInt(CFG_RECEIVED[4], 16);
                 CFG_WEIGHT[1] = Integer.parseInt(CFG_RECEIVED[8], 16);
 
-                if (FMaxZero) {
+                if (CFG_WEIGHT[1] >= CFG_WEIGHT_MAX[1] && CFG_HEIGHT[1] > 0)
                     CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (CFG_WEIGHT[1] == currentWeight * 10) {
-                                CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
-                                FMaxZero = false;
-                            }
-                        }
-                    },500);
-
-                } else {
-                    if (CFG_WEIGHT[1] >= CFG_WEIGHT_MAX[1])
-                        CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
-                }
             }
 
             if (tabPos == 3) {
@@ -2688,22 +2648,8 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
                 CFG_HEIGHT[1] = Integer.parseInt(CFG_RECEIVED[8], 16);
                 CFG_WEIGHT[1] = Integer.parseInt(CFG_RECEIVED[5], 16);
 
-                if (FMaxZero) {
+                if (CFG_WEIGHT[1] >= CFG_WEIGHT_MAX[1] && CFG_HEIGHT[1] > 0)
                     CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (CFG_WEIGHT[1] == currentWeight * 10) {
-                                CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
-                                FMaxZero = false;
-                            }
-                        }
-                    },500);
-
-                } else {
-                    if (CFG_WEIGHT[1] >= CFG_WEIGHT_MAX[1])
-                        CFG_WEIGHT_MAX[1] = CFG_WEIGHT[1];
-                }
             }
 
 
