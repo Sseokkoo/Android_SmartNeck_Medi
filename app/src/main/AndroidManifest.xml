@@ -212,6 +212,21 @@
         <activity android:name=".Fit.Review.Fit_ReviewActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden"/>
+        <activity
+            android:name=".Fit.CustomerSupport.Controller.Fit_Customer1To1Activity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Fit.CustomerSupport.Controller.Fit_Customer1To1ListActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Fit.CustomerSupport.Controller.Fit_CustomerFAQActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Fit.CustomerSupport.Controller.Fit_Customer1To1InsertActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Fit.CustomerSupport.Controller.Fit_CustomerSupportListActivity"
+            android:theme="@style/AppTheme" />
         <activity android:name=".Fit.UserInfoEdit.Fit_EditPasswordActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".Fit.UserInfoEdit.Fit_UserInfoEditListActivity"

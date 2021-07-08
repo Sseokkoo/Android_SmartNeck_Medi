@@ -26,18 +26,18 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.model.GradientColor;
-import com.smartneck.twofive.Fit.Chart.notimportant.Fit_DemoBase;
 import com.smartneck.twofive.Fit.Chart.ChartItem.Fit_ExerciseChartItem;
 import com.smartneck.twofive.Fit.Chart.custom.Fit_HeightAxisValueFormatter;
 import com.smartneck.twofive.Fit.Chart.custom.Fit_MyValueFormatter;
 import com.smartneck.twofive.Fit.Chart.custom.Fit_XYMarkerView;
+import com.smartneck.twofive.Fit.Chart.notimportant.Fit_DemoBase;
 import com.smartneck.twofive.Fit.util.Fit_Address;
+import com.smartneck.twofive.Fit.util.Fit_Constants;
 import com.smartneck.twofive.Fit.util.Fit_HttpConnect;
 import com.smartneck.twofive.Fit.util.Fit_Param;
 import com.smartneck.twofive.Fit.util.User.Fit_Preset;
 import com.smartneck.twofive.Fit.util.User.Fit_User;
 import com.smartneck.twofive.R;
-import com.smartneck.twofive.util.Constants;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -373,7 +373,7 @@ public class Fit_ChartActivity extends Fit_DemoBase {
 
 
                 } else {
-                    Log.d(Constants.TAG, "HttpConnect Error: " + httpConnect.getResponseCode());
+                    Log.d(Fit_Constants.TAG, "HttpConnect Error: " + httpConnect.getResponseCode());
                 }
             }
         }).start();
@@ -463,7 +463,7 @@ public class Fit_ChartActivity extends Fit_DemoBase {
 
 
                 } else {
-                    Log.d(Constants.TAG, "HttpConnect Error: " + httpConnect.getResponseCode());
+                    Log.d(Fit_Constants.TAG, "HttpConnect Error: " + httpConnect.getResponseCode());
                 }
             }
         }).start();
@@ -559,7 +559,7 @@ public class Fit_ChartActivity extends Fit_DemoBase {
 
 
                 } else {
-                    Log.d(Constants.TAG, "HttpConnect Error: " + httpConnect.getResponseCode());
+                    Log.d(Fit_Constants.TAG, "HttpConnect Error: " + httpConnect.getResponseCode());
                 }
             }
         }).start();
@@ -670,18 +670,18 @@ public class Fit_ChartActivity extends Fit_DemoBase {
 
             if (Fit_User.gender.equals("남자")) {
                 if (ageArrayListMale.size() > 0)
-                for (int i = 0; i < Constants.ageArrayListMale.size(); i++) {
+                for (int i = 0; i < Fit_Constants.ageArrayListMale.size(); i++) {
 
-                    if (Fit_User.age == Constants.ageArrayListMale.get(i).getAge()) {
-                        avg = Constants.ageArrayListMale.get(i).getAgeWeight();
+                    if (Fit_User.age == Fit_Constants.ageArrayListMale.get(i).getAge()) {
+                        avg = Fit_Constants.ageArrayListMale.get(i).getAgeWeight();
                         break;
                     }
                 }
             } else if (Fit_User.gender.equals("여자")) {
                 if (ageArrayListFemale.size() >0)
-                for (int i = 0; i < Constants.ageArrayListFemale.size(); i++) {
-                    if (Fit_User.age == Constants.ageArrayListFemale.get(i).getAge()) {
-                        avg = Constants.ageArrayListFemale.get(i).getAgeWeight();
+                for (int i = 0; i < Fit_Constants.ageArrayListFemale.size(); i++) {
+                    if (Fit_User.age == Fit_Constants.ageArrayListFemale.get(i).getAge()) {
+                        avg = Fit_Constants.ageArrayListFemale.get(i).getAgeWeight();
                         break;
                     }
                 }
@@ -832,7 +832,7 @@ public class Fit_ChartActivity extends Fit_DemoBase {
 
 
                 } else {
-                    Log.d(Constants.TAG, "HttpConnect Error: " + httpConnect.getResponseCode());
+                    Log.d(Fit_Constants.TAG, "HttpConnect Error: " + httpConnect.getResponseCode());
                 }
             }
         }).start();

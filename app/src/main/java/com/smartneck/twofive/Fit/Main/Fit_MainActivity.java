@@ -55,12 +55,14 @@ import android.widget.Toast;
 
 import com.smartneck.twofive.BleDialog.BleAdapter;
 import com.smartneck.twofive.BleDialog.BleItem;
-import com.smartneck.twofive.CustomerSupport.Controller.CustomerSupportListActivity;
-import com.smartneck.twofive.ErrorReport.ErrorReportActivity;
 import com.smartneck.twofive.Fit.Chart.Fit_ChartActivity;
+import com.smartneck.twofive.Fit.CustomerSupport.Controller.Fit_CustomerSupportListActivity;
+import com.smartneck.twofive.Fit.ErrorReport.Fit_ErrorReportActivity;
 import com.smartneck.twofive.Fit.Fit_AppVersionActivity;
 import com.smartneck.twofive.Fit.Fit_LoginActivity;
 import com.smartneck.twofive.Fit.Fit_MeasureActivity;
+import com.smartneck.twofive.Fit.Notice.Fit_NoticeListActivity;
+import com.smartneck.twofive.Fit.Review.Fit_ReviewActivity;
 import com.smartneck.twofive.Fit.UserInfoEdit.Fit_UserInfoEditListActivity;
 import com.smartneck.twofive.Fit.util.Fit_Address;
 import com.smartneck.twofive.Fit.util.Fit_BluetoothUtils;
@@ -73,10 +75,7 @@ import com.smartneck.twofive.Fit.util.Fit_StringUtils;
 import com.smartneck.twofive.Fit.util.User.Fit_Preset;
 import com.smartneck.twofive.Fit.util.User.Fit_User;
 import com.smartneck.twofive.GlobalApplication;
-import com.smartneck.twofive.Main.MainActivity;
-import com.smartneck.twofive.Notice.NoticeListActivity;
 import com.smartneck.twofive.R;
-import com.smartneck.twofive.Review.ReviewActivity;
 import com.smartneck.twofive.util.Commend;
 import com.smartneck.twofive.util.ProgressDialog;
 
@@ -94,7 +93,6 @@ import static com.smartneck.twofive.Fit.Fit_MeasureActivity.CFG_WEIGHT_MAX;
 import static com.smartneck.twofive.Fit.Fit_MeasureActivity.isMeasure;
 import static com.smartneck.twofive.Fit.Fit_MeasureActivity.moveExercise;
 import static com.smartneck.twofive.Fit.Fit_MeasureActivity.moveProcedure;
-import static com.smartneck.twofive.Fit.Main.Fit_WeightSettingFragment.FMaxZero;
 import static com.smartneck.twofive.Fit.Main.Fit_WeightSettingFragment.currentWeight;
 import static com.smartneck.twofive.Fit.Main.Fit_WeightSettingFragment.isMove;
 import static com.smartneck.twofive.Fit.Main.Fit_WeightSettingFragment.isWeight;
@@ -430,18 +428,18 @@ public class Fit_MainActivity extends AppCompatActivity implements NavigationVie
 //            //유저 알림장 ?? 공지 ??
 //        }
         else if (id == R.id.nav_notice) {
-            Intent intent = new Intent(getApplicationContext(), NoticeListActivity.class);
+            Intent intent = new Intent(getApplicationContext(), Fit_NoticeListActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_review) {
-            Intent intent = new Intent(getApplicationContext(), ReviewActivity.class);
+            Intent intent = new Intent(getApplicationContext(), Fit_ReviewActivity.class);
             startActivity(intent);
             //            setBrowser(Constants.User.token, "/review");
         } else if (id == R.id.nav_inquery) {
             //고객지원
-            Intent intent = new Intent(getApplicationContext(), CustomerSupportListActivity.class);
+            Intent intent = new Intent(getApplicationContext(), Fit_CustomerSupportListActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_error) {
-            Intent intent = new Intent(getApplicationContext(), ErrorReportActivity.class);
+            Intent intent = new Intent(getApplicationContext(), Fit_ErrorReportActivity.class);
             startActivity(intent);
         }
 
