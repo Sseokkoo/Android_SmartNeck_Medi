@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.smartneck.twofive">
+    package="com.smartneck.fit">
 
     <!-- 블루투스 허용 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
@@ -26,7 +26,7 @@
 
     <application
 
-        android:name=".GlobalApplication"
+        android:name="com.smartneck.fit.GlobalApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
@@ -38,78 +38,78 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name=".Management.MeasureManagementActivity"
+        <activity android:name="com.smartneck.fit.Management.MeasureManagementActivity"
             android:theme="@style/AppTheme"/>
-        <activity android:name=".Main.AfterMeasureActivity"
+        <activity android:name="com.smartneck.fit.Main.AfterMeasureActivity"
             android:theme="@style/AppTheme"/>
-        <activity android:name=".YouTube.ProtocolTestActivity"></activity>
-        <activity android:name=".Main.BleConnectActivity"
+        <activity android:name="com.smartneck.fit.YouTube.ProtocolTestActivity"></activity>
+        <activity android:name="com.smartneck.fit.Main.BleConnectActivity"
             android:theme="@style/AppTheme"/>
         <activity
-            android:name=".Member.MemberAddActivity"
+            android:name="com.smartneck.fit.Member.MemberAddActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".Member.MemberSelectActivity"
+            android:name="com.smartneck.fit.Member.MemberSelectActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".Member.JoinSelectActivity"
+            android:name="com.smartneck.fit.Member.JoinSelectActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".FindPasswordActivity"
+            android:name="com.smartneck.fit.FindPasswordActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".FindAccountActivity"
+            android:name="com.smartneck.fit.FindAccountActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".YouTube.HowToExerciseActivity"
+            android:name="com.smartneck.fit.YouTube.HowToExerciseActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".YouTube.SubExerciseActivity"
+            android:name="com.smartneck.fit.YouTube.SubExerciseActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".CustomerSupport.Controller.Customer1To1Activity"
+            android:name="com.smartneck.fit.CustomerSupport.Controller.Customer1To1Activity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".CustomerSupport.Controller.Customer1To1ListActivity"
+            android:name="com.smartneck.fit.CustomerSupport.Controller.Customer1To1ListActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".CustomerSupport.Controller.CustomerFAQActivity"
+            android:name="com.smartneck.fit.CustomerSupport.Controller.CustomerFAQActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".CustomerSupport.Controller.Customer1To1InsertActivity"
+            android:name="com.smartneck.fit.CustomerSupport.Controller.Customer1To1InsertActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".CustomerSupport.Controller.CustomerSupportListActivity"
+            android:name="com.smartneck.fit.CustomerSupport.Controller.CustomerSupportListActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".Notice.NoticeActivity"
+            android:name="com.smartneck.fit.Notice.NoticeActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".Notice.NoticeListActivity"
+            android:name="com.smartneck.fit.Notice.NoticeListActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".ErrorReport.ErrorReportActivity"
+            android:name="com.smartneck.fit.ErrorReport.ErrorReportActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".Review.ReviewActivity"
+            android:name="com.smartneck.fit.Review.ReviewActivity"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".UserInfoEdit.EditPasswordActivity"
+            android:name="com.smartneck.fit.UserInfoEdit.EditPasswordActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".UserInfoEdit.UserInfoEditListActivity"
+            android:name="com.smartneck.fit.UserInfoEdit.UserInfoEditListActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".UserInfoEdit.EditPhoneActivity"
+            android:name="com.smartneck.fit.UserInfoEdit.EditPhoneActivity"
             android:theme="@style/AppTheme" />
-        <activity android:name=".WebViewActivity"
+        <activity android:name="com.smartneck.fit.WebViewActivity"
             android:theme="@style/AppTheme"/>
-        <activity android:name=".Member.AdminPasswordChangeActivity"
+        <activity android:name="com.smartneck.fit.Member.AdminPasswordChangeActivity"
             android:theme="@style/AppTheme"/>
 
         <activity
-            android:name=".AppVersionActivity"
+            android:name="com.smartneck.fit.AppVersionActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" /> <!-- <activity -->
         <!-- android:name=".Member.Join_7_Activity" -->
@@ -141,7 +141,7 @@
         <!-- android:theme="@style/AppTheme.NoActionBar" /> -->
 
         <activity
-            android:name=".Fit.Fit_IntroActivity"
+            android:name="com.smartneck.fit.Fit.Fit_IntroActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <intent-filter>
@@ -150,7 +150,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".IntroActivity"
+        <activity android:name="com.smartneck.fit.IntroActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
 <!--            <intent-filter>-->
@@ -159,130 +159,130 @@
 <!--            </intent-filter>-->
         </activity>
         <activity
-            android:name=".Main.MainActivity"
+            android:name="com.smartneck.fit.Main.MainActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".Member.LoginActivity"
+            android:name="com.smartneck.fit.Member.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".MeasureActivity"
+            android:name="com.smartneck.fit.MeasureActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" /> <!-- 알람 -->
         <activity
-            android:name=".tmp.Alarm.AlarmActivity"
+            android:name="com.smartneck.fit.tmp.Alarm.AlarmActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".tmp.Alarm.AlarmAddActivity"
+            android:name="com.smartneck.fit.tmp.Alarm.AlarmAddActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".tmp.Alarm.AlarmLockedActivity"
+            android:name="com.smartneck.fit.tmp.Alarm.AlarmLockedActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".Chart.ChartActivity"
+            android:name="com.smartneck.fit.Chart.ChartActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".Member.JoinActivity"
+            android:name="com.smartneck.fit.Member.JoinActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
 
-        <service android:name=".tmp.Alarm.AlarmService" />
+        <service android:name="com.smartneck.fit.tmp.Alarm.AlarmService" />
 
-        <receiver android:name=".tmp.Alarm.AlarmReceiver" />
+        <receiver android:name="com.smartneck.fit.tmp.Alarm.AlarmReceiver" />
 
 <!--        FIT-->
         <activity
-            android:name=".Fit.ErrorReport.Fit_ErrorReportActivity"
+            android:name="com.smartneck.fit.Fit.ErrorReport.Fit_ErrorReportActivity"
             android:theme="@style/AppTheme" />
-        <activity android:name=".Fit.Main.Fit_AfterMeasureActivity"
+        <activity android:name="com.smartneck.fit.Fit.Main.Fit_AfterMeasureActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".Fit.Fit_FindAccountActivity"
+        <activity android:name="com.smartneck.fit.Fit.Fit_FindAccountActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".Fit.Fit_FindPasswordActivity"
+        <activity android:name="com.smartneck.fit.Fit.Fit_FindPasswordActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".Fit.YouTube.Fit_HowToExerciseActivity"
+        <activity android:name="com.smartneck.fit.Fit.YouTube.Fit_HowToExerciseActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".Fit.YouTube.Fit_SubExerciseActivity"
+        <activity android:name="com.smartneck.fit.Fit.YouTube.Fit_SubExerciseActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".Fit.Review.Fit_ReviewActivity"
+        <activity android:name="com.smartneck.fit.Fit.Review.Fit_ReviewActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden"/>
         <activity
-            android:name=".Fit.CustomerSupport.Controller.Fit_Customer1To1Activity"
+            android:name="com.smartneck.fit.Fit.CustomerSupport.Controller.Fit_Customer1To1Activity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".Fit.CustomerSupport.Controller.Fit_Customer1To1ListActivity"
+            android:name="com.smartneck.fit.Fit.CustomerSupport.Controller.Fit_Customer1To1ListActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".Fit.CustomerSupport.Controller.Fit_CustomerFAQActivity"
+            android:name="com.smartneck.fit.Fit.CustomerSupport.Controller.Fit_CustomerFAQActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".Fit.CustomerSupport.Controller.Fit_Customer1To1InsertActivity"
+            android:name="com.smartneck.fit.Fit.CustomerSupport.Controller.Fit_Customer1To1InsertActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".Fit.CustomerSupport.Controller.Fit_CustomerSupportListActivity"
+            android:name="com.smartneck.fit.Fit.CustomerSupport.Controller.Fit_CustomerSupportListActivity"
             android:theme="@style/AppTheme" />
-        <activity android:name=".Fit.UserInfoEdit.Fit_EditPasswordActivity"
+        <activity android:name="com.smartneck.fit.Fit.UserInfoEdit.Fit_EditPasswordActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".Fit.UserInfoEdit.Fit_UserInfoEditListActivity"
+        <activity android:name="com.smartneck.fit.Fit.UserInfoEdit.Fit_UserInfoEditListActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".Fit.UserInfoEdit.Fit_EditPhoneActivity"
+        <activity android:name="com.smartneck.fit.Fit.UserInfoEdit.Fit_EditPhoneActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".Fit.Fit_AppVersionActivity"
+        <activity android:name="com.smartneck.fit.Fit.Fit_AppVersionActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".Fit.Join.Fit_Join_1_Activity"
+        <activity android:name="com.smartneck.fit.Fit.Join.Fit_Join_1_Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".Fit.Join.Fit_Join_2_Activity"
+        <activity android:name="com.smartneck.fit.Fit.Join.Fit_Join_2_Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".Fit.Join.Fit_Join_3_Activity"
+        <activity android:name="com.smartneck.fit.Fit.Join.Fit_Join_3_Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".Fit.Join.Fit_Join_4_Activity"
+        <activity android:name="com.smartneck.fit.Fit.Join.Fit_Join_4_Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".Fit.Join.Fit_Join_5_Activity"
+        <activity android:name="com.smartneck.fit.Fit.Join.Fit_Join_5_Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".Fit.Join.Fit_Join_6_Activity"
+        <activity android:name="com.smartneck.fit.Fit.Join.Fit_Join_6_Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".Fit.Join.Fit_Join_7_Activity"
+        <activity android:name="com.smartneck.fit.Fit.Join.Fit_Join_7_Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".Fit.Main.Fit_MainActivity"
+        <activity android:name="com.smartneck.fit.Fit.Main.Fit_MainActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".Fit.Fit_LoginActivity"
+        <activity android:name="com.smartneck.fit.Fit.Fit_LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".Fit.Fit_MeasureActivity"
+        <activity android:name="com.smartneck.fit.Fit.Fit_MeasureActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".Fit.Fit_BrowserActivity"
+        <activity android:name="com.smartneck.fit.Fit.Fit_BrowserActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".Fit.Alarm.AlarmActivity"
+        <activity android:name="com.smartneck.fit.Fit.Alarm.AlarmActivity"
             android:screenOrientation="portrait"
             android:launchMode="singleTask"/>
-        <activity android:name=".Fit.Alarm.AlarmAddActivity"
+        <activity android:name="com.smartneck.fit.Fit.Alarm.AlarmAddActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".Fit.Alarm.AlarmLockedActivity"
+        <activity android:name="com.smartneck.fit.Fit.Alarm.AlarmLockedActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".Fit.Chart.Fit_ChartActivity"
+        <activity android:name="com.smartneck.fit.Fit.Chart.Fit_ChartActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <service android:name=".Fit.Alarm.AlarmService"/>
-        <receiver android:name=".Fit.Alarm.AlarmReceiver"/>
+        <service android:name="com.smartneck.fit.Fit.Alarm.AlarmService"/>
+        <receiver android:name="com.smartneck.fit.Fit.Alarm.AlarmReceiver"/>
     </application>
 
 </manifest>

@@ -30,7 +30,7 @@
         android:text="업체명"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
-    <com.smartneck.twofive.util.EdtIOS
+    <com.smartneck.fit.util.EdtIOS
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"

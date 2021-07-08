@@ -34,7 +34,7 @@
         android:layout_marginTop="40dp"
         android:text="이메일" />
 
-    <com.smartneck.twofive.util.EdtIOS
+    <com.smartneck.fit.util.EdtIOS
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
