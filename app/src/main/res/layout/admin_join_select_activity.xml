@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.smartneck.fit.Member.JoinSelectActivity">
+    tools:context="com.smartneck.twofive.Member.JoinSelectActivity">
 
     <FrameLayout
         android:layout_width="match_parent"

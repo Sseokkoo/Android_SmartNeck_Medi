@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#F6F6F6"
-    tools:context="com.smartneck.fit.Member.MemberSelectActivity">
+    tools:context="com.smartneck.twofive.Member.MemberSelectActivity">
 
     <FrameLayout
         android:background="#fff"

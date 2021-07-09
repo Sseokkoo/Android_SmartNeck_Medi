@@ -30,7 +30,7 @@
         android:text="비밀번호"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
-    <com.smartneck.fit.util.EdtIOS
+    <com.smartneck.twofive.util.EdtIOS
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
@@ -44,7 +44,7 @@
         android:text="비밀번호 확인"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
-    <com.smartneck.fit.util.EdtIOS
+    <com.smartneck.twofive.util.EdtIOS
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
